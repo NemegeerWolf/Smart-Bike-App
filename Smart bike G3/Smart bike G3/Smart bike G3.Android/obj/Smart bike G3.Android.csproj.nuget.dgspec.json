@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj": {}
+    "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj": {}
   },
   "projects": {
-    "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj": {
+    "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj",
+        "projectUniqueName": "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj",
         "projectName": "Smart bike G3.Android",
-        "projectPath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj",
-        "packagesPath": "C:\\Users\\wolfn\\.nuget\\packages\\",
-        "outputPath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\obj\\",
+        "projectPath": "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj",
+        "packagesPath": "C:\\Users\\antje\\.nuget\\packages\\",
+        "outputPath": "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -19,7 +19,7 @@
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\wolfn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\antje\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -34,8 +34,8 @@
         "frameworks": {
           "monoandroid11.0": {
             "projectReferences": {
-              "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj": {
-                "projectPath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj"
+              "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj": {
+                "projectPath": "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj"
               }
             }
           }
@@ -56,22 +56,21 @@
         }
       }
     },
-    "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj": {
+    "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
+        "projectUniqueName": "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
         "projectName": "Smart bike G3",
-        "projectPath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
-        "packagesPath": "C:\\Users\\wolfn\\.nuget\\packages\\",
-        "outputPath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\obj\\",
+        "projectPath": "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
+        "packagesPath": "C:\\Users\\antje\\.nuget\\packages\\",
+        "outputPath": "C:\\Team_Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\wolfn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\antje\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
