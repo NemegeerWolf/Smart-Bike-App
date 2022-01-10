@@ -7,6 +7,10 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Diagnostics;
+using Microsoft.Azure.Cosmos;
+using SmartBike_Api.Models;
+using System.Collections.Generic;
 
 namespace SmartBike_Api
 {
@@ -14,29 +18,29 @@ namespace SmartBike_Api
     {
         [FunctionName("PostGame")]
         public static async Task<IActionResult> PostGame(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "smartbike/{gameId}/{user}/{distance}/{speed}")] HttpRequest req, int gameId,string user, int distance, float speed, //add authentication
+            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "smartbike/game/{gameid}/{user}/{distance}/{speed}")] HttpRequest req, int gameid,string user, int distance, float speed, //add authentication
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger PostGame processed a request.");
-
+            log.LogInformation("Processing post request (game)");
+     
             try
             {
-                if (gameId > 0 || gameId < 3)
+                if (gameid > 0 || gameid < 3)
                 {
-                    if (gameId == 1) //piano
+                   
+                    Game data = new Game
                     {
-                        return new OkObjectResult($"{user} survived {distance}% and had a speed of {speed}");
-                    }
-                    else if (gameId == 2) //overflow
-                    {
-                        return new OkObjectResult("");
-                    }
-                    else if (gameId == 3) //hillclimber
-                    {
-                        return new OkObjectResult("");
-                    }
+                        GameId = gameid,
+                        User = user,
+                        Distance = distance,
+                        Speed = speed,
+                        id = Guid.NewGuid().ToString()
+
+                    };
+                    await AddToCosmosAsync(data);
+                    return new OkObjectResult("Added");
                 }
-                return new BadRequestObjectResult($"no game found with id:{gameId}");
+                return new BadRequestObjectResult($"no game found with id:{gameid}");
             }
             catch (Exception ex)
             {
@@ -45,6 +49,22 @@ namespace SmartBike_Api
             }
 
             
+        }
+        public static async Task AddToCosmosAsync(Game data)
+        {
+            try
+            {
+                CosmosClientOptions options = new CosmosClientOptions();
+                options.ConnectionMode = ConnectionMode.Gateway;
+                CosmosClient client = new CosmosClient(Environment.GetEnvironmentVariable("cosmos"), options);
+                Container container = client.GetContainer("GroupProject", "Games");
+                ItemResponse<Game> response = await container.CreateItemAsync(data, new PartitionKey(data.GameId));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
+            }
         }
     }
 }
