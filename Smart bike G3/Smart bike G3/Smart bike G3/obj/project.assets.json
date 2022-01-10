@@ -63,6 +63,15 @@
           "buildTransitive/Xamarin.Forms.props": {},
           "buildTransitive/Xamarin.Forms.targets": {}
         }
+      },
+      "XamarinBluetoothLE/1.0.1-alpha-4": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/BluetoothLE.Core.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/BluetoothLE.Core.dll": {}
+        }
       }
     }
   },
@@ -524,13 +533,35 @@
         "xamarin.forms.5.0.0.2012.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
+    },
+    "XamarinBluetoothLE/1.0.1-alpha-4": {
+      "sha512": "4Ozn99O7a7/zXLbggY5oFkSMFkgEUTPArTI2Lu0xjVkucEIkGSt9nueFJ4lEajTTkMUak51UKffDwAhGbV3rIg==",
+      "type": "package",
+      "path": "xamarinbluetoothle/1.0.1-alpha-4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/BluetoothLE.Core.dll",
+        "lib/MonoAndroid10/BluetoothLE.Core.xml",
+        "lib/MonoAndroid10/BluetoothLE.Droid.dll",
+        "lib/MonoAndroid10/BluetoothLE.Droid.xml",
+        "lib/Xamarin.iOS10/BluetoothLE.Core.dll",
+        "lib/Xamarin.iOS10/BluetoothLE.Core.xml",
+        "lib/Xamarin.iOS10/BluetoothLE.iOS.dll",
+        "lib/Xamarin.iOS10/BluetoothLE.iOS.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/BluetoothLE.Core.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/BluetoothLE.Core.xml",
+        "xamarinbluetoothle.1.0.1-alpha-4.nupkg.sha512",
+        "xamarinbluetoothle.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
       "Xamarin.Essentials >= 1.6.1",
-      "Xamarin.Forms >= 5.0.0.2012"
+      "Xamarin.Forms >= 5.0.0.2012",
+      "XamarinBluetoothLE >= 1.0.1-alpha-4"
     ]
   },
   "packageFolders": {
@@ -595,6 +626,10 @@
           "Xamarin.Forms": {
             "target": "Package",
             "version": "[5.0.0.2012, )"
+          },
+          "XamarinBluetoothLE": {
+            "target": "Package",
+            "version": "[1.0.1-alpha-4, )"
           }
         },
         "imports": [
@@ -610,5 +645,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'XamarinBluetoothLE 1.0.1-alpha-4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "XamarinBluetoothLE",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

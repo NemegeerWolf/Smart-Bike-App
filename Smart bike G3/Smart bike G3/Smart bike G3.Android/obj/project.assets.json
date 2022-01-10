@@ -971,12 +971,24 @@
           "buildTransitive/monoandroid50/Xamarin.Google.Guava.ListenableFuture.targets": {}
         }
       },
+      "XamarinBluetoothLE/1.0.1-alpha-4": {
+        "type": "package",
+        "compile": {
+          "lib/MonoAndroid10/BluetoothLE.Core.dll": {},
+          "lib/MonoAndroid10/BluetoothLE.Droid.dll": {}
+        },
+        "runtime": {
+          "lib/MonoAndroid10/BluetoothLE.Core.dll": {},
+          "lib/MonoAndroid10/BluetoothLE.Droid.dll": {}
+        }
+      },
       "Smart bike G3/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Forms": "5.0.0.2012",
+          "XamarinBluetoothLE": "1.0.1-alpha-4"
         },
         "compile": {
           "bin/placeholder/Smart bike G3.dll": {}
@@ -2126,6 +2138,27 @@
         "lib/monoandroid50/Xamarin.Google.Guava.ListenableFuture.dll",
         "xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
         "xamarin.google.guava.listenablefuture.nuspec"
+      ]
+    },
+    "XamarinBluetoothLE/1.0.1-alpha-4": {
+      "sha512": "4Ozn99O7a7/zXLbggY5oFkSMFkgEUTPArTI2Lu0xjVkucEIkGSt9nueFJ4lEajTTkMUak51UKffDwAhGbV3rIg==",
+      "type": "package",
+      "path": "xamarinbluetoothle/1.0.1-alpha-4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/BluetoothLE.Core.dll",
+        "lib/MonoAndroid10/BluetoothLE.Core.xml",
+        "lib/MonoAndroid10/BluetoothLE.Droid.dll",
+        "lib/MonoAndroid10/BluetoothLE.Droid.xml",
+        "lib/Xamarin.iOS10/BluetoothLE.Core.dll",
+        "lib/Xamarin.iOS10/BluetoothLE.Core.xml",
+        "lib/Xamarin.iOS10/BluetoothLE.iOS.dll",
+        "lib/Xamarin.iOS10/BluetoothLE.iOS.xml",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/BluetoothLE.Core.dll",
+        "lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/BluetoothLE.Core.xml",
+        "xamarinbluetoothle.1.0.1-alpha-4.nupkg.sha512",
+        "xamarinbluetoothle.nuspec"
       ]
     },
     "Smart bike G3/1.0.0": {

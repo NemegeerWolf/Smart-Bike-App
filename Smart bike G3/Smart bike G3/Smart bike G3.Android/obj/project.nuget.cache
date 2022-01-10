@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Vk7gzIouaujjeK0QpokmGF3CnNk0p+NI1aIa4p5gLAzlMdq/jKrIQhzwSTgUp/X2YevpFfjD4b+pB0DjIvGWbg==",
+  "dgSpecHash": "QZbQdZvfpTSBOzyc2iqG7BMNDD8EuP34T9z3srAue4cjcNSBbTN61smJiZwq8+IUq8leQ9bxLpS5CLDR4yOR+w==",
   "success": true,
   "projectFilePath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj",
   "expectedPackageFiles": [
@@ -52,7 +52,8 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.2.1.1\\xamarin.google.android.material.1.2.1.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\xamarinbluetoothle\\1.0.1-alpha-4\\xamarinbluetoothle.1.0.1-alpha-4.nupkg.sha512"
   ],
   "logs": []
 }
