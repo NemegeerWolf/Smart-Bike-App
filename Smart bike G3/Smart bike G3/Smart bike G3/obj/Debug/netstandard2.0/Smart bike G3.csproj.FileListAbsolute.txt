@@ -2,7 +2,6 @@ D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\bin\Debug\netstandard2.0\Smart bike G3.dll
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\bin\Debug\netstandard2.0\ref\Smart bike G3.dll
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\bin\Debug\netstandard2.0\Smart bike G3.pdb
-D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\obj\Debug\netstandard2.0\Smart bike G3.csproj.AssemblyReference.cache
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\obj\Debug\netstandard2.0\Smart bike G3.GeneratedMSBuildEditorConfig.editorconfig
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
@@ -17,3 +16,4 @@ D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\bin\Debug\netstandard2.0\Mono.Android.pdb
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\bin\Debug\netstandard2.0\Mono.Android.xml
 D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\obj\Debug\netstandard2.0\Smart bike G3.csproj.CopyComplete
+D:\wolf\school\2021-2022\GroepsProject\Smart Bike App\Smart bike G3\Smart bike G3\Smart bike G3\obj\Debug\netstandard2.0\Smart bike G3.csproj.AssemblyReference.cache

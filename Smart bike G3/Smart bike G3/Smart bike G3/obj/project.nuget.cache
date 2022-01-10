@@ -1,12 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "jtPzRwpQyIA2NuXuEmT/+Q4bihcxay6lqV7AwPnYPPwf3rAZMocR91DqwHi+BJOZrmjsqUdH48bV0nBwmf1YEg==",
+  "dgSpecHash": "0XlIFqiyyU+Gad786+UK9Y6kxEEx0bvZp1DxYKPEYO7Mqq3FvK6rT0Y8e9BPF6ds2La7e5u/Ib3IC5Wj6er69g==",
   "success": true,
   "projectFilePath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wolfn\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\wolfn\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\plugin.ble\\2.1.2\\plugin.ble.2.1.2.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\plugin.bluetoothle\\6.3.0.19\\plugin.bluetoothle.6.3.0.19.nupkg.sha512",
     "C:\\Users\\wolfn\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\system.reactive\\4.1.5\\system.reactive.4.1.5.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\system.runtime.interopservices.windowsruntime\\4.3.0\\system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.2\\system.threading.tasks.extensions.4.5.2.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
     "C:\\Users\\wolfn\\.nuget\\packages\\xamarinbluetoothle\\1.0.1-alpha-4\\xamarinbluetoothle.1.0.1-alpha-4.nupkg.sha512"

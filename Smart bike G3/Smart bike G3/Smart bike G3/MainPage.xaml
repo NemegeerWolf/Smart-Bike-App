@@ -6,7 +6,7 @@
     <StackLayout>
         <Button Text="click me" Clicked="Button_Clicked" />
         <Picker x:Name="pk" SelectedIndexChanged="pk_SelectedIndexChanged"/>
-        <Label x:Name="lbl" Text="hi" BackgroundColor="Red"/>
+        <Label x:Name="lbl" Text="hi" BackgroundColor="Red" VerticalOptions="StartAndExpand"/>
         
     </StackLayout>
 

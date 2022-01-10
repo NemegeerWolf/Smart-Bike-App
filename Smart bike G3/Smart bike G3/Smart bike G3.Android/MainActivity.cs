@@ -7,6 +7,7 @@ using Android.OS;
 using Xamarin.Forms;
 using BluetoothLE.Core;
 using BluetoothLE.Droid;
+using Android;
 
 namespace Smart_bike_G3.Droid
 {
@@ -14,6 +15,13 @@ namespace Smart_bike_G3.Droid
     
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        private readonly string[] Permissions =
+{
+            Manifest.Permission.Bluetooth,
+            Manifest.Permission.BluetoothAdmin,
+            Manifest.Permission.AccessCoarseLocation,
+            Manifest.Permission.AccessFineLocation
+};
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -22,6 +30,7 @@ namespace Smart_bike_G3.Droid
             
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            CheckPermissions();
             DependencyService.Register<IAdapter, Adapter>();
             
             LoadApplication(new App());
@@ -34,6 +43,25 @@ namespace Smart_bike_G3.Droid
 
               base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
+        }
+
+        private void CheckPermissions()
+        {
+            bool minimumPermissionsGranted = true;
+
+            foreach (string permission in Permissions)
+            {
+                if (CheckSelfPermission(permission) != Permission.Granted)
+                {
+                    minimumPermissionsGranted = false;
+                }
+            }
+
+            // If any of the minimum permissions aren't granted, we request them from the user
+            if (!minimumPermissionsGranted)
+            {
+                RequestPermissions(Permissions, 0);
+            }
         }
     }
 }

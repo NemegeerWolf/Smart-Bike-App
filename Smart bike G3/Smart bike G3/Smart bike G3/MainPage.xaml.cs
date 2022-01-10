@@ -12,6 +12,7 @@ namespace Smart_bike_G3
 {
     public partial class MainPage : ContentPage
     {
+        Bluetooth2 b = new Bluetooth2();
         public MainPage()
         {
             InitializeComponent();
@@ -19,22 +20,23 @@ namespace Smart_bike_G3
             
         }
 
-        private void setup()
+        private async void setup()
         {
-           // Bluethoot.Scan();
-            if (Bluetooth2.GetDevices() == null)
+            //await Bluethoot3.Scan();
+            if (b.GetDevices() == null)
                 pk.ItemsSource =new List<String> {"None"};
             else
                 
                 
-                pk.ItemsSource = Bluetooth2.GetDevices();  
+                pk.ItemsSource = b.GetDevices();  
         }
 
         private async void pk_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
             //lbl.Text =  Bluethoot.GetCharacteristics().ToString();
-            await Bluetooth2.Connect(pk.SelectedIndex);
-            lbl.Text = await Bluetooth2.GetData();
+            await b.Connect(pk.SelectedIndex);
+            lbl.Text = await b.GetData(pk.SelectedIndex);
         }
 
         private void Button_Clicked(object sender, EventArgs e)
