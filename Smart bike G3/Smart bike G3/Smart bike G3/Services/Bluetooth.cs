@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Smart_bike_G3.Services
 {
-    class Bluetooth2
+    class Bluetooth
     {
         static BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
         private static BluetoothAdapter.ILeScanCallback DeviceDiscovered;
@@ -192,7 +192,10 @@ namespace Smart_bike_G3.Services
             // Read data from the device
             int rawdata =  await _socket.InputStream.ReadAsync(buffer, 0, buffer.Length);
 
-            return rawdata.ToString();
+            string message = ASCIIEncoding.UTF8.GetString(buffer);
+            
+
+            return message;
          
 
             //using (var rawdata3 = _socket.InputStream)

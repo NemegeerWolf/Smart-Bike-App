@@ -12,7 +12,7 @@ namespace Smart_bike_G3
 {
     public partial class MainPage : ContentPage
     {
-        Bluetooth2 b = new Bluetooth2();
+        Bluetooth b = new Bluetooth();
         public MainPage()
         {
             InitializeComponent();
