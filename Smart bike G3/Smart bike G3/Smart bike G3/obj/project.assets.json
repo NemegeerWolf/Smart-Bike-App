@@ -534,7 +534,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wolfn\\.nuget\\packages\\": {},
+    "C:\\Users\\Laura\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
@@ -542,11 +542,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
+      "projectUniqueName": "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
       "projectName": "Smart bike G3",
-      "projectPath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
-      "packagesPath": "C:\\Users\\wolfn\\.nuget\\packages\\",
-      "outputPath": "D:\\wolf\\school\\2021-2022\\GroepsProject\\Smart Bike App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\obj\\",
+      "projectPath": "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
+      "packagesPath": "C:\\Users\\Laura\\.nuget\\packages\\",
+      "outputPath": "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -554,7 +554,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\wolfn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Laura\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
