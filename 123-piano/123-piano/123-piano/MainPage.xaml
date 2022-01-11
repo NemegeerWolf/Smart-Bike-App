@@ -1,24 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="_123_piano.MainPage">
+             x:Class="_123_piano.MainPage" >
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <Grid x:Name="Window">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+    
+    <StackLayout >
+            
+                
+                <Grid>
+                        <Grid.RowDefinitions >
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid.ColumnDefinitions >
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Grid.Column="0" BackgroundColor="green" HeightRequest="1000" />
+                        <Rectangle Grid.Column="1" BackgroundColor="green" />
+                    </Grid>
+                    <Polygon Fill="#AEAEAE" AbsoluteLayout.LayoutBounds="1,1,1,.14" AbsoluteLayout.LayoutFlags="All" Aspect="Fill" Points="402.59 0 585.32 0 987.9 775.42 0 775.42 402.59 0" />
+                </Grid>
+                
+            
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+
+            <AbsoluteLayout HorizontalOptions="CenterAndExpand" x:Name="cnv" >
+                <!--<Rectangle x:Name="rect1" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0"/>
+                <Rectangle x:Name="rect2" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,70"/>
+                <Rectangle x:Name="rect3" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,140"/>
+                <Rectangle x:Name="rect4" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,210"/>
+                <Rectangle x:Name="rect5" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,280"/>
+                <Rectangle x:Name="rect6" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,350"/>
+                <Rectangle x:Name="rect7" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,420"/>
+                <Rectangle x:Name="rect8" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,490"/>
+                <Rectangle x:Name="rect9" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,560"/>
+                <Rectangle x:Name="rect10" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,630"/>-->
+            </AbsoluteLayout>
+
+        </StackLayout>
+    </Grid>
+
 
 </ContentPage>
