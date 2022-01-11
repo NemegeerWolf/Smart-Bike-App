@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "123-piano.Android", "123-piano\123-piano.Android\123-piano.Android.csproj", "{87111C8D-16E5-4454-A124-A4F6779D29AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "123-piano", "123-piano\123-piano\123-piano.csproj", "{1F48FA00-0990-4381-A2A2-84DFD70B4682}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87111C8D-16E5-4454-A124-A4F6779D29AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87111C8D-16E5-4454-A124-A4F6779D29AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87111C8D-16E5-4454-A124-A4F6779D29AD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{87111C8D-16E5-4454-A124-A4F6779D29AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87111C8D-16E5-4454-A124-A4F6779D29AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87111C8D-16E5-4454-A124-A4F6779D29AD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1F48FA00-0990-4381-A2A2-84DFD70B4682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F48FA00-0990-4381-A2A2-84DFD70B4682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F48FA00-0990-4381-A2A2-84DFD70B4682}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1F48FA00-0990-4381-A2A2-84DFD70B4682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F48FA00-0990-4381-A2A2-84DFD70B4682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F48FA00-0990-4381-A2A2-84DFD70B4682}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A577C5C3-5147-4E26-AD16-E4BA34F3344E}
+	EndGlobalSection
+EndGlobal
