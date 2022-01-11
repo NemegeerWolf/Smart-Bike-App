@@ -66,6 +66,20 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\Rubik-SemiBoldItalic.ttf" />
+    <AndroidResource Include="Resources\Rubik-Black.ttf" />
+    <AndroidResource Include="Resources\Rubik-BlackItalic.ttf" />
+    <AndroidResource Include="Resources\Rubik-Bold.ttf" />
+    <AndroidResource Include="Resources\Rubik-BoldItalic.ttf" />
+    <AndroidResource Include="Resources\Rubik-ExtraBold.ttf" />
+    <AndroidResource Include="Resources\Rubik-ExtraBoldItalic.ttf" />
+    <AndroidResource Include="Resources\Rubik-Italic.ttf" />
+    <AndroidResource Include="Resources\Rubik-Light.ttf" />
+    <AndroidResource Include="Resources\Rubik-LightItalic.ttf" />
+    <AndroidResource Include="Resources\Rubik-Medium.ttf" />
+    <AndroidResource Include="Resources\Rubik-MediumItalic.ttf" />
+    <AndroidResource Include="Resources\Rubik-Regular.ttf" />
+    <AndroidResource Include="Resources\Rubik-SemiBold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />
