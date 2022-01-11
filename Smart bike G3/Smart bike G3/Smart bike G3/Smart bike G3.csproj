@@ -11,14 +11,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Images\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Repositories\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Repositories\**" />
+    <None Remove="Images\**" />
+    <None Remove="Models\**" />
+    <None Remove="Repositories\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Images\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Views\" />
+    <EmbeddedResource Update="Views\Name.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
