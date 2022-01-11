@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.videoScorebord">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
+            <Label Text="Scorebord" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#615C66"/>
+            <ListView x:Name="lvwOverview" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    
+                                </Grid.ColumnDefinitions>
+                                
+                                <StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Start" Margin="16">
+                                    <!--<Label Text="{Binding TimeStamp.Day}" FontAttributes="Bold" TextColor="Black" FontSize="Large"/>-->
+                                    <Label Text="naam 1" TextColor="#615C66" FontSize="Small"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" Margin="16">
+                                    
+                                        <Label Text="12 km" TextColor="#615C66" />
+                                    
+                                </StackLayout>
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

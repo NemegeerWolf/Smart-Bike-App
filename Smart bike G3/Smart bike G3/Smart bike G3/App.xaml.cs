@@ -11,7 +11,9 @@ namespace Smart_bike_G3
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Name());
+            // MainPage = new NavigationPage(new Name());
+            MainPage = new NavigationPage(new ResultsVideo());
+
         }
 
         protected override void OnStart()
