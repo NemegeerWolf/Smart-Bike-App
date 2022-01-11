@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.ChooseGame">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="BackButton" Source="Assets/arrow_back"/>
+            <Label x:Name="lblTitle" Text="Kies een spelletje"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" x:Name="img123piano" Source="Assets/traffic_light.svg"/>
+                <Button Grid.Column="0" Grid.Row="1" x:Name="btn123piano" Text="1 2 3 Piano"/>
+                <Image Grid.Column="1" Grid.Row="0" x:Name="imgHillClimb" Source="Assets/two_wheeler.svg"/>
+                <Button Grid.Column="1" Grid.Row="1" x:Name="btnHillClimb" Text="Hill Climb Racing"/>
+                <Image Grid.Column="2" Grid.Row="0" x:Name="imgOverloop" Source="Assets/water_drop.svg"/>
+                <Button Grid.Column="2" Grid.Row="1" x:Name="btnOverloop" Text="Overloop"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
