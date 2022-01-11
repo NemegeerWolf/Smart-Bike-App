@@ -13,31 +13,30 @@ using System.Collections.Generic;
 
 namespace SmartBike_Api.Functions.Gets
 {
-    public static class GetVideoScoreUser
+    public static class GetUserScoresGame
     {
-        [FunctionName("GetVideoScoreUser")]
-        public static async Task<IActionResult> GetVidScoreUser(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/video/{videoid}/{user}")] HttpRequest req, int videoid, string user,
+        [FunctionName("GetUserScoresGame")]
+        public static async Task<IActionResult> GetGameScoreUser(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/game/{gameid}/{user}")] HttpRequest req, int gameid, string user,
             ILogger log)
         {
             CosmosClientOptions options = new CosmosClientOptions();
             options.ConnectionMode = ConnectionMode.Gateway;
             CosmosClient client = new CosmosClient(Environment.GetEnvironmentVariable("cosmos"), options);
-            Container container = client.GetContainer("GroupProject", "Videos");
-            QueryDefinition query = new QueryDefinition("select * from Videos i where i.videoId = @videoId and i.user = @user").WithParameter("@videoId", videoid).WithParameter("@user",user);
+            Container container = client.GetContainer("GroupProject", "Games");
+            QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId and i.user = @user").WithParameter("@gameId", gameid).WithParameter("@user", user);
 
-            List<Video> items = new List<Video>();
-            using (FeedIterator<Video> resultSet = container.GetItemQueryIterator<Video>(queryDefinition: query))
+            List<Game> items = new List<Game>();
+            using (FeedIterator<Game> resultSet = container.GetItemQueryIterator<Game>(queryDefinition: query))
             {
                 while (resultSet.HasMoreResults)
                 {
-                    FeedResponse<Video> response = await resultSet.ReadNextAsync();
+                    FeedResponse<Game> response = await resultSet.ReadNextAsync();
                     items.AddRange(response);
                 }
             }
 
             return new OkObjectResult(items);
         }
-
     }
 }

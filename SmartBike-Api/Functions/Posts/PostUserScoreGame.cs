@@ -14,9 +14,9 @@ using System.Collections.Generic;
 
 namespace SmartBike_Api
 {
-    public static class PostGameValues
+    public static class PostUserScoreGame
     {
-        [FunctionName("PostGame")]
+        [FunctionName("PostUserScoreGame")]
         public static async Task<IActionResult> PostGame(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "smartbike/game/{gameid}/{user}/{distance}/{speed}")] HttpRequest req, int gameid,string user, int distance, float speed, //add authentication
             ILogger log)
