@@ -6,7 +6,6 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Microsoft.Azure.Cosmos;
 using System.Collections.Generic;
 using SmartBike_Api.Models;
@@ -20,6 +19,8 @@ namespace SmartBike_Api.Functions.Gets
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/game/{gameid}")] HttpRequest req, int gameid,
             ILogger log)
         {
+
+            log.LogInformation("Calling GetAllScoresGame");
             if (gameid == 1)
             {
                 QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by i.speed desc").WithParameter("@gameId", gameid);

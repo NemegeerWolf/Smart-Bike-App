@@ -13,9 +13,9 @@ using SmartBike_Api.Models;
 
 namespace SmartBike_Api.Functions.Posts
 {
-    public static class PostVideoValues
+    public static class PostUserScoreVideo
     {
-        [FunctionName("PostVideo")]
+        [FunctionName("PostUserScoreVideo")]
         public static async Task<IActionResult> PostVideo(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "smartbike/video/{videoid}/{user}/{distance}")] HttpRequest req, string user, int videoid, int distance,
             ILogger log)

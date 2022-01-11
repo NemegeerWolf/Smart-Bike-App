@@ -7,29 +7,42 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using SmartBike_Api.Models;
+using Microsoft.Azure.Cosmos;
 
 namespace SmartBike_Api.Functions.Gets
 {
     public static class GetAllScoresVideo
     {
         [FunctionName("GetAllScoresVideo")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+        public static async Task<IActionResult> GetVideoScoreAll(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get",  Route = "smartbike/video/{videoid}")] HttpRequest req, int videoid,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("Calling GetAllScoresVideo");
+            QueryDefinition query = new QueryDefinition("select * from Videos i where i.videoId = @videoId order by i.distance desc").WithParameter("@videoId", videoid);
+            List<Video> items = await GetScoresAsync(query);
+            return new OkObjectResult(items);
+        }
+        public static async Task<List<Video>> GetScoresAsync(QueryDefinition query)
+        {
+            CosmosClientOptions options = new CosmosClientOptions();
+            options.ConnectionMode = ConnectionMode.Gateway;
+            CosmosClient client = new CosmosClient(Environment.GetEnvironmentVariable("cosmos"), options);
+            Container container = client.GetContainer("GroupProject", "Videos");
 
-            string name = req.Query["name"];
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
-
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-            return new OkObjectResult(responseMessage);
+            List<Video> items = new List<Video>();
+            using (FeedIterator<Video> resultSet = container.GetItemQueryIterator<Video>(queryDefinition: query))
+            {
+                while (resultSet.HasMoreResults)
+                {
+                    FeedResponse<Video> response = await resultSet.ReadNextAsync();
+                    items.AddRange(response);
+                }
+            }
+            return items;
         }
     }
+    
 }
