@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -23,6 +23,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Game.png" />
+    <None Remove="Assets\Luisterboek.png" />
+    <None Remove="Assets\Muziek.png" />
+    <None Remove="Assets\video.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Game.png" />
+    <EmbeddedResource Include="Assets\Luisterboek.png" />
+    <EmbeddedResource Include="Assets\Muziek.png" />
+    <EmbeddedResource Include="Assets\video.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -34,10 +48,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\ChooseGame.xaml">
+    <EmbeddedResource Update="Views\ChooseVideo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Name.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VideoOrGame.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

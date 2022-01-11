@@ -5,12 +5,12 @@
              >
             
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Name" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="250 0 40 0" TextColor="#302e33"/>
-            <Frame BorderColor="#5589EE" BackgroundColor="#e9f2ff" Margin="0 250" CornerRadius="10" >
-                <Entry  />
+        <StackLayout Margin="200">
+            <Label Text="Naam" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33" />
+            <Frame BorderColor="#5589EE" BackgroundColor="#e9f2ff"  CornerRadius="10" >
+                <Entry Placeholder="voornaam achternaam"  />
             </Frame>
-            <Button x:Name="btnVolgende" Margin="40 250" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
+            <Button x:Name="BtnNext" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
 
         </StackLayout>
     </ContentPage.Content>

@@ -10,17 +10,17 @@ using Xamarin.Forms.Xaml;
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Name : ContentPage
+    public partial class ChooseVideo : ContentPage
     {
-        public Name()
+        public ChooseVideo()
         {
             InitializeComponent();
-            BtnNext.Clicked += BtnNext_Clicked;
+            Images();
         }
-
-        private void BtnNext_Clicked(object sender, EventArgs e)
+        private void Images()
         {
-            Navigation.PushAsync(new VideoOrGame());
+            imgLuisterboek.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Luisterboek.png");
+            imgMuziek.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Muziek.png");
         }
     }
 }
