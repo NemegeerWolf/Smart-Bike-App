@@ -10,17 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Name : ContentPage
+    public partial class videoScorebord : ContentPage
     {
-        public Name()
+        public videoScorebord()
         {
             InitializeComponent();
-            BtnNext.Clicked += BtnNext_Clicked;
-        }
-
-        private void BtnNext_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new VideoOrGame());
         }
     }
 }
