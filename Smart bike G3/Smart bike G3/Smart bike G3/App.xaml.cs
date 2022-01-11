@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smart_bike_G3.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace Smart_bike_G3
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new Name());
         }
 
         protected override void OnStart()
