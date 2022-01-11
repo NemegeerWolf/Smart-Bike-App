@@ -28,9 +28,13 @@
                 
             
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-
-            <AbsoluteLayout HorizontalOptions="CenterAndExpand" x:Name="cnv" >
+        <StackLayout Orientation="Vertical">
+            <Grid HorizontalOptions="StartAndExpand">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+                    
+                </Grid.ColumnDefinitions>
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" x:Name="cnv" >
                 <!--<Rectangle x:Name="rect1" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0"/>
                 <Rectangle x:Name="rect2" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,70"/>
                 <Rectangle x:Name="rect3" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,140"/>
@@ -41,8 +45,21 @@
                 <Rectangle x:Name="rect8" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,490"/>
                 <Rectangle x:Name="rect9" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,560"/>
                 <Rectangle x:Name="rect10" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,630"/>-->
+                
+                
             </AbsoluteLayout>
-
+            <AbsoluteLayout HorizontalOptions="EndAndExpand" >
+                    <Path  x:Name="path70" Fill="#FF1D1D1B" WidthRequest="186.365" HeightRequest="150.5">
+                    <Path.Data>
+                        <PathGeometry Figures="M36.19 38.49v-27S35.12-4.22 56.77 1.1l316 1.75v16.4L64.15 17.19s-12.1-.36-9.3 10.68V40" FillRule="Nonzero"/>
+                    </Path.Data>
+                </Path>
+                    <Rectangle AbsoluteLayout.LayoutBounds="26, 13.195" WidthRequest="45.1" HeightRequest="137.695" RadiusX="45.51" RadiusY="45.51" x:Name="rect72" Fill="#FF1D1D1B"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 23.95"  WidthRequest="33" HeightRequest="33" x:Name="circle74" Fill="#FFBF1818"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 64"  WidthRequest="33" HeightRequest="33" x:Name="circle76" Fill="#FFEB5E0B" Opacity="0.5"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 104.9"  WidthRequest="33" HeightRequest="33" x:Name="circle78" Fill="#FF78B82A" Opacity="0.5"/>
+            </AbsoluteLayout>
+            </Grid>
         </StackLayout>
     </Grid>
 
