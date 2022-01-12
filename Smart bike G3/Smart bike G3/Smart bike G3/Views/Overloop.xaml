@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views._123Piano"
+             x:Class="Smart_bike_G3.Views.Overloop"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Margin="16" Spacing="50">
@@ -22,10 +22,9 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label Grid.Column="1" Text="1 2 3 Piano" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label Grid.Column="1" Text="Overloop" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             </Grid>
-            
-            <Label FontSize="24" Text="Fiets zo snel mogelijk naar de eindmeet. Pasop bij rood licht mag je niet meer bewegen anders is het game over." HorizontalOptions="Center"/>
+            <Label FontSize="24" Text="Fiets zo snel mogelijk dat het glas met water overloopt." HorizontalOptions="Center"/>
             <Button x:Name="btnStart" Text="Start" TextColor="White" HorizontalOptions="Center" BackgroundColor="#5589ee" CornerRadius="10" Clicked="btnStart_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
