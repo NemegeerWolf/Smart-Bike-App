@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_bike_G3.Views.ChooseVideo"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="White">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout Margin="16">
             <Grid Margin="48">
@@ -11,29 +10,59 @@
                     <ColumnDefinition Width="50"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ImageButton Grid.Column="0" x:Name="imgBackButton" BackgroundColor="White" HorizontalOptions="End" Clicked="imgBackButton_Clicked"/>
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2">
+                    <Path x:Name="path112">
+                        <Path.Data>
+                            <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path  x:Name="path114" Fill="#FF000000">
+                        <Path.Data>
+                            <PathGeometry Figures="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+
                 <Label Grid.Column="1" Text="Naar wat wil je luisteren?" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
             </Grid>
-            <!--<Label Text="Wat wil je luisteren?" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>-->
+            
             <Grid Margin="48" RowSpacing="64">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
                     <RowDefinition Height="144"/>
                     <RowDefinition Height="56" />
                 </Grid.RowDefinitions>
                 
                 <Label Grid.Column="0" Grid.Row="0" Text="Muziek" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
-                <Image Grid.Column="0" Grid.Row="1" x:Name="imgMuziek"/>
-                <Button Grid.Column="0" Grid.Row="2" x:Name="btnmuziek" Text="Muziek" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
-
-
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" x:Name="AbsLayMusic" Scale="10" VerticalOptions="Center">
+                    <Path x:Name="path302">
+                        <Path.Data>
+                            <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path  x:Name="path304" Fill="#5589EE">
+                        <Path.Data>
+                            <PathGeometry Figures="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+                
                 <Label Grid.Column="1" Grid.Row="0" Text="Luisterboek" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
-                <Image Grid.Column="1" Grid.Row="1" x:Name="imgLuisterboek"/>
-                <Button Grid.Column="1" Grid.Row="2" x:Name="btnLuisterboek" Text="Luisterboek" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" x:Name="AbsLayBook" Scale="10" VerticalOptions="Center">
+                    <Path x:Name="path137">
+                        <Path.Data>
+                            <PathGeometry Figures="M0 0h24v24H0V0z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path x:Name="path139" Fill="#5589EE">
+                        <Path.Data>
+                            <PathGeometry Figures="M19 1l-5 5v11l5-4.5V1zM1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5V6c-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6zm22 13.5V6c-.6-.45-1.25-.75-2-1v13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5v2c1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5v-1.1z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

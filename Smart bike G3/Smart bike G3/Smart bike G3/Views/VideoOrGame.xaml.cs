@@ -15,29 +15,35 @@ namespace Smart_bike_G3.Views
         public VideoOrGame()
         {
             InitializeComponent();
-            btnGame.Clicked += BtnGame_Clicked;
-            btnVideo.Clicked += BtnVideo_Clicked;
-            Images();
+            AddEvents();
         }
 
-        private void Images()
+        private void AddEvents()
         {
-            imgBackButton.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.arrow_back.png");
-            imgVideo.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video.png");
-            imgGame.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Game.png");
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+
+            TapGestureRecognizer tapGestureRecognizer2 = new TapGestureRecognizer();
+            tapGestureRecognizer2.Tapped += AbsLayVideo_Tabbed;
+            AbsLayVideo.GestureRecognizers.Add(tapGestureRecognizer2);
+
+            TapGestureRecognizer tapGestureRecognizer3 = new TapGestureRecognizer();
+            tapGestureRecognizer3.Tapped += AbsLayGame_Tabbed;
+            AbsLayGame.GestureRecognizers.Add(tapGestureRecognizer3);
         }
 
-        private void BtnVideo_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new ChooseVideo());
-        }
-
-        private void BtnGame_Clicked(object sender, EventArgs e)
+        private void AbsLayGame_Tabbed(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ChooseGame());
         }
 
-        private void imgBackButton_Clicked(object sender, EventArgs e)
+        private void AbsLayVideo_Tabbed(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ChooseVideo());
+        }
+
+        private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
             Navigation.PopAsync();
         }

@@ -8,8 +8,9 @@
     <ContentPage.Content>
         <StackLayout Margin="200">
             <Label Text="Naam" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33" />
+            <Label x:Name="lblValidation" Text="Hier uw Naam en Voornaam invullen!" TextColor="Red" IsVisible="False"/>
             <Frame BorderColor="#5589EE" BackgroundColor="#e9f2ff"  CornerRadius="10" >
-                <Entry Placeholder="voornaam achternaam"  />
+                <Entry x:Name="entName" Placeholder="Voornaam Achternaam"  />
             </Frame>
             <Button x:Name="BtnNext" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
 
