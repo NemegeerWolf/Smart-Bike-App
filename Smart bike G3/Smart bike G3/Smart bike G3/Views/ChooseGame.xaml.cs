@@ -53,7 +53,7 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
         {
-            Console.WriteLine("tabbed overloop");
+            Navigation.PushAsync(new Overloop());
         }
 
         private void AbsLayHillClimb_Tabbed(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace Smart_bike_G3.Views
 
         private void AbsLay123piano_Tabbed(object sender, EventArgs e)
         {
-            Console.WriteLine("tabbed 123piano");
+            Navigation.PushAsync(new _123Piano());
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
