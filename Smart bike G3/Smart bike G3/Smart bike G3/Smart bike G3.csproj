@@ -13,13 +13,10 @@
   <ItemGroup>
     <Compile Remove="Images\**" />
     <Compile Remove="Models\**" />
-    <Compile Remove="Repositories\**" />
     <EmbeddedResource Remove="Images\**" />
     <EmbeddedResource Remove="Models\**" />
-    <EmbeddedResource Remove="Repositories\**" />
     <None Remove="Images\**" />
     <None Remove="Models\**" />
-    <None Remove="Repositories\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
