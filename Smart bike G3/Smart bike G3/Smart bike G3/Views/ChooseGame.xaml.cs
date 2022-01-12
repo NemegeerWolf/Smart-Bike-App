@@ -29,30 +29,46 @@ namespace Smart_bike_G3.Views
         public ChooseGame()
         {
             InitializeComponent();
-            imgBackButton.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.arrow_back.png");
-            img123piano.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.traffic_light.png");
-            imgHillClimb.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.two_wheeler.png");
-            imgOverloop.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.water_drop.png");
+            AddEvents();
         }
 
-        private void imgBackButton_Clicked(object sender, EventArgs e)
+        private void AddEvents()
+        {
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+
+            TapGestureRecognizer tapGestureRecognizer2 = new TapGestureRecognizer();
+            tapGestureRecognizer2.Tapped += AbsLay123piano_Tabbed;
+            AbsLay123piano.GestureRecognizers.Add(tapGestureRecognizer2);
+
+            TapGestureRecognizer tapGestureRecognizer3 = new TapGestureRecognizer();
+            tapGestureRecognizer3.Tapped += AbsLayHillClimb_Tabbed;
+            AbsLayHillClimb.GestureRecognizers.Add(tapGestureRecognizer3);
+
+            TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
+            tapGestureRecognizer4.Tapped += AbsLayOverloop_Tabbed;
+            AbsLayOverloop.GestureRecognizers.Add(tapGestureRecognizer4);
+        }
+
+        private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
+        {
+            Console.WriteLine("tabbed overloop");
+        }
+
+        private void AbsLayHillClimb_Tabbed(object sender, EventArgs e)
+        {
+            Console.WriteLine("tabbed hill climb");
+        }
+
+        private void AbsLay123piano_Tabbed(object sender, EventArgs e)
+        {
+            Console.WriteLine("tabbed 123piano");
+        }
+
+        private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
             Navigation.PopAsync();
-        }
-
-        private void btn123piano_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new _123Piano());
-        }
-
-        private void btnHillClimb_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnOverloop_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

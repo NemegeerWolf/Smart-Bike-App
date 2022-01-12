@@ -19,13 +19,24 @@ namespace Smart_bike_G3.Views
         public _123Piano()
         {
             InitializeComponent();
-            imgBackButton.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.arrow_back.png");
-
+            AddEvents();
         }
 
-        private void imgBackButton_Clicked(object sender, EventArgs e)
+        private void AddEvents()
+        {
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+
+        private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
             Navigation.PopAsync();
+        }
+
+        private void btnStart_Clicked(object sender, EventArgs e)
+        {
+            //start the game
         }
     }
 }
