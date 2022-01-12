@@ -12,9 +12,12 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Overloop : ContentPage
     {
-        public Overloop()
+        public string Kind;
+        public Overloop(string kind)
         {
             InitializeComponent();
+            Kind = kind;
+            Console.WriteLine("Kind Overloop = " + kind);
             AddEvents();
         }
 
@@ -32,7 +35,11 @@ namespace Smart_bike_G3.Views
 
         private void btnStart_Clicked(object sender, EventArgs e)
         {
+            Console.WriteLine("Start Overloop");
 
+            //start the game
+
+            //Kind meegeven met de game tot aan het scorebord!
         }
     }
 }

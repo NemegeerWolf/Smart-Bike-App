@@ -16,9 +16,12 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class _123Piano : ContentPage
     {
-        public _123Piano()
+        public string Kind;
+        public _123Piano(string kind)
         {
             InitializeComponent();
+            Kind = kind;
+            Console.WriteLine("kind 123piano = " + kind);
             AddEvents();
         }
 
@@ -37,6 +40,8 @@ namespace Smart_bike_G3.Views
         private void btnStart_Clicked(object sender, EventArgs e)
         {
             //start the game
+            Console.WriteLine("Start 123 piano");
+            //Kind meegeven tot aan het scorebord!
         }
     }
 }
