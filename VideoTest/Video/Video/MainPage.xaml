@@ -5,6 +5,7 @@
              x:Class="Video.MainPage">
     <ContentPage.Content>
         <Grid>
+            <xct:MediaElement x:Name="audio" HeightRequest="0" WidthRequest="0"/>
             <xct:MediaElement x:Name="video" MediaOpened="Vid_MediaOpened" VerticalOptions="FillAndExpand" Aspect="AspectFill" ShowsPlaybackControls="False" />
             <Grid Margin="0,40,0,0">
                 <Grid.ColumnDefinitions>

@@ -24380,7 +24380,10 @@ namespace Video.Droid
 		{
 			
 			// aapt resource value: 0x7F0E0000
-			public const int testvideo = 2131623936;
+			public const int testaudio = 2131623936;
+			
+			// aapt resource value: 0x7F0E0001
+			public const int testvideo = 2131623937;
 			
 			static Raw()
 			{
