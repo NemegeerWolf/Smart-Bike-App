@@ -65,7 +65,32 @@ namespace Smart_bike_G3.Repositories
             }
         }
 
-        public async static Task<List<Game>> GetAllscoresGameAsync(int videoid)
+        public async static Task<List<Game>> GetAllscoresGameAsync(int gameid)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+                //string url = $"{_BASEURI}.json?countryCode=BE&apikey={_APIKEY}";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid} ";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<List<Game>>(json);
+
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+        public async static Task<List<Video>> GetAllscoresVideoAsync(int videoid)
         {
             using (HttpClient client = GetHttpClient())
             {
@@ -77,7 +102,7 @@ namespace Smart_bike_G3.Repositories
                     if (json != null)
                     {
 
-                        return JsonConvert.DeserializeObject<List<Game>>(json);
+                        return JsonConvert.DeserializeObject<List<Video>>(json);
 
                     }
                     return null;
