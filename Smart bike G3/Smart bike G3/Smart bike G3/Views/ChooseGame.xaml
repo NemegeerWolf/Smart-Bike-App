@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.ChooseGame"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout Margin="16">
+            <Grid Margin="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2">
+                    <Path x:Name="path112">
+                        <Path.Data>
+                            <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path  x:Name="path114" Fill="#FF000000">
+                        <Path.Data>
+                            <PathGeometry Figures="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+                <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </Grid>
+            
+            <Grid Margin="48" RowSpacing="64">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="144"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="1 2 3 Piano" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <AbsoluteLayout x:Name="AbsLay123piano" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Scale="10" VerticalOptions="Center">
+                    <Path x:Name="path252">
+                        <Path.Data>
+                            <PathGeometry Figures="M0 0h24v24H0V0z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path x:Name="path254" Fill="#5589EE">
+                        <Path.Data>
+                            <PathGeometry Figures="M20 10h-3V8.86c1.72-.45 3-2 3-3.86h-3V4c0-.55-.45-1-1-1H8c-.55 0-1 .45-1 1v1H4c0 1.86 1.28 3.41 3 3.86V10H4c0 1.86 1.28 3.41 3 3.86V15H4c0 1.86 1.28 3.41 3 3.86V20c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1.14c1.72-.45 3-2 3-3.86h-3v-1.14c1.72-.45 3-2 3-3.86zm-5 9H9V5h6v14zm-3-1c.83 0 1.5-.67 1.5-1.5S12.83 15 12 15s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm0-4.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM12 9c.83 0 1.5-.67 1.5-1.5S12.83 6 12 6s-1.5.67-1.5 1.5S11.17 9 12 9z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+
+                <Label Grid.Column="1" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Hill Climb Racing" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <AbsoluteLayout x:Name="AbsLayHillClimb" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" Scale="10" VerticalOptions="Center">
+                    <AbsoluteLayout>
+                        <Rectangle AbsoluteLayout.LayoutBounds="0,0" WidthRequest="24" HeightRequest="24" x:Name="rect224"/>
+                        <Path x:Name="path226" Fill="#5589EE">
+                            <Path.Data>
+                                <PathGeometry Figures="M4.17 11L4.17 11C4.12 11 4.06 11 4 11H4.17 M13.41 5H9v2h3.59l2 2H11l-4 2L5 9H0v2h4c-2.21 0-4 1.79-4 4 c0 2.21 1.79 4 4 4c2.21 0 4-1.79 4-4l2 2h3l3.49-6.1l1.01 1.01C16.59 12.64 16 13.75 16 15c0 2.21 1.79 4 4 4c2.21 0 4-1.79 4-4 c0-2.21-1.79-4-4-4c-0.18 0-0.36 0.03-0.53 0.05L17.41 9H20V6l-3.72 1.86L13.41 5L13.41 5z M20 17c-1.1 0-2-0.9-2-2 c0-1.1 0.9-2 2-2c1.1 0 2 0.9 2 2C22 16.1 21.1 17 20 17L20 17z M4 17c-1.1 0-2-0.9-2-2c0-1.1 0.9-2 2-2c1.1 0 2 0.9 2 2 C6 16.1 5.1 17 4 17L4 17z" FillRule="Nonzero"/>
+                            </Path.Data>
+                        </Path>
+                    </AbsoluteLayout>
+                </AbsoluteLayout>
+                
+                <Label Grid.Column="2" Grid.Row="0" Text="Overloop" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <AbsoluteLayout x:Name="AbsLayOverloop" HorizontalOptions="CenterAndExpand" Grid.Column="2" Grid.Row="1" Scale="10" VerticalOptions="Center">
+                    <Rectangle WidthRequest="24" HeightRequest="24" x:Name="rect162"/>
+                    <Path x:Name="path164" Fill="#5589EE">
+                        <Path.Data>
+                            <PathGeometry Figures="M12 2c-5.33 4.55-8 8.48-8 11.8c0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2C20 10.48 17.33 6.55 12 2z M12 20c-3.35 0-6-2.57-6-6.2 c0-2.34 1.95-5.44 6-9.14c4.05 3.7 6 6.79 6 9.14C18 17.43 15.35 20 12 20z M7.83 14c0.37 0 0.67 0.26 0.74 0.62 c0.41 2.22 2.28 2.98 3.64 2.87c0.43-0.02 0.79 0.32 0.79 0.75c0 0.4-0.32 0.73-0.72 0.75c-2.13 0.13-4.62-1.09-5.19-4.12 C7.01 14.42 7.37 14 7.83 14z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

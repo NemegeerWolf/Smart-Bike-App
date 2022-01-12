@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.Name"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
+            
+    <ContentPage.Content>
+        <StackLayout Margin="200">
+            <Label FontFamily="Rubik-Bold" Text="Naam" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33" />
+            <Label FontFamily="Rubik-regular" x:Name="lblValidation" Text="Hier uw Naam en Voornaam invullen!" TextColor="Red" IsVisible="False"/>
+            <Frame BorderColor="#5589EE" BackgroundColor="#e9f2ff"  CornerRadius="10" >
+                <Entry FontFamily="Rubik-regular" x:Name="entName" Placeholder="Voornaam Achternaam"  />
+            </Frame>
+            <Button FontFamily="Rubik-regular" x:Name="BtnNext" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

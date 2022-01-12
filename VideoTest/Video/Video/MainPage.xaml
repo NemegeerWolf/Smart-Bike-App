@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Video.MainPage">
+    <ContentPage.Content>
+        <Grid>
+            <xct:MediaElement x:Name="audio" HeightRequest="0" WidthRequest="0"/>
+            <xct:MediaElement x:Name="video" MediaOpened="Vid_MediaOpened" VerticalOptions="FillAndExpand" Aspect="AspectFill" ShowsPlaybackControls="False" />
+            <Grid Margin="0,40,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="DimGray" CornerRadius="15">
+                    <Label x:Name="speed" FontAttributes="Bold" FontSize="36" TextColor="Black" HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center" Margin="0,-5,0,0"/>
+                </Frame>
+                <Button x:Name="btnFiets" Clicked="btnFiets_Clicked" Grid.Column="1" Grid.Row="3" BackgroundColor="DimGray" CornerRadius="15" FontSize="36" TextColor="Black" Text="Fiets" FontAttributes="Bold" TextTransform="None"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
