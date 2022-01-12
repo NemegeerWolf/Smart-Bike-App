@@ -1,13 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.videoScorebord">
+             x:Class="Smart_bike_G3.Views.videoScorebord"
+             xmlns:controls="clr-namespace:Android.Service.Controls;assembly=Mono.Android">
     <ContentPage.Content>
         <StackLayout>
             <Label Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
             <Label Text="Scorebord" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#615C66"/>
             
             <ListView x:Name="lvwOverview" RowHeight="100" Margin="64" >
+                
                 <ListView.ItemTemplate>
                     
                     <DataTemplate>
@@ -37,6 +39,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            
+            
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="350" />

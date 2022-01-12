@@ -7,11 +7,11 @@
             
     <ContentPage.Content>
         <StackLayout Margin="200">
-            <Label Text="Naam" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33" />
+            <Label Text="Naam" FontFamily="Rubik-Bold" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33" />
             <Frame BorderColor="#5589EE" BackgroundColor="#e9f2ff"  CornerRadius="10" >
-                <Entry Placeholder="voornaam achternaam"  />
+                <Entry FontFamily="Rubik-regular" Placeholder="voornaam achternaam"  />
             </Frame>
-            <Button x:Name="BtnNext" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
+            <Button FontFamily="Rubik-regular" x:Name="BtnNext" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
 
         </StackLayout>
     </ContentPage.Content>
