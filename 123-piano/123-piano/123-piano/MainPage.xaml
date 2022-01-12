@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="_123_piano.MainPage" >
+             x:Class="spel_123_piano.MainPage" >
 
     <Grid x:Name="Window">
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
     
-    <StackLayout >
+    <StackLayout>
             
                 
                 <Grid>
@@ -55,12 +55,22 @@
                     </Path.Data>
                 </Path>
                     <Rectangle AbsoluteLayout.LayoutBounds="26, 13.195" WidthRequest="45.1" HeightRequest="137.695" RadiusX="45.51" RadiusY="45.51" x:Name="rect72" Fill="#FF1D1D1B"/>
-                    <Ellipse AbsoluteLayout.LayoutBounds="32, 23.95"  WidthRequest="33" HeightRequest="33" x:Name="circle74" Fill="#FFBF1818"/>
-                    <Ellipse AbsoluteLayout.LayoutBounds="32, 64"  WidthRequest="33" HeightRequest="33" x:Name="circle76" Fill="#FFEB5E0B" Opacity="0.5"/>
-                    <Ellipse AbsoluteLayout.LayoutBounds="32, 104.9"  WidthRequest="33" HeightRequest="33" x:Name="circle78" Fill="#FF78B82A" Opacity="0.5"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 23.95"  WidthRequest="33" HeightRequest="33" x:Name="circRed" Fill="#FFBF1818" Opacity="0.5"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 64"  WidthRequest="33" HeightRequest="33" x:Name="circOrange" Fill="#FFEB5E0B" Opacity="0.5"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 104.9"  WidthRequest="33" HeightRequest="33" x:Name="circGreen" Fill="#FF78B82A" Opacity="1"/>
             </AbsoluteLayout>
             </Grid>
         </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+            <Label Text="Distance:  " TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblscore" Text="0" TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+        </StackLayout>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            
+            <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
+            <Button x:Name="btnRestart" Text="Restart" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" IsVisible="false"/>
+        </StackLayout>
+        <ActivityIndicator x:Name="loadingIndicator" Color="Blue" IsRunning="True" IsVisible="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
     </Grid>
 
 

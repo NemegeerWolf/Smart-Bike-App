@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "123-piano.Android", "123-piano\123-piano.Android\123-piano.Android.csproj", "{87111C8D-16E5-4454-A124-A4F6779D29AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spel_123_piano.Android", "123-piano\123-piano.Android\spel_123_piano.Android.csproj", "{87111C8D-16E5-4454-A124-A4F6779D29AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "123-piano", "123-piano\123-piano\123-piano.csproj", "{1F48FA00-0990-4381-A2A2-84DFD70B4682}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "spel_123_piano", "123-piano\123-piano\spel_123_piano.csproj", "{1F48FA00-0990-4381-A2A2-84DFD70B4682}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -87,9 +87,9 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\123-piano\123-piano.csproj">
-      <Project>{954FD2F9-2E76-47D7-8928-48C8188C0E99}</Project>
-      <Name>123-piano</Name>
+    <ProjectReference Include="..\123-piano\spel_123_piano.csproj">
+      <Project>{1F48FA00-0990-4381-A2A2-84DFD70B4682}</Project>
+      <Name>spel_123_piano</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

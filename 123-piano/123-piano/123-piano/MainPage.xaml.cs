@@ -1,4 +1,5 @@
-﻿using System;
+﻿using spel_123_piano.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -9,16 +10,30 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace _123_piano
+namespace spel_123_piano
 {
     public partial class MainPage : ContentPage
     {
+        //public variables
+
+        public double Distance { get; set; } = 0;
+        public bool GameOver { get; set; } = false;
+
+
+        // local variables
         List<Xamarin.Forms.Shapes.Rectangle> wayMarks = new List<Xamarin.Forms.Shapes.Rectangle>();
         private bool started;
         private double width;
         private double height;
         private double gap;
         private DisplayInfo mainDisplayInfo;
+        private double globalSpeed = 1000;
+        Random random = new Random(Convert.ToInt32(DateTime.Now.Millisecond));
+        
+        private DateTime startOrange = DateTime.MinValue;
+        private DateTime startRed = DateTime.MinValue;
+
+        public bool IsRed { get; private set; }
 
         public MainPage()
         {
@@ -26,7 +41,7 @@ namespace _123_piano
 
 
 
-            
+
             //int width = 0;
             //int height = 0;
             //for (int i = 0; i <= 10; i++)
@@ -36,7 +51,7 @@ namespace _123_piano
             //    height = Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.50);
             //    int gap = Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) *0.70);
             //    Xamarin.Forms.Shapes.Rectangle baseRect = new Xamarin.Forms.Shapes.Rectangle();
-                
+
             //    var re = new Rectangle(0, 70 * i, 20, 50);
             //    baseRect.LayoutTo(new Rectangle(0, gap * i, width, height));
             //    baseRect.Fill = Brush.White;
@@ -44,91 +59,170 @@ namespace _123_piano
             //    wayMarks.Add(baseRect);
             //    cnv.Children.Add(baseRect);
             //}
-
-            Device.StartTimer(TimeSpan.FromMilliseconds(20.0), straatmove);
             
+            Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
+            
+            Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
         }
 
-        private bool straatmove()
+        
+
+        private bool GamePlay()
         {
-            mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
-            DeviceDisplay.MainDisplayInfoChanged += ((l, m) => 
-            {
-                Debug.WriteLine("Hellloooow wolfffiieeieieieiei");
-                if(mainDisplayInfo.Height != DeviceDisplay.MainDisplayInfo.Height)
-                {
-                    setup();
-                    Thread.Sleep(3000);
-                    setup();
-                }
-                    
+            globalSpeed = 30;// read sensor here
 
+
+            // lights
+            if (startRed == DateTime.MinValue && startOrange == DateTime.MinValue) { 
+                int luck = random.Next(0, 80);
+                if (luck == 1)
+                {
+                circGreen.Opacity = 0.5;
+                circOrange.Opacity = 1;
+                startOrange = DateTime.Now;
+                    //circGreen.Opacity = 0.5;
+                    //circOrange.Opacity = 1;
+                    //Thread.Sleep(1000);
+                    //circOrange.Opacity = 0.5;
+                    //circRed.Opacity = 1;
+                    //IsRed = true;
+                    //Thread.Sleep(3000);
+                    //circGreen.Opacity = 1;
+                    //isOrange = true;
+                    //IsRed = false;
                 
-            });
+                Debug.WriteLine("orange");
 
-            if (!started)
-            {
-                started = true;
-
-                setup();
-                //Device.BeginInvokeOnMainThread(() =>
-                //{
-                //for (int i = 0; i < 7; i++)
-                //{
-
-                    
-                //    Xamarin.Forms.Shapes.Rectangle baseRect = new Xamarin.Forms.Shapes.Rectangle();
-                //    baseRect.Fill = Brush.White;
-
-
-
-
-                //    width= Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.05);
-                //    height = Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.10);
-                //    gap = height * 1.5;
-                    
-                //    var re = new Rectangle(0, 110 * i, 20, 50);
-                //    baseRect.LayoutTo(new Rectangle(-width/2, gap * i, width, height));
-                    
-                //    AbsoluteLayout.SetLayoutFlags(baseRect, AbsoluteLayoutFlags.None);
-                //    wayMarks.Add(baseRect);
-                //    cnv.Children.Add(baseRect);
-                    
-                //}
-                //});
             }
-            double speed = 30;
-            if (!(speed <= 0))
+        }
+
+            if(startOrange.AddSeconds(2) < DateTime.Now && startOrange!=DateTime.MinValue)
             {
-                foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
+                startOrange = DateTime.MinValue;
+                startRed = DateTime.Now;
+                circOrange.Opacity = 0.5;
+                circRed.Opacity = 1;
+                IsRed = true;
+                Debug.WriteLine("rood");
+            }
+
+            if (startRed.AddSeconds(8) < DateTime.Now && startRed != DateTime.MinValue)
+            {
+                startRed = DateTime.MinValue;
+                circRed.Opacity = 0.5;
+                circGreen.Opacity = 1;
+                IsRed = false;
+                Debug.WriteLine("groen");
+            }
+
+            //game over went speed more than 1km/u
+
+            if(IsRed == true && globalSpeed > 1)
+            {
+                
+                lblGameOver.IsVisible = true;
+                btnRestart.IsVisible = true;
+                Navigation.PushAsync(new Scorebord_123_Piano());
+                return false;
+
+            }
+
+
+
+            return true;
+        }
+
+        private bool Streetmove()
+        {
+            if (!lblGameOver.IsVisible)
+            {
+                mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+                DeviceDisplay.MainDisplayInfoChanged += ((l, m) =>
                 {
-
-
-                    //rectangle.Layout(new Rectangle(rectangle.X, rectangle.Y+70, 10, 10));
-
-                    if (rectangle.Y > gap * 6)
+                    Debug.WriteLine("Hellloooow wolfffiieeieieieiei");
+                    if (mainDisplayInfo.Height != DeviceDisplay.MainDisplayInfo.Height)
                     {
-                        rectangle.Layout(new Rectangle(-width * 0.3 / 2, -gap, width * 0.3, height));
+                        loadingIndicator.IsRunning = true;
+                        setup();
+                        Thread.Sleep(3000);
+                        setup();
+                        loadingIndicator.IsRunning = false;
                     }
-                    else
+
+
+
+                });
+
+                if (!started)
+                {
+                    started = true;
+                    loadingIndicator.IsRunning = true;
+                    setup();
+                    loadingIndicator.IsRunning = false;
+                    //Device.BeginInvokeOnMainThread(() =>
+                    //{
+                    //for (int i = 0; i < 7; i++)
+                    //{
+
+
+                    //    Xamarin.Forms.Shapes.Rectangle baseRect = new Xamarin.Forms.Shapes.Rectangle();
+                    //    baseRect.Fill = Brush.White;
+
+
+
+
+                    //    width= Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.05);
+                    //    height = Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.10);
+                    //    gap = height * 1.5;
+
+                    //    var re = new Rectangle(0, 110 * i, 20, 50);
+                    //    baseRect.LayoutTo(new Rectangle(-width/2, gap * i, width, height));
+
+                    //    AbsoluteLayout.SetLayoutFlags(baseRect, AbsoluteLayoutFlags.None);
+                    //    wayMarks.Add(baseRect);
+                    //    cnv.Children.Add(baseRect);
+
+                    //}
+                    //});
+                }
+                double speed = globalSpeed;
+                if (!(speed <= 0))
+                {
+                    foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
                     {
 
-                        rectangle.Layout(new Rectangle(-rectangle.Width / 2, rectangle.Y + gap / (100 / speed), rectangle.Width + rectangle.Width * (0.003 / (1.0 / speed)), rectangle.Height - rectangle.Height * (0.0005 /(1.0/ speed))));
+
+                        //rectangle.Layout(new Rectangle(rectangle.X, rectangle.Y+70, 10, 10));
+
+                        if (rectangle.Y > gap * 6)
+                        {
+                            rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 0.2, height));
+                        }
+                        else
+                        {
+
+                            rectangle.Layout(new Rectangle(-rectangle.Width / 2, rectangle.Y + gap / (200 / speed), rectangle.Width + rectangle.Width * (0.001 / (1.0 / speed)), rectangle.Height - rectangle.Height * (0.00025 / (1.0 / speed))));
+                        }
                     }
                 }
+                return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
         }
 
         private void setup()
         {
 
-
+            
             mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
             wayMarks.Clear();
             cnv.Children.Clear();
             Device.BeginInvokeOnMainThread(() =>
             {
+                loadingIndicator.IsRunning = true;
                 for (int i = 0; i < 7; i++)
                 {
 
@@ -142,13 +236,13 @@ namespace _123_piano
                     {
                         width = Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.05);
                         height = Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.20);
-                        gap = height * 1.5;
+                        gap = height * 1.2;
                     }
                     else
                     {
                         width = Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.05);
                         height = Convert.ToInt32((mainDisplayInfo.Width / mainDisplayInfo.Density) * 0.10);
-                        gap = height * 1.5;
+                        gap = height * 1.2;
                     }
                     double width1 = width*0.3;
                     double height1 = height;
@@ -165,7 +259,16 @@ namespace _123_piano
                     cnv.Children.Add(baseRect);
 
                 }
+                loadingIndicator.IsRunning = false;
             });
+            
+        }
+
+        private void btnRestart_Clicked(object sender, EventArgs e)
+        {
+            Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
+
+            Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
         }
     }
 }

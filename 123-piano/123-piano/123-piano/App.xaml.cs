@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace _123_piano
+namespace spel_123_piano
 {
     public partial class App : Application
     {
@@ -10,7 +10,7 @@ namespace _123_piano
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage( new MainPage());
         }
 
         protected override void OnStart()
