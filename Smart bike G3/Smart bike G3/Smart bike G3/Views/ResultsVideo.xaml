@@ -4,10 +4,10 @@
              x:Class="Smart_bike_G3.Views.ResultsVideo">
     <ContentPage.Content>
         <StackLayout Margin="48">
-            <Label Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
-            <Label Text="Resultaat" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#615C66"/>
-            <Label x:Name="lblKilometers"  Margin="88" Text="12 km" FontSize="40" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
-            <Button Margin="88" x:Name="btnScorebord" Text="Scorebord" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
+            <Label FontFamily="Rubik-Bold" Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
+            <Label FontFamily="Rubik-SemiBold" Text="Resultaat" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#615C66"/>
+            <Label FontFamily="Rubik-Regular" x:Name="lblKilometers"  Margin="88" Text="12 km" FontSize="40" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
+            <Button  FontFamily="Rubik-Regular" Margin="88" x:Name="btnScorebord" Text="Scorebord" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

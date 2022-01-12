@@ -22,7 +22,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label Grid.Column="1" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             </Grid>
             
             <Grid Margin="48" RowSpacing="64">
@@ -35,7 +35,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Text="1 2 3 Piano" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <Label Grid.Column="0" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="1 2 3 Piano" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
                 <AbsoluteLayout x:Name="AbsLay123piano" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Scale="10" VerticalOptions="Center">
                     <Path x:Name="path252">
                         <Path.Data>
@@ -48,8 +48,8 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                
-                <Label Grid.Column="1" Grid.Row="0" Text="Hill Climb Racing" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+
+                <Label Grid.Column="1" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Hill Climb Racing" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
                 <AbsoluteLayout x:Name="AbsLayHillClimb" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" Scale="10" VerticalOptions="Center">
                     <AbsoluteLayout>
                         <Rectangle AbsoluteLayout.LayoutBounds="0,0" WidthRequest="24" HeightRequest="24" x:Name="rect224"/>

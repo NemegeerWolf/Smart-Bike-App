@@ -15,36 +15,12 @@ namespace Smart_bike_G3.Views
         public ChooseVideo()
         {
             InitializeComponent();
-            AddEvents();
+            Images();
         }
-        private void AddEvents()
+        private void Images()
         {
-            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
-
-            TapGestureRecognizer tapGestureRecognizer2 = new TapGestureRecognizer();
-            tapGestureRecognizer2.Tapped += AbsLayMusic_Tabbed;
-            AbsLayMusic.GestureRecognizers.Add(tapGestureRecognizer2);
-
-            TapGestureRecognizer tapGestureRecognizer3 = new TapGestureRecognizer();
-            tapGestureRecognizer3.Tapped += AbsLayBook_Tabbed;
-            AbsLayBook.GestureRecognizers.Add(tapGestureRecognizer3);
-        }
-
-        private void AbsLayBook_Tabbed(object sender, EventArgs e)
-        {
-            //Console.WriteLine("tabbed book");
-        }
-
-        private void AbsLayMusic_Tabbed(object sender, EventArgs e)
-        {
-            //Console.WriteLine("tabbed music");
-        }
-
-        private void AbsLayBack_Tabbed(object sender, EventArgs e)
-        {
-            Navigation.PopAsync();
+            imgLuisterboek.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Luisterboek.png");
+            imgMuziek.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Muziek.png");
         }
     }
 }
