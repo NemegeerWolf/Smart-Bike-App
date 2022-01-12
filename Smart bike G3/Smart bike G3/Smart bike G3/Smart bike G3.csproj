@@ -12,11 +12,8 @@
 
   <ItemGroup>
     <Compile Remove="Images\**" />
-    <Compile Remove="Models\**" />
     <EmbeddedResource Remove="Images\**" />
-    <EmbeddedResource Remove="Models\**" />
     <None Remove="Images\**" />
-    <None Remove="Models\**" />
   </ItemGroup>
 
   <ItemGroup>

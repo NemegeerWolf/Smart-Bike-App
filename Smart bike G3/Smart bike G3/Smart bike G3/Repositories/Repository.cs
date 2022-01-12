@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Smart_bike_G3.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -53,6 +55,32 @@ namespace Smart_bike_G3.Repositories
                         throw new Exception("Something went wrong");
                     }
 
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async static Task<List<Game>> GetAllscoresGameAsync(int videoid)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+                //string url = $"{_BASEURI}.json?countryCode=BE&apikey={_APIKEY}";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid} ";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<List<Game>>(json);
+
+                    }
+                    return null;
                 }
                 catch (Exception ex)
                 {
