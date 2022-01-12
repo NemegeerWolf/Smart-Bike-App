@@ -22,7 +22,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label Grid.Column="1" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label FontFamily="Rubik-Bold" Grid.Column="1" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             </Grid>
             <Grid Margin="48" RowSpacing="64">
                 <Grid.ColumnDefinitions>
@@ -34,7 +34,7 @@
                     <RowDefinition  Height="144"/>
                    
                 </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" Text="Videos" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <Label Grid.Column="0" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Videos" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
                 <AbsoluteLayout x:Name="AbsLayVideo" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Scale="10" VerticalOptions="Center">
                     <Path x:Name="path277">
                         <Path.Data>
@@ -47,8 +47,8 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                
-                <Label Grid.Column="1"  Grid.Row="0" Text="Games" FontSize="40" HorizontalOptions="Center" TextColor="#615C66"/>
+
+                <Label Grid.Column="1"  Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Games" FontSize="40" HorizontalOptions="Center" TextColor="#615C66"/>
                 <AbsoluteLayout x:Name="AbsLayGame" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" Scale="10" VerticalOptions="Center">
                     <Path x:Name="path191">
                         <Path.Data>
