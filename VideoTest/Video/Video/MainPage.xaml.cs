@@ -17,18 +17,46 @@ namespace Video
         public MainPage()
         {
             InitializeComponent();
-            setVideo();
+            setVideoAndAudio(1);
         }
+
+
+
+
+        private readonly Dictionary<int, string[]> Videos = new Dictionary<int, string[]>() {
+            { 1 , new string[] {"ms-appx:///testvideo.mp4", "ms-appx:///testaudio.mp3" } }
+        };
+
+       
+       
+
+        private void setVideoAndAudio(int videoId)
+        {
+            if (Videos.ContainsKey(videoId)) 
+            {
+                bool keyValue = Videos.TryGetValue(videoId, out string[] values);
+                video.Source = values[0];
+                video.Volume = 0;
+                audio.Source = values[1];
+                
+
+            }
+            else
+            {
+                Debug.WriteLine("Something went wrong in setVideo");
+            }
+        }
+
 
         private void Vid_MediaOpened(object sender, EventArgs e)
         {
-            
+
             Task.Run(() =>
             {
-       
+
                 var autoEvent = new AutoResetEvent(false);
                 Timer timer = new Timer(FixAutoplay, autoEvent, 1000, 0);
-                
+
             });
         }
 
@@ -36,12 +64,14 @@ namespace Video
         {
             Device.BeginInvokeOnMainThread(() => {
                 video.Pause();
+                speed.Text = $"20 km/u";
                 setSpeed();
 
             });
 
         }
 
+        //-------------TestFuncties tijdelijk-------------//
         private void setSpeed()
         {
             Random test = new Random();
@@ -51,13 +81,6 @@ namespace Video
             var autoEvent = new AutoResetEvent(false);
             Timer timer = new Timer(Update, autoEvent, 1000, 0);
         }
-
-        private void setVideo()
-        {
-            video.Source = "ms-appx:///testvideo.mp4";
-        }
-       
-
 
         private void Update(object e)
         {
