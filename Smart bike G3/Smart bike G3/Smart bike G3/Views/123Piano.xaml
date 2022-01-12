@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views._123Piano">
+             x:Class="Smart_bike_G3.Views._123Piano"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
-            <Image x:Name="BackButton" Source="Assets/arrow_back"/>
-            <Label x:Name="lblTitle" Text="1 2 3 Piano"/>
-            <Label x:Name="lblDescription" Text="Fiets zo snel mogelijk naar de eindmeet. Pasop bij rood licht mag je niet meer bewegen anders is het game over." HorizontalOptions="Center"/>
-            <Button x:Name="btnStart" Text="Start" HorizontalOptions="Center"/>
+        <StackLayout Margin="16" Spacing="50">
+            <Grid Margin="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ImageButton Grid.Column="0" x:Name="imgBackButton" BackgroundColor="White" HorizontalOptions="End" Clicked="imgBackButton_Clicked"/>
+                <Label Grid.Column="1" Text="1 2 3 Piano" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </Grid>
+            
+            <Label FontSize="24" Text="Fiets zo snel mogelijk naar de eindmeet. Pasop bij rood licht mag je niet meer bewegen anders is het game over." HorizontalOptions="Center"/>
+            <Button x:Name="btnStart" Text="Start" TextColor="White" HorizontalOptions="Center" BackgroundColor="#5589ee" CornerRadius="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

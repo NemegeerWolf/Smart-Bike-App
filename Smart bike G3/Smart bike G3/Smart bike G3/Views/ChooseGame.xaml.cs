@@ -25,6 +25,30 @@ namespace Smart_bike_G3.Views
         public ChooseGame()
         {
             InitializeComponent();
+            imgBackButton.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.arrow_back.png");
+            img123piano.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.traffic_light.png");
+            imgHillClimb.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.two_wheeler.png");
+            imgOverloop.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.water_drop.png");
+        }
+
+        private void imgBackButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
+
+        private void btn123piano_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new _123Piano());
+        }
+
+        private void btnHillClimb_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOverloop_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
