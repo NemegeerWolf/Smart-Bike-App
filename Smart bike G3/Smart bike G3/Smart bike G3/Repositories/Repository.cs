@@ -69,7 +69,7 @@ namespace Smart_bike_G3.Repositories
         {
             using (HttpClient client = GetHttpClient())
             {
-                //string url = $"{_BASEURI}.json?countryCode=BE&apikey={_APIKEY}";
+                
                 string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid} ";
                 try
                 {
@@ -94,7 +94,7 @@ namespace Smart_bike_G3.Repositories
         {
             using (HttpClient client = GetHttpClient())
             {
-                //string url = $"{_BASEURI}.json?countryCode=BE&apikey={_APIKEY}";
+                
                 string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid} ";
                 try
                 {
@@ -103,6 +103,58 @@ namespace Smart_bike_G3.Repositories
                     {
 
                         return JsonConvert.DeserializeObject<List<Video>>(json);
+
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async static Task<List<Video>> GetUserscoresVideoAsync(int videoid, string user)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+                
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid}/{user} ";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<List<Video>>(json);
+
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async static Task<List<Game>> GetUserscoresGameAsync(int gameid, string user)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{user} ";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<List<Game>>(json);
 
                     }
                     return null;
