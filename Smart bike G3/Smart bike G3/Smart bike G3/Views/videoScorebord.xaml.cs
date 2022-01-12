@@ -15,6 +15,24 @@ namespace Smart_bike_G3.Views
         public videoScorebord()
         {
             InitializeComponent();
+            loadData();
+            btnHome.Clicked += BtnHome_Clicked;
+            btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
+        }
+        private void BtnOpnieuw_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ChooseGame());
+        }
+
+        private void BtnHome_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Name());
+        }
+
+        private async void loadData()
+        {
+            lvwOverview.ItemsSource = await Repository.GetAllscoresVideoAsync(1);
+
         }
     }
 }
