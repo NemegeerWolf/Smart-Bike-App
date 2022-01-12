@@ -26,9 +26,18 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChooseGame : ContentPage
     {
+        public string Kind;
+
         public ChooseGame()
         {
             InitializeComponent();
+            AddEvents();
+        }
+        public ChooseGame(string kind)
+        {
+            InitializeComponent();
+            Kind = kind;
+            Console.WriteLine(Kind);
             AddEvents();
         }
 
@@ -53,17 +62,17 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Overloop());
+            Navigation.PushAsync(new Overloop(Kind));
         }
 
         private void AbsLayHillClimb_Tabbed(object sender, EventArgs e)
         {
-            Console.WriteLine("tabbed hill climb");
+            Console.WriteLine("Tabbed hill climb");
         }
 
         private void AbsLay123piano_Tabbed(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new _123Piano());
+            Navigation.PushAsync(new _123Piano(Kind));
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
