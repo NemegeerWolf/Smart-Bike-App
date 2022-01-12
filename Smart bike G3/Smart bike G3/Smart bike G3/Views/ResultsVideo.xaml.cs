@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smart_bike_G3.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,17 @@ namespace Smart_bike_G3.Views
         {
             InitializeComponent();
             btnScorebord.Clicked += BtnScorebord_Clicked;
+            showKilometers();
+        }
+
+        private async void showKilometers()
+        {
+            
+            int kilometers = 12;
+            string kilometerString = $"{kilometers}km";
+            lblKilometers.Text = kilometerString;
+
+            // await Repository.AddResultsVideo(1, "test", kilometers);
         }
 
         private void BtnScorebord_Clicked(object sender, EventArgs e)
