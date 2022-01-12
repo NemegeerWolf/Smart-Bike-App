@@ -1,27 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.ChooseGame">
+             x:Class="Smart_bike_G3.Views.ChooseGame"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
-            <Image x:Name="BackButton" Source="Assets/arrow_back"/>
-            <Label x:Name="lblTitle" Text="Kies een spelletje"/>
-            <Grid>
+        <StackLayout Margin="16">
+            <Grid Margin="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ImageButton Grid.Column="0" x:Name="imgBackButton" BackgroundColor="White" HorizontalOptions="End" Clicked="imgBackButton_Clicked"/>
+                <Label Grid.Column="1" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </Grid>
+            
+            <Grid Margin="48" RowSpacing="64">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="144"/>
+                    <RowDefinition Height="56"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Grid.Row="0" x:Name="img123piano" Source="Assets/traffic_light.svg"/>
-                <Button Grid.Column="0" Grid.Row="1" x:Name="btn123piano" Text="1 2 3 Piano"/>
-                <Image Grid.Column="1" Grid.Row="0" x:Name="imgHillClimb" Source="Assets/two_wheeler.svg"/>
-                <Button Grid.Column="1" Grid.Row="1" x:Name="btnHillClimb" Text="Hill Climb Racing"/>
-                <Image Grid.Column="2" Grid.Row="0" x:Name="imgOverloop" Source="Assets/water_drop.svg"/>
-                <Button Grid.Column="2" Grid.Row="1" x:Name="btnOverloop" Text="Overloop"/>
+                <Label Grid.Column="0" Grid.Row="0" Text="1 2 3 Piano" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <Image Grid.Column="0" Grid.Row="1" x:Name="img123piano" />
+                <Button Grid.Column="0" Grid.Row="2" x:Name="btn123piano" Text="1 2 3 Piano"  TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" Clicked="btn123piano_Clicked"/>
+
+                <Label Grid.Column="1" Grid.Row="0" Text="Hill Climb Racing" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <Image Grid.Column="1" Grid.Row="1" x:Name="imgHillClimb" />
+                <Button Grid.Column="1" Grid.Row="2" x:Name="btnHillClimb" Text="Hill Climb Racing"  TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" Clicked="btnHillClimb_Clicked"/>
+
+                <Label Grid.Column="2" Grid.Row="0" Text="Overloop" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <Image Grid.Column="2" Grid.Row="1" x:Name="imgOverloop" />
+                <Button Grid.Column="2" Grid.Row="2" x:Name="btnOverloop" Text="Overloop"  TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" Clicked="btnOverloop_Clicked"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

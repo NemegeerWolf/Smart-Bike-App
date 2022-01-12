@@ -1,10 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.VideoOrGame">
+             x:Class="Smart_bike_G3.Views.VideoOrGame"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Maak een keuze" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
+        <StackLayout Margin="16">
+            <Grid Margin="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ImageButton Grid.Column="0" x:Name="imgBackButton" BackgroundColor="White" HorizontalOptions="End" Clicked="imgBackButton_Clicked"/>
+                <Label Grid.Column="1" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            </Grid>
             <Grid Margin="48" RowSpacing="64">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

@@ -15,6 +15,13 @@ namespace Smart_bike_G3.Views
         public _123Piano()
         {
             InitializeComponent();
+            imgBackButton.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.arrow_back.png");
+
+        }
+
+        private void imgBackButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }

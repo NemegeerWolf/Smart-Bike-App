@@ -22,6 +22,7 @@ namespace Smart_bike_G3.Views
 
         private void Images()
         {
+            imgBackButton.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.arrow_back.png");
             imgVideo.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video.png");
             imgGame.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Game.png");
         }
@@ -33,7 +34,12 @@ namespace Smart_bike_G3.Views
 
         private void BtnGame_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Navigation.PushAsync(new ChooseGame());
+        }
+
+        private void imgBackButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }

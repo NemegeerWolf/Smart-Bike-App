@@ -19,8 +19,14 @@ namespace Smart_bike_G3.Views
         }
         private void Images()
         {
+            imgBackButton.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.arrow_back.png");
             imgLuisterboek.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Luisterboek.png");
             imgMuziek.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Muziek.png");
+        }
+
+        private void imgBackButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
         }
     }
 }
