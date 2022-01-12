@@ -16,13 +16,36 @@ namespace Smart_bike_G3.Repositories
             client.DefaultRequestHeaders.Add("accept", "application/json");
             return client;
         }
-        public async static Task AddResults(int videoid, string user, int distance )
+        public async static Task AddResultsVideo(int videoid, string user, int distance )
         {
             using (HttpClient client = GetHttpClient())
             {
                 try
                 {
                     string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid}/{user}/{distance}";
+
+                    var response = await client.PostAsync(url, null);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Something went wrong");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+        public async static Task AddResultsGame(int gameid, string user, int distance, int speed)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+                try
+                {
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{user}/{distance}/{speed}";
 
                     var response = await client.PostAsync(url, null);
                     if (!response.IsSuccessStatusCode)

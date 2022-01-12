@@ -27,7 +27,7 @@ namespace Smart_bike_G3.Views
             string kilometerString = $"{kilometers}km";
             lblKilometers.Text = kilometerString;
 
-            // await Repository.AddResults(1, "test", kilometers);
+            // await Repository.AddResultsVideo(1, "test", kilometers);
         }
 
         private void BtnScorebord_Clicked(object sender, EventArgs e)
