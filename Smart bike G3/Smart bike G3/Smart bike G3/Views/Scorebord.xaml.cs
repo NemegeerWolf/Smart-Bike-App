@@ -24,17 +24,19 @@ namespace Smart_bike_G3.Views
 
         public Scorebord(int Score)
         {
+            
 
-            InitializeComponent();
-            string vidorgame = VideoOrGame.Kind;
-            Console.WriteLine(vidorgame);
+            //InitializeComponent();
+            //string vidorgame = VideoOrGame.Kind;
+            //Console.WriteLine(vidorgame);
 
-            lblScore.Text = Score.ToString() + " km";
-            lblName.Text = Name.User;
+            
 
-            if (vidorgame == "video")
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+                lblScore.Text = Score.ToString() + " km";
+                lblName.Text = Name.User;
                 string vidorgame = VideoOrGame.Kind;
                 Console.WriteLine(vidorgame);
 
