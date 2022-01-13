@@ -22,8 +22,9 @@ namespace Smart_bike_G3.Views
         //    btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
         //}
 
-        public Scorebord()
+        public Scorebord(int Score)
         {
+
             InitializeComponent();
             string vidorgame = VideoOrGame.Kind;
             Console.WriteLine(vidorgame);
