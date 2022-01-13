@@ -34,10 +34,10 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Frame Grid.Row="0" Grid.Column="0"/>
-                <Frame Grid.Row="0" Grid.Column="1"/>
-                <Frame Grid.Row="1" Grid.Column="0"/>
-                <Frame Grid.Row="1" Grid.Column="1"/>
+                <Button x:Name="btnFirst" Text="video" Grid.Row="0" Grid.Column="0"/>
+                <Button x:Name="btnSecond" Text="video" Grid.Row="0" Grid.Column="1"/>
+                <Button x:Name="btnThird" Text="video" Grid.Row="1" Grid.Column="0"/>
+                <Button x:Name="btnFourth" Text="video" Grid.Row="1" Grid.Column="1"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>
