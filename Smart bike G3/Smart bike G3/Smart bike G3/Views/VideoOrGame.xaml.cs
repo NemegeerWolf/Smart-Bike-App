@@ -47,7 +47,7 @@ namespace Smart_bike_G3.Views
         {
             Kind = "video";
             Console.WriteLine(Kind + " chosen");
-            Navigation.PushAsync(new ChooseVideo(Kind));
+            Navigation.PushAsync(new OptionsVideo(Kind));
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)

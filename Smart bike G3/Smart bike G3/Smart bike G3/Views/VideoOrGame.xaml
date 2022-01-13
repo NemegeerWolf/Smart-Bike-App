@@ -4,13 +4,13 @@
              x:Class="Smart_bike_G3.Views.VideoOrGame"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Margin="16">
-            <Grid Margin="48">
+        <StackLayout>
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2">
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="32">
                     <Path x:Name="path112">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -22,20 +22,21 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label FontFamily="Rubik-Bold" Grid.Column="1" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label FontFamily="Rubik-Bold" Grid.Column="1" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </Grid>
-            <Grid Margin="48" RowSpacing="64">
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition  Height="144"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                    
                 </Grid.RowDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Videos" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
-                <AbsoluteLayout x:Name="AbsLayVideo" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Scale="10" VerticalOptions="Center">
+
+                <AbsoluteLayout x:Name="AbsLayVideo" HorizontalOptions="CenterAndExpand"  Grid.Column="0" Grid.Row="1" Scale="10" VerticalOptions="Center" Margin="50" >
                     <Path x:Name="path277">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z"/>

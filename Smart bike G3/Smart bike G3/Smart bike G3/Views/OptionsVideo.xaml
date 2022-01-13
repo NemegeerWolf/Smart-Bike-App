@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.Overloop"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="Smart_bike_G3.Views.OptionsVideo">
     <ContentPage.Content>
         <StackLayout >
-            <Grid VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Margin="32">
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition/>
@@ -22,12 +21,24 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label Grid.Column="1" Text="Overloop" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+                <Label Grid.Column="1" FontFamily="Rubik-Bold" Text="Welke video wil je bekijken?" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
             </Grid>
-            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
-            <Label FontSize="24" Text="Fiets zo snel mogelijk dat het glas met water overloopt." HorizontalOptions="Center"/>
-            <Button x:Name="btnStart" Text="Start" TextColor="White" HorizontalOptions="Center" BackgroundColor="#5589ee" CornerRadius="10" Clicked="btnStart_Clicked"/>
-            </StackLayout>
+
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button x:Name="btnFirst" Text="video" Grid.Row="0" Grid.Column="0"/>
+                <Button x:Name="btnSecond" Text="video" Grid.Row="0" Grid.Column="1"/>
+                <Button x:Name="btnThird" Text="video" Grid.Row="1" Grid.Column="0"/>
+                <Button x:Name="btnFourth" Text="video" Grid.Row="1" Grid.Column="1"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

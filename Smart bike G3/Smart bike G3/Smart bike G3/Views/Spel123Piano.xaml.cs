@@ -103,7 +103,10 @@ namespace Smart_bike_G3.Views
 
                 lblGameOver.IsVisible = true;
                 btnRestart.IsVisible = true;
-                // Navigation.PushAsync(new Scorebord_123_Piano()); // push to scoreboard
+
+                //sent to API
+
+                Navigation.PushAsync(new Scorebord("game")); // push to scoreboard
                 return false;
 
             }
