@@ -1,9 +1,8 @@
-﻿using Smart_bike_G3.Views;
-using System;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Smart_bike_G3
+namespace spel_123_piano
 {
     public partial class App : Application
     {
@@ -11,9 +10,7 @@ namespace Smart_bike_G3
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Name());
-            //MainPage = new NavigationPage(new ResultsVideo());
-
+            MainPage = new NavigationPage( new MainPage());
         }
 
         protected override void OnStart()
