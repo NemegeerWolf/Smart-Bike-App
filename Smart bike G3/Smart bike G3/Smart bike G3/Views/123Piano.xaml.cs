@@ -41,6 +41,8 @@ namespace Smart_bike_G3.Views
         {
             //start the game
             Console.WriteLine("Start 123 piano");
+            Navigation.PushAsync(new Spel123Piano());
+            //Navigation.PushAsync(new Spel123Piano(Kind));
             //Kind meegeven tot aan het scorebord!
         }
     }
