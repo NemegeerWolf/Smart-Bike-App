@@ -29,6 +29,9 @@ namespace Smart_bike_G3.Views
             string vidorgame = VideoOrGame.Kind;
             Console.WriteLine(vidorgame);
 
+            lblScore.Text = Score.ToString();
+            lblName.Text = Name.User;
+
             if (vidorgame == "video")
             {
                 //Er werd een video afgespeeld

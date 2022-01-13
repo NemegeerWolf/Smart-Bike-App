@@ -136,6 +136,7 @@ namespace Smart_bike_G3.Views
                 if (!(speed <= 0))
                 {
                     Distance += speed / 1000;
+                    lblscore.Text = $"{Distance.ToString()} km";
                     foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
                     {
 
