@@ -55,8 +55,11 @@
                     <ColumnDefinition Width="300" />
                     <ColumnDefinition Width="300"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0"  x:Name="btnHome" Text="Home" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
-                <Button Grid.Column="1"   x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0" Grid.Row="0" x:Name="btnHome" Text="Home" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
+                <Button Grid.Column="1" Grid.Row="0" x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
             </Grid>
         </StackLayout>
         
