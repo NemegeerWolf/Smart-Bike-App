@@ -93,7 +93,7 @@ namespace Smart_bike_G3.Views
 
                 //sent to API
                 Repository.AddResultsGame(1, "wolf", Convert.ToInt32( Distance), 0);
-                Navigation.PushAsync(new Scorebord("game")); // push to scoreboard
+                Navigation.PushAsync(new Scorebord()); // push to scoreboard
                 return false;
 
             }
