@@ -29,7 +29,7 @@ namespace Smart_bike_G3.Views
             string vidorgame = VideoOrGame.Kind;
             Console.WriteLine(vidorgame);
 
-            lblScore.Text = Score.ToString();
+            lblScore.Text = Score.ToString() + " km";
             lblName.Text = Name.User;
 
             if (vidorgame == "video")

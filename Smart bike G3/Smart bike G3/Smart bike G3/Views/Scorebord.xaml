@@ -69,7 +69,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Label Grid.Column="0" x:Name="lblPosition" FontFamily="Rubik-Regular"  Text="1." TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                                     <Label Grid.Column="1" x:Name="lblName" FontFamily="Rubik-Regular" Text="Score: " TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                    <Label Grid.Column="2" x:Name="lblScore"  FontFamily="Rubik-Regular" Text="500 km" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Label Grid.Column="2" x:Name="lblScore" FontFamily="Rubik-Regular" Text="500 km" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                                 </Grid>
 
                             </StackLayout>
