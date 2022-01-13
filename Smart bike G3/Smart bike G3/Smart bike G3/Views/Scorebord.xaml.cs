@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,30 +24,45 @@ namespace Smart_bike_G3.Views
 
         public Scorebord(int Score)
         {
+            
 
-            InitializeComponent();
-            string vidorgame = VideoOrGame.Kind;
-            Console.WriteLine(vidorgame);
+            //InitializeComponent();
+            //string vidorgame = VideoOrGame.Kind;
+            //Console.WriteLine(vidorgame);
 
-            lblScore.Text = Score.ToString() + " km";
-            lblName.Text = Name.User;
+            
 
-            if (vidorgame == "video")
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                //Er werd een video afgespeeld
-                loadData(vidorgame);
-            } else if (vidorgame == "game")
-            {
-                //Er werd een game gespeeld
-                loadData(vidorgame);
+                InitializeComponent();
+                lblScore.Text = Score.ToString() + " km";
+                lblName.Text = Name.User;
+                string vidorgame = VideoOrGame.Kind;
+                Console.WriteLine(vidorgame);
+
+                if (vidorgame == "video")
+                {
+                    //Er werd een video afgespeeld
+                    loadData(vidorgame);
+                }
+                else if (vidorgame == "game")
+                {
+                    //Er werd een game gespeeld
+                    loadData(vidorgame);
+                }
+                else
+                {
+                    Console.WriteLine("Something went wrong");
+                }
+
+                btnHome.Clicked += BtnHome_Clicked;
+                btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
             }
             else
             {
-                Console.WriteLine("Something went wrong");
+                Navigation.PushAsync(new NoNetworkPage());
             }
-
-            btnHome.Clicked += BtnHome_Clicked;
-            btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
+            
         }
 
         private void BtnOpnieuw_Clicked(object sender, EventArgs e)

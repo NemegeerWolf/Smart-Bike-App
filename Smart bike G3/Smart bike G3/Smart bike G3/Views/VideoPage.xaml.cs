@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,9 +15,18 @@ namespace Smart_bike_G3.Views
     {
         public VideoPage()
         {
-            InitializeComponent();
-            SetVideoAndAudio(1);
-            AddEvents();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                SetVideoAndAudio(1);
+                AddEvents();
+            } 
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
+
+                
         }
         private void AddEvents()
         {
