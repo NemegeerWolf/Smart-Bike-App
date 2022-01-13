@@ -13,8 +13,8 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoOrGame : ContentPage
     {
-        public string Kind = "";
-
+        public static string Kind;
+       
         public VideoOrGame()
         {
             InitializeComponent();
@@ -40,16 +40,17 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayGame_Tabbed(object sender, EventArgs e)
         {
+            
             Kind = "game";
             Console.WriteLine(Kind + " chosen");
-            Navigation.PushAsync(new ChooseGame(Kind));
+            Navigation.PushAsync(new ChooseGame());
         }
 
         private void AbsLayVideo_Tabbed(object sender, EventArgs e)
         {
             Kind = "video";
             Console.WriteLine(Kind + " chosen");
-            Navigation.PushAsync(new OptionsVideo(Kind));
+            Navigation.PushAsync(new OptionsVideo());
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)

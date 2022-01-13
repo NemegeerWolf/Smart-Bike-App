@@ -17,18 +17,10 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResultsVideo : ContentPage
     {
-        public string Kind;
-        //public ResultsVideo()
-        //{
-        //    InitializeComponent();
-        //    btnScorebord.Clicked += BtnScorebord_Clicked;
-        //    showKilometers();
-        //}
 
-        public ResultsVideo(string kind)
+        public ResultsVideo()
         {
             InitializeComponent();
-            Kind = kind;
             btnScorebord.Clicked += BtnScorebord_Clicked;
             showKilometers();
         }
@@ -45,7 +37,7 @@ namespace Smart_bike_G3.Views
 
         private void BtnScorebord_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Scorebord(Kind));
+            Navigation.PushAsync(new Scorebord());
         }
 
     }

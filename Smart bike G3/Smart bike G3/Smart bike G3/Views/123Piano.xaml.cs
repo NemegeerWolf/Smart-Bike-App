@@ -16,12 +16,12 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class _123Piano : ContentPage
     {
-        public string Kind;
-        public _123Piano(string kind)
+        
+        public _123Piano()
         {
             InitializeComponent();
-            Kind = kind;
-            Console.WriteLine("kind 123piano = " + kind);
+            string vidorgame = VideoOrGame.Kind;
+            Console.WriteLine(vidorgame);
             AddEvents();
         }
 
@@ -41,9 +41,7 @@ namespace Smart_bike_G3.Views
         {
             //start the game
             Console.WriteLine("Start 123 piano");
-            Navigation.PushAsync(new Spel123Piano());
-            //Navigation.PushAsync(new Spel123Piano(Kind));
-            //Kind meegeven tot aan het scorebord!
+            Navigation.PushAsync(new Spel123Piano());            
         }
     }
 }
