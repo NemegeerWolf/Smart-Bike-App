@@ -12,11 +12,11 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OptionsVideo : ContentPage
     {
-        public string Kind { get; set; }
-        public OptionsVideo(string kind)
+        
+        public OptionsVideo()
         {
             InitializeComponent();
-            Kind = kind;
+            
             btnFirst.Clicked += BtnFirst_Clicked;
             btnSecond.Clicked += BtnSecond_Clicked;
             btnThird.Clicked += BtnThird_Clicked;
@@ -25,26 +25,26 @@ namespace Smart_bike_G3.Views
 
         private void BtnFourth_Clicked(object sender, EventArgs e)
         {
-            string kind = Kind;
-            Navigation.PushAsync(new ChooseVideo(kind));
+            
+            Navigation.PushAsync(new ChooseVideo());
         }
 
         private void BtnThird_Clicked(object sender, EventArgs e)
         {
-            string kind = Kind;
-            Navigation.PushAsync(new ChooseVideo(kind));
+           
+            Navigation.PushAsync(new ChooseVideo());
         }
 
         private void BtnSecond_Clicked(object sender, EventArgs e)
         {
-            string kind = Kind;
-            Navigation.PushAsync(new ChooseVideo(kind));
+           
+            Navigation.PushAsync(new ChooseVideo());
         }
 
         private void BtnFirst_Clicked(object sender, EventArgs e)
         {
-            string kind = Kind;
-            Navigation.PushAsync(new ChooseVideo(kind));
+            
+            Navigation.PushAsync(new ChooseVideo());
         }
     }
 }

@@ -22,22 +22,20 @@ namespace Smart_bike_G3.Views
         //    btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
         //}
 
-        public Scorebord(string kind)
+        public Scorebord()
         {
             InitializeComponent();
-            VideoOrGame vidOrGame = new VideoOrGame();
-            string varVidOrGame = vidOrGame.Kind;
-            Console.WriteLine(varVidOrGame);
+            string vidorgame = VideoOrGame.Kind;
+            Console.WriteLine(vidorgame);
 
-            Console.WriteLine(kind);
-            if (kind == "video")
+            if (vidorgame == "video")
             {
                 //Er werd een video afgespeeld
-                loadData(kind);
-            } else if (kind == "game")
+                loadData(vidorgame);
+            } else if (vidorgame == "game")
             {
                 //Er werd een game gespeeld
-                loadData(kind);
+                loadData(vidorgame);
             }
             else
             {
@@ -71,8 +69,6 @@ namespace Smart_bike_G3.Views
             {
                 Console.WriteLine("Something went wrong");
             }
-           
-
         }
     }
 }

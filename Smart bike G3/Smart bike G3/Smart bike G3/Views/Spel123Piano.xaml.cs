@@ -33,8 +33,6 @@ namespace Smart_bike_G3.Views
         private DateTime startOrange = DateTime.MinValue;
         private DateTime startRed = DateTime.MinValue;
 
-        //public string Kind;
-
         public bool IsRed { get; private set; }
 
         public Spel123Piano()
@@ -45,17 +43,6 @@ namespace Smart_bike_G3.Views
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
         }
-
-        //public Spel123Piano(string kind)
-        //{
-        //    InitializeComponent();
-        //    Kind = kind;
-        //    Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
-
-        //    Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
-        //}
-
-
 
         private bool GamePlay()
         {
@@ -106,7 +93,7 @@ namespace Smart_bike_G3.Views
 
                 //sent to API
 
-                Navigation.PushAsync(new Scorebord("game")); // push to scoreboard
+                Navigation.PushAsync(new Scorebord()); // push to scoreboard
                 return false;
 
             }

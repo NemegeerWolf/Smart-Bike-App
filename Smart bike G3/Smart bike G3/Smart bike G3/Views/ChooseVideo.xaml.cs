@@ -12,13 +12,10 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChooseVideo : ContentPage
     {
-        public string Kind;
-
-        public ChooseVideo(string kind)
+        
+        public ChooseVideo()
         {
             InitializeComponent();
-            Kind = kind;
-            Console.WriteLine(Kind);
             AddEvents();
             MakeResponsive();
         }
