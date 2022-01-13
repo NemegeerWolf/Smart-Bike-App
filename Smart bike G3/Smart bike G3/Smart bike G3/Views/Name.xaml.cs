@@ -26,7 +26,15 @@ namespace Smart_bike_G3.Views
 
         private void BtnNext_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new VideoOrGame());
+            if (entName.Text != null)
+            {
+                Navigation.PushAsync(new VideoOrGame());
+            }
+            else
+            {
+                lblValidation.IsVisible = true;
+            }
+               
         }
     }
 }

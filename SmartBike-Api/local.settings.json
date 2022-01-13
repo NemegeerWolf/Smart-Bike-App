@@ -1,0 +1,8 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "cosmos": "AccountEndpoint=https://benjaminvier.documents.azure.com:443/;AccountKey=nC81Fm0zZJPjQf0uQPaFbjGeqc0lfwY3YAQ8Rw1dO4iz7VAkj0EYzB631xBiOeeM4VRDdcbtc8NQqRbEQnJ8SQ==;"
+  }
+}

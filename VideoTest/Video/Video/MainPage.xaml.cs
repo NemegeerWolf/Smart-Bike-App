@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit;
-using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 
 namespace Video
@@ -18,9 +17,22 @@ namespace Video
         {
             InitializeComponent();
             setVideoAndAudio(1);
+            AddEvents();
         }
 
 
+        private void AddEvents()
+        {
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+       }
+
+        private void AbsLayBack_Tabbed(object sender, EventArgs e)
+        {
+            Debug.WriteLine("works");
+
+        }
 
 
         private readonly Dictionary<int, string[]> Videos = new Dictionary<int, string[]>() {
@@ -37,9 +49,8 @@ namespace Video
                 bool keyValue = Videos.TryGetValue(videoId, out string[] values);
                 video.Source = values[0];
                 video.Volume = 0;
+                video.IsLooping = false;
                 audio.Source = values[1];
-                
-
             }
             else
             {
@@ -58,6 +69,12 @@ namespace Video
                 Timer timer = new Timer(FixAutoplay, autoEvent, 1000, 0);
 
             });
+        }
+
+        private void Vid_MediaEnded(object sender, EventArgs e)
+        {
+            //send distance to api
+            Debug.WriteLine("sending data to api");
         }
 
         private void FixAutoplay(object e)

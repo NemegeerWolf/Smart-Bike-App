@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.videoScorebord">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
+            <Label Text="Scorebord" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#615C66"/>
+            
+            <ListView x:Name="lvwOverview" RowHeight="100" Margin="64" >
+                <ListView.ItemTemplate>
+                    
+                    <DataTemplate>
+                        
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    
+                                </Grid.ColumnDefinitions>
+
+                                
+                                <StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
+                                    <!--<Label Text="{Binding TimeStamp.Day}" FontAttributes="Bold" TextColor="Black" FontSize="Large"/>-->
+                                    <Label Text="{Binding User}" TextColor="#615C66" FontSize="24"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
+                                    
+                                        <Label Text="{Binding Distance}" TextColor="#615C66" FontSize="24"/>
+                                    
+                                </StackLayout>
+                                
+                            </Grid>
+                        </ViewCell>
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350" />
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="300" />
+                    
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Margin="16" x:Name="btnHome" Text="Home" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
+                <Button Grid.Column="2" Margin="16" x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
