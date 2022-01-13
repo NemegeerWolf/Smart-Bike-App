@@ -25,6 +25,9 @@
     <None Remove="Assets\two_wheeler.png" />
     <None Remove="Assets\video.png" />
     <None Remove="Assets\water_drop.png" />
+    <None Remove="Fonts\Rubik-Bold.ttf" />
+    <None Remove="Fonts\Rubik-Regular.ttf" />
+    <None Remove="Fonts\Rubik-SemiBold.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +39,9 @@
     <EmbeddedResource Include="Assets\two_wheeler.png" />
     <EmbeddedResource Include="Assets\video.png" />
     <EmbeddedResource Include="Assets\water_drop.png" />
+    <EmbeddedResource Include="Fonts\Rubik-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Rubik-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Rubik-SemiBold.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,8 +52,14 @@
 
   <ItemGroup>
     <Reference Include="Mono.Android">
-      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Scorebord.xaml.cs">
+      <DependentUpon>Scorebord.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -57,13 +69,19 @@
     <EmbeddedResource Update="Views\Name.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Overloop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ResultsVideo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Spel123Piano.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\VideoOrGame.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\videoScorebord.xaml">
+    <EmbeddedResource Update="Views\Scorebord.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

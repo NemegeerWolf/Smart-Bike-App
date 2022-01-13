@@ -6,13 +6,13 @@
              BackgroundColor="White">
             
     <ContentPage.Content>
-        <StackLayout Margin="200">
-            <Label Text="Naam" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33" />
-            <Label x:Name="lblValidation" Text="Hier uw Naam en Voornaam invullen!" TextColor="Red" IsVisible="False"/>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="500" Margin="0, 50">
+            <Label FontFamily="Rubik-Bold" Text="Naam" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33" />
+            <Label FontFamily="Rubik-regular" x:Name="lblValidation" Text="Hier uw Naam en Voornaam invullen!" TextColor="Red" IsVisible="False"/>
             <Frame BorderColor="#5589EE" BackgroundColor="#e9f2ff"  CornerRadius="10" >
-                <Entry x:Name="entName" Placeholder="Voornaam Achternaam"  />
+                <Entry FontFamily="Rubik-regular" x:Name="entName" Placeholder="Voornaam Achternaam"  />
             </Frame>
-            <Button x:Name="BtnNext" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
+            <Button FontFamily="Rubik-regular" x:Name="BtnNext" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
 
         </StackLayout>
     </ContentPage.Content>

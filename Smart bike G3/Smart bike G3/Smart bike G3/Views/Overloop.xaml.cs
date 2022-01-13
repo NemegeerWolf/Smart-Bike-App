@@ -7,21 +7,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-Regular")]
-[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
-[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-SemiBold.ttf", Alias = "Rubik-SemiBold")]
-
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class _123Piano : ContentPage
+    public partial class Overloop : ContentPage
     {
         public string Kind;
-        public _123Piano(string kind)
+        public Overloop(string kind)
         {
             InitializeComponent();
             Kind = kind;
-            Console.WriteLine("kind 123piano = " + kind);
+            Console.WriteLine("Kind Overloop = " + kind);
             AddEvents();
         }
 
@@ -39,9 +35,11 @@ namespace Smart_bike_G3.Views
 
         private void btnStart_Clicked(object sender, EventArgs e)
         {
+            Console.WriteLine("Start Overloop");
+
             //start the game
-            Console.WriteLine("Start 123 piano");
-            //Kind meegeven tot aan het scorebord!
+
+            //Kind meegeven met de game tot aan het scorebord!
         }
     }
 }
