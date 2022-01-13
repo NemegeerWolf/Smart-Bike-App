@@ -4,13 +4,13 @@
              x:Class="Smart_bike_G3.Views.ChooseVideo"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Margin="16">
-            <Grid Margin="48">
+        <StackLayout >
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2">
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="32">
                     <Path x:Name="path112">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -25,19 +25,19 @@
 
                 <Label Grid.Column="1" FontFamily="Rubik-Bold" Text="Naar wat wil je luisteren?" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
             </Grid>
-            
-            <Grid Margin="48" RowSpacing="64">
+
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="144"/>
-                    <RowDefinition Height="56" />
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Label Grid.Column="0" Grid.Row="0" Text="Muziek" FontFamily="Rubik-SemiBold" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
-                <AbsoluteLayout HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" x:Name="AbsLayMusic" Scale="10" VerticalOptions="Center">
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" x:Name="AbsLayMusic" Scale="10" VerticalOptions="Center" Margin="50">
                     <Path x:Name="path302">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -51,7 +51,7 @@
                 </AbsoluteLayout>
 
                 <Label Grid.Column="1" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Luisterboek" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
-                <AbsoluteLayout HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" x:Name="AbsLayBook" Scale="10" VerticalOptions="Center">
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" x:Name="AbsLayBook" Scale="10" VerticalOptions="Center" Margin="50">
                     <Path x:Name="path137">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0V0z" FillRule="Nonzero"/>

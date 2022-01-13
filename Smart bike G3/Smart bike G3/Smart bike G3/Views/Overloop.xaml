@@ -4,13 +4,13 @@
              x:Class="Smart_bike_G3.Views.Overloop"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout Margin="16" Spacing="50">
-            <Grid Margin="48">
+        <StackLayout >
+            <Grid VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Margin="32">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2">
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="32">
                     <Path x:Name="path112">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -24,8 +24,10 @@
                 </AbsoluteLayout>
                 <Label Grid.Column="1" Text="Overloop" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             </Grid>
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
             <Label FontSize="24" Text="Fiets zo snel mogelijk dat het glas met water overloopt." HorizontalOptions="Center"/>
             <Button x:Name="btnStart" Text="Start" TextColor="White" HorizontalOptions="Center" BackgroundColor="#5589ee" CornerRadius="10" Clicked="btnStart_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
