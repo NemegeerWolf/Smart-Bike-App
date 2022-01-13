@@ -29,6 +29,7 @@ namespace Smart_bike_G3.Views
         {
             if (entName.Text != null)
             {
+                
                 User = entName.Text;
                 Navigation.PushAsync(new VideoOrGame());
                 

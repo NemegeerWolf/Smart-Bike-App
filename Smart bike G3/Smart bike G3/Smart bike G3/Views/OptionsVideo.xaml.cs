@@ -22,10 +22,15 @@ namespace Smart_bike_G3.Views
             btnSecond.Clicked += BtnSecond_Clicked;
             btnThird.Clicked += BtnThird_Clicked;
             btnFourth.Clicked += BtnFourth_Clicked;
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+
         }
 
         private void BtnFourth_Clicked(object sender, EventArgs e)
         {
+            
             VideoKind = 4;
             Navigation.PushAsync(new ChooseVideo());
         }
@@ -46,6 +51,12 @@ namespace Smart_bike_G3.Views
         {
             VideoKind = 1;
             Navigation.PushAsync(new ChooseVideo());
+        }
+
+        private void AbsLayBack_Tabbed(object sender, EventArgs e)
+        {
+            AbsLayBack.Scale = 1.5;
+            Navigation.PopAsync();
         }
     }
 }
