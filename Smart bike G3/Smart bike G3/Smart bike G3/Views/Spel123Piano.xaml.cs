@@ -9,7 +9,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Xamarin.Essentials;
-
+using Smart_bike_G3.Repositories;
 
 namespace Smart_bike_G3.Views
 {
@@ -105,7 +105,7 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
 
                 //sent to API
-
+                Repository.AddResultsGame(1, "wolf", Convert.ToInt32( Distance), 0);
                 Navigation.PushAsync(new Scorebord("game")); // push to scoreboard
                 return false;
 
@@ -148,6 +148,7 @@ namespace Smart_bike_G3.Views
                 double speed = globalSpeed;
                 if (!(speed <= 0))
                 {
+                    Distance += speed / 1000;
                     foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
                     {
 

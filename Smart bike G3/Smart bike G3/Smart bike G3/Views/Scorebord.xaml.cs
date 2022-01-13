@@ -62,7 +62,8 @@ namespace Smart_bike_G3.Views
                 lvwOverview.ItemsSource = await Repository.GetAllscoresVideoAsync(1);
             } else if (kind == "game")
             {
-                lvwOverview.ItemsSource = await Repository.GetAllscoresGameAsync(1);
+                var i = await Repository.GetAllscoresGameAsync(1);
+                lvwOverview.ItemsSource = i.GetRange(0, 3);
             }
             else
             {
