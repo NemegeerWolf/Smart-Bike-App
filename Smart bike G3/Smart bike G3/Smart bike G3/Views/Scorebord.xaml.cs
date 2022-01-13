@@ -22,9 +22,17 @@ namespace Smart_bike_G3.Views
         //    btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
         //}
 
-        public Scorebord()
+        public Scorebord(int Score)
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+
+            InitializeComponent();
+            string vidorgame = VideoOrGame.Kind;
+            Console.WriteLine(vidorgame);
+
+            lblScore.Text = Score.ToString() + " km";
+            lblName.Text = Name.User;
+
+            if (vidorgame == "video")
             {
                 InitializeComponent();
                 string vidorgame = VideoOrGame.Kind;

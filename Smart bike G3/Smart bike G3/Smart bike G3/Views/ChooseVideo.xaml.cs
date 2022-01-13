@@ -49,6 +49,7 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayBook_Tabbed(object sender, EventArgs e)
         {
+            AbsLayBook.Scale = 8;
             Listening = "luisterboek";
             Console.WriteLine("Tabbed luisterboek");
             Navigation.PushAsync(new VideoPage());
@@ -60,6 +61,7 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayMusic_Tabbed(object sender, EventArgs e)
         {
+            AbsLayBook.Scale = 8;
             Listening = "muziek";
             Console.WriteLine("Tabbed music");
             Navigation.PushAsync(new VideoPage());
@@ -69,6 +71,7 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
+            AbsLayBack.Scale = 1.5;
             Navigation.PopAsync();
         }
     }

@@ -93,7 +93,7 @@ namespace Smart_bike_G3.Views
 
                 //sent to API
                 Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0);
-                Navigation.PushAsync(new Scorebord()); // push to scoreboard
+                Navigation.PushAsync(new Scorebord(Convert.ToInt32(Distance))); // push to scoreboard
                 return false;
 
             }
@@ -136,6 +136,7 @@ namespace Smart_bike_G3.Views
                 if (!(speed <= 0))
                 {
                     Distance += speed / 1000;
+                    lblscore.Text = $"{Distance.ToString()} km";
                     foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
                     {
 
