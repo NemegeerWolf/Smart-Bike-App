@@ -64,9 +64,8 @@ namespace Video
             Task.Run(() =>
             {
                 Device.StartTimer(TimeSpan.FromMilliseconds(1000),FixAutoplay);
+                Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
 
-                //var autoEvent = new AutoResetEvent(false);
-                //Timer timer = new Timer(FixAutoplay, autoEvent, 1000, 0);
             });
         }
 
@@ -82,8 +81,7 @@ namespace Video
                 video.Pause();
                 video.IsLooping = false;
                 speed.Text = $"20 km/u";
-                //setSpeed();
-                video.Play();
+                video.Play();//temp
 
             });
             return false;
@@ -92,42 +90,50 @@ namespace Video
 
 
 
-        //-------------TestFuncties tijdelijk-------------//
-        private void setSpeed()
+        private bool IsCycling()
         {
             Random test = new Random();
-            int testSpeed = test.Next(20, 25);
-            speed.Text = $"{testSpeed} km/u";
+            int testSpeed = test.Next(0, 25);
 
-            var autoEvent = new AutoResetEvent(false);
-            Timer timer = new Timer(Update, autoEvent, 1000, 0);
-        }
-
-        private void Update(object e)
-        {
-            setSpeed();
-        }
-
-
-        int toggle = 1;
-       /* private void btnFiets_Clicked(object sender, EventArgs e)
-        {
-            Debug.WriteLine("clicked");
-            if (toggle == 1)
+            float val = testSpeed; //get value from sensor 
+            //calc sensordata to km/u
+            int speedVal = (int) val;
+            speed.Text = $"{speedVal} km/u";
+            if (speedVal > 1)
             {
-                btnFiets.Text = "Stop";
-
                 video.Play();
-                toggle = 2;
             }
             else
             {
-                btnFiets.Text = "Fiets";
-
                 video.Pause();
-                toggle = 1;
             }
-        }*/
-    
+            return true;
+        }
+
+
+        //-------------TestFuncties tijdelijk-------------//
+
+
+
+        //int toggle = 1;
+        /* private void btnFiets_Clicked(object sender, EventArgs e)
+         {
+             Debug.WriteLine("clicked");
+             if (toggle == 1)
+             {
+                 btnFiets.Text = "Stop";
+
+                 video.Play();
+                 toggle = 2;
+             }
+             else
+             {
+                 btnFiets.Text = "Fiets";
+
+                 video.Pause();
+                 toggle = 1;
+             }
+         }*/
+
     }
 }
