@@ -20,7 +20,19 @@ namespace Smart_bike_G3.Views
             Kind = kind;
             Console.WriteLine(Kind);
             AddEvents();
+            MakeResponsive();
         }
+
+        private void MakeResponsive()
+        {
+            // aanpassen aan grote van scherm
+
+            var width = Application.Current.MainPage.Width;
+            var height = Application.Current.MainPage.Height;
+            Console.WriteLine(width + "x" + height);
+            //AbsLayBook.Scale =
+        }
+
         private void AddEvents()
         {
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();

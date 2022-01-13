@@ -16,7 +16,7 @@ namespace Video
         public MainPage()
         {
             InitializeComponent();
-            setVideoAndAudio(1);
+            SetVideoAndAudio(1);
             AddEvents();
         }
 
@@ -42,14 +42,13 @@ namespace Video
        
        
 
-        private void setVideoAndAudio(int videoId)
+        private void SetVideoAndAudio(int videoId)
         {
             if (Videos.ContainsKey(videoId)) 
             {
                 bool keyValue = Videos.TryGetValue(videoId, out string[] values);
                 video.Source = values[0];
                 video.Volume = 0;
-                video.IsLooping = false;
                 audio.Source = values[1];
             }
             else
@@ -64,10 +63,10 @@ namespace Video
 
             Task.Run(() =>
             {
+                Device.StartTimer(TimeSpan.FromMilliseconds(1000),FixAutoplay);
 
-                var autoEvent = new AutoResetEvent(false);
-                Timer timer = new Timer(FixAutoplay, autoEvent, 1000, 0);
-
+                //var autoEvent = new AutoResetEvent(false);
+                //Timer timer = new Timer(FixAutoplay, autoEvent, 1000, 0);
             });
         }
 
@@ -77,16 +76,21 @@ namespace Video
             Debug.WriteLine("sending data to api");
         }
 
-        private void FixAutoplay(object e)
+        private bool FixAutoplay()
         {
             Device.BeginInvokeOnMainThread(() => {
                 video.Pause();
+                video.IsLooping = false;
                 speed.Text = $"20 km/u";
-                setSpeed();
+                //setSpeed();
+                video.Play();
 
             });
-
+            return false;
         }
+
+
+
 
         //-------------TestFuncties tijdelijk-------------//
         private void setSpeed()
@@ -104,8 +108,9 @@ namespace Video
             setSpeed();
         }
 
+
         int toggle = 1;
-        private void btnFiets_Clicked(object sender, EventArgs e)
+       /* private void btnFiets_Clicked(object sender, EventArgs e)
         {
             Debug.WriteLine("clicked");
             if (toggle == 1)
@@ -122,7 +127,7 @@ namespace Video
                 video.Pause();
                 toggle = 1;
             }
-        }
+        }*/
     
     }
 }
