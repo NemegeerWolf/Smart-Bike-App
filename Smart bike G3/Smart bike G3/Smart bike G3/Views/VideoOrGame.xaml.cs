@@ -15,7 +15,7 @@ namespace Smart_bike_G3.Views
         public string Kind = "";
 
         public VideoOrGame()
-        {JA
+        {
             InitializeComponent();
             AddEvents();
         }
