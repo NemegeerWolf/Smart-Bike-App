@@ -92,7 +92,7 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
 
                 //sent to API
-                Repository.AddResultsGame(1, "wolf", Convert.ToInt32( Distance), 0);
+                Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0);
                 Navigation.PushAsync(new Scorebord()); // push to scoreboard
                 return false;
 
