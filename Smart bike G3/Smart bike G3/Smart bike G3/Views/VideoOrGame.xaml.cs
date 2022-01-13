@@ -12,7 +12,8 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoOrGame : ContentPage
     {
-        public string Kind = "";
+        //public static string Kind;
+        public string Kind { get; set; }
 
         public VideoOrGame()
         {

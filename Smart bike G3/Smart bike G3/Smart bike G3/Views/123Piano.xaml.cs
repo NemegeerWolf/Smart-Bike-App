@@ -22,6 +22,9 @@ namespace Smart_bike_G3.Views
             InitializeComponent();
             Kind = kind;
             Console.WriteLine("kind 123piano = " + kind);
+            VideoOrGame vidOrGame = new VideoOrGame();
+            string varVidOrGame = vidOrGame.Kind;
+            Console.WriteLine(varVidOrGame);
             AddEvents();
         }
 
@@ -42,8 +45,10 @@ namespace Smart_bike_G3.Views
             //start the game
             Console.WriteLine("Start 123 piano");
             Navigation.PushAsync(new Spel123Piano());
-            //Navigation.PushAsync(new Spel123Piano(Kind));
+
             //Kind meegeven tot aan het scorebord!
+            //Navigation.PushAsync(new Spel123Piano(Kind));
+            
         }
     }
 }

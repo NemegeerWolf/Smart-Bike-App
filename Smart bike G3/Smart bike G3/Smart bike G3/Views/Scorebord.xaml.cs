@@ -25,7 +25,10 @@ namespace Smart_bike_G3.Views
         public Scorebord(string kind)
         {
             InitializeComponent();
-            
+            VideoOrGame vidOrGame = new VideoOrGame();
+            string varVidOrGame = vidOrGame.Kind;
+            Console.WriteLine(varVidOrGame);
+
             Console.WriteLine(kind);
             if (kind == "video")
             {

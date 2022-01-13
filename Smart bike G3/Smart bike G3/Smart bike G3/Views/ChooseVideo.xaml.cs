@@ -30,6 +30,7 @@ namespace Smart_bike_G3.Views
             var width = Application.Current.MainPage.Width;
             var height = Application.Current.MainPage.Height;
             Console.WriteLine(width + "x" + height);
+            
             //AbsLayBook.Scale =
         }
 
