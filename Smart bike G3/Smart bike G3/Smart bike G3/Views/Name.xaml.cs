@@ -17,6 +17,7 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Name : ContentPage
     {
+        public static string User;
         public Name()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace Smart_bike_G3.Views
             if (entName.Text != null)
             {
                 Navigation.PushAsync(new VideoOrGame());
+                User = entName.Text;
             }
             else
             {
