@@ -12,7 +12,8 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChooseVideo : ContentPage
     {
-        
+
+        public static string Listening;
         public ChooseVideo()
         {
             InitializeComponent();
@@ -48,20 +49,29 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayBook_Tabbed(object sender, EventArgs e)
         {
+            AbsLayBook.Scale = 8;
+            Listening = "luisterboek";
             Console.WriteLine("Tabbed luisterboek");
+            Navigation.PushAsync(new VideoPage());
             //Kind meegeven met de game
             //wordt terug opgehaald in scorebord
         }
 
+        
+
         private void AbsLayMusic_Tabbed(object sender, EventArgs e)
         {
+            AbsLayBook.Scale = 8;
+            Listening = "muziek";
             Console.WriteLine("Tabbed music");
+            Navigation.PushAsync(new VideoPage());
             //Kind meegeven met de game
             //wordt terug opgehaald in scorebord
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
+            AbsLayBack.Scale = 1.5;
             Navigation.PopAsync();
         }
     }
