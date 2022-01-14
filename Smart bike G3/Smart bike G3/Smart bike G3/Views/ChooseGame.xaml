@@ -6,7 +6,7 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout >
-            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="1000">
+            <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand" WidthRequest="1000" Margin="32">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     
@@ -26,7 +26,7 @@
                 <Label Grid.Column="0"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             </Grid>
 
-            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
