@@ -27,7 +27,7 @@ namespace Smart_bike_G3.Views
         private double height;
         private double gap;
         private DisplayInfo mainDisplayInfo;
-        private double globalSpeed = 1000;
+        private double globalSpeed = 100;
         Random random = new Random(Convert.ToInt32(DateTime.Now.Millisecond));
 
         private DateTime startOrange = DateTime.MinValue;
@@ -92,12 +92,14 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
 
                 //sent to API
-                Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0);
-                Navigation.PushAsync(new Scorebord()); // push to scoreboard
+                //Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
+                Navigation.PushAsync(new Scorebord(Convert.ToInt32(Distance))); // push to scoreboard
                 return false;
 
             }
-
+            //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
+            Distance += globalSpeed * 0.0277777778; // meter
+            lblscore.Text = $"{Math.Round(Distance, 4).ToString()} m";
 
 
             return true;
@@ -135,7 +137,7 @@ namespace Smart_bike_G3.Views
                 double speed = globalSpeed;
                 if (!(speed <= 0))
                 {
-                    Distance += speed / 1000;
+                   
                     foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
                     {
 

@@ -1,4 +1,4 @@
-﻿using spel_123_piano.Views;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ namespace spel_123_piano
     {
         //public variables
 
-        public double Distance { get; set; } = 0;
+        public double Distance { get; set; } = 5000; // 5000m / 5km
         public bool GameOver { get; set; } = false;
 
 
@@ -117,14 +117,35 @@ namespace spel_123_piano
 
             //game over went speed more than 1km/u
 
-            if(IsRed == true && globalSpeed > 1)
+            if (IsRed == true && globalSpeed > 1)
             {
-                
+                lblGameOver.Text = "GAME OVER";
+                lblGameOver.TextColor = Brush.Red.Color;
+
+                lblscore.Text = "0";
                 lblGameOver.IsVisible = true;
                 btnRestart.IsVisible = true;
-                Navigation.PushAsync(new Scorebord_123_Piano());
+
+
                 return false;
 
+            }
+
+            Distance -= globalSpeed * 0.0277777778; // meter
+            lblscore.Text = $"{Math.Round(Distance, 4).ToString()} m";
+
+            if (Distance < 0)
+            {
+                lblGameOver.Text = "YOU WIN";
+                lblGameOver.TextColor = Brush.Green.Color;
+
+                lblscore.Text = "0";
+
+                lblGameOver.IsVisible = true;
+                btnRestart.IsVisible = true;
+
+
+                return false;
             }
 
 
@@ -191,12 +212,20 @@ namespace spel_123_piano
                     foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
                     {
 
-
+                        
                         //rectangle.Layout(new Rectangle(rectangle.X, rectangle.Y+70, 10, 10));
 
                         if (rectangle.Y > gap * 6)
                         {
-                            rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 0.2, height));
+                            if (Distance < 30 && Distance > 27)
+                            {
+                                rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width*6 , 20));
+                            }
+                            else if(Distance > 35)
+                            {
+                                rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 0.2, height));
+                            }
+                            
                         }
                         else
                         {
@@ -266,6 +295,10 @@ namespace spel_123_piano
 
         private void btnRestart_Clicked(object sender, EventArgs e)
         {
+            lblGameOver.IsVisible = false;
+            btnRestart.IsVisible = false;
+            Distance = 5000;
+            
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);

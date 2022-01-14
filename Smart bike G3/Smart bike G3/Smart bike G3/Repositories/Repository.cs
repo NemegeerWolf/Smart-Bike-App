@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace Smart_bike_G3.Repositories
 {
@@ -18,6 +19,7 @@ namespace Smart_bike_G3.Repositories
             client.DefaultRequestHeaders.Add("accept", "application/json");
             return client;
         }
+
         public async static Task AddResultsVideo(int videoid, string user, int distance )
         {
             using (HttpClient client = GetHttpClient())
@@ -41,6 +43,7 @@ namespace Smart_bike_G3.Repositories
 
             }
         }
+
         public async static Task AddResultsGame(int gameid, string user, int distance, int speed)
         {
             using (HttpClient client = GetHttpClient())
