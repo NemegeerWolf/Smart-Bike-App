@@ -36,10 +36,10 @@ namespace Smart_bike_G3.Views
 
         private void Loadpictures()
         {
-            imgbtnFirst.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.jpg");
-            imgbtnSecond.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.jpg");
-            imgbtnThird.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.jpg");
-            imgbtnFourth.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.jpg");
+            imgbtnFirst.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
+            imgbtnSecond.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
+            imgbtnThird.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
+            imgbtnFourth.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
         }
 
         private void BtnFourth_Clicked(object sender, EventArgs e)
