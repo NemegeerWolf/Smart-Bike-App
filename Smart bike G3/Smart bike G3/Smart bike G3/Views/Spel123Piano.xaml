@@ -61,12 +61,12 @@
             </Grid>
         </StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start">
-            <Label Text="Tijd:  " TextColor="Blue" FontSize="Large" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-            <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
         </StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-            <Label Text="Distance:  " TextColor="Blue" FontSize="Large" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-            <Label x:Name="lblscore" Text="0" TextColor="Blue" FontSize="Large" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblScoreText" Text="Distance:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblscore" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
         </StackLayout>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
 
