@@ -6,7 +6,7 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
-            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="32">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     
@@ -25,7 +25,7 @@
                 </AbsoluteLayout>
                 <Label FontFamily="Rubik-Bold" Grid.Column="0" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </Grid>
-            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
+            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
