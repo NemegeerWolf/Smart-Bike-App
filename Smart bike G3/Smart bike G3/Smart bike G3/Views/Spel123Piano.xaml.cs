@@ -92,8 +92,8 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
 
                 //sent to API
-                //Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
-                Navigation.PushAsync(new Scorebord(Convert.ToInt32(Distance))); // push to scoreboard
+                // Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
+                Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(Distance))); // push to scoreboard
                 return false;
 
             }

@@ -63,8 +63,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Scorebord.xaml.cs">
-      <DependentUpon>Scorebord.xaml</DependentUpon>
+    <Compile Update="Views\ScorebordTime.xaml.cs">
+      <DependentUpon>ScorebordTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ScorebordDistance.xaml.cs">
+      <DependentUpon>ScorebordDistance.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -93,7 +96,7 @@
     <EmbeddedResource Update="Views\VideoOrGame.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Scorebord.xaml">
+    <EmbeddedResource Update="Views\ScorebordTime.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\VideoPage.xaml">

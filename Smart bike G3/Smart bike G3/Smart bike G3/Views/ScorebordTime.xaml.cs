@@ -1,5 +1,4 @@
-﻿using Smart_bike_G3.Models;
-using Smart_bike_G3.Repositories;
+﻿using Smart_bike_G3.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +11,31 @@ using Xamarin.Forms.Xaml;
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class videoScorebord : ContentPage
+    public partial class ScorebordTime : ContentPage
     {
-        public videoScorebord(int score)
+        
+        //public Scorebord()
+        //{
+        //    InitializeComponent();
+        //    loadData();
+        //    btnHome.Clicked += BtnHome_Clicked;
+        //    btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
+        //}
+
+        public ScorebordTime(int score)
         {
+            
+
+            //InitializeComponent();
+            //string vidorgame = VideoOrGame.Kind;
+            //Console.WriteLine(vidorgame);
+
+            
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                lblScore.Text = score.ToString() + " km";
+                lblScore.Text = score.ToString() + " s";
                 lblName.Text = Name.User;
                 string vidorgame = VideoOrGame.Kind;
                 Console.WriteLine(vidorgame);
@@ -47,6 +62,7 @@ namespace Smart_bike_G3.Views
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
+            
         }
 
         private void BtnOpnieuw_Clicked(object sender, EventArgs e)
@@ -63,15 +79,18 @@ namespace Smart_bike_G3.Views
         {
             if (kind == "video")
             {
-                
                 int videoid = OptionsVideo.VideoId;
-                lvwOverview.ItemsSource = await Repository.GetAllscoresVideoAsync(videoid);
-            }
-            else if (kind == "game")
+                var i = await Repository.GetAllscoresVideoAsync(videoid);
+                if (i.Count >= 3) { lvwOverview.ItemsSource = i.GetRange(0, 3); }
+                else { lvwOverview.ItemsSource = i; }
+            } else if (kind == "game")
             {
-                var i = await Repository.GetAllscoresGameAsync(1);
-
-                lvwOverview.ItemsSource = i.GetRange(0, 3);
+                int gameid = ChooseGame.gameId;
+                var i = await Repository.GetAllscoresGameAsync(gameid);
+                
+                if (i.Count >= 3) { lvwOverview.ItemsSource = i.GetRange(0, 3); }
+                else { lvwOverview.ItemsSource = i; }
+                
             }
             else
             {

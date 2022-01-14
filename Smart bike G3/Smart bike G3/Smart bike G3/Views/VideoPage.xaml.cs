@@ -65,7 +65,7 @@ namespace Smart_bike_G3.Views
 
         private void SetVideoAndAudio()
         {
-            int videoId = OptionsVideo.VideoKind;
+            int videoId = OptionsVideo.VideoId;
             Debug.WriteLine(videoId);
             if (Videos.ContainsKey(videoId))
             {
@@ -100,11 +100,11 @@ namespace Smart_bike_G3.Views
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
             playing = false;
-            int videoId = OptionsVideo.VideoKind;
+            int videoId = OptionsVideo.VideoId;
             string user = Name.User;
             Repository.AddResultsVideo(videoId, user, 400);
             Debug.WriteLine("sending data to api");
-            Navigation.PushAsync(new Scorebord());
+            Navigation.PushAsync(new ScorebordDistance(100));
 
         }
 
