@@ -16,8 +16,8 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Spel123Piano : ContentPage
     {//public variables
-
-        public double Distance { get; set; } = 0;
+        public double Time = 0;
+        public double Distance { get; set; } = 100; // 1000m / 1km
         public bool GameOver { get; set; } = false;
 
         // local variables
@@ -39,14 +39,31 @@ namespace Smart_bike_G3.Views
         {
             InitializeComponent();
 
+            lblscore.FontSize += 10;
+
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
+            Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
+        }
+
+        private bool ChangeTime()
+        {
+            if(lblGameOver.IsVisible == false)
+            {
+                Time += 1;
+                var dateTime = DateTime.MinValue.AddSeconds(Time);
+                lblTime.Text = $"{dateTime.Hour}U{dateTime.Minute}min{dateTime.Second}" ;
+                return true;
+            }
+            return false;
+            
         }
 
         private bool GamePlay()
         {
             globalSpeed = 30;// read sensor here
+
 
 
             // lights
@@ -92,15 +109,33 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
 
                 //sent to API
-                //Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
+                //Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // disable for not filling the database 
                 Navigation.PushAsync(new Scorebord(Convert.ToInt32(Distance))); // push to scoreboard
                 return false;
-
+                
             }
-            //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
-            Distance += globalSpeed * 0.0277777778; // meter
-            lblscore.Text = $"{Math.Round(Distance, 4).ToString()} m";
 
+            //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
+            Distance -= globalSpeed * 0.0277777778; // meter
+            lblscore.Text = $"{Math.Round(Distance, 4).ToString()} m";
+            // if finished ...
+            if (Distance < 0)
+            {
+                lblGameOver.Text = "YOU WIN";
+                lblGameOver.TextColor = Brush.Green.Color;
+
+                lblscore.Text = "0";
+
+                lblGameOver.IsVisible = true;
+                btnRestart.IsVisible = true;
+
+                var dateTime = DateTime.MinValue.AddSeconds(Time);
+                btnRestart.Text = $"{dateTime.Hour}U{dateTime.Minute}min{dateTime.Second}";
+                
+                Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Time), 0);
+                Navigation.PushAsync(new Scorebord(Convert.ToInt32(Time))); // push to scoreboard
+                return false;
+            }
 
             return true;
         }
@@ -216,9 +251,18 @@ namespace Smart_bike_G3.Views
 
         private void btnRestart_Clicked(object sender, EventArgs e)
         {
+            setup();
+
+            lblGameOver.IsVisible = false;
+            btnRestart.IsVisible = false;
+            Distance = 500;
+            Time = 0;
+
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
+
+            Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
         }
     }
 }

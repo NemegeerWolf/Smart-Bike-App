@@ -104,7 +104,7 @@ namespace Smart_bike_G3.Views
             string user = Name.User;
             Repository.AddResultsVideo(videoId, user, 400);
             Debug.WriteLine("sending data to api");
-            Navigation.PushAsync(new Scorebord());
+            Navigation.PushAsync(new Scorebord(200));
 
         }
 
