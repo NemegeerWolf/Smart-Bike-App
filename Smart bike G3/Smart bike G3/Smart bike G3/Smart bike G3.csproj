@@ -53,6 +53,7 @@
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.1" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="YoutubeExplode" Version="6.0.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,8 +63,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Scorebord.xaml.cs">
-      <DependentUpon>Scorebord.xaml</DependentUpon>
+    <Compile Update="Views\ScorebordTime.xaml.cs">
+      <DependentUpon>ScorebordTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ScorebordDistance.xaml.cs">
+      <DependentUpon>ScorebordDistance.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -92,7 +96,7 @@
     <EmbeddedResource Update="Views\VideoOrGame.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Scorebord.xaml">
+    <EmbeddedResource Update="Views\ScorebordTime.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\VideoPage.xaml">

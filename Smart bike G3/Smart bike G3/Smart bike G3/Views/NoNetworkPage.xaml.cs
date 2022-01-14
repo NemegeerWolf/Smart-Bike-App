@@ -7,6 +7,10 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-Regular")]
+[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
+[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-SemiBold.ttf", Alias = "Rubik-SemiBold")]
+
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -16,13 +20,15 @@ namespace Smart_bike_G3.Views
         {
             InitializeComponent();
             imgNoInternet.Source = ImageSource.FromResource(@"Smart_Bike_G3.Assets.no_wifi.png");
+
+            Connectivity.ConnectivityChanged += btnTryAgain_Clicked;
         }
 
         private void btnTryAgain_Clicked(object sender, EventArgs e)
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                Navigation.PushAsync(new Scorebord());
+                Navigation.PushAsync(new Name());
             }
             else
             {
