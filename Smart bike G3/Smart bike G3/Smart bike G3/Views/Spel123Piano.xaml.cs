@@ -53,7 +53,7 @@ namespace Smart_bike_G3.Views
             {
                 Time += 1;
                 var dateTime = DateTime.MinValue.AddSeconds(Time);
-                lblTime.Text = $"{dateTime.Hour}U{dateTime.Minute}min{dateTime.Second}" ;
+                lblTime.Text = $"{dateTime.Minute}min{dateTime.Second}" ;
                 return true;
             }
             return false;
@@ -130,7 +130,7 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
 
                 var dateTime = DateTime.MinValue.AddSeconds(Time);
-                btnRestart.Text = $"{dateTime.Hour}U{dateTime.Minute}min{dateTime.Second}";
+                btnRestart.Text = $"{dateTime.Minute}min{dateTime.Second}";
                 
                 Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Time), 0);
                 Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(Time))); // push to scoreboard
