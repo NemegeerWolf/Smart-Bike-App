@@ -32,25 +32,25 @@ namespace Smart_bike_G3.Views
         {
             
             VideoKind = 4;
-            Navigation.PushAsync(new ChooseVideo());
+            Navigation.PushAsync(new VideoPage());
         }
 
         private void BtnThird_Clicked(object sender, EventArgs e)
         {
             VideoKind = 3;
-            Navigation.PushAsync(new ChooseVideo());
+            Navigation.PushAsync(new VideoPage());
         }
 
         private void BtnSecond_Clicked(object sender, EventArgs e)
         {
             VideoKind = 2;
-            Navigation.PushAsync(new ChooseVideo());
+            Navigation.PushAsync(new VideoPage());
         }
 
         private void BtnFirst_Clicked(object sender, EventArgs e)
         {
             VideoKind = 1;
-            Navigation.PushAsync(new ChooseVideo());
+            Navigation.PushAsync(new VideoPage());
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
