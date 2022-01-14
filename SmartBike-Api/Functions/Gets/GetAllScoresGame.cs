@@ -23,13 +23,13 @@ namespace SmartBike_Api.Functions.Gets
             log.LogInformation("Calling GetAllScoresGame");
             if (gameid == 1)
             {
-                QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by i.speed desc").WithParameter("@gameId", gameid);
+                QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by i.speed asc").WithParameter("@gameId", gameid);
                 List<Game> items = await GetScoresAsync(query);
                 return new OkObjectResult(items);
             }
             else if (gameid == 2)
             {
-                QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by speed desc").WithParameter("@gameId", gameid);
+                QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by speed asc").WithParameter("@gameId", gameid);
                 return new OkObjectResult(GetScoresAsync(query));
             }
             else if (gameid == 3)

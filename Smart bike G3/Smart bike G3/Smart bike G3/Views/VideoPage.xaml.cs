@@ -25,8 +25,6 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-
-
                 SetVideoAndAudio();
                 AddEvents();
                 NavigationPage.SetHasNavigationBar(this, false);
@@ -71,9 +69,11 @@ namespace Smart_bike_G3.Views
             {
                 bool keyValue = Videos.TryGetValue(videoId, out string[] values);
                 GetYoutubeSource(values[0]);
-                audio.Source = values[1];
-                audio.IsLooping = true;
-
+                if (videoId == 3 || videoId == 4)
+                {
+                    audio.Source = values[1];
+                    audio.IsLooping = true;
+                }
             }
             else
             {
@@ -91,10 +91,23 @@ namespace Smart_bike_G3.Views
                 speed.Text = "0 km/h";
                 loading.IsVisible = false;
                 speedframe.IsVisible = true;
-                Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
+                Device.StartTimer(TimeSpan.FromMilliseconds(1000), SetAgain); //fix loading bug
+                Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
                 Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
-                video.Volume = 0;
+                int videoId = OptionsVideo.VideoId;
+                if (videoId == 3 || videoId == 4)
+                {
+                    video.Volume = 0;
+                }
+                
             });
+        }
+
+        private bool SetAgain()
+        {
+            loading.IsVisible = false;
+            speedframe.IsVisible = true;
+            return false;
         }
 
         private void Vid_MediaEnded(object sender, EventArgs e)
@@ -106,7 +119,10 @@ namespace Smart_bike_G3.Views
             Debug.WriteLine("sending data to api");
             Navigation.PushAsync(new ScorebordDistance(100));
 
+
         }
+
+      
 
         private bool FixAutoplay()
         {
