@@ -25,6 +25,8 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+
+
                 SetVideoAndAudio();
                 AddEvents();
                 NavigationPage.SetHasNavigationBar(this, false);
