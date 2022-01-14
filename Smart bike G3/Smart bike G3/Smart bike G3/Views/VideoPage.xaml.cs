@@ -84,31 +84,21 @@ namespace Smart_bike_G3.Views
 
         private void Vid_MediaOpened(object sender, EventArgs e)
         {
-
-            Task.Run(() =>
-            {
-                playing = true;
-                speed.Text = "0 km/h";
-                loading.IsVisible = false;
-                speedframe.IsVisible = true;
-                Device.StartTimer(TimeSpan.FromMilliseconds(1000), SetAgain); //fix loading bug
-                Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
-                Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
-                int videoId = OptionsVideo.VideoId;
-                if (videoId == 3 || videoId == 4)
-                {
-                    video.Volume = 0;
-                }
-                
-            });
-        }
-
-        private bool SetAgain()
-        {
             loading.IsVisible = false;
             speedframe.IsVisible = true;
-            return false;
+            playing = true;
+            speed.Text = "0 km/h";
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
+            int videoId = OptionsVideo.VideoId;
+            if (videoId == 3 || videoId == 4)
+            {
+                video.Volume = 0;
+            }
+
         }
+
+     
 
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
@@ -130,7 +120,7 @@ namespace Smart_bike_G3.Views
                 video.Pause();
                 video.IsLooping = false;
                 speed.Text = $"20 km/u";
-                video.Play();//temp
+                //video.Play();//temp
 
             });
             return false;
