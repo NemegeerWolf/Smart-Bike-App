@@ -25,8 +25,6 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-
-
                 SetVideoAndAudio();
                 AddEvents();
                 NavigationPage.SetHasNavigationBar(this, false);
@@ -40,12 +38,6 @@ namespace Smart_bike_G3.Views
         }
         private bool playing = false;
 
-        private bool SetAgain()
-        {
-            int videoId = OptionsVideo.VideoId;
-            string user = Name.User;
-            return false;
-        }
         private void AddEvents()
         {
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
@@ -77,9 +69,11 @@ namespace Smart_bike_G3.Views
             {
                 bool keyValue = Videos.TryGetValue(videoId, out string[] values);
                 GetYoutubeSource(values[0]);
-                audio.Source = values[1];
-                audio.IsLooping = true;
-
+                if (videoId == 3 || videoId == 4)
+                {
+                    audio.Source = values[1];
+                    audio.IsLooping = true;
+                }
             }
             else
             {
@@ -90,19 +84,21 @@ namespace Smart_bike_G3.Views
 
         private void Vid_MediaOpened(object sender, EventArgs e)
         {
-
-            Task.Run(() =>
+            loading.IsVisible = false;
+            speedframe.IsVisible = true;
+            playing = true;
+            speed.Text = "0 km/h";
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
+            int videoId = OptionsVideo.VideoId;
+            if (videoId == 3 || videoId == 4)
             {
-                playing = true;
-                speed.Text = "0 km/h";
-                loading.IsVisible = false;
-                speedframe.IsVisible = true;
-                Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
-                Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
                 video.Volume = 0;
-                Device.StartTimer(TimeSpan.FromMilliseconds(1000), SetAgain);
-            });
+            }
+
         }
+
+     
 
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
@@ -111,11 +107,12 @@ namespace Smart_bike_G3.Views
             string user = Name.User;
             Repository.AddResultsVideo(videoId, user, 400);
             Debug.WriteLine("sending data to api");
-            
             Navigation.PushAsync(new ScorebordDistance(100));
-            
+
 
         }
+
+      
 
         private bool FixAutoplay()
         {
@@ -123,7 +120,7 @@ namespace Smart_bike_G3.Views
                 video.Pause();
                 video.IsLooping = false;
                 speed.Text = $"20 km/u";
-                video.Play();//temp
+                //video.Play();//temp
 
             });
             return false;
