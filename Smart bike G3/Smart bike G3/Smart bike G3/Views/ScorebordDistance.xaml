@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_bike_G3.Views.ScorebordDistance"
-             xmlns:controls="clr-namespace:Android.Service.Controls;assembly=Mono.Android"
-             NavigationPage.HasNavigationBar="False" Background="White">
+             
+             NavigationPage.HasNavigationBar="False" Background="White"
+             BackgroundColor="White">
     <ContentPage.Content>
 
         <StackLayout Margin="16" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
