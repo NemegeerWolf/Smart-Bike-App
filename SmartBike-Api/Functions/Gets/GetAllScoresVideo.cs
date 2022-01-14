@@ -23,7 +23,7 @@ namespace SmartBike_Api.Functions.Gets
             log.LogInformation("Calling GetAllScoresVideo");
             QueryDefinition query = new QueryDefinition("select * from Videos i where i.videoId = @videoId order by i.distance desc").WithParameter("@videoId", videoid);
             List<Video> items = await GetScoresAsync(query);
-            return new OkObjectResult(items);
+            return new OkObjectResult(AddRank(items));
         }
         public static async Task<List<Video>> GetScoresAsync(QueryDefinition query)
         {
@@ -42,6 +42,18 @@ namespace SmartBike_Api.Functions.Gets
                 }
             }
             return items;
+        }
+        public static List<VideoRank> AddRank(List<Video> scores)
+        {
+            int count = 0;
+            List<VideoRank> ranks = new List<VideoRank>();
+            foreach (var i in scores)
+            {
+                count += 1;
+                ranks.Add(new VideoRank { VideoId = i.VideoId, Distance = i.Distance, id = i.id, User = i.User, Rank = count });
+            }
+
+            return ranks;
         }
     }
     

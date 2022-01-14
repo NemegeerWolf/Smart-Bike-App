@@ -24,6 +24,8 @@
     <None Remove="Assets\traffic_light.png" />
     <None Remove="Assets\two_wheeler.png" />
     <None Remove="Assets\video.png" />
+    <None Remove="Assets\video1.jpg" />
+    <None Remove="Assets\video1.png" />
     <None Remove="Assets\water_drop.png" />
     <None Remove="Fonts\game_over.ttf" />
     <None Remove="Fonts\Rubik-Bold.ttf" />
@@ -39,6 +41,8 @@
     <EmbeddedResource Include="Assets\traffic_light.png" />
     <EmbeddedResource Include="Assets\two_wheeler.png" />
     <EmbeddedResource Include="Assets\video.png" />
+    <EmbeddedResource Include="Assets\video1.jpg" />
+    <EmbeddedResource Include="Assets\video1.png" />
     <EmbeddedResource Include="Assets\water_drop.png" />
     <EmbeddedResource Include="Fonts\game_over.ttf" />
     <EmbeddedResource Include="Fonts\Rubik-Bold.ttf" />

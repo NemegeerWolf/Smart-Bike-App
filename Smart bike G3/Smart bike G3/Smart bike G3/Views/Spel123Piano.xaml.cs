@@ -17,7 +17,7 @@ namespace Smart_bike_G3.Views
     public partial class Spel123Piano : ContentPage
     {//public variables
         public double Time = 0;
-        public double Distance { get; set; } = 100; // 1000m / 1km
+        public double Distance { get; set; } = 1000; // 1000m / 1km
         public bool GameOver { get; set; } = false;
 
         // local variables
@@ -53,7 +53,7 @@ namespace Smart_bike_G3.Views
             {
                 Time += 1;
                 var dateTime = DateTime.MinValue.AddSeconds(Time);
-                lblTime.Text = $"{dateTime.Hour}U{dateTime.Minute}min{dateTime.Second}" ;
+                lblTime.Text = $"{dateTime.Minute}min{dateTime.Second}" ;
                 return true;
             }
             return false;
@@ -117,20 +117,20 @@ namespace Smart_bike_G3.Views
 
             //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
             Distance -= globalSpeed * 0.0277777778; // meter
-            lblscore.Text = $"{Math.Round(Distance, 4).ToString()} m";
+            lblscore.Text = $"{Math.Round(Distance, 0).ToString()} m";
             // if finished ...
             if (Distance < 0)
             {
                 lblGameOver.Text = "YOU WIN";
                 lblGameOver.TextColor = Brush.Green.Color;
 
-                lblscore.Text = "0";
+                lblscore.Text = "0 m";
 
                 lblGameOver.IsVisible = true;
                 btnRestart.IsVisible = true;
 
                 var dateTime = DateTime.MinValue.AddSeconds(Time);
-                btnRestart.Text = $"{dateTime.Hour}U{dateTime.Minute}min{dateTime.Second}";
+                btnRestart.Text = $"{dateTime.Minute}min{dateTime.Second}";
                 
                 Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Time), 0);
                 Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(Time))); // push to scoreboard
