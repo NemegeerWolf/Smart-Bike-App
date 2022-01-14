@@ -21,15 +21,25 @@ namespace Smart_bike_G3.Views
         public OptionsVideo()
         {
             InitializeComponent();
-            
-            btnFirst.Clicked += BtnFirst_Clicked;
-            btnSecond.Clicked += BtnSecond_Clicked;
-            btnThird.Clicked += BtnThird_Clicked;
-            btnFourth.Clicked += BtnFourth_Clicked;
+
+            Loadpictures();
+
+            imgbtnFirst.Clicked += BtnFirst_Clicked;
+            imgbtnSecond.Clicked += BtnSecond_Clicked;
+            imgbtnThird.Clicked += BtnThird_Clicked;
+            imgbtnFourth.Clicked += BtnFourth_Clicked;
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
             AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
+        }
+
+        private void Loadpictures()
+        {
+            imgbtnFirst.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.jpg");
+            imgbtnSecond.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.jpg");
+            imgbtnThird.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.jpg");
+            imgbtnFourth.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.jpg");
         }
 
         private void BtnFourth_Clicked(object sender, EventArgs e)

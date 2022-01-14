@@ -23,7 +23,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label Grid.Column="1" Text="Overloop" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label Grid.Column="1" Text="Overloop" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </Grid>
             <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
             <Label FontSize="24" Text="Fiets zo snel mogelijk dat het glas met water overloopt." HorizontalOptions="Center"/>
