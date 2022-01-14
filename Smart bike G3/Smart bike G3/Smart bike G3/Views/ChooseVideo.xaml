@@ -23,7 +23,6 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-
                 <Label Grid.Column="1" FontFamily="Rubik-Bold" Text="Naar wat wil je luisteren?" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
             </Grid>
 
