@@ -110,7 +110,7 @@ namespace Smart_bike_G3.Views
 
                 //sent to API
                 // Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
-                Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(Distance))); // push to scoreboard
+                Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(0))); // push to scoreboard
                 return false;
                 
             }
@@ -133,7 +133,7 @@ namespace Smart_bike_G3.Views
                 btnRestart.Text = $"{dateTime.Hour}U{dateTime.Minute}min{dateTime.Second}";
                 
                 Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Time), 0);
-                Navigation.PushAsync(new Scorebord(Convert.ToInt32(Time))); // push to scoreboard
+                Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(Time))); // push to scoreboard
                 return false;
             }
 
