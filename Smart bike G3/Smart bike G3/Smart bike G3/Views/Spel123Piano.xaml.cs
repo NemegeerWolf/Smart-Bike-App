@@ -39,7 +39,7 @@ namespace Smart_bike_G3.Views
         {
             InitializeComponent();
 
-            lblscore.FontSize += 10;
+            
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
@@ -177,11 +177,19 @@ namespace Smart_bike_G3.Views
                     {
 
 
-                        
+
 
                         if (rectangle.Y > gap * 6)
                         {
-                            rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 0.2, height));
+                            if (Distance < 30 && Distance > 27)
+                            {
+                                rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 6, 20));
+                            }
+                            else if (Distance > 35)
+                            {
+                                rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 0.2, height));
+                            }
+
                         }
                         else
                         {
