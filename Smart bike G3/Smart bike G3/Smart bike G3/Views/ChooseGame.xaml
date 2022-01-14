@@ -6,12 +6,12 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout >
-            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" WidthRequest="1000">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    
                 </Grid.ColumnDefinitions>
-                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="32">
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="20, 0">
                     <Path x:Name="path112">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -23,21 +23,21 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label Grid.Column="0"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             </Grid>
 
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="1 2 3 Piano" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
-                <AbsoluteLayout x:Name="AbsLay123piano" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Scale="10" VerticalOptions="Center" Margin="50">
+                <Label Grid.Column="0" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="1 2 3 Piano" FontSize="30" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <AbsoluteLayout x:Name="AbsLay123piano" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Scale="8" VerticalOptions="Center" Margin="50">
                     <Path x:Name="path252">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0V0z" FillRule="Nonzero"/>
@@ -50,8 +50,8 @@
                     </Path>
                 </AbsoluteLayout>
 
-                <Label Grid.Column="1" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Hill Climb Racing" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
-                <AbsoluteLayout x:Name="AbsLayHillClimb" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" Scale="10" VerticalOptions="Center">
+                <Label Grid.Column="1" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Hill Climb Racing" FontSize="30" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <AbsoluteLayout x:Name="AbsLayHillClimb" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" Scale="8" VerticalOptions="Center">
                     <AbsoluteLayout>
                         <Rectangle AbsoluteLayout.LayoutBounds="0,0" WidthRequest="24" HeightRequest="24" x:Name="rect224"/>
                         <Path x:Name="path226" Fill="#5589EE">
@@ -62,8 +62,8 @@
                     </AbsoluteLayout>
                 </AbsoluteLayout>
 
-                <Label Grid.Column="2" Grid.Row="0"  FontFamily="Rubik-SemiBold" Text="Overloop" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
-                <AbsoluteLayout x:Name="AbsLayOverloop" HorizontalOptions="CenterAndExpand" Grid.Column="2" Grid.Row="1" Scale="10" VerticalOptions="Center">
+                <Label Grid.Column="2" Grid.Row="0"  FontFamily="Rubik-SemiBold" Text="Overloop" FontSize="30" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                <AbsoluteLayout x:Name="AbsLayOverloop" HorizontalOptions="CenterAndExpand" Grid.Column="2" Grid.Row="1" Scale="8" VerticalOptions="Center">
                     <Rectangle WidthRequest="24" HeightRequest="24" x:Name="rect162"/>
                     <Path x:Name="path164" Fill="#5589EE">
                         <Path.Data>
