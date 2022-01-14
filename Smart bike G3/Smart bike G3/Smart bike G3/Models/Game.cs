@@ -20,12 +20,20 @@ namespace Smart_bike_G3.Models
         {
             get
             {
-                return $"{this.Distance} km";
+                return $"{this.Distance} m";
             }
         }
 
         [JsonProperty("speed")]
         public float Speed { get; set; }
+
+        public string SpeedString
+        {
+            get
+            {
+                return $"{this.Speed} s";
+            }
+        }
 
         [JsonProperty("id")]
         public string id { get; set; }

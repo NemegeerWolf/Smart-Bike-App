@@ -22,7 +22,7 @@ namespace Smart_bike_G3.Views
         //    btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
         //}
 
-        public Scorebord(int Score)
+        public Scorebord(int score)
         {
             
 
@@ -35,7 +35,7 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                lblScore.Text = Score.ToString() + " km";
+                lblScore.Text = score.ToString() + " s";
                 lblName.Text = Name.User;
                 string vidorgame = VideoOrGame.Kind;
                 Console.WriteLine(vidorgame);
@@ -82,7 +82,9 @@ namespace Smart_bike_G3.Views
                 lvwOverview.ItemsSource = await Repository.GetAllscoresVideoAsync(1);
             } else if (kind == "game")
             {
-                var i = await Repository.GetAllscoresGameAsync(1);
+                int gameid = ChooseGame.gameId;
+                var i = await Repository.GetAllscoresGameAsync(gameid);
+                
                 lvwOverview.ItemsSource = i.GetRange(0, 3);
             }
             else

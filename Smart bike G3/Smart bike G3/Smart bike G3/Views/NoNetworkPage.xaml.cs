@@ -22,7 +22,7 @@ namespace Smart_bike_G3.Views
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                Navigation.PushAsync(new Scorebord());
+                Navigation.PushAsync(new Name());
             }
             else
             {

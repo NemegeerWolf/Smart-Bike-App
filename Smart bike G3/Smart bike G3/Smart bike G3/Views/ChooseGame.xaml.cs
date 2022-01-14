@@ -27,6 +27,8 @@ namespace Smart_bike_G3.Views
     public partial class ChooseGame : ContentPage
     {
 
+        public static int gameId;
+
         public ChooseGame()
         {
             InitializeComponent();
@@ -60,18 +62,21 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
         {
+            gameId = 2;
             AbsLayOverloop.Scale = 8;
             Navigation.PushAsync(new Overloop());
         }
 
         private void AbsLayHillClimb_Tabbed(object sender, EventArgs e)
         {
+            gameId = 3;
             AbsLayHillClimb.Scale = 8;
             Console.WriteLine("Tabbed hill climb");
         }
 
         private void AbsLay123piano_Tabbed(object sender, EventArgs e)
         {
+            gameId = 1;
             AbsLay123piano.Scale = 8;
             Navigation.PushAsync(new _123Piano());
         }
