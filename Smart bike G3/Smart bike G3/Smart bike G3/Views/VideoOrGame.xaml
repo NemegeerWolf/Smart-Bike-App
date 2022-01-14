@@ -8,10 +8,10 @@
         <StackLayout>
             <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    
                 </Grid.ColumnDefinitions>
-                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="End" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="32">
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="20, 0">
                     <Path x:Name="path112">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -23,7 +23,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label FontFamily="Rubik-Bold" Grid.Column="1" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label FontFamily="Rubik-Bold" Grid.Column="0" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </Grid>
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
                 <Grid.ColumnDefinitions>
@@ -32,12 +32,12 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
                    
                 </Grid.RowDefinitions>
                 <Label Grid.Column="0" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Videos" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
 
-                <AbsoluteLayout x:Name="AbsLayVideo" HorizontalOptions="CenterAndExpand"  Grid.Column="0" Grid.Row="1" Scale="10" VerticalOptions="Center" Margin="50" >
+                <AbsoluteLayout x:Name="AbsLayVideo" HorizontalOptions="CenterAndExpand"  Grid.Column="0" Grid.Row="1" Scale="6" VerticalOptions="Center" Margin="50" >
                     <Path x:Name="path277">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z"/>
@@ -51,7 +51,7 @@
                 </AbsoluteLayout>
 
                 <Label Grid.Column="1"  Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Games" FontSize="40" HorizontalOptions="Center" TextColor="#615C66"/>
-                <AbsoluteLayout x:Name="AbsLayGame" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" Scale="10" VerticalOptions="Center">
+                <AbsoluteLayout x:Name="AbsLayGame" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" Scale="8" VerticalOptions="Center">
                     <Path x:Name="path191">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0V0z" FillRule="Nonzero"/>
