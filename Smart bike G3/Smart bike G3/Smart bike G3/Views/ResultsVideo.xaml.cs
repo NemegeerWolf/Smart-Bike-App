@@ -37,7 +37,7 @@ namespace Smart_bike_G3.Views
 
         private void BtnScorebord_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Scorebord(-1));
+            Navigation.PushAsync(new ScorebordTime(-1));
         }
 
     }

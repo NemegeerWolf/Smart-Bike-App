@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Scorebord : ContentPage
+    public partial class ScorebordTime : ContentPage
     {
         
         //public Scorebord()
@@ -22,7 +22,7 @@ namespace Smart_bike_G3.Views
         //    btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
         //}
 
-        public Scorebord(int Score)
+        public ScorebordTime(int score)
         {
             
 
@@ -35,7 +35,7 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                lblScore.Text = Score.ToString() + " km";
+                lblScore.Text = score.ToString() + " s";
                 lblName.Text = Name.User;
                 string vidorgame = VideoOrGame.Kind;
                 Console.WriteLine(vidorgame);
@@ -79,11 +79,18 @@ namespace Smart_bike_G3.Views
         {
             if (kind == "video")
             {
-                lvwOverview.ItemsSource = await Repository.GetAllscoresVideoAsync(1);
+                int videoid = OptionsVideo.VideoId;
+                var i = await Repository.GetAllscoresVideoAsync(videoid);
+                if (i.Count >= 3) { lvwOverview.ItemsSource = i.GetRange(0, 3); }
+                else { lvwOverview.ItemsSource = i; }
             } else if (kind == "game")
             {
-                var i = await Repository.GetAllscoresGameAsync(1);
-                lvwOverview.ItemsSource = i.GetRange(0, 3);
+                int gameid = ChooseGame.gameId;
+                var i = await Repository.GetAllscoresGameAsync(gameid);
+                
+                if (i.Count >= 3) { lvwOverview.ItemsSource = i.GetRange(0, 3); }
+                else { lvwOverview.ItemsSource = i; }
+                
             }
             else
             {

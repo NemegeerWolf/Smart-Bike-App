@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.Scorebord"
+             x:Class="Smart_bike_G3.Views.ScorebordTime"
              xmlns:controls="clr-namespace:Android.Service.Controls;assembly=Mono.Android"
              NavigationPage.HasNavigationBar="False" Background="White">
     <ContentPage.Content>
@@ -33,7 +33,7 @@
                                                     <Label Grid.Column="0" FontFamily="Rubik-Regular"  Text="1." TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                                                     <!--Text="{Binding Position} "-->
                                                     <Label Grid.Column="1" FontFamily="Rubik-Regular" Text="{Binding User}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                                    <Label Grid.Column="2" FontFamily="Rubik-Regular" Text="{Binding DistanceString}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                                    <Label Grid.Column="2" FontFamily="Rubik-Regular" Text="{Binding SpeedString}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                                                 </Grid>
 
                                             </StackLayout>
@@ -57,8 +57,8 @@
                     </ListView>
 
                     <Grid  Margin="42,0,42,20" >
-                        <Frame BorderColor="#5589EE" CornerRadius="50" BackgroundColor="#E9F2FF">
-
+                        <Frame BorderColor="#5589EE" HasShadow="True"  CornerRadius="50" BackgroundColor="#E9F2FF">
+                        
 
                             <StackLayout Margin="0" >
                                 <Grid Margin="0">

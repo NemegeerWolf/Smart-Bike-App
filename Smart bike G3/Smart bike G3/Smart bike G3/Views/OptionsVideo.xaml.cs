@@ -13,7 +13,7 @@ namespace Smart_bike_G3.Views
     public partial class OptionsVideo : ContentPage
     {
 
-        public static int VideoKind;
+        public static int VideoId;
         public OptionsVideo()
         {
             InitializeComponent();
@@ -31,26 +31,26 @@ namespace Smart_bike_G3.Views
         private void BtnFourth_Clicked(object sender, EventArgs e)
         {
             
-            VideoKind = 4;
-            Navigation.PushAsync(new ChooseVideo());
+            VideoId = 4;
+            Navigation.PushAsync(new VideoPage());
         }
 
         private void BtnThird_Clicked(object sender, EventArgs e)
         {
-            VideoKind = 3;
-            Navigation.PushAsync(new ChooseVideo());
+            VideoId= 3;
+            Navigation.PushAsync(new VideoPage());
         }
 
         private void BtnSecond_Clicked(object sender, EventArgs e)
         {
-            VideoKind = 2;
-            Navigation.PushAsync(new ChooseVideo());
+            VideoId = 2;
+            Navigation.PushAsync(new VideoPage());
         }
 
         private void BtnFirst_Clicked(object sender, EventArgs e)
         {
-            VideoKind = 1;
-            Navigation.PushAsync(new ChooseVideo());
+            VideoId = 1;
+            Navigation.PushAsync(new VideoPage());
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
