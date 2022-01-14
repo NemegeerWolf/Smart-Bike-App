@@ -123,7 +123,7 @@ namespace spel_123_piano
             //    lblGameOver.Text = "GAME OVER";
             //    lblGameOver.TextColor = Brush.Red.Color;
 
-            
+
             //    lblGameOver.IsVisible = true;
             //    btnRestart.IsVisible = true;
 
