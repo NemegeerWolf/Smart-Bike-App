@@ -7,6 +7,7 @@
         <Grid>
             <xct:MediaElement x:Name="audio" HeightRequest="0" WidthRequest="0"/>
             <xct:MediaElement x:Name="video" MediaOpened="Vid_MediaOpened" MediaEnded="Vid_MediaEnded" VerticalOptions="FillAndExpand" Aspect="AspectFill" ShowsPlaybackControls="False" IsLooping="False" />
+            <Label x:Name="loading" Text="Loading..." FontSize="Header" TextColor="White" VerticalOptions="Center" HorizontalOptions="Center"/>
             <Grid Margin="48">
                 <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Scale="2">
                     <Path x:Name="path112">
@@ -20,7 +21,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Frame BackgroundColor="DimGray" CornerRadius="15" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand">
+                <Frame x:Name="speedframe" IsVisible="false" BackgroundColor="DimGray" CornerRadius="15" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand">
                     <Label x:Name="speed" FontAttributes="Bold" FontSize="36" TextColor="Black" HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center" Margin="0,-5,0,0"/>
                 </Frame>

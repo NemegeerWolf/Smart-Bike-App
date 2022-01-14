@@ -9,7 +9,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Xamarin.Essentials;
-
+using Smart_bike_G3.Repositories;
 
 namespace Smart_bike_G3.Views
 {
@@ -27,13 +27,11 @@ namespace Smart_bike_G3.Views
         private double height;
         private double gap;
         private DisplayInfo mainDisplayInfo;
-        private double globalSpeed = 1000;
+        private double globalSpeed = 100;
         Random random = new Random(Convert.ToInt32(DateTime.Now.Millisecond));
 
         private DateTime startOrange = DateTime.MinValue;
         private DateTime startRed = DateTime.MinValue;
-
-        //public string Kind;
 
         public bool IsRed { get; private set; }
 
@@ -45,17 +43,6 @@ namespace Smart_bike_G3.Views
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
         }
-
-        //public Spel123Piano(string kind)
-        //{
-        //    InitializeComponent();
-        //    Kind = kind;
-        //    Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
-
-        //    Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
-        //}
-
-
 
         private bool GamePlay()
         {
@@ -105,12 +92,14 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
 
                 //sent to API
-
-                Navigation.PushAsync(new Scorebord("game")); // push to scoreboard
+                //Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
+                Navigation.PushAsync(new Scorebord(Convert.ToInt32(Distance))); // push to scoreboard
                 return false;
 
             }
-
+            //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
+            Distance += globalSpeed * 0.0277777778; // meter
+            lblscore.Text = $"{Math.Round(Distance, 4).ToString()} m";
 
 
             return true;
@@ -148,6 +137,7 @@ namespace Smart_bike_G3.Views
                 double speed = globalSpeed;
                 if (!(speed <= 0))
                 {
+                   
                     foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
                     {
 

@@ -12,12 +12,9 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Overloop : ContentPage
     {
-        public string Kind;
-        public Overloop(string kind)
+        public Overloop()
         {
             InitializeComponent();
-            Kind = kind;
-            Console.WriteLine("Kind Overloop = " + kind);
             AddEvents();
         }
 

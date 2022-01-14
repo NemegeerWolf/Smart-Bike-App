@@ -2,63 +2,98 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_bike_G3.Views.Scorebord"
-             xmlns:controls="clr-namespace:Android.Service.Controls;assembly=Mono.Android">
+             xmlns:controls="clr-namespace:Android.Service.Controls;assembly=Mono.Android"
+             NavigationPage.HasNavigationBar="False" Background="White">
     <ContentPage.Content>
-        <StackLayout>
-            <Label  FontFamily="Rubik-Bold" Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
-            <Label FontFamily="Rubik-SemiBold" Text="Scorebord" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#615C66"/>
-            
-            <ListView x:Name="lvwOverview" RowHeight="75" Margin="64" >
-                
-                <ListView.ItemTemplate>
-                    
-                    <DataTemplate>
-                        
-                        <ViewCell>
-                            <Grid  Margin="2" >
-                                <Frame BorderColor="#5589EE" CornerRadius="10" BackgroundColor="#E9F2FF">
+
+        <StackLayout Margin="16" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <ScrollView>
+                <StackLayout>
+                    <!--<Label  FontFamily="Rubik-Bold" Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>-->
+                    <Label FontFamily="Rubik-Bold" Text="Scorebord" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
+
+                    <ListView x:Name="lvwOverview" Margin="40,0" RowHeight="75" HeightRequest="235" SelectionMode="None">
+
+                        <ListView.ItemTemplate>
+
+                            <DataTemplate>
+
+                                <ViewCell>
+                                    <Grid  Margin="2" >
+                                        <Frame BorderColor="#5589EE" CornerRadius="50" BackgroundColor="#E9F2FF">
 
 
-                                    <StackLayout Margin="0">
-                                        <Grid Margin="0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" FontFamily="Rubik-Regular" Text="{Binding User}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                            <Label Grid.Column="1" FontFamily="Rubik-Regular" Text="{Binding DistanceString}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                        </Grid>
-                                        
-                                    </StackLayout>
-                                
-                                <!--<StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
-                                    --><!--<Label Text="{Binding TimeStamp.Day}" FontAttributes="Bold" TextColor="Black" FontSize="Large"/>--><!--
+                                            <StackLayout Margin="0" >
+                                                <Grid Margin="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="50"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Column="0" FontFamily="Rubik-Regular"  Text="1." TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                                    <!--Text="{Binding Position} "-->
+                                                    <Label Grid.Column="1" FontFamily="Rubik-Regular" Text="{Binding User}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                                    <Label Grid.Column="2" FontFamily="Rubik-Regular" Text="{Binding DistanceString}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                                </Grid>
+
+                                            </StackLayout>
+
+                                            <!--<StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
+                                    -->
+                                            <!--<Label Text="{Binding TimeStamp.Day}" FontAttributes="Bold" TextColor="Black" FontSize="Large"/>-->
+                                            <!--
                                     <Label Text="{Binding User}" TextColor="#615C66" FontSize="24"/>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
 
                                     <Label Text="{Binding Distance}" TextColor="#615C66" FontSize="24"/>
                                 </StackLayout>-->
-                                </Frame>
-                            </Grid>
-                        </ViewCell>
-                        
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                        </Frame>
+                                    </Grid>
+                                </ViewCell>
 
-            
-            
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="350" />
-                    <ColumnDefinition Width="300"/>
-                    <ColumnDefinition Width="300" />
-                    
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" Margin="16"  x:Name="btnHome" Text="Home" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
-                <Button Grid.Column="2"  Margin="16"  x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
-            </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Grid  Margin="42,0,42,20" >
+                        <Frame BorderColor="#5589EE" CornerRadius="50" BackgroundColor="#E9F2FF">
+
+
+                            <StackLayout Margin="0" >
+                                <Grid Margin="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" x:Name="lblPosition" FontFamily="Rubik-Regular"  Text="1." TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Label Grid.Column="1" x:Name="lblName" FontFamily="Rubik-Regular" Text="Score: " TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Label Grid.Column="2" x:Name="lblScore" FontFamily="Rubik-Regular" Text="500 km" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                </Grid>
+
+                            </StackLayout>
+
+                          
+                        </Frame>
+                    </Grid>
+
+                    <Grid HorizontalOptions="CenterAndExpand" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="195" />
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="195"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Column="0" Grid.Row="0" x:Name="btnHome" Text="Home" TextColor="White" HeightRequest="200" BackgroundColor="#5589ee" CornerRadius="10"/>
+                        <Button Grid.Column="2"   x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
+
+        
     </ContentPage.Content>
 </ContentPage>

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,27 +22,47 @@ namespace Smart_bike_G3.Views
         //    btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
         //}
 
-        public Scorebord(string kind)
+        public Scorebord(int Score)
         {
-            InitializeComponent();
             
-            Console.WriteLine(kind);
-            if (kind == "video")
+
+            //InitializeComponent();
+            //string vidorgame = VideoOrGame.Kind;
+            //Console.WriteLine(vidorgame);
+
+            
+
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                //Er werd een video afgespeeld
-                loadData(kind);
-            } else if (kind == "game")
-            {
-                //Er werd een game gespeeld
-                loadData(kind);
+                InitializeComponent();
+                lblScore.Text = Score.ToString() + " km";
+                lblName.Text = Name.User;
+                string vidorgame = VideoOrGame.Kind;
+                Console.WriteLine(vidorgame);
+
+                if (vidorgame == "video")
+                {
+                    //Er werd een video afgespeeld
+                    loadData(vidorgame);
+                }
+                else if (vidorgame == "game")
+                {
+                    //Er werd een game gespeeld
+                    loadData(vidorgame);
+                }
+                else
+                {
+                    Console.WriteLine("Something went wrong");
+                }
+
+                btnHome.Clicked += BtnHome_Clicked;
+                btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
             }
             else
             {
-                Console.WriteLine("Something went wrong");
+                Navigation.PushAsync(new NoNetworkPage());
             }
-
-            btnHome.Clicked += BtnHome_Clicked;
-            btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
+            
         }
 
         private void BtnOpnieuw_Clicked(object sender, EventArgs e)
@@ -62,14 +82,13 @@ namespace Smart_bike_G3.Views
                 lvwOverview.ItemsSource = await Repository.GetAllscoresVideoAsync(1);
             } else if (kind == "game")
             {
-                lvwOverview.ItemsSource = await Repository.GetAllscoresGameAsync(1);
+                var i = await Repository.GetAllscoresGameAsync(1);
+                lvwOverview.ItemsSource = i.GetRange(0, 3);
             }
             else
             {
                 Console.WriteLine("Something went wrong");
             }
-           
-
         }
     }
 }

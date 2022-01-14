@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,14 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoOrGame : ContentPage
     {
-        public string Kind = "";
-
+        public static string Kind;
+       
         public VideoOrGame()
         {
             InitializeComponent();
             AddEvents();
+            
+            
         }
 
         private void AddEvents()
@@ -37,16 +40,19 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayGame_Tabbed(object sender, EventArgs e)
         {
+            
             Kind = "game";
+            AbsLayGame.Scale = 8;
             Console.WriteLine(Kind + " chosen");
-            Navigation.PushAsync(new ChooseGame(Kind));
+            Navigation.PushAsync(new ChooseGame());
         }
 
         private void AbsLayVideo_Tabbed(object sender, EventArgs e)
         {
             Kind = "video";
+            AbsLayVideo.Scale = 8;
             Console.WriteLine(Kind + " chosen");
-            Navigation.PushAsync(new ChooseVideo(Kind));
+            Navigation.PushAsync(new OptionsVideo());
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
