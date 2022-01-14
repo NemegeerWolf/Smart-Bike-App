@@ -23,7 +23,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </Grid>
 
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">

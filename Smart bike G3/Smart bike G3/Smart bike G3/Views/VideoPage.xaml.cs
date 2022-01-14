@@ -40,6 +40,12 @@ namespace Smart_bike_G3.Views
         }
         private bool playing = false;
 
+        private bool SetAgain()
+        {
+            int videoId = OptionsVideo.VideoId;
+            string user = Name.User;
+            return false;
+        }
         private void AddEvents()
         {
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
@@ -94,6 +100,7 @@ namespace Smart_bike_G3.Views
                 Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
                 Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
                 video.Volume = 0;
+                Device.StartTimer(TimeSpan.FromMilliseconds(1000), SetAgain);
             });
         }
 
@@ -104,7 +111,9 @@ namespace Smart_bike_G3.Views
             string user = Name.User;
             Repository.AddResultsVideo(videoId, user, 400);
             Debug.WriteLine("sending data to api");
+            
             Navigation.PushAsync(new ScorebordDistance(100));
+            
 
         }
 
