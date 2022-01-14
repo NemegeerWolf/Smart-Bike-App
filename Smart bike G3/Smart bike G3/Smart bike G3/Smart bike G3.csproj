@@ -25,6 +25,8 @@
     <None Remove="Assets\traffic_light.png" />
     <None Remove="Assets\two_wheeler.png" />
     <None Remove="Assets\video.png" />
+    <None Remove="Assets\video1.jpg" />
+    <None Remove="Assets\video1.png" />
     <None Remove="Assets\water_drop.png" />
     <None Remove="Fonts\game_over.ttf" />
     <None Remove="Fonts\Rubik-Bold.ttf" />
@@ -41,6 +43,8 @@
     <EmbeddedResource Include="Assets\traffic_light.png" />
     <EmbeddedResource Include="Assets\two_wheeler.png" />
     <EmbeddedResource Include="Assets\video.png" />
+    <EmbeddedResource Include="Assets\video1.jpg" />
+    <EmbeddedResource Include="Assets\video1.png" />
     <EmbeddedResource Include="Assets\water_drop.png" />
     <EmbeddedResource Include="Fonts\game_over.ttf" />
     <EmbeddedResource Include="Fonts\Rubik-Bold.ttf" />
@@ -58,7 +62,7 @@
 
   <ItemGroup>
     <Reference Include="Mono.Android">
-      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
     </Reference>
   </ItemGroup>
 
