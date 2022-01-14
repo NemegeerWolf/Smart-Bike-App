@@ -63,15 +63,17 @@ namespace Smart_bike_G3.Views
 
         private void SetVideoAndAudio()
         {
-            int videoId = OptionsVideo.VideoKind;
+            int videoId = OptionsVideo.VideoId;
             Debug.WriteLine(videoId);
             if (Videos.ContainsKey(videoId))
             {
                 bool keyValue = Videos.TryGetValue(videoId, out string[] values);
                 GetYoutubeSource(values[0]);
-                audio.Source = values[1];
-                audio.IsLooping = true;
-
+                if (videoId == 3 || videoId == 4)
+                {
+                    audio.Source = values[1];
+                    audio.IsLooping = true;
+                }
             }
             else
             {
@@ -89,22 +91,38 @@ namespace Smart_bike_G3.Views
                 speed.Text = "0 km/h";
                 loading.IsVisible = false;
                 speedframe.IsVisible = true;
-                Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
+                Device.StartTimer(TimeSpan.FromMilliseconds(1000), SetAgain); //fix loading bug
+                Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
                 Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
-                video.Volume = 0;
+                int videoId = OptionsVideo.VideoId;
+                if (videoId == 3 || videoId == 4)
+                {
+                    video.Volume = 0;
+                }
+                
             });
+        }
+
+        private bool SetAgain()
+        {
+            loading.IsVisible = false;
+            speedframe.IsVisible = true;
+            return false;
         }
 
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
             playing = false;
-            int videoId = OptionsVideo.VideoKind;
+            int videoId = OptionsVideo.VideoId;
             string user = Name.User;
             Repository.AddResultsVideo(videoId, user, 400);
             Debug.WriteLine("sending data to api");
-            Navigation.PushAsync(new Scorebord(200));
+            Navigation.PushAsync(new ScorebordDistance(100));
+
 
         }
+
+      
 
         private bool FixAutoplay()
         {

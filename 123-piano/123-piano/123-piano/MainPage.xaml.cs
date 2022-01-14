@@ -16,7 +16,8 @@ namespace spel_123_piano
     {
         //public variables
 
-        public double Distance { get; set; } = 500; // 5000m / 5km
+        public  double tijd = 0;
+        public double Distance { get; set; } = 100; // 1000m / 1km
         public bool GameOver { get; set; } = false;
 
 
@@ -27,7 +28,7 @@ namespace spel_123_piano
         private double height;
         private double gap;
         private DisplayInfo mainDisplayInfo;
-        private double globalSpeed = 1000;
+        private double globalSpeed = 100;
         Random random = new Random(Convert.ToInt32(DateTime.Now.Millisecond));
         
         private DateTime startOrange = DateTime.MinValue;
@@ -122,7 +123,7 @@ namespace spel_123_piano
             //    lblGameOver.Text = "GAME OVER";
             //    lblGameOver.TextColor = Brush.Red.Color;
 
-            
+
             //    lblGameOver.IsVisible = true;
             //    btnRestart.IsVisible = true;
 

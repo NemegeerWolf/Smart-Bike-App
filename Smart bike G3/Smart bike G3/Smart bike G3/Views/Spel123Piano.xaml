@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.Spel123Piano" NavigationPage.HasNavigationBar="False">
+             x:Class="Smart_bike_G3.Views.Spel123Piano" NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     <Grid x:Name="Window">
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
@@ -60,9 +61,13 @@
                 </AbsoluteLayout>
             </Grid>
         </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start">
+            <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+        </StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-            <Label Text="Distance:  " TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-            <Label x:Name="lblscore" Text="0" TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblScoreText" Text="Distance:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblscore" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
         </StackLayout>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
 
