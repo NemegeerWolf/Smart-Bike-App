@@ -16,7 +16,7 @@ namespace spel_123_piano
     {
         //public variables
 
-        public double Distance { get; set; } = 5000; // 5000m / 5km
+        public double Distance { get; set; } = 500; // 5000m / 5km
         public bool GameOver { get; set; } = false;
 
 
@@ -117,19 +117,19 @@ namespace spel_123_piano
 
             //game over went speed more than 1km/u
 
-            if (IsRed == true && globalSpeed > 1)
-            {
-                lblGameOver.Text = "GAME OVER";
-                lblGameOver.TextColor = Brush.Red.Color;
+            //if (IsRed == true && globalSpeed > 1)
+            //{
+            //    lblGameOver.Text = "GAME OVER";
+            //    lblGameOver.TextColor = Brush.Red.Color;
 
-                lblscore.Text = "0";
-                lblGameOver.IsVisible = true;
-                btnRestart.IsVisible = true;
+            
+            //    lblGameOver.IsVisible = true;
+            //    btnRestart.IsVisible = true;
 
 
-                return false;
+            //    return false;
 
-            }
+            //}
 
             Distance -= globalSpeed * 0.0277777778; // meter
             lblscore.Text = $"{Math.Round(Distance, 4).ToString()} m";
@@ -295,9 +295,11 @@ namespace spel_123_piano
 
         private void btnRestart_Clicked(object sender, EventArgs e)
         {
+            setup();
+
             lblGameOver.IsVisible = false;
             btnRestart.IsVisible = false;
-            Distance = 5000;
+            Distance = 500;
             
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
