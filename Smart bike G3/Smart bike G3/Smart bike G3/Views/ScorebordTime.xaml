@@ -88,7 +88,7 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        <Button Grid.Column="0" FontFamily="Rubik-Regular" Grid.Row="0" x:Name="btnHome" Text="Home" TextColor="White" HeightRequest="200" BackgroundColor="#5589ee" CornerRadius="10"/>
+                        <Button Grid.Column="0" FontFamily="Rubik-Regular" Grid.Row="0" x:Name="btnHome" Text="Startpagina" TextColor="White" HeightRequest="200" BackgroundColor="#5589ee" CornerRadius="10"/>
                         <Button Grid.Column="2" FontFamily="Rubik-Regular" x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
                     </Grid>
                 </StackLayout>

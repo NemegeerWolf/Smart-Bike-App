@@ -6,12 +6,14 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout >
-            <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand" WidthRequest="1000" Margin="32">
+            <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand" WidthRequest="2500" Margin="32">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                     
                 </Grid.ColumnDefinitions>
-                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="20, 0">
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" Grid.Column="0" Scale="2" Margin="20, 0">
                     <Path x:Name="path112">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -23,7 +25,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label Grid.Column="0"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een spelletje" FontSize="48" TextColor="#302E33" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             </Grid>
 
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" RowSpacing="20">

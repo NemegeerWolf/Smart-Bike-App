@@ -18,11 +18,12 @@ namespace Smart_bike_G3.Views
     public partial class Name : ContentPage
     {
         public static string User;
+        public static bool PublishName = false;
+
         public Name()
         {
             InitializeComponent();
             BtnNext.Clicked += BtnNext_Clicked;
-            
         }
 
         private void BtnNext_Clicked(object sender, EventArgs e)
@@ -39,6 +40,25 @@ namespace Smart_bike_G3.Views
                 lblValidation.IsVisible = true;
             }
                
+        }
+
+        private void checkPublish_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            Console.WriteLine("checkbox changed");
+            Console.WriteLine(checkPublish.IsChecked);
+            PublishName = checkPublish.IsChecked;
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            //tabbed label checkbox
+            if (checkPublish.IsChecked)
+            {
+                checkPublish.IsChecked = false;
+            } else
+            {
+                checkPublish.IsChecked = true;
+            }
         }
     }
 }

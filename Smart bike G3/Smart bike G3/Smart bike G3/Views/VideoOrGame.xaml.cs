@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,10 +21,15 @@ namespace Smart_bike_G3.Views
        
         public VideoOrGame()
         {
-            InitializeComponent();
-            AddEvents();
-            
-            
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                AddEvents();
+            } 
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
         }
 
         private void AddEvents()
@@ -40,6 +45,16 @@ namespace Smart_bike_G3.Views
             TapGestureRecognizer tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += AbsLayGame_Tabbed;
             AbsLayGame.GestureRecognizers.Add(tapGestureRecognizer3);
+
+            TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
+            tapGestureRecognizer4.Tapped += AbsLayOtherUser_Tabbed;
+            AbsLayOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
+            lblOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
+        }
+
+        private void AbsLayOtherUser_Tabbed(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Name());
         }
 
         private void AbsLayGame_Tabbed(object sender, EventArgs e)
