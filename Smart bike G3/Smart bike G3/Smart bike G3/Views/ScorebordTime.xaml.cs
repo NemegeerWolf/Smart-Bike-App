@@ -76,7 +76,7 @@ namespace Smart_bike_G3.Views
 
         private void BtnHome_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Name());
+            Navigation.PushAsync(new VideoOrGame());
         }
 
         private async void loadData(string kind)
