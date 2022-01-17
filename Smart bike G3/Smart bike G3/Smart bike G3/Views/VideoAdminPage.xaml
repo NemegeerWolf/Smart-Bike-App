@@ -5,18 +5,18 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry x:Name="video1"/>
-            <RadioButton x:Name="radio1" GroupName="1" Content="Video Audio" IsChecked="True"/>
-            <RadioButton  GroupName="1" Content="Muziek"/>
+            <RadioButton x:Name="radio10" GroupName="1" Content="Video Audio" IsChecked="True"/>
+            <RadioButton x:Name="radio11" GroupName="1" Content="Muziek"/>
             <Entry x:Name="video2"/>
-            <RadioButton x:Name="radio2" GroupName="2" Content="Video Audio" IsChecked="True"/>
-            <RadioButton  GroupName="2" Content="Muziek" />
+            <RadioButton x:Name="radio20" GroupName="2" Content="Video Audio" IsChecked="True"/>
+            <RadioButton x:Name="radio21" GroupName="2" Content="Muziek" />
             <Entry x:Name="video3"/>
-            <RadioButton x:Name="radio3" GroupName="3" Content="Video Audio" IsChecked="True"/>
-            <RadioButton GroupName="3" Content="Muziek"/>
+            <RadioButton x:Name="radio30" GroupName="3" Content="Video Audio" IsChecked="True"/>
+            <RadioButton x:Name="radio31" GroupName="3" Content="Muziek"/>
             <Entry x:Name="video4"/>
-            <RadioButton x:Name="radio4" GroupName="4" Content="Video Audio" IsChecked="True"/>
-            <RadioButton  GroupName="4" Content="Muziek"/>
-            <Button x:Name="changeBtn" Clicked="changeBtn_Clicked"/>
+            <RadioButton x:Name="radio40" GroupName="4" Content="Video Audio" IsChecked="True"/>
+            <RadioButton x:Name="radio41" GroupName="4" Content="Muziek"/>
+            <Button x:Name="changeBtn" Clicked="ChangeBtn_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

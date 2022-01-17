@@ -22,8 +22,7 @@ namespace Smart_bike_G3.Views
             {
                 InitializeComponent();
                 NavigationPage.SetHasNavigationBar(this, false);
-                firstTimefileSetup();
-                setEntrys();
+                SetEntrysAndButtons();
                 //delete();
             }
             else
@@ -33,34 +32,52 @@ namespace Smart_bike_G3.Views
 
         }
 
-        private void setEntrys()
+        private void SetEntrysAndButtons()
         {
             string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
             List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
             List<string> urls = new List<string>();
+            List<int> buttns = new List<int>();
             foreach (var i in settings)
             {
                 urls.Add(i.vid.Url);
+                buttns.Add(i.vid.Audio);
             }
             video1.Text = urls[0];
             video2.Text = urls[1];
             video3.Text = urls[2];
             video4.Text = urls[3];
+            SetRadio(buttns[0], radio10, radio11);
+            SetRadio(buttns[1], radio20, radio21);
+            SetRadio(buttns[2], radio30, radio31);
+            SetRadio(buttns[3], radio40, radio41);
+
+        }
+        private void SetRadio(int val, RadioButton name, RadioButton name2)
+        {
+            if (val == 0)
+            {
+                name.IsChecked = true;
+            }
+            else
+            {
+                name2.IsChecked = true;
+            }
         }
 
-        private void changeBtn_Clicked(object sender, EventArgs e)
+        private void ChangeBtn_Clicked(object sender, EventArgs e)
         {
             string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
             File.Delete(fileName);
             string jsonFront = "{\"video\":{\"url\":\"";
             string jsonMid = "\",\"audio\":";
             string jsonEnd = "}}";
-            string vidUrls = $"[{jsonFront}{video1.Text}{jsonMid}{getNewVideoOptions(radio1)}{jsonEnd},{jsonFront}{video2.Text}{jsonMid}{getNewVideoOptions(radio2)}{jsonEnd},{jsonFront}{video3.Text}{jsonMid}{getNewVideoOptions(radio3)}{jsonEnd},{jsonFront}{video4.Text}{jsonMid}{getNewVideoOptions(radio3)}{jsonEnd}]";
+            string vidUrls = $"[{jsonFront}{video1.Text}{jsonMid}{GetNewVideoOptions(radio10)}{jsonEnd},{jsonFront}{video2.Text}{jsonMid}{GetNewVideoOptions(radio20)}{jsonEnd},{jsonFront}{video3.Text}{jsonMid}{GetNewVideoOptions(radio30)}{jsonEnd},{jsonFront}{video4.Text}{jsonMid}{GetNewVideoOptions(radio40)}{jsonEnd}]";
             Debug.WriteLine(vidUrls);
             File.WriteAllText(fileName, vidUrls);
         }
 
-        private int getNewVideoOptions(RadioButton xNameVid)
+        private int GetNewVideoOptions(RadioButton xNameVid)
         {
             if (xNameVid.IsChecked)
             {
@@ -72,23 +89,6 @@ namespace Smart_bike_G3.Views
             }
         }
 
-
-
-
-
-
-
-
-
-        private void firstTimefileSetup()
-        {
-            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
-            if (!File.Exists(fileName))
-            {
-                Debug.WriteLine("Creating url storage");
-                string vidUrls = "[{\"video\":{\"url\":\"https://www.youtube.com/watch?v=07d2dXHYb94&t=1s}\",\"audio\":0}},{\"video\":{\"url\":\"https://www.youtube.com/watch?v=07d2dXHYb94&t=1s}\",\"audio\":0}},{\"video\":{\"url\":\"https://www.youtube.com/watch?v=07d2dXHYb94&t=1s}\",\"audio\":1}},{\"video\":{\"url\":\"https://www.youtube.com/watch?v=07d2dXHYb94&t=1s}\",\"audio\":1}}]";
-                File.WriteAllText(fileName, vidUrls);
-            }
-        }
+     
     }
 }
