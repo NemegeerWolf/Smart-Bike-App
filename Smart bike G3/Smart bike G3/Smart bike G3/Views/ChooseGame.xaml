@@ -6,7 +6,7 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout >
-            <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand" WidthRequest="1000" Margin="32">
+            <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand" WidthRequest="2500" Margin="32">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="auto"/>
