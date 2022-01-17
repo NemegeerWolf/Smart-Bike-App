@@ -11,8 +11,8 @@ namespace Smart_bike_G3
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Name());
-            //MainPage = new NavigationPage(new ResultsVideo());
+            //MainPage = new NavigationPage(new Name());
+            MainPage = new NavigationPage(new VideoAdminPage());
 
         }
 
