@@ -5,7 +5,7 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="0, 50">
             <Grid VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="32">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -18,7 +18,7 @@
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
                         </Path.Data>
                     </Path>
-                    <Path  x:Name="path114" Fill="#FF000000">
+                    <Path  x:Name="path114" Fill="#302e33">
                         <Path.Data>
                             <PathGeometry Figures="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" FillRule="Nonzero"/>
                         </Path.Data>
@@ -67,6 +67,19 @@
                     <Ellipse AbsoluteLayout.LayoutBounds="17,9" WidthRequest="3" HeightRequest="3" x:Name="circle197" Fill="#5589EE"/>
                 </AbsoluteLayout>
             </Grid>
+            <AbsoluteLayout x:Name="AbsLayOtherUser" HorizontalOptions="CenterAndExpand">
+                <Path x:Name="path2">
+                    <Path.Data>
+                        <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
+                    </Path.Data>
+                </Path>
+                <Path x:Name="path4" Fill="#302E33" Scale="2">
+                    <Path.Data>
+                        <PathGeometry Figures="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H8v-1.5c0-1.99 4-3 6-3s6 1.01 6 3V16z" FillRule="Nonzero"/>
+                    </Path.Data>
+                </Path>
+            </AbsoluteLayout>
+            <Label x:Name="lblOtherUser" Text="Andere gebruiker" HorizontalOptions="Center" TextColor="#302E33" Margin="10"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
