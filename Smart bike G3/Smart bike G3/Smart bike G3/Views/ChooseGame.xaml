@@ -13,7 +13,7 @@
                     <ColumnDefinition Width="*"/>
                     
                 </Grid.ColumnDefinitions>
-                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" Grid.Column="0" Scale="2" Margin="20, 0" BackgroundColor="Green">
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" Grid.Column="0" Scale="2" Margin="20, 0">
                     <Path x:Name="path112">
                         <Path.Data>
                             <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
