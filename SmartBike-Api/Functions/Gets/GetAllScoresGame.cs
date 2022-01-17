@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Azure.Cosmos;
 using System.Collections.Generic;
 using SmartBike_Api.Models;
+using System.Diagnostics;
 
 namespace SmartBike_Api.Functions.Gets
 {
@@ -25,17 +26,20 @@ namespace SmartBike_Api.Functions.Gets
             {
                 QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by i.speed asc").WithParameter("@gameId", gameid);
                 List<Game> items = await GetScoresAsync(query);
-                return new OkObjectResult(items);
+                return new OkObjectResult(AddRank(items));
+                
             }
             else if (gameid == 2)
             {
                 QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by speed asc").WithParameter("@gameId", gameid);
-                return new OkObjectResult(GetScoresAsync(query));
+                List<Game> items = await GetScoresAsync(query);
+                return new OkObjectResult(AddRank(items));
             }
             else if (gameid == 3)
             {
                 QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by distance desc").WithParameter("@gameId", gameid);
-                return new OkObjectResult(GetScoresAsync(query));
+                List<Game> items = await GetScoresAsync(query);
+                return new OkObjectResult(AddRank(items));
             }
             return new BadRequestObjectResult($"no game found with id:{gameid}");
 
@@ -57,6 +61,19 @@ namespace SmartBike_Api.Functions.Gets
                 }
             }
             return items;
+            
+        }
+        public static List<GameRank> AddRank(List<Game> scores)
+        {
+            int count = 0;
+            List<GameRank> ranks = new List<GameRank>();
+            foreach (var i in scores)
+            {
+                count += 1;
+                ranks.Add(new GameRank { GameId = i.GameId, Distance = i.Distance, id = i.id, Speed = i.Speed, User = i.User, Rank = count});
+            }
+            
+            return ranks;
         }
     }
 }

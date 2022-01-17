@@ -2,13 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_bike_G3.Views.NoNetworkPage"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="White">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Image x:Name="imgNoInternet"/>
-            <Label Text="Oeps, geen internet!" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontFamily="Rubik-SemiBold" FontSize="48"/>
-            <Button x:Name="btnTryAgain" Text="Probeer opnieuw" Clicked="btnTryAgain_Clicked" WidthRequest="300" HeightRequest="56" BackgroundColor="#5589EE" TextColor="White" HorizontalOptions="Center"/>
+            <Grid Margin="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+            </Grid>
+            <Image x:Name="imgNoInternet" Grid.Column="1" Grid.Row="1"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="Oeps, geen internet verbinding!" TextColor="Black" FontFamily="Rubik-SemiBold" FontSize="48"/>
+            <Label Grid.Column="0" Grid.Row="1" Text="Je bent niet geconnecteerd met het internet. Controleer dat de WiFi aan ligt, vliegtuigmodus uitgeschakeld is en probeer het opnieuw. " TextColor="Black" FontFamily="Rubik-Regular" FontSize="28"/>
+            <Button Grid.Column="0" Grid.Row="1" x:Name="btnTryAgain" Text="Probeer opnieuw" Clicked="btnTryAgain_Clicked" WidthRequest="300" HeightRequest="56" BackgroundColor="#5589EE" TextColor="White" CornerRadius="10" FontFamily="Rubik-SemiBold"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

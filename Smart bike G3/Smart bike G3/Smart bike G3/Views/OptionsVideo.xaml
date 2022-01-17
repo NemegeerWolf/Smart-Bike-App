@@ -37,7 +37,9 @@
                 <Grid VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  WidthRequest="1000">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+
                     </Grid.ColumnDefinitions>
                     <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="20,0">
                         <Path x:Name="path112">
@@ -52,7 +54,7 @@
                         </Path>
                     </AbsoluteLayout>
 
-                    <Label Grid.Column="0" FontFamily="Rubik-Bold" Text="Welke video wil je bekijken?" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#302e33"/>
+                    <Label Grid.Column="1" FontFamily="Rubik-Bold" Text="Welke video wil je bekijken?" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#302e33"/>
                 </Grid>
             </Grid>
         </StackLayout>
