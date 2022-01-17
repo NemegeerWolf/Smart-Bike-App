@@ -9,7 +9,8 @@
             <Grid VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="32">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="20, 0">
                     <Path x:Name="path112">
@@ -23,7 +24,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label FontFamily="Rubik-Bold" Grid.Column="0" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label FontFamily="Rubik-Bold" Grid.Column="1" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </Grid>
             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
                 <Grid.ColumnDefinitions>
