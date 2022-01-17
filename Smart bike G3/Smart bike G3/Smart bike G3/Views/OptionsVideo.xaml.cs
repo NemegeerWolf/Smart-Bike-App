@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,10 +29,35 @@ namespace Smart_bike_G3.Views
             imgbtnSecond.Clicked += BtnSecond_Clicked;
             imgbtnThird.Clicked += BtnThird_Clicked;
             imgbtnFourth.Clicked += BtnFourth_Clicked;
+            
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
             AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
+            //btnSettings.Clicked += BtnSettings_Clicked;
+
+            TapGestureRecognizer tapGestureRecognizer1 = new TapGestureRecognizer();
+            tapGestureRecognizer1.Tapped += AbsLaSetting_Tabbed;
+            AbsLaySettings.GestureRecognizers.Add(tapGestureRecognizer1);
+
+        }
+
+        private async void AbsLaSetting_Tabbed(object sender, EventArgs e)
+        {
+            string result = await DisplayPromptAsync("Geef de code", "pincode", maxLength: 4, keyboard: Keyboard.Numeric);
+            if (result != null)
+            {
+                if (Int32.Parse(result) == 8000)
+                {
+                    Debug.WriteLine("oké");
+                    await Navigation.PushAsync(new VideoAdminPage());
+                }
+                else
+                {
+                    await DisplayAlert("Foutieve code", "", "OK");
+
+                }
+            }
         }
 
         private void Loadpictures()
@@ -46,25 +72,25 @@ namespace Smart_bike_G3.Views
         {
             
             VideoId = 4;
-            Navigation.PushAsync(new VideoPage());
+            Navigation.PushAsync(new VideoExplanation());
         }
 
         private void BtnThird_Clicked(object sender, EventArgs e)
         {
             VideoId= 3;
-            Navigation.PushAsync(new VideoPage());
+            Navigation.PushAsync(new VideoExplanation());
         }
 
         private void BtnSecond_Clicked(object sender, EventArgs e)
         {
             VideoId = 2;
-            Navigation.PushAsync(new VideoPage());
+            Navigation.PushAsync(new VideoExplanation());
         }
 
         private void BtnFirst_Clicked(object sender, EventArgs e)
         {
             VideoId = 1;
-            Navigation.PushAsync(new VideoPage());
+            Navigation.PushAsync(new VideoExplanation());
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)

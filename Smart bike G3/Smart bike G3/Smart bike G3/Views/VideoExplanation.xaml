@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.Overloop"
-             NavigationPage.HasNavigationBar="False"
+             x:Class="Smart_bike_G3.Views.VideoExplanation"
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout >
@@ -22,11 +21,11 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <Label HorizontalOptions="CenterAndExpand" FontFamily="Rubik-Bold" Grid.Column="0" Text="Overloop" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Label HorizontalOptions="CenterAndExpand" FontFamily="Rubik-Bold" Grid.Column="0" Text="Video" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
             </Grid>
             <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Margin="40">
-                <Label  FontFamily="Rubik-Regular" FontSize="24" TextColor="#302E33" Text="Fiets zo snel mogelijk dat het glas met water overloopt." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-                <Button FontFamily="Rubik-Regular" x:Name="btnStart" Text="Start" TextColor="White" HorizontalOptions="Center" BackgroundColor="#5589ee" CornerRadius="10" Clicked="btnStart_Clicked"/>
+                <Label  FontFamily="Rubik-Regular" FontSize="24" TextColor="#302E33" Text="Fiets en geniet van de beelden. Let op stop je met fietsen dan zal de video pauzeren." HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                <Button FontFamily="Rubik-Regular" x:Name="btnStart" Text="Start" TextColor="White" HorizontalOptions="Center" BackgroundColor="#5589ee" CornerRadius="10" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
