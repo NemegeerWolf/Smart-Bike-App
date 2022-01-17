@@ -21,14 +21,16 @@ namespace Smart_bike_G3.Views
             InitializeComponent();
             imgNoInternet.Source = ImageSource.FromResource(@"Smart_Bike_G3.Assets.no_wifi.png");
 
-            Connectivity.ConnectivityChanged += btnTryAgain_Clicked;
+            //Connectivity.ConnectivityChanged += btnTryAgain_Clicked;
         }
 
         private void btnTryAgain_Clicked(object sender, EventArgs e)
         {
+            Console.WriteLine("Clicked try again");
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 Navigation.PushAsync(new Name());
+                Console.WriteLine("Yay, internet!");
             }
             else
             {

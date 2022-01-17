@@ -44,7 +44,7 @@ namespace Smart_bike_G3.Repositories
             }
         }
 
-        public async static Task AddResultsGame(int gameid, string user, int distance, int speed)
+        public async static Task AddResultsGame(int gameid, string user, int speed, int distance)
         {
             using (HttpClient client = GetHttpClient())
             {
