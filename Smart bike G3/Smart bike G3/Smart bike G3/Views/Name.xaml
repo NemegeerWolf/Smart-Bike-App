@@ -6,12 +6,25 @@
              BackgroundColor="White">
             
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="500" Margin="0, 50">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="500" Margin="0, 50" Spacing="15">
             <Label FontFamily="Rubik-Bold" Text="Naam" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33" />
-            <Label FontFamily="Rubik-regular" x:Name="lblValidation" Text="Hier uw Naam en Voornaam invullen!" TextColor="Red" IsVisible="False"/>
+            <Label FontFamily="Rubik-regular" x:Name="lblValidation" Text="Hier uw naam invullen!" TextColor="Red" IsVisible="False"/>
             <Frame BorderColor="#5589EE" BackgroundColor="#e9f2ff"  CornerRadius="10" >
-                <Entry FontFamily="Rubik-regular" x:Name="entName" Placeholder="Naam" TextColor="Black"  PlaceholderColor="Black"/>
+                <Entry FontFamily="Rubik-regular" x:Name="entName" Placeholder="Naam" TextColor="Black" PlaceholderColor="#918a99"/>
             </Frame>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" x:Name="checkPublish" CheckedChanged="checkPublish_CheckedChanged" IsChecked="False" Color="#5589ee" VerticalOptions="Center" Scale="1.5"/>
+                <Label Grid.Column="1" x:Name="lblCheckbox" Text="Naam publiceren in scorebord." VerticalOptions="Center" FontSize="20" TextColor="#302e33">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+            
             <Button FontFamily="Rubik-regular" x:Name="BtnNext" Text="Volgende" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10" />
 
         </StackLayout>

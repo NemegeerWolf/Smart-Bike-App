@@ -21,6 +21,10 @@ namespace Smart_bike_G3.Views
         public bool GameOver { get; set; } = false;
 
         // local variables
+
+
+        string[] gameovers = new string[] { "Get up and try again.", "Instead of giving up, try again.", "Fall seven times, stand up eight.", "F.A.I.L.: First Attempt In Learning.", "I know you can do it if you just try again.", "If you fall, you rise back up. If you fail, you try again.", "The sun will rise again and you also will try again." };
+
         List<Xamarin.Forms.Shapes.Rectangle> wayMarks = new List<Xamarin.Forms.Shapes.Rectangle>();
         private bool started;
         private double width;
@@ -104,13 +108,16 @@ namespace Smart_bike_G3.Views
 
             if (IsRed == true && globalSpeed > 1)
             {
-
+                lblGameOver.Text = gameovers[random.Next(0, gameovers.Length)];
                 lblGameOver.IsVisible = true;
                 btnRestart.IsVisible = true;
-
+                btnRestart.IsEnabled = true;
+                btnHome.IsVisible = true;
+                btnRestart.Text = $"Restart";
                 //sent to API
                 // Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
-                Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(0))); // push to scoreboard
+
+                // Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(0))); // push to scoreboard
                 return false;
                 
             }
@@ -131,8 +138,10 @@ namespace Smart_bike_G3.Views
 
                 var dateTime = DateTime.MinValue.AddSeconds(Time);
                 btnRestart.Text = $"{dateTime.Minute}min{dateTime.Second}";
+                btnRestart.IsEnabled = false;
                 
                 Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Time), 0);
+                Thread.Sleep(3000);
                 Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(Time))); // push to scoreboard
                 return false;
             }
@@ -271,6 +280,11 @@ namespace Smart_bike_G3.Views
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
 
             Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
+        }
+
+        private void btnHome_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PopToRootAsync(); // root page moet veranderd worden.
         }
     }
 }
