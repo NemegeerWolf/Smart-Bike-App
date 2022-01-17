@@ -42,26 +42,6 @@ namespace Smart_bike_G3.Views
 
         }
 
-        private async void BtnSettings_Clicked(object sender, EventArgs e)
-        {
-            string result = await DisplayPromptAsync("Geef de code", "pincode" , maxLength:4, keyboard: Keyboard.Numeric);
-            if (result != null)
-            {
-                if (Int32.Parse(result) == 8000)
-                {
-                    Debug.WriteLine("oké");
-                    // Navigation.PushAsync(new )
-                }
-                else
-                {
-                    await DisplayAlert("Foutieve code", "" , "OK");
-                    
-                }
-            }
-            
-            
-        }
-
         private async void AbsLaSetting_Tabbed(object sender, EventArgs e)
         {
             string result = await DisplayPromptAsync("Geef de code", "pincode", maxLength: 4, keyboard: Keyboard.Numeric);
@@ -70,7 +50,7 @@ namespace Smart_bike_G3.Views
                 if (Int32.Parse(result) == 8000)
                 {
                     Debug.WriteLine("oké");
-                    // Navigation.PushAsync(new )
+                    await Navigation.PushAsync(new VideoAdminPage());
                 }
                 else
                 {

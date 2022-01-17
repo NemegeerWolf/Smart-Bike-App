@@ -105,6 +105,7 @@ namespace Smart_bike_G3.Views
             playing = false;
             int videoId = OptionsVideo.VideoId;
             string user = Name.User;
+            audio.Stop();
             Repository.AddResultsVideo(videoId, user, 400);
             Debug.WriteLine("sending data to api");
             Navigation.PushAsync(new ScorebordDistance(100));
