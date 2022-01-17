@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
              x:Class="Smart_bike_G3.Views.Spel123Piano" NavigationPage.HasNavigationBar="False"
-             BackgroundColor="White">
+             BackgroundColor="White"
+             >
     <Grid x:Name="Window">
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
@@ -61,9 +63,15 @@
                 </AbsoluteLayout>
             </Grid>
         </StackLayout>
+        <StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start">
             <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
             <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+        </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start">
+                <Label x:Name="lblSpeedText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblSpeed" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            </StackLayout>
         </StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
             <Label x:Name="lblScoreText" Text="Distance:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
@@ -72,9 +80,14 @@
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
 
             <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
-            <Button x:Name="btnRestart" Text="Restart" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" IsVisible="false"/>
-            <Button x:Name="btnHome" Text="Startpagina" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" IsVisible="false" />
-
+            <Grid x:Name="btnRestart" IsVisible="false">
+                <Image x:Name="image" HeightRequest="70"  />
+                <Button x:Name="btnRestartText" Text="Opnieuw" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" />
+            </Grid>
+            <Grid x:Name="btnHome" IsVisible="false">
+                <Image x:Name="imagetest" HeightRequest="70" />
+                <Button  Text="Startpagina" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
+            </Grid>
         </StackLayout>
         <ActivityIndicator x:Name="loadingIndicator" Color="Blue" IsRunning="True" IsVisible="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
 
