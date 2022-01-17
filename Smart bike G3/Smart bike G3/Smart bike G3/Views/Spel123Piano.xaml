@@ -73,7 +73,12 @@
 
             <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
             <Button x:Name="btnRestart" Text="Restart" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" IsVisible="false"/>
+            <Button x:Name="btnHome" Text="Startpagina" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" IsVisible="false" />
+
         </StackLayout>
         <ActivityIndicator x:Name="loadingIndicator" Color="Blue" IsRunning="True" IsVisible="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+
+        
     </Grid>
 </ContentPage>
