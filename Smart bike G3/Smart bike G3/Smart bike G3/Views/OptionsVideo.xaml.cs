@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -82,8 +81,9 @@ namespace Smart_bike_G3.Views
         private string getThumbnail(string url)
         {
             string vidId = url.Split('=')[1].Split('?')[0].Split('&')[0];
-            return $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
-        }
+            return $"https://img.youtube.com/vi/{vidId}/hqdefault.jpg";
+           
+        }   
 
 
         private void BtnFourth_Clicked(object sender, EventArgs e)
