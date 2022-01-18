@@ -43,8 +43,8 @@ namespace Smart_bike_G3.Views
         {
             InitializeComponent();
 
+            imagetest.Source= image.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.background_button.png");
             
-
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
@@ -113,7 +113,7 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
                 btnRestart.IsEnabled = true;
                 btnHome.IsVisible = true;
-                btnRestart.Text = $"Restart";
+                btnRestartText.Text = $"Restart";
                 //sent to API
                 // Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
 
@@ -125,6 +125,7 @@ namespace Smart_bike_G3.Views
             //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
             Distance -= globalSpeed * 0.0277777778; // meter
             lblscore.Text = $"{Math.Round(Distance, 0).ToString()} m";
+            lblSpeed.Text = globalSpeed.ToString();
             // if finished ...
             if (Distance < 0)
             {
@@ -137,7 +138,7 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
 
                 var dateTime = DateTime.MinValue.AddSeconds(Time);
-                btnRestart.Text = $"{dateTime.Minute}min{dateTime.Second}";
+                btnRestartText.Text = $"{dateTime.Minute}min{dateTime.Second}";
                 btnRestart.IsEnabled = false;
                 
                 Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Time), 0);
@@ -272,6 +273,7 @@ namespace Smart_bike_G3.Views
 
             lblGameOver.IsVisible = false;
             btnRestart.IsVisible = false;
+            btnHome.IsVisible = false;
             Distance = 500;
             Time = 0;
 
