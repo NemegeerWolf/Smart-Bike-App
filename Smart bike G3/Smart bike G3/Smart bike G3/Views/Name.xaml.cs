@@ -24,7 +24,13 @@ namespace Smart_bike_G3.Views
         {
             InitializeComponent();
             BtnNext.Clicked += BtnNext_Clicked;
+            //warning();
         }
+
+        //private void warning()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private void BtnNext_Clicked(object sender, EventArgs e)
         {
