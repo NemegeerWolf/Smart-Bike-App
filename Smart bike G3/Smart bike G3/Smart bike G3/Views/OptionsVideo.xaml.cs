@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Smart_bike_G3.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -62,11 +65,54 @@ namespace Smart_bike_G3.Views
 
         private void Loadpictures()
         {
-            imgbtnFirst.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
-            imgbtnSecond.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
-            imgbtnThird.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
-            imgbtnFourth.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
+            int videoId = OptionsVideo.VideoId;
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
+            List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
+            List<string> urls = new List<string>();
+
+            foreach (var i in settings)
+            {
+                urls.Add(i.vid.Url);
+            }
+            setThumbnail(urls[0], imgbtnFirst);
+            setThumbnail(urls[1], imgbtnSecond);
+            setThumbnail(urls[2], imgbtnThird);
+            setThumbnail(urls[3], imgbtnFourth);
         }
+        private void setThumbnail(string url,ImageButton btn) { 
+            string vidId = url.Split('=')[1].Split('?')[0].Split('&')[0];
+            if (RemoteFileExists($"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg"))
+            {
+                btn.Source = $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
+            }
+            else
+            {
+                btn.Source = $"https://img.youtube.com/vi/{vidId}/hqdefault.jpg";
+
+            }
+            Debug.Write(btn.Source);
+
+
+            
+        }
+
+        private bool RemoteFileExists(string url)
+        {
+            try
+            {
+                HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+                request.Method = "HEAD";
+                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+                response.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
 
         private void BtnFourth_Clicked(object sender, EventArgs e)
         {
