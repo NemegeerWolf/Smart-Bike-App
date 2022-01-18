@@ -81,8 +81,9 @@ namespace Smart_bike_G3.Views
             string jsonMid = "\",\"audio\":";
             string jsonEnd = "}}";
             string vidUrls = $"[{jsonFront}{video1.Text}{jsonMid}{GetRadioOptions(radio10)}{jsonEnd},{jsonFront}{video2.Text}{jsonMid}{GetRadioOptions(radio20)}{jsonEnd},{jsonFront}{video3.Text}{jsonMid}{GetRadioOptions(radio30)}{jsonEnd},{jsonFront}{video4.Text}{jsonMid}{GetRadioOptions(radio40)}{jsonEnd}]";
-            Debug.WriteLine(vidUrls);
+            
             File.WriteAllText(fileName, vidUrls);
+            Navigation.PushAsync(new OptionsVideo());
         }
 
         private int GetRadioOptions(RadioButton xNameVid)
