@@ -14,8 +14,6 @@ namespace Smart_bike_G3
             InitializeComponent();
             firstTimefileSetup();
             MainPage = new NavigationPage(new Name());
-            //MainPage = new NavigationPage(new VideoAdminPage());
-            
         }
 
         private void firstTimefileSetup() //Makes file for videoUrls if non exist
@@ -38,6 +36,7 @@ namespace Smart_bike_G3
 
         protected override void OnResume()
         {
+            //MainPage = new NavigationPage(new Name());
         }
     }
 }
