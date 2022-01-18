@@ -29,10 +29,10 @@ namespace Smart_bike_G3.Views
             Loadpictures();
             PlayImage();
 
-            imgbtnFirst.Clicked += BtnFirst_Clicked;
-            imgbtnSecond.Clicked += BtnSecond_Clicked;
-            imgbtnThird.Clicked += BtnThird_Clicked;
-            imgbtnFourth.Clicked += BtnFourth_Clicked;
+            ImgPlay1.Clicked += BtnFirst_Clicked;
+            ImgPlay2.Clicked += BtnSecond_Clicked;
+            ImgPlay3.Clicked += BtnThird_Clicked;
+            ImgPlay4.Clicked += BtnFourth_Clicked;
             
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
@@ -48,10 +48,10 @@ namespace Smart_bike_G3.Views
 
         private void PlayImage()
         {
-            ImgPlay.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
             ImgPlay1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
             ImgPlay2.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
             ImgPlay3.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
+            ImgPlay4.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
         }
 
         private async void AbsLaSetting_Tabbed(object sender, EventArgs e)

@@ -34,8 +34,8 @@ namespace Smart_bike_G3.Views
             bool check = await Repository.CheckUsernameAsync(user);
             if(check == true)
             {
-                bool answer = await DisplayAlert("Deze naam is al in gebruik.", $"Ben jij {user}?", "Ja", "Nee");
-                if (answer == true)
+                bool answer = await DisplayAlert("Deze naam is al in gebruik.", $"Ben jij {user}?", "Nee", "Ja");
+                if (answer == false)
                 {
                     Navigation.PushAsync(new VideoOrGame());
                 }
