@@ -3,17 +3,15 @@ using Smart_bike_G3.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
-using System.Web;
+using System.IO;
+using Newtonsoft.Json;
+using Smart_bike_G3.Models;
 
 namespace Smart_bike_G3.Views
 {
@@ -32,10 +30,9 @@ namespace Smart_bike_G3.Views
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
-            }
-
-                
+            }      
         }
+
         private bool playing = false;
 
         private void AddEvents()
@@ -50,34 +47,26 @@ namespace Smart_bike_G3.Views
             Navigation.PopAsync();
         }
 
-
-        private readonly Dictionary<int, string[]> Videos = new Dictionary<int, string[]>() {
-            { 1 , new string[] { "07d2dXHYb94", "ms-appx:///testaudio.mp3" } },
-            { 2 , new string[] { "uXUVGhqwywE", "ms-appx:///testaudio.mp3" } },
-            { 3 , new string[] { "nLpjuAR_aRs", "ms-appx:///testaudio.mp3" } },
-            { 4 , new string[] { "uXUVGhqwywE", "ms-appx:///testaudio.mp3" } }
-        };
-
-
-
-
-        private void SetVideoAndAudio()
+        private async Task SetVideoAndAudio()
         {
             int videoId = OptionsVideo.VideoId;
-            Debug.WriteLine(videoId);
-            if (Videos.ContainsKey(videoId))
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
+            List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
+            List<string> urls = new List<string>();
+            List<int> buttns = new List<int>();
+
+            foreach (var i in settings)
             {
-                bool keyValue = Videos.TryGetValue(videoId, out string[] values);
-                GetYoutubeSource(values[0]);
-                if (videoId == 3 || videoId == 4)
-                {
-                    audio.Source = values[1];
-                    audio.IsLooping = true;
-                }
+                urls.Add(i.vid.Url);
+                buttns.Add(i.vid.Audio);
             }
-            else
+
+            await GetYoutubeSource(urls[videoId - 1]);
+
+            if (buttns[videoId - 1] == 1)
             {
-                Debug.WriteLine("Something went wrong in setVideo");
+                video.Volume = 0;
+                audio.Source = "ms-appx:///testaudio.mp3";
             }
         }
 
@@ -90,15 +79,8 @@ namespace Smart_bike_G3.Views
             speed.Text = "0 km/h";
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
-            int videoId = OptionsVideo.VideoId;
-            if (videoId == 3 || videoId == 4)
-            {
-                video.Volume = 0;
-            }
-
         }
 
-     
 
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
@@ -109,11 +91,7 @@ namespace Smart_bike_G3.Views
             Repository.AddResultsVideo(videoId, user, 400);
             Debug.WriteLine("sending data to api");
             Navigation.PushAsync(new ScorebordDistance(100));
-
-
         }
-
-      
 
         private bool FixAutoplay()
         {
@@ -121,11 +99,10 @@ namespace Smart_bike_G3.Views
                 video.Pause();
                 video.IsLooping = false;
                 speed.Text = $"20 km/u";
-                //video.Play();//temp
-
             });
             return false;
         }
+
         private bool IsCycling()
         {
             Random test = new Random();
@@ -149,14 +126,15 @@ namespace Smart_bike_G3.Views
             return true;
         }
 
-        private async Task GetYoutubeSource(string vidId) 
+        private async Task GetYoutubeSource(string vidUrl) 
         {
-            var videoURL = $"https://www.youtube.com/watch?v={vidId}";
+            string vidId = vidUrl.Split('=')[1].Split('?')[0].Split('&')[0];
+            Debug.WriteLine(vidId);
             var youtube = new YoutubeClient();
             var streamManifest = await youtube.Videos.Streams.GetManifestAsync(vidId);
             var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
             var stream = await youtube.Videos.Streams.GetAsync(streamInfo);
-            video.Source = streamInfo.Url;  
+            video.Source = streamInfo.Url;
         }
     }
 }

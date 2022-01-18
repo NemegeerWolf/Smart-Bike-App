@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,9 +19,22 @@ namespace Smart_bike_G3.Views
     {
         public VideoExplanation()
         {
-            InitializeComponent();
-            btnStart.Clicked += BtnStart_Clicked;
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                NavigationPage.SetHasNavigationBar(this, false);
+                btnStart.Clicked += BtnStart_Clicked;
+                AddEvents();
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
+        }
 
+
+        private void AddEvents()
+        {
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
             AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
