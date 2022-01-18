@@ -32,7 +32,6 @@ namespace classes_expert.Services
                     try
                     {
                         string[] LineParts = line.Split(split);
-
                         lstlines.Add(LineParts);
 
                     }

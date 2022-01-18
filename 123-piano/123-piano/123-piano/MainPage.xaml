@@ -61,9 +61,15 @@
             </AbsoluteLayout>
             </Grid>
         </StackLayout>
-        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-            <Label Text="Distance:  " TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-            <Label x:Name="lblscore" Text="0" TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+        <StackLayout HorizontalOptions="Start">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                <Label Text="Distance:  " TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblscore" Text="0" TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                <Label Text="Distance:  " TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblscore" Text="0" TextColor="Blue" FontSize="Header" FontFamily="Game_font" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            </StackLayout>
         </StackLayout>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
             
@@ -73,21 +79,7 @@
 
 
 
-        <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="48" HeightRequest="48">
-            <!--<Path x:Name="Path_18" >
-                <Path.Data>
-                    <PathGeometry Figures="M0 0H48V48H0Z" FillRule="Nonzero"/>
-                </Path.Data>
-            </Path>-->
-            <Path x:Name="Path_19" Fill="black" >
-                <Path.Data>
-                    <PathGeometry Figures="M36.589 23.96a15.586 15.586 0 0 0 .14-1.96 15.587 15.587 0 0 0-.14-1.96l4.22-3.3a1.009 1.009 0 0 0 .24-1.28l-4-6.92a1 1 0 0 0-.88-.5.934.934 0 0 0-.34.06l-4.98 2a14.612 14.612 0 0 0-3.38-1.96l-.76-5.3a.975.975 0 0 0-.98-.84h-8a.975.975 0 0 0-.98.84l-.76 5.3a15.366 15.366 0 0 0-3.38 1.96l-4.98-2a1.132 1.132 0 0 0-.36-.06.991.991 0 0 0-.86.5l-4 6.92a.986.986 0 0 0 .24 1.28l4.22 3.3A15.861 15.861 0 0 0 6.729 22a15.861 15.861 0 0 0 .14 1.96l-4.22 3.3a1.009 1.009 0 0 0-.24 1.28l4 6.92a1 1 0 0 0 .88.5.934.934 0 0 0 .34-.06l4.98-2a14.612 14.612 0 0 0 3.38 1.96l.76 5.3a.975.975 0 0 0 .98.84h8a.975.975 0 0 0 .98-.84l.76-5.3a15.366 15.366 0 0 0 3.38-1.96l4.98 2a1.133 1.133 0 0 0 .36.06.991.991 0 0 0 .86-.5l4-6.92a1.009 1.009 0 0 0-.24-1.28Zm-3.96-3.42a10.685 10.685 0 0 1 .1 1.46c0 .42-.04.86-.1 1.46l-.28 2.26 1.78 1.4 2.16 1.68-1.4 2.42-2.54-1.02-2.08-.84-1.8 1.36a11.713 11.713 0 0 1-2.5 1.46l-2.12.86-.32 2.26-.4 2.7h-2.8l-.38-2.7-.32-2.26-2.12-.86a11.348 11.348 0 0 1-2.46-1.42l-1.82-1.4-2.12.86-2.54 1.02-1.4-2.42 2.16-1.68 1.78-1.4-.28-2.26c-.06-.62-.1-1.08-.1-1.48s.04-.86.1-1.46l.28-2.26-1.78-1.4L7.169 15.2l1.4-2.42 2.54 1.02 2.08.84 1.8-1.36a11.713 11.713 0 0 1 2.5-1.46l2.12-.86.32-2.26.4-2.7h2.78l.38 2.7.32 2.26 2.12.86a11.348 11.348 0 0 1 2.46 1.42l1.82 1.4 2.12-.86 2.54-1.02 1.4 2.42-2.14 1.7-1.78 1.4.28 2.26ZM21.729 14a8 8 0 1 0 8 8A8 8 0 0 0 21.729 14Zm0 12a4 4 0 1 1 4-4A4.012 4.012 0 0 1 21.729 26Z" FillRule="Nonzero"/>
-                </Path.Data>
-                <Path.RenderTransform>
-                    <TranslateTransform X="2.271" Y="2"/>
-                </Path.RenderTransform>
-            </Path>
-        </AbsoluteLayout>
+        <Image x:Name="image" HeightRequest="70" Source="Assets/background_button.png" />
 
         <ActivityIndicator x:Name="loadingIndicator" Color="Blue" IsRunning="True" IsVisible="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
     </Grid>
