@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Smart_bike_G3.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,11 +65,26 @@ namespace Smart_bike_G3.Views
 
         private void Loadpictures()
         {
-            imgbtnFirst.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
-            imgbtnSecond.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
-            imgbtnThird.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
-            imgbtnFourth.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.video1.png");
+            int videoId = OptionsVideo.VideoId;
+            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
+            List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
+            List<string> urls = new List<string>();
+
+            foreach (var i in settings)
+            {
+                urls.Add(i.vid.Url);
+            }
+            imgbtnFirst.Source = getThumbnail(urls[0]);
+            imgbtnSecond.Source = getThumbnail(urls[1]);
+            imgbtnThird.Source = getThumbnail(urls[2]);
+            imgbtnFourth.Source = getThumbnail(urls[3]);
         }
+        private string getThumbnail(string url)
+        {
+            string vidId = url.Split('=')[1].Split('?')[0].Split('&')[0];
+            return $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
+        }
+
 
         private void BtnFourth_Clicked(object sender, EventArgs e)
         {
