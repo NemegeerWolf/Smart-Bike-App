@@ -27,6 +27,7 @@ namespace Smart_bike_G3.Views
             InitializeComponent();
 
             Loadpictures();
+            PlayImage();
 
             imgbtnFirst.Clicked += BtnFirst_Clicked;
             imgbtnSecond.Clicked += BtnSecond_Clicked;
@@ -43,6 +44,14 @@ namespace Smart_bike_G3.Views
             tapGestureRecognizer1.Tapped += AbsLaSetting_Tabbed;
             AbsLaySettings.GestureRecognizers.Add(tapGestureRecognizer1);
 
+        }
+
+        private void PlayImage()
+        {
+            ImgPlay.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
+            ImgPlay1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
+            ImgPlay2.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
+            ImgPlay3.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
         }
 
         private async void AbsLaSetting_Tabbed(object sender, EventArgs e)

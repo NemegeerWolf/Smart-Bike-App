@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <None Remove="Assets\arrow_back.png" />
+    <None Remove="Assets\Asset2.png" />
     <None Remove="Assets\background_button.png" />
     <None Remove="Assets\Game.png" />
     <None Remove="Assets\Luisterboek.png" />
@@ -36,6 +37,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Assets\arrow_back.png" />
+    <EmbeddedResource Include="Assets\Asset2.png" />
     <EmbeddedResource Include="Assets\background_button.png" />
     <EmbeddedResource Include="Assets\Game.png" />
     <EmbeddedResource Include="Assets\Luisterboek.png" />
