@@ -51,8 +51,8 @@ namespace Smart_bike_G3.Views
             SetRadio(buttns[1], radio20, radio21);
             SetRadio(buttns[2], radio30, radio31);
             SetRadio(buttns[3], radio40, radio41);
-
         }
+
         private void SetRadio(int val, RadioButton name, RadioButton name2)
         {
             if (val == 0)
@@ -72,12 +72,12 @@ namespace Smart_bike_G3.Views
             string jsonFront = "{\"video\":{\"url\":\"";
             string jsonMid = "\",\"audio\":";
             string jsonEnd = "}}";
-            string vidUrls = $"[{jsonFront}{video1.Text}{jsonMid}{GetNewVideoOptions(radio10)}{jsonEnd},{jsonFront}{video2.Text}{jsonMid}{GetNewVideoOptions(radio20)}{jsonEnd},{jsonFront}{video3.Text}{jsonMid}{GetNewVideoOptions(radio30)}{jsonEnd},{jsonFront}{video4.Text}{jsonMid}{GetNewVideoOptions(radio40)}{jsonEnd}]";
+            string vidUrls = $"[{jsonFront}{video1.Text}{jsonMid}{GetRadioOptions(radio10)}{jsonEnd},{jsonFront}{video2.Text}{jsonMid}{GetRadioOptions(radio20)}{jsonEnd},{jsonFront}{video3.Text}{jsonMid}{GetRadioOptions(radio30)}{jsonEnd},{jsonFront}{video4.Text}{jsonMid}{GetRadioOptions(radio40)}{jsonEnd}]";
             Debug.WriteLine(vidUrls);
             File.WriteAllText(fileName, vidUrls);
         }
 
-        private int GetNewVideoOptions(RadioButton xNameVid)
+        private int GetRadioOptions(RadioButton xNameVid)
         {
             if (xNameVid.IsChecked)
             {
@@ -88,7 +88,5 @@ namespace Smart_bike_G3.Views
                 return 1;
             }
         }
-
-     
     }
 }
