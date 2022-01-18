@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -73,17 +74,44 @@ namespace Smart_bike_G3.Views
             {
                 urls.Add(i.vid.Url);
             }
-            imgbtnFirst.Source = getThumbnail(urls[0]);
-            imgbtnSecond.Source = getThumbnail(urls[1]);
-            imgbtnThird.Source = getThumbnail(urls[2]);
-            imgbtnFourth.Source = getThumbnail(urls[3]);
+            setThumbnail(urls[0], imgbtnFirst);
+            setThumbnail(urls[1], imgbtnSecond);
+            setThumbnail(urls[2], imgbtnThird);
+            setThumbnail(urls[3], imgbtnFourth);
         }
-        private string getThumbnail(string url)
-        {
+        private void setThumbnail(string url,ImageButton btn) { 
             string vidId = url.Split('=')[1].Split('?')[0].Split('&')[0];
-            return $"https://img.youtube.com/vi/{vidId}/hqdefault.jpg";
-           
-        }   
+            if (RemoteFileExists($"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg"))
+            {
+                btn.Source = $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
+            }
+            else
+            {
+                btn.Source = $"https://img.youtube.com/vi/{vidId}/hqdefault.jpg";
+
+            }
+            Debug.Write(btn.Source);
+
+
+            
+        }
+
+        private bool RemoteFileExists(string url)
+        {
+            try
+            {
+                HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+                request.Method = "HEAD";
+                HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+                response.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
 
 
         private void BtnFourth_Clicked(object sender, EventArgs e)
