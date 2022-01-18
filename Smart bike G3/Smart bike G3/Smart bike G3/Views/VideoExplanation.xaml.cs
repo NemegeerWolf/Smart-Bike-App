@@ -16,6 +16,15 @@ namespace Smart_bike_G3.Views
         {
             InitializeComponent();
             btnStart.Clicked += BtnStart_Clicked;
+
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+
+        private void AbsLayBack_Tabbed(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
         }
 
         private void BtnStart_Clicked(object sender, EventArgs e)
