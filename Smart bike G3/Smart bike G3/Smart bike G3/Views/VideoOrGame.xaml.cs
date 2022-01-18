@@ -21,15 +21,18 @@ namespace Smart_bike_G3.Views
        
         public VideoOrGame()
         {
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
-                InitializeComponent();
-                AddEvents();
-            } 
-            else
-            {
-                Navigation.PushAsync(new NoNetworkPage());
-            }
+            //if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            //{
+            //    InitializeComponent();
+            //    AddEvents();
+            //} 
+            //else
+            //{
+            //    Navigation.PushAsync(new NoNetworkPage());
+            //}
+
+            InitializeComponent();
+            AddEvents();
         }
 
         private void AddEvents()
