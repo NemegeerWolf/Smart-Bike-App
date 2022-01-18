@@ -19,7 +19,7 @@ namespace Smart_bike_G3.Views
         public NoNetworkPage()
         {
             InitializeComponent();
-            imgNoInternet.Source = ImageSource.FromResource(@"Smart_Bike_G3.Assets.no_wifi.png");
+            //imgNoInternet.Source = ImageSource.FromResource(@"Smart_Bike_G3.Assets.no_wifi.png");
 
             //Connectivity.ConnectivityChanged += btnTryAgain_Clicked;
         }
