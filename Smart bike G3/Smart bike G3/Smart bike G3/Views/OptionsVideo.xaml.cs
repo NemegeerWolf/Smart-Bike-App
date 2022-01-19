@@ -88,7 +88,10 @@ namespace Smart_bike_G3.Views
             setThumbnail(urls[1], imgbtnSecond);
             setThumbnail(urls[2], imgbtnThird);
             setThumbnail(urls[3], imgbtnFourth);
-            
+            await setTime(urls[0], lblTime1);
+            await setTime(urls[1], lblTime2);
+            await setTime(urls[2], lblTime3);
+            await setTime(urls[3], lblTime4);
         }
         private void setThumbnail(string url,ImageButton btn) {
             string vidId = GetIDFromUrl(url);
