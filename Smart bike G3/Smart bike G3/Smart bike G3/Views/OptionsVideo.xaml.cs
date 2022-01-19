@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YoutubeExplode;
 
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-Regular")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
@@ -63,7 +64,7 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        private void Loadpictures()
+        private async Task Loadpictures()
         {
             int videoId = OptionsVideo.VideoId;
             string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
@@ -78,9 +79,11 @@ namespace Smart_bike_G3.Views
             setThumbnail(urls[1], imgbtnSecond);
             setThumbnail(urls[2], imgbtnThird);
             setThumbnail(urls[3], imgbtnFourth);
+            
         }
-        private void setThumbnail(string url,ImageButton btn) { 
-            string vidId = url.Split('=')[1].Split('?')[0].Split('&')[0];
+        private void setThumbnail(string url,ImageButton btn) {
+            string vidId = GetIDFromUrl(url);
+            
             if (RemoteFileExists($"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg"))
             {
                 btn.Source = $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
@@ -91,9 +94,20 @@ namespace Smart_bike_G3.Views
 
             }
             Debug.Write(btn.Source);
+        }
 
+        private async Task setTime(string url,Label lbl)
+        {
+            string vidId = GetIDFromUrl(url);
+            var youtube = new YoutubeClient();
+            var video = await youtube.Videos.GetAsync(vidId);
+            var duration = video.Duration.ToString().Remove(0, 3);
+            lbl.Text = duration; 
+        }
 
-            
+        private string GetIDFromUrl(string url)
+        {
+            return url.Split('=')[1].Split('?')[0].Split('&')[0];
         }
 
         private bool RemoteFileExists(string url)

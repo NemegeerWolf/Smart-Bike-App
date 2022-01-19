@@ -23,10 +23,10 @@
                     <RowDefinition Height="0.5*"/>
                     
                 </Grid.RowDefinitions>
-                    <ImageButton x:Name="imgbtnFirst" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380" MinimumWidthRequest="480"/>
-                    <ImageButton x:Name="imgbtnSecond" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" MinimumWidthRequest="480"/>
-                    <ImageButton x:Name="imgbtnThird" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" MinimumWidthRequest="480"/>
-                    <ImageButton x:Name="imgbtnFourth" Grid.Row="2" Grid.Column="2" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" MinimumWidthRequest="480"/>
+                    <ImageButton x:Name="imgbtnFirst" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380"  WidthRequest="480" Aspect="AspectFill"/>
+                    <ImageButton x:Name="imgbtnSecond" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" Aspect="AspectFill"/>
+                    <ImageButton x:Name="imgbtnThird" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" Aspect="AspectFill"/>
+                    <ImageButton x:Name="imgbtnFourth" Grid.Row="2" Grid.Column="2" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" Aspect="AspectFill"/>
 
 
 
