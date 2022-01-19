@@ -17,7 +17,7 @@ namespace Smart_bike_G3.Views
     public partial class Spel123Piano : ContentPage
     {//public variables
         public double Time = 0;
-        public double Distance { get; set; } = 1000; // 1000m / 1km
+        public double Distance { get; set; } = 500; // 1000m / 1km
         public bool GameOver { get; set; } = false;
 
         // local variables

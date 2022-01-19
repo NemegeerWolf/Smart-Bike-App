@@ -13,6 +13,7 @@ namespace Smart_bike_G3
         {
             InitializeComponent();
             firstTimefileSetup();
+            Device.SetFlags(new[] { "Shapes_Experimental", "Brush_Experimental" });
             MainPage = new NavigationPage(new Name());
         }
 
