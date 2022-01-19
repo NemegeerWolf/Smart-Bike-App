@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YoutubeExplode;
@@ -25,26 +26,32 @@ namespace Smart_bike_G3.Views
         public static int VideoId;
         public OptionsVideo()
         {
-            InitializeComponent();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
 
-            Loadpictures();
-            PlayImage();
+                Loadpictures();
+                PlayImage();
 
-            ImgPlay1.Clicked += BtnFirst_Clicked;
-            ImgPlay2.Clicked += BtnSecond_Clicked;
-            ImgPlay3.Clicked += BtnThird_Clicked;
-            ImgPlay4.Clicked += BtnFourth_Clicked;
+                ImgPlay1.Clicked += BtnFirst_Clicked;
+                ImgPlay2.Clicked += BtnSecond_Clicked;
+                ImgPlay3.Clicked += BtnThird_Clicked;
+                ImgPlay4.Clicked += BtnFourth_Clicked;
             
-            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+                TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+                tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+                AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
-            //btnSettings.Clicked += BtnSettings_Clicked;
+                //btnSettings.Clicked += BtnSettings_Clicked;
 
-            TapGestureRecognizer tapGestureRecognizer1 = new TapGestureRecognizer();
-            tapGestureRecognizer1.Tapped += AbsLaSetting_Tabbed;
-            AbsLaySettings.GestureRecognizers.Add(tapGestureRecognizer1);
-
+                TapGestureRecognizer tapGestureRecognizer1 = new TapGestureRecognizer();
+                tapGestureRecognizer1.Tapped += AbsLaSetting_Tabbed;
+                AbsLaySettings.GestureRecognizers.Add(tapGestureRecognizer1);
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
         }
 
         private void PlayImage()

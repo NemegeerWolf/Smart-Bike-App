@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,8 +18,16 @@ namespace Smart_bike_G3.Views
     {
         public Overloop()
         {
-            InitializeComponent();
-            AddEvents();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                AddEvents();
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
+            
         }
 
         private void AddEvents()

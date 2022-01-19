@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,9 +20,17 @@ namespace Smart_bike_G3.Views
         public static string Listening;
         public ChooseVideo()
         {
-            InitializeComponent();
-            AddEvents();
-            MakeResponsive();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                AddEvents();
+                MakeResponsive();
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
+            
         }
 
         private void MakeResponsive()
