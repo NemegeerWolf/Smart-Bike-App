@@ -19,7 +19,7 @@ namespace Smart_bike_G3.Views
     public partial class Name : ContentPage
     {
         public static string User;
-        public static bool PublishName = false;
+        public static bool PublishName = true;
 
         public Name()
         {
