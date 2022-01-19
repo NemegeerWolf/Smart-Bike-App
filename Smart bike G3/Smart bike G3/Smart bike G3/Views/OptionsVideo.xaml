@@ -23,15 +23,22 @@
                     <RowDefinition Height="0.5*"/>
                     
                 </Grid.RowDefinitions>
-                    
+
                     <ImageButton x:Name="imgbtnFirst" Aspect="AspectFill" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380" MinimumWidthRequest="480"/>
+                    <Label x:Name="lblTime1" Grid.Row="1" Grid.Column="1" TextColor="White" Text="2:03" FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
                     <ImageButton x:Name="ImgPlay1" Grid.Row="1" Grid.Column="1" Margin="72" BackgroundColor="Transparent"/>
-                
+                    
                     <ImageButton x:Name="imgbtnSecond" Aspect="AspectFill" Grid.Row="1" Grid.Column="2" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" MinimumWidthRequest="480"/>
+                    <Label x:Name="lblTime2" Grid.Row="1" Grid.Column="2" TextColor="White" Text="2:03" FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
                     <ImageButton x:Name="ImgPlay2" Grid.Row="1" Grid.Column="2" Margin="72" BackgroundColor="Transparent"/>    
+                    
+                
                     <ImageButton x:Name="imgbtnThird" Aspect="AspectFill" Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" MinimumWidthRequest="480"/>
+                    <Label x:Name="lblTime3" Grid.Row="2" Grid.Column="1" TextColor="White" Text="2:03" FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
                     <ImageButton x:Name="ImgPlay3" Grid.Row="2" Grid.Column="1" Margin="72" BackgroundColor="Transparent"/>    
+                    
                     <ImageButton x:Name="imgbtnFourth" Aspect="AspectFill" Grid.Row="2" Grid.Column="2" BackgroundColor="Transparent" WidthRequest="480" HeightRequest="380" MinimumWidthRequest="480"/>
+                    <Label x:Name="lblTime4"  Grid.Row="2" Grid.Column="2"  TextColor="White" Text="2:03" FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
                     <ImageButton x:Name="ImgPlay4" Grid.Row="2" Grid.Column="2" Margin="72" BackgroundColor="Transparent"/>
 
 
