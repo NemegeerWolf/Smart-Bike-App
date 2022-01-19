@@ -25,9 +25,10 @@ namespace Smart_bike_G3.Views
             //{
             //    InitializeComponent();
             //    AddEvents();
-            //} 
+            //}
             //else
             //{
+            //    Console.WriteLine("no network!!");
             //    Navigation.PushAsync(new NoNetworkPage());
             //}
 
@@ -37,9 +38,9 @@ namespace Smart_bike_G3.Views
 
         private void AddEvents()
         {
-            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+            //TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            //tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            //AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
             TapGestureRecognizer tapGestureRecognizer2 = new TapGestureRecognizer();
             tapGestureRecognizer2.Tapped += AbsLayVideo_Tabbed;
