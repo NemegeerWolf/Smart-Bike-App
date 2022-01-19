@@ -46,8 +46,7 @@ namespace Smart_bike_G3
 
         protected override void OnSleep()
         {
-            //MainPage = new NavigationPage(new Name());
-            
+            //MainPage = new NavigationPage(new Name()); 
         }
 
         protected override void OnResume()
