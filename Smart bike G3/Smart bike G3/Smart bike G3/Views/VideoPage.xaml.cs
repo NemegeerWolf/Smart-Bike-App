@@ -128,13 +128,17 @@ namespace Smart_bike_G3.Views
 
         private async Task GetYoutubeSource(string vidUrl) 
         {
-            string vidId = vidUrl.Split('=')[1].Split('?')[0].Split('&')[0];
+            string vidId = GetIDFromUrl(vidUrl);
             Debug.WriteLine(vidId);
             var youtube = new YoutubeClient();
             var streamManifest = await youtube.Videos.Streams.GetManifestAsync(vidId);
             var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
             var stream = await youtube.Videos.Streams.GetAsync(streamInfo);
             video.Source = streamInfo.Url;
+        }
+        private string GetIDFromUrl(string url)
+        {
+            return url.Split('=')[1].Split('?')[0].Split('&')[0];
         }
     }
 }
