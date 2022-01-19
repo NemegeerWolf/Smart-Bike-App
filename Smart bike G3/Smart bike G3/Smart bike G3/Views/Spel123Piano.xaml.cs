@@ -41,14 +41,22 @@ namespace Smart_bike_G3.Views
 
         public Spel123Piano()
         {
-            InitializeComponent();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
 
-            imagetest.Source= image.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.background_button.png");
+                imagetest.Source= image.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.background_button.png");
             
-            Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
+                Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
-            Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
-            Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
+                Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
+                Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
+            
         }
 
         private bool ChangeTime()
@@ -286,7 +294,8 @@ namespace Smart_bike_G3.Views
 
         private void btnHome_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopToRootAsync(); // root page moet veranderd worden.
+            //Navigation.PopToRootAsync(); // root page moet veranderd worden.
+            Navigation.PushAsync(new VideoOrGame());
         }
     }
 }

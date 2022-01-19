@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,9 +20,16 @@ namespace Smart_bike_G3.Views
 
         public ResultsVideo()
         {
-            InitializeComponent();
-            btnScorebord.Clicked += BtnScorebord_Clicked;
-            showKilometers();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                btnScorebord.Clicked += BtnScorebord_Clicked;
+                showKilometers();
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
         }
 
         private async void showKilometers()

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Smart_bike_G3.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,19 +19,43 @@ namespace Smart_bike_G3.Views
     public partial class Name : ContentPage
     {
         public static string User;
-        public static bool PublishName = false;
+        public static bool PublishName = true;
 
         public Name()
         {
-            InitializeComponent();
-            BtnNext.Clicked += BtnNext_Clicked;
-            //warning();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                BtnNext.Clicked += BtnNext_Clicked;
+            } else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
+            
         }
 
-        //private void warning()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private async void warning(string user)
+        {
+            
+            bool check = await Repository.CheckUsernameAsync(user);
+            if(check == true)
+            {
+                bool answer = await DisplayAlert("Deze naam is al in gebruik.", $"Ben jij {user}?", "Nee", "Ja");
+                if (answer == false)
+                {
+                    Navigation.PushAsync(new VideoOrGame());
+                }
+                else
+                {
+                    await DisplayAlert("Kies een andere naam.", "", "OK");
+                }
+            }
+            else
+            {
+                Navigation.PushAsync(new VideoOrGame());
+            }
+            
+        }
 
         private void BtnNext_Clicked(object sender, EventArgs e)
         {
@@ -38,7 +63,8 @@ namespace Smart_bike_G3.Views
             {
                 
                 User = entName.Text;
-                Navigation.PushAsync(new VideoOrGame());
+                warning(User);
+                //Navigation.PushAsync(new VideoOrGame());
                 
             }
             else

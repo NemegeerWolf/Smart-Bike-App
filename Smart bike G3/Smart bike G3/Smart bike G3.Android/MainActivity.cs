@@ -24,5 +24,11 @@ namespace Smart_bike_G3.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        //[Android.Runtime.Register("onUserInteraction", "()V", "GetOnUserInteractionHandler")]
+        //public override void OnUserInteraction()
+        //{
+        //    Console.WriteLine("USER INTERACTED");
+        //}
     }
 }

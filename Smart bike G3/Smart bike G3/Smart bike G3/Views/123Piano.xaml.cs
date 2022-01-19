@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,10 +19,18 @@ namespace Smart_bike_G3.Views
         
         public _123Piano()
         {
-            InitializeComponent();
-            string vidorgame = VideoOrGame.Kind;
-            Console.WriteLine(vidorgame);
-            AddEvents();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                string vidorgame = VideoOrGame.Kind;
+                Console.WriteLine(vidorgame);
+                AddEvents();
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
+            
         }
 
         private void AddEvents()

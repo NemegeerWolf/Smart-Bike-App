@@ -17,7 +17,7 @@
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <CheckBox Grid.Column="0" x:Name="checkPublish" CheckedChanged="checkPublish_CheckedChanged" IsChecked="False" Color="#5589ee" VerticalOptions="Center" Scale="1.5"/>
+                <CheckBox Grid.Column="0" x:Name="checkPublish" CheckedChanged="checkPublish_CheckedChanged" IsChecked="True" Color="#5589ee" VerticalOptions="Center" Scale="1.5"/>
                 <Label Grid.Column="1" x:Name="lblCheckbox" Text="Naam publiceren in scorebord." VerticalOptions="Center" FontSize="20" TextColor="#302e33">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>

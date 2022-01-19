@@ -170,5 +170,31 @@ namespace Smart_bike_G3.Repositories
 
             }
         }
+
+        public async static Task<bool> CheckUsernameAsync(string username)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/check/{username} ";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<bool>(json);
+
+                    }
+                    return false;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
     }
 }
