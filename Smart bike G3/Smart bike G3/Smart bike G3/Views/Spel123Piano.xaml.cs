@@ -294,7 +294,8 @@ namespace Smart_bike_G3.Views
 
         private void btnHome_Clicked(object sender, EventArgs e)
         {
-            Navigation.PopToRootAsync(); // root page moet veranderd worden.
+            //Navigation.PopToRootAsync(); // root page moet veranderd worden.
+            Navigation.PushAsync(new VideoOrGame());
         }
     }
 }
