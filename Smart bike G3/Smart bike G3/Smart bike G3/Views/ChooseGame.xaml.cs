@@ -3,19 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-/****
- * Description:
- * In this view, you can choose a game you like.
- * There are 3 different options:
- * - 123 piano
- * - HillClimb
- * - Overloop
- * 
- */
 
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-Regular")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
@@ -31,14 +21,22 @@ namespace Smart_bike_G3.Views
 
         public ChooseGame()
         {
-            InitializeComponent();
-            AddEvents();
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                InitializeComponent();
+                AddEvents();
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
+            
         }
-        public ChooseGame(string kind)
-        {
-            InitializeComponent();
-            AddEvents();
-        }
+        //public ChooseGame(string kind)
+        //{
+        //    InitializeComponent();
+        //    AddEvents();
+        //}
 
         private void AddEvents()
         {
