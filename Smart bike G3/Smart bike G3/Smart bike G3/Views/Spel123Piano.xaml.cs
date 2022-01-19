@@ -23,7 +23,7 @@ namespace Smart_bike_G3.Views
         // local variables
 
 
-        string[] gameovers = new string[] { "Get up and try again.", "Instead of giving up, try again.", "Fall seven times, stand up eight.", "F.A.I.L.: First Attempt In Learning.", "I know you can do it if you just try again.", "If you fall, you rise back up. If you fail, you try again.", "The sun will rise again and you also will try again." };
+        string[] gameovers = new string[] {"Jammer, geef niet op", "Niet opgeven, volgende keer beter","Probeer opnieuw" };
 
         List<Xamarin.Forms.Shapes.Rectangle> wayMarks = new List<Xamarin.Forms.Shapes.Rectangle>();
         private bool started;
