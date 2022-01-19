@@ -65,8 +65,6 @@ namespace Smart_bike_G3.Views
             Listening = "luisterboek";
             Console.WriteLine("Tabbed luisterboek");
             Navigation.PushAsync(new VideoPage());
-            //Kind meegeven met de game
-            //wordt terug opgehaald in scorebord
         }
 
         
