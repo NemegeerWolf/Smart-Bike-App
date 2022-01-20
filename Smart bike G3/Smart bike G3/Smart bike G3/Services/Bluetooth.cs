@@ -71,6 +71,7 @@ namespace Smart_bike_G3.Services
         public List<string> GetDevices()
         {
             
+            
             listDevices = adapter.BondedDevices.ToList();
             List<string> listDeviceNames = new List<string>();
             foreach(BluetoothDevice device in listDevices)
