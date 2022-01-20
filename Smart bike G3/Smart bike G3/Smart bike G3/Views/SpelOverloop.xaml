@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.SpelOverloop" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Start" Grid.Column="0" Scale="2" Margin="32">
+                    <Path x:Name="path112">
+                        <Path.Data>
+                            <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path  x:Name="path114" Fill="#302e33">
+                        <Path.Data>
+                            <PathGeometry Figures="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                    <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                    <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                    <Label x:Name="lblSnelheidText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                    <Label x:Name="lblSnelheid" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                    <Label x:Name="lblVolumeText" Text="Volume:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                    <Label x:Name="lblVolume" Text="0" WidthRequest="40" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                    <Label x:Name="lblprocentText" Text="%" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Start" />
+                </StackLayout>
+            </StackLayout>
+            <AbsoluteLayout x:Name="Waves" HorizontalOptions="CenterAndExpand" Scale="0.26" ScaleX="1" VerticalOptions="Center" TranslationX="-50" TranslationY="150">
+                
+                <Path x:Name="path9"  StrokeThickness="0" >
+                    <Path.Fill>
+                        <LinearGradientBrush x:Name="l" EndPoint="0,1">
+                            <GradientStop Color="Blue" Offset="0.05"/>
+                            <GradientStop Color="LightBlue" Offset="0.95"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.Data>
+                        <PathGeometry Figures="M 0 500 C 0 500 0 166 0 166 C 66.22947440742013 192.5668155273102 132.45894881484026 219.1336310546204 205 218 C 277.54105118515974 216.8663689453796 356.39367914805905 188.0322913088286 418 185 C 479.60632085194095 181.9677086911714 523.9663345929234 204.73720371006527 598 209 C 672.0336654070766 213.26279628993473 775.7409824802471 199.01889385091033 852 186 C 928.2590175197529 172.98110614908967 977.0697354860874 161.18722088629337 1036 162 C 1094.9302645139126 162.81277911370663 1163.9800755754036 176.23222260391617 1233 179 C 1302.0199244245964 181.76777739608383 1371.0099622122982 173.88388869804191 1440 166 C 1440 166 1440 500 1440 500 Z" FillRule="Nonzero"/>
+                    </Path.Data>
+                </Path>
+                <Path x:Name="path19" StrokeThickness="0">
+                    <Path.Fill>
+                        <LinearGradientBrush x:Name="pm" EndPoint="0,1">
+                            <GradientStop Color="LightBlue" Offset="0.05"/>
+                            <GradientStop Color="LightBlue" Offset="0.95"/>
+                        </LinearGradientBrush>
+                    </Path.Fill>
+                    <Path.Data>
+                        <PathGeometry Figures="M 0 500 C 0 500 0 333 0 333 C 88.27481964960495 305.35383029886634 176.5496392992099 277.70766059773274 235 280 C 293.4503607007901 282.29233940226726 322.0762624527654 314.5231879079354 391 313 C 459.9237375472346 311.4768120920646 569.1453108897285 276.1995877705257 637 273 C 704.8546891102715 269.8004122294743 731.3424939883204 298.6784610099622 789 321 C 846.6575060116796 343.3215389900378 935.4847131569907 359.08656818962555 1008 366 C 1080.5152868430093 372.91343181037445 1136.7186533837169 370.97526623153556 1206 364 C 1275.2813466162831 357.02473376846444 1357.6406733081417 345.0123668842322 1440 333 C 1440 333 1440 500 1440 500 Z" FillRule="Nonzero"/>
+                    </Path.Data>
+                </Path>
+            </AbsoluteLayout>
+        
+            <AbsoluteLayout HorizontalOptions="CenterAndExpand" Scale="0.7">
+                
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" TranslationY="5">
+                    <Path  x:Name="water">
+                        <Path.Fill>
+                            <LinearGradientBrush x:Name="waterBrush" EndPoint="0,1">
+                                <GradientStop Color="Transparent"
+                          Offset="0.0" />
+                                <GradientStop x:Name="startLucht" Color="Transparent"
+                          Offset="0.5" />
+                                <GradientStop x:Name="stopWater" Color="LightBlue"
+                          Offset="0.4" />
+                                <GradientStop Color="Blue"
+                          Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                        <Path.Data>
+                            <PathGeometry Figures="M 575.6429443359375 572.3681640625 L 94.28166198730469 572.3681640625 L 0.5885785818099976 0.4999986886978149 L 666.4143676757813 0.4999986886978149 L 575.6429443359375 572.3681640625 Z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path  Fill="#FF707070">
+                        <Path.Data>
+                            <PathGeometry Figures="M 1.17718505859375 1 L 94.7064208984375 571.8681640625 L 575.2160034179688 571.8681640625 L 665.8287353515625 1 L 1.17718505859375 1 M 0 0 L 667 0 L 576.06982421875 572.8681640625 L 93.85693359375 572.8681640625 L 0 0 Z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" Rotation="9" TranslationX="620">
+                        <Rectangle  WidthRequest="40" HeightRequest="595.193" x:Name="rect2" Fill="#FFE9F2FF" StrokeThickness="1" Stroke="#FF5589EE"/>
+                        <Rectangle AbsoluteLayout.LayoutBounds="0.5,0.5"  WidthRequest="39" HeightRequest="594.193" x:Name="rect4" StrokeThickness="1" Stroke="#FF5589EE"/>
+                </AbsoluteLayout>
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" Rotation="-9" TranslationX="10">
+                        <Rectangle  WidthRequest="40" HeightRequest="595.193" x:Name="rect7" Fill="#FFE9F2FF" StrokeThickness="1" Stroke="#FF5589EE"/>
+                        <Rectangle  AbsoluteLayout.LayoutBounds="0.5,0.5"  WidthRequest="39" HeightRequest="594.193" x:Name="rect9" StrokeThickness="1" Stroke="#FF5589EE"/>
+                </AbsoluteLayout>
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" TranslationX="55" TranslationY="571">
+                    <Path  x:Name="path12" Fill="#FFE9F2FF" StrokeThickness="1" Stroke="#FF5589EE">
+                    <Path.Data>
+                        <PathGeometry Figures="M0 0H562a0 0 0 0 1 0 0V18a10 10 0 0 1-10 10H10A10 10 0 0 1 0 18V0A0 0 0 0 1 0 0Z" FillRule="Nonzero"/>
+                    </Path.Data>
+                </Path>
+                <Path  x:Name="path14" StrokeThickness="1" Stroke="#FF5589EE">
+                    <Path.Data>
+                        <PathGeometry Figures="M.5.5h561a0 0 0 0 1 0 0V18a9.5 9.5 0 0 1-9.5 9.5H10A9.5 9.5 0 0 1 .5 18V.5A0 0 0 0 1 .5.5Z" FillRule="Nonzero"/>
+                    </Path.Data>
+                </Path>
+                </AbsoluteLayout>
+                
+            </AbsoluteLayout>
+
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+
+                <Label x:Name="lblUWin" Text="You Win" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Green" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
+                <StackLayout Orientation="Horizontal" Scale="0.8">
+                    <Grid x:Name="btnRestart" IsVisible="false">
+                        <Image x:Name="image" HeightRequest="70"  />
+                        <Label x:Name="lblScore" Text="Opnieuw" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000"/>
+                    </Grid>
+                    <!--<Grid x:Name="btnHome" IsVisible="false">
+                        <Image x:Name="imagetest" HeightRequest="70" />
+                        <Button  Text="Startpagina" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
+                    </Grid>-->
+                </StackLayout>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
