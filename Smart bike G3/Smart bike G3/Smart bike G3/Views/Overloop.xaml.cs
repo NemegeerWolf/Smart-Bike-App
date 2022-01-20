@@ -47,7 +47,7 @@ namespace Smart_bike_G3.Views
             Console.WriteLine("Start Overloop");
 
             //start the game
-
+            Navigation.PushAsync(new SpelOverloop());
             //Kind meegeven met de game tot aan het scorebord!
         }
     }

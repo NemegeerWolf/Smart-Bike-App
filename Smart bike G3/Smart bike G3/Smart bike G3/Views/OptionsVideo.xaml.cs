@@ -175,7 +175,7 @@ namespace Smart_bike_G3.Views
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
             AbsLayBack.Scale = 1.5;
-            Navigation.PopAsync();
+            Navigation.PushAsync(new VideoOrGame());
         }
     }
 }
