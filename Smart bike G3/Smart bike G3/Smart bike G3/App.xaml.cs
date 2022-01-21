@@ -1,4 +1,3 @@
-using Smart_bike_G3.Services;
 using Smart_bike_G3.Views;
 using System;
 using System.Diagnostics;
@@ -12,7 +11,6 @@ namespace Smart_bike_G3
     {
         public App()
         {
-            
             InitializeComponent();
             firstTimefileSetup();
             //CatchSleepmode();
@@ -29,6 +27,8 @@ namespace Smart_bike_G3
                 File.WriteAllText(fileName, vidUrls);
             }
         }
+
+
 
         public void CatchSleepmode()
         {

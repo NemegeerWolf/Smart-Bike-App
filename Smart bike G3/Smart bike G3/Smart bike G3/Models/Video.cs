@@ -16,8 +16,15 @@ namespace Smart_bike_G3.Models
         [JsonProperty("distance")]
         public int Distance { get; set; }
 
-        public string DistanceString { get {
-                return $"{this.Distance} km";
+        public string ScoreBordString { get {
+                return $"{this.Distance} m";
+            } }
+
+        [JsonProperty("rank")]
+        public string Rank { get; set; }
+
+        public string RankDot { get {
+                return $"{this.Rank}."; 
             } }
 
         [JsonProperty("id")]
