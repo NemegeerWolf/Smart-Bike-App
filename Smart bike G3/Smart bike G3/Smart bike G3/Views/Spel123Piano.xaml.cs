@@ -114,7 +114,7 @@ namespace Smart_bike_G3.Views
 
             //game over went speed more than 1km/u
 
-            if (IsRed == true && globalSpeed > 1)
+            /*if (IsRed == true && globalSpeed > 1)
             {
                 lblGameOver.Text = gameovers[random.Next(0, gameovers.Length)];
                 lblGameOver.IsVisible = true;
@@ -123,12 +123,13 @@ namespace Smart_bike_G3.Views
                 btnHome.IsVisible = true;
                 btnRestartText.Text = $"Restart";
                 //sent to API
-                // Repository.AddResultsGame(1, Name.User, Convert.ToInt32( Distance), 0); // desable for not filling the database 
+                
+                //Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Distance), 0); // desable for not filling the database 
 
-                // Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(0))); // push to scoreboard
+                //Navigation.PushAsync(new Scorebord(Convert.ToInt32(0))); // push to scoreboard
                 return false;
                 
-            }
+            }*/
 
             //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
             Distance -= globalSpeed * 0.0277777778; // meter
@@ -141,7 +142,6 @@ namespace Smart_bike_G3.Views
                 lblGameOver.TextColor = Brush.Green.Color;
 
                 lblscore.Text = "0 m";
-
                 lblGameOver.IsVisible = true;
                 btnRestart.IsVisible = true;
 
@@ -151,7 +151,7 @@ namespace Smart_bike_G3.Views
                 
                 Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Time), 0);
                 Thread.Sleep(3000);
-                Navigation.PushAsync(new ScorebordTime(Convert.ToInt32(Time))); // push to scoreboard
+                Navigation.PushAsync(new Scorebord(Convert.ToInt32(Time))); // push to scoreboard
                 return false;
             }
 
