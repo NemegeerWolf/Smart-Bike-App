@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics;
 
 namespace Smart_bike_G3.Models
 {
@@ -16,22 +14,33 @@ namespace Smart_bike_G3.Models
         [JsonProperty("distance")]
         public int Distance { get; set; }
 
-        public string DistanceString
+        public string ScoreBordString
         {
             get
             {
-                return $"{this.Distance} m";
+                if (GameId != 3)
+                {
+                    return $"{this.Speed} s";
+                }
+                else
+                {
+                    return $"{this.Distance} m";
+                }
             }
         }
 
         [JsonProperty("speed")]
         public float Speed { get; set; }
 
-        public string SpeedString
+
+        [JsonProperty("rank")]
+        public string Rank { get; set; }
+
+        public string RankDot
         {
             get
             {
-                return $"{this.Speed} s";
+                return $"{this.Rank}.";
             }
         }
 

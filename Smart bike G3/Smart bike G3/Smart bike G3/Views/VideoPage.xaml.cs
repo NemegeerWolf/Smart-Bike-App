@@ -87,10 +87,12 @@ namespace Smart_bike_G3.Views
             playing = false;
             int videoId = OptionsVideo.VideoId;
             string user = Name.User;
+            Random rand = new Random();
+            int score = rand.Next(1, 1000);
             audio.Stop();
-            Repository.AddResultsVideo(videoId, user, 400);
+            Repository.AddResultsVideo(videoId, user, score);
             Debug.WriteLine("sending data to api");
-            Navigation.PushAsync(new ScorebordDistance(100));
+            Navigation.PushAsync(new Scorebord(score));
         }
 
         private bool FixAutoplay()

@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Smart_bike_G3.Models;
+using Smart_bike_G3.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -194,6 +196,48 @@ namespace Smart_bike_G3.Repositories
                     throw ex;
                 }
 
+            }
+        }
+        public async static Task<int> CheckRank(string username, int score, string kind)
+        {
+            int rank = 0;
+            if (kind == "video")
+            {
+                int videoid = OptionsVideo.VideoId;
+                List<Video> list = await GetAllscoresVideoAsync(videoid);
+                foreach (var i in list)
+                {
+                    if (i.User == username & i.Distance == score)
+                    {
+                        rank = int.Parse(i.Rank);
+                        Debug.WriteLine(rank);
+                    }
+                }
+                return rank;
+            }
+            else if (kind == "game")
+            {
+                int gameid = ChooseGame.gameId;
+                List<Game> list = await GetAllscoresGameAsync(gameid);
+                foreach (var i in list)
+                {
+                    if (gameid == 3 & i.User == username & i.Distance == score)
+                    {
+                        rank = int.Parse(i.Rank);
+
+                    }
+                    else if (Enumerable.Range(1, 2).Contains(gameid) & i.User == username & i.Speed == score)
+                    {
+                        rank = int.Parse(i.Rank);
+                        
+                    }
+                }
+                return rank;
+
+            }
+            else
+            {
+                return 0;
             }
         }
     }
