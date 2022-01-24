@@ -17,8 +17,8 @@ namespace TestBluethoot
         {
             InitializeComponent();
             Scan();
-            
 
+            Navigation.PushAsync(new Page1());
         }
 
         //private async void setup()
@@ -51,7 +51,7 @@ namespace TestBluethoot
         private void Button_Clicked(object sender, EventArgs e)
         {
 
-            Navigation.PushAsync(new Page1());
+            
 
             //List<string> i = new List<string> { };
             //foreach (CharacteristicsList c in Bluethoottest.GetCharacteristics())

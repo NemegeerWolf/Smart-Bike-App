@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Threading;
 using Xamarin.Essentials;
 using Smart_bike_G3.Repositories;
+using TestBluethoot.Services;
 
 namespace Smart_bike_G3.Views
 {
@@ -31,7 +32,7 @@ namespace Smart_bike_G3.Views
         private double height;
         private double gap;
         private DisplayInfo mainDisplayInfo;
-        private double globalSpeed = 100;
+        private double globalSpeed = 10;
         Random random = new Random(Convert.ToInt32(DateTime.Now.Millisecond));
 
         private DateTime startOrange = DateTime.MinValue;
@@ -42,7 +43,7 @@ namespace Smart_bike_G3.Views
         public Spel123Piano()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
+            { 
                 InitializeComponent();
 
                 pictures();
@@ -53,6 +54,11 @@ namespace Smart_bike_G3.Views
 
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
                 Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
+
+                Sensor.NewDataCadence += ((s, e) =>
+                {
+                    globalSpeed = e;
+                });
             }
             else
             {
@@ -84,7 +90,7 @@ namespace Smart_bike_G3.Views
 
         private bool GamePlay()
         {
-            globalSpeed = 30;// read sensor here
+            // read sensor here
 
 
 

@@ -22,7 +22,7 @@ namespace Smart_bike_G3
             firstTimefileSetup();
             
             //CatchSleepmode();
-            MainPage = new NavigationPage(new VideoOrGame());
+            MainPage = new NavigationPage(new NoSensorPage());
         }
 
         

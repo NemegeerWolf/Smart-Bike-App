@@ -26,14 +26,20 @@ namespace Smart_bike_G3.Services
 
         public static ObservableCollection<BleList> Scan()
         {
-            Device.BeginInvokeOnMainThread(() => { 
+            //Device.BeginInvokeOnMainThread(() => { 
+            //ble = CrossBle.Createble();
+            ////when search devices
+            //ble.OnScanDevicesIn += Ble_OnScanDevicesIn;
+            //ble.StartScanningForDevices();
+            //BleStatus = ble.AdapterConnectStatus;
+
+            //});
+
             ble = CrossBle.Createble();
             //when search devices
             ble.OnScanDevicesIn += Ble_OnScanDevicesIn;
             ble.StartScanningForDevices();
             BleStatus = ble.AdapterConnectStatus;
-            
-            });
             return blelist;
         }
 
