@@ -82,7 +82,7 @@ namespace Smart_bike_G3.Views
 
         private async Task Loadpictures()
         {
-            int videoId = OptionsVideo.VideoId;
+            int videoId = VideoId;
             string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
             List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
             List<string> urls = new List<string>();

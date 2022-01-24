@@ -1,6 +1,8 @@
-﻿using Smart_bike_G3.Repositories;
+﻿using Smart_bike_G3.Models;
+using Smart_bike_G3.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +35,7 @@ namespace Smart_bike_G3.Views
             }
             
         }
+  
 
         private async void warning(string user)
         {
