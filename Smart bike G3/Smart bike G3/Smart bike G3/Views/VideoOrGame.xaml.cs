@@ -67,10 +67,10 @@ namespace Smart_bike_G3.Views
             //lblOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
         }
 
-        private void AbsLayOtherUser_Tabbed(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Name());
-        }
+        //private void AbsLayOtherUser_Tabbed(object sender, EventArgs e)
+        //{
+        //    Navigation.PushAsync(new Name());
+        //}
 
         private void AbsLayGame_Tabbed(object sender, EventArgs e)
         {
