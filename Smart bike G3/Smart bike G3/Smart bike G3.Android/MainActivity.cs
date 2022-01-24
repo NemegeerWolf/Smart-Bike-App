@@ -52,7 +52,7 @@ namespace Smart_bike_G3.Droid
             RegisterReceiver(_receiver, new IntentFilter(BluetoothDevice.ActionFound));
             
 
-            BluetoothDeviceReceiver.Adapter.StartDiscovery();
+            //BluetoothDeviceReceiver.Adapter.StartDiscovery();
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
