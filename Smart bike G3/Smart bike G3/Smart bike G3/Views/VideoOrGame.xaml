@@ -1,85 +1,84 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
              x:Class="Smart_bike_G3.Views.VideoOrGame"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="White">
+             BackgroundColor="#eafcfc"
+             >
+    
     <ContentPage.Content>
-        <StackLayout Margin="0, 50">
-            <Grid VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Margin="32">
+        
+        <StackLayout>
+
+            <Grid WidthRequest="1000" HeightRequest="1000">
+                <Image x:Name="ImgClouds" Scale="1.5" Grid.Row="0" Grid.Column="0" VerticalOptions="Start"/>
+                <Image x:Name="ImgBackground" Scale="1.5" Grid.Row="0" Grid.Column="0" VerticalOptions="End"/>
+                <Grid Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="0.5*"/>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <!--<AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="20, 0">
-                    <Path x:Name="path112">
-                        <Path.Data>
-                            <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
-                        </Path.Data>
-                    </Path>
-                    <Path  x:Name="path114" Fill="#302e33">
-                        <Path.Data>
-                            <PathGeometry Figures="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" FillRule="Nonzero"/>
-                        </Path.Data>
-                    </Path>
-                </AbsoluteLayout>-->
-                <Label FontFamily="Rubik-Bold" Grid.Column="1" Text="Maak een keuze" FontSize="48" TextColor="#302E33" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-            </Grid>
-            <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
                     <RowDefinition Height="auto" />
-                   
+
                 </Grid.RowDefinitions>
-                <Label Grid.Column="0" Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Videos" FontSize="40" HorizontalTextAlignment="Center" TextColor="#615C66"/>
+                
+                <AbsoluteLayout Grid.Column="1" x:Name="AbsLayVideo">
+                    <Frame HasShadow="True" BackgroundColor="#f7ffff">
+                        <Grid  >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="200"/>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="1" Grid.Row="1" x:Name="ImgVideo" Scale="1.5" VerticalOptions="CenterAndExpand"/>
+                            <Label Grid.Column="1"  Grid.Row="3" FontFamily="Rubik-SemiBold" Text="Video" FontSize="40" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
 
-                <AbsoluteLayout x:Name="AbsLayVideo" HorizontalOptions="CenterAndExpand"  Grid.Column="0" Grid.Row="1" Scale="6" VerticalOptions="Center" Margin="50" >
-                    <Path x:Name="path277">
-                        <Path.Data>
-                            <PathGeometry Figures="M0 0h24v24H0z"/>
-                        </Path.Data>
-                    </Path>
-                    <Path x:Name="path279" Fill="#5589EE">
-                        <Path.Data>
-                            <PathGeometry Figures="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" FillRule="Nonzero"/>
-                        </Path.Data>
-                    </Path>
+                        </Grid>
+                    </Frame>
                 </AbsoluteLayout>
 
-                <Label Grid.Column="1"  Grid.Row="0" FontFamily="Rubik-SemiBold" Text="Games" FontSize="40" HorizontalOptions="Center" TextColor="#615C66"/>
-                <AbsoluteLayout x:Name="AbsLayGame" HorizontalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="1" Scale="8" VerticalOptions="Center">
-                    <Path x:Name="path191">
-                        <Path.Data>
-                            <PathGeometry Figures="M0 0h24v24H0V0z" FillRule="Nonzero"/>
-                        </Path.Data>
-                    </Path>
-                    <Path x:Name="path193" Fill="#5589EE">
-                        <Path.Data>
-                            <PathGeometry Figures="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 10H3V8h18v8zM6 15h2v-2h2v-2H8V9H6v2H4v2h2z" FillRule="Nonzero"/>
-                        </Path.Data>
-                    </Path>
-                    <Ellipse AbsoluteLayout.LayoutBounds="13,12" WidthRequest="3" HeightRequest="3" x:Name="circle195" Fill="#5589EE"/>
-                    <Ellipse AbsoluteLayout.LayoutBounds="17,9" WidthRequest="3" HeightRequest="3" x:Name="circle197" Fill="#5589EE"/>
+
+                <AbsoluteLayout Grid.Column="3" x:Name="AbsLayGame">
+                    <Frame HasShadow="True" BackgroundColor="#f7ffff">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="50"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="200"/>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="1" Grid.Row="1" x:Name="ImgGame" Scale="1.5" VerticalOptions="CenterAndExpand"/>
+                            <Label Grid.Column="1"  Grid.Row="3" FontFamily="Rubik-SemiBold" Text="Games" FontSize="40" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
+
+                        </Grid>
+                    </Frame>
                 </AbsoluteLayout>
+                
             </Grid>
-            <AbsoluteLayout x:Name="AbsLayOtherUser" HorizontalOptions="CenterAndExpand">
-                <Path x:Name="path2">
-                    <Path.Data>
-                        <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
-                    </Path.Data>
-                </Path>
-                <Path x:Name="path4" Fill="#302E33" Scale="2">
-                    <Path.Data>
-                        <PathGeometry Figures="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H8v-1.5c0-1.99 4-3 6-3s6 1.01 6 3V16z" FillRule="Nonzero"/>
-                    </Path.Data>
-                </Path>
-            </AbsoluteLayout>
-            <Label x:Name="lblOtherUser" Text="Andere gebruiker" HorizontalOptions="Center" TextColor="#302E33" Margin="10"></Label>
+
+            </Grid>
+
+            
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

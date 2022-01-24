@@ -3,6 +3,7 @@ using Android.Bluetooth.LE;
 using Android.Content;
 using Android.Runtime;
 using Java.IO;
+using Smart_bike_G3.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,58 +11,78 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Smart_bike_G3.Services
 {
-    class Bluetooth
+    public class Bluetooth
     {
-        static BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
+        public static BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
         private static BluetoothAdapter.ILeScanCallback DeviceDiscovered;
         private static BluetoothSocket _socket;
         private static List<BluetoothDevice> listDevices;
         private static BluetoothGattCallback callback;
         private static BluetoothLeScanner scanner;
         private static ScanCallback scanCallback;
+        List<BluetoothDevice> UnPairedBluetoothDevices;
 
-        public  void Scan()
+        public async Task<List<BluetoothDevice>> GetUnPairedBluetoothDevices()
         {
-           
+            await Task.Run(() =>
+            {
+                if (adapter.IsDiscovering)
+                {
+
+                    adapter.CancelDiscovery();
+                    UnPairedBluetoothDevices = BluetoothDeviceReceiver.UnPairedBluetoothDevices;
+                    return;
+                }
+                adapter.StartDiscovery();
+                Thread.Sleep(3000);
+                UnPairedBluetoothDevices = BluetoothDeviceReceiver.UnPairedBluetoothDevices;
+                adapter.CancelDiscovery();
+            });
+            return UnPairedBluetoothDevices;
         }
+
+        
 
 
 
         public async Task Connect(int index)
         {
-
-            try
+            await Task.Run(() =>
             {
-                if (adapter == null)
-                    throw new Exception("No Bluetooth adapter found.");
+                try
+                {
+                    if (adapter == null)
+                        throw new Exception("No Bluetooth adapter found.");
 
-                if (!adapter.IsEnabled)
-                    throw new Exception("Bluetooth adapter is not enabled.");
-                var device = listDevices[index];
-                device.FetchUuidsWithSdp();
-                device.CreateBond();
+                    if (!adapter.IsEnabled)
+                        throw new Exception("Bluetooth adapter is not enabled.");
+                    var device = listDevices[index];
+                    device.FetchUuidsWithSdp();
+                    device.CreateBond();
 
-                var u = device.GetUuids()[0];
+                    var u = device.GetUuids()[0];
 
-                if (device == null)
-                    throw new Exception("Named device not found.");
+                    if (device == null)
+                        throw new Exception("Named device not found.");
 
-                _socket = device.CreateInsecureRfcommSocketToServiceRecord(u.Uuid);
+                    _socket = device.CreateInsecureRfcommSocketToServiceRecord(u.Uuid);
 
-                var p = _socket.RemoteDevice.BondState;
-                if (!_socket.IsConnected)
-                    _socket.Connect();
-                var _stream = _socket.InputStream;
-                var _reader = new InputStreamReader(_stream);
-            }
-            catch (IOException e)
-            {
-                Debug.WriteLine(e);
-            }
+                    var p = _socket.RemoteDevice.BondState;
+                    if (!_socket.IsConnected)
+                        _socket.Connect();
+                    var _stream = _socket.InputStream;
+                    var _reader = new InputStreamReader(_stream);
+                }
+                catch (IOException e)
+                {
+                    Debug.WriteLine(e);
+                }
+            });
         }
 
 

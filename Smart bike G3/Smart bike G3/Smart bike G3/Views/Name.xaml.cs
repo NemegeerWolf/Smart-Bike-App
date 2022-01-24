@@ -1,5 +1,5 @@
-﻿using Smart_bike_G3.Models;
-using Smart_bike_G3.Repositories;
+﻿using Smart_bike_G3.Repositories;
+using Smart_bike_G3.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,6 +25,8 @@ namespace Smart_bike_G3.Views
 
         public Name()
         {
+            
+
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
