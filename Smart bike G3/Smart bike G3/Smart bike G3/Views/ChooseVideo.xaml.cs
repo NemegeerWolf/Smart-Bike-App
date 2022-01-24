@@ -33,20 +33,20 @@ namespace Smart_bike_G3.Views
                 Loadpictures();
                 PlayImage();
 
-                ImgPlay1.Clicked += BtnFirst_Clicked;
-                ImgPlay2.Clicked += BtnSecond_Clicked;
-                ImgPlay3.Clicked += BtnThird_Clicked;
-                ImgPlay4.Clicked += BtnFourth_Clicked;
+                //ImgPlay1.Clicked += BtnFirst_Clicked;
+                //ImgPlay2.Clicked += BtnSecond_Clicked;
+                //ImgPlay3.Clicked += BtnThird_Clicked;
+                //ImgPlay4.Clicked += BtnFourth_Clicked;
             
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
                 tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-                AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+                //AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
                 //btnSettings.Clicked += BtnSettings_Clicked;
 
-                TapGestureRecognizer tapGestureRecognizer1 = new TapGestureRecognizer();
-                tapGestureRecognizer1.Tapped += AbsLaSetting_Tabbed;
-                AbsLaySettings.GestureRecognizers.Add(tapGestureRecognizer1);
+                //TapGestureRecognizer tapGestureRecognizer1 = new TapGestureRecognizer();
+                //tapGestureRecognizer1.Tapped += AbsLaSetting_Tabbed;
+                //AbsLaySettings.GestureRecognizers.Add(tapGestureRecognizer1);
             }
             else
             {
@@ -56,10 +56,10 @@ namespace Smart_bike_G3.Views
 
         private void PlayImage()
         {
-            ImgPlay1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            ImgPlay2.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            ImgPlay3.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            ImgPlay4.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
+            //ImgPlay1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
+            //ImgPlay2.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
+            //ImgPlay3.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
+            //ImgPlay4.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
         }
 
         private async void AbsLaSetting_Tabbed(object sender, EventArgs e)
@@ -91,14 +91,14 @@ namespace Smart_bike_G3.Views
             {
                 urls.Add(i.vid.Url);
             }
-            setThumbnail(urls[0], imgbtnFirst);
-            setThumbnail(urls[1], imgbtnSecond);
-            setThumbnail(urls[2], imgbtnThird);
-            setThumbnail(urls[3], imgbtnFourth);
-            setTime(urls[0], lblTime1);
-            setTime(urls[1], lblTime2);
-            setTime(urls[2], lblTime3);
-            setTime(urls[3], lblTime4);
+            //setThumbnail(urls[0], imgbtnFirst);
+            //setThumbnail(urls[1], imgbtnSecond);
+            //setThumbnail(urls[2], imgbtnThird);
+            //setThumbnail(urls[3], imgbtnFourth);
+            //setTime(urls[0], lblTime1);
+            //setTime(urls[1], lblTime2);
+            //setTime(urls[2], lblTime3);
+            //setTime(urls[3], lblTime4);
         }
         private void setThumbnail(string url,ImageButton btn) {
             string vidId = GetIDFromUrl(url);
@@ -147,34 +147,34 @@ namespace Smart_bike_G3.Views
 
 
 
-        private void BtnFourth_Clicked(object sender, EventArgs e)
-        {
+        //private void BtnFourth_Clicked(object sender, EventArgs e)
+        //{
             
-            VideoId = 4;
-            //Navigation.PushAsync(new VideoExplanation());
-            Navigation.PushAsync(new VideoPage());
-        }
+        //    VideoId = 4;
+        //    //Navigation.PushAsync(new VideoExplanation());
+        //    Navigation.PushAsync(new VideoPage());
+        //}
 
-        private void BtnThird_Clicked(object sender, EventArgs e)
-        {
-            VideoId= 3;
-            //Navigation.PushAsync(new VideoExplanation());
-            Navigation.PushAsync(new VideoPage());
-        }
+        //private void BtnThird_Clicked(object sender, EventArgs e)
+        //{
+        //    VideoId= 3;
+        //    //Navigation.PushAsync(new VideoExplanation());
+        //    Navigation.PushAsync(new VideoPage());
+        //}
 
-        private void BtnSecond_Clicked(object sender, EventArgs e)
-        {
-            VideoId = 2;
-            //Navigation.PushAsync(new VideoExplanation());
-            Navigation.PushAsync(new VideoPage());
-        }
+        //private void BtnSecond_Clicked(object sender, EventArgs e)
+        //{
+        //    VideoId = 2;
+        //    //Navigation.PushAsync(new VideoExplanation());
+        //    Navigation.PushAsync(new VideoPage());
+        //}
 
-        private void BtnFirst_Clicked(object sender, EventArgs e)
-        {
-            VideoId = 1;
-            //Navigation.PushAsync(new VideoExplanation());
-            Navigation.PushAsync(new VideoPage());
-        }
+        //private void BtnFirst_Clicked(object sender, EventArgs e)
+        //{
+        //    VideoId = 1;
+        //    //Navigation.PushAsync(new VideoExplanation());
+        //    Navigation.PushAsync(new VideoPage());
+        //}
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
