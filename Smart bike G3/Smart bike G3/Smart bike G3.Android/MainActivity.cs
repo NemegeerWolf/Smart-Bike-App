@@ -47,9 +47,9 @@ namespace Smart_bike_G3.Droid
             }
 
             // Register for broadcasts when a device is discovered
-            _receiver = new BluetoothDeviceReceiver();
+            
 
-            RegisterReceiver(_receiver, new IntentFilter(BluetoothDevice.ActionFound));
+           
             
 
             //BluetoothDeviceReceiver.Adapter.StartDiscovery();
