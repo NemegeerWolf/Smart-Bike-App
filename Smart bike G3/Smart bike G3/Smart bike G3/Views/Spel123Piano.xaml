@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              
              x:Class="Smart_bike_G3.Views.Spel123Piano" NavigationPage.HasNavigationBar="False"
-             BackgroundColor="White"
+             BackgroundColor="#96d9c9"
              >
     <Grid x:Name="Window">
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackLayout>
+        <StackLayout >
 
 
             <Grid>
@@ -22,10 +22,10 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Rectangle Grid.Column="0" BackgroundColor="green" HeightRequest="1000" />
-                    <Rectangle Grid.Column="1" BackgroundColor="green" />
+                    <Rectangle Grid.Column="0" BackgroundColor="#96d9c9" HeightRequest="1000" />
+                    <Rectangle Grid.Column="1" BackgroundColor="#96d9c9" />
                 </Grid>
-                <Polygon Fill="#AEAEAE" AbsoluteLayout.LayoutBounds="1,1,1,.14" AbsoluteLayout.LayoutFlags="All" Aspect="Fill" Points="402.59 0 585.32 0 987.9 775.42 0 775.42 402.59 0" />
+                <Polygon Fill="#EBF3FA" AbsoluteLayout.LayoutBounds="1,1,1,.14" AbsoluteLayout.LayoutFlags="All" Aspect="Fill" Points="402.59 0 585.32 0 987.9 775.42 0 775.42 402.59 0" />
             </Grid>
 
 
@@ -65,17 +65,17 @@
         </StackLayout>
         <StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start">
-            <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-            <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblTime" Text="0" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
         </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start">
-                <Label x:Name="lblSpeedText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                <Label x:Name="lblSpeed" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblSpeedText" Text="Snelheid:  " TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblSpeed" Text="0" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
             </StackLayout>
         </StackLayout>
         <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-            <Label x:Name="lblScoreText" Text="Distance:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-            <Label x:Name="lblscore" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblScoreText" Text="Distance:  " TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            <Label x:Name="lblscore" Text="0" WidthRequest="100" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
         </StackLayout>
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
@@ -112,6 +112,13 @@
             </Path>
             <Polygon Points="165.11 43.58 165.11 76.26 162.55 77.54 162.55 103.15 187.83 103.15 187.83 77.54 185.53 76.52 185.02 73.36 184.77 43.58 165.11 43.58" x:Name="polygon8" FillRule="Nonzero" Fill="#FFD0CDBA"/>
         </AbsoluteLayout>
+
+        <Image x:Name="ImgGreen1" VerticalOptions="End" HorizontalOptions="Start" Scale="1.5"/>
+        <Image x:Name="ImgGreen2" VerticalOptions="Center" HorizontalOptions="Start" Margin="16" Scale="1.2"/>
+        <Image x:Name="ImgGreen3" VerticalOptions="Center" HorizontalOptions="End" Margin="16" Scale="1.2"/>
+        <Image x:Name="ImgGreen4" VerticalOptions="End" HorizontalOptions="End" Scale="1.5" />
+
+
 
 
 

@@ -26,6 +26,10 @@
     <None Remove="Assets\Game.png" />
     <None Remove="Assets\GameConsole.png" />
     <None Remove="Assets\Glass.png" />
+    <None Remove="Assets\Green1.png" />
+    <None Remove="Assets\green2.png" />
+    <None Remove="Assets\Green3.png" />
+    <None Remove="Assets\Green4.png" />
     <None Remove="Assets\help.png" />
     <None Remove="Assets\Light.png" />
     <None Remove="Assets\Luisterboek.png" />
@@ -47,13 +51,17 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\arrow_back.png" />
     <EmbeddedResource Include="Assets\Asset2.png" />
-    <EmbeddedResource Include="Assets\Background.png" />
     <EmbeddedResource Include="Assets\background_button.png" />
     <EmbeddedResource Include="Assets\Bike.png" />
     <EmbeddedResource Include="Assets\Clouds.png" />
     <EmbeddedResource Include="Assets\Game.png" />
     <EmbeddedResource Include="Assets\GameConsole.png" />
     <EmbeddedResource Include="Assets\Glass.png" />
+    <EmbeddedResource Include="Assets\Green1.png" />
+    <EmbeddedResource Include="Assets\Green2.png" />
+    <EmbeddedResource Include="Assets\Green3.png" />
+    <EmbeddedResource Include="Assets\Green4.png" />
+    <EmbeddedResource Include="Assets\Background.png" />
     <EmbeddedResource Include="Assets\help.png" />
     <EmbeddedResource Include="Assets\Light.png" />
     <EmbeddedResource Include="Assets\Luisterboek.png" />

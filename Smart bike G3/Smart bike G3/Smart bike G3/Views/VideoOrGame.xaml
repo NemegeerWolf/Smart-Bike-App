@@ -9,7 +9,7 @@
     
     <ContentPage.Content>
         
-        <StackLayout Margin="4">
+        <StackLayout>
 
             <Grid WidthRequest="1000" HeightRequest="1000">
                 <Image x:Name="ImgClouds" Scale="1.5" Grid.Row="0" Grid.Column="0" VerticalOptions="Start"/>

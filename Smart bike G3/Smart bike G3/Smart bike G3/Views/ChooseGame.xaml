@@ -5,7 +5,7 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#eafcfc">
     <ContentPage.Content>
-        <StackLayout Margin="4">
+        <StackLayout >
 
             <Grid WidthRequest="1000" HeightRequest="1000">
                 

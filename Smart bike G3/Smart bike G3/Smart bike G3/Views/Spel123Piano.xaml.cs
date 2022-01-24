@@ -45,6 +45,8 @@ namespace Smart_bike_G3.Views
             {
                 InitializeComponent();
 
+                pictures();
+
                 imagetest.Source= image.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.background_button.png");
             
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
@@ -57,6 +59,14 @@ namespace Smart_bike_G3.Views
                 Navigation.PushAsync(new NoNetworkPage());
             }
             
+        }
+
+        private void pictures()
+        {
+            ImgGreen1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green1.png");
+            ImgGreen2.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green2.png");
+            ImgGreen3.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green3.png");
+            ImgGreen4.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green4.png");
         }
 
         private bool ChangeTime()
