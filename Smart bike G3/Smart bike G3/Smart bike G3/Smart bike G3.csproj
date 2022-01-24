@@ -73,6 +73,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ChooseVideo.xaml.cs">
+      <DependentUpon>ChooseVideo.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Scorebord.xaml.cs">
       <DependentUpon>Scorebord.xaml</DependentUpon>
     </Compile>
@@ -85,7 +88,7 @@
     <EmbeddedResource Update="Views\NoNetworkPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\OptionsVideo.xaml">
+    <EmbeddedResource Update="Views\ChooseVideo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ResultsVideo.xaml">

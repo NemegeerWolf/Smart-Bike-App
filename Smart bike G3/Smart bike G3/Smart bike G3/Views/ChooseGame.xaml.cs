@@ -76,7 +76,8 @@ namespace Smart_bike_G3.Views
         {
             gameId = 1;
             AbsLay123piano.Scale = 8;
-            Navigation.PushAsync(new _123Piano());
+            //Navigation.PushAsync(new _123Piano());
+            Navigation.PushAsync(new Spel123Piano());
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
