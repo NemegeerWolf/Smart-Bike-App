@@ -22,7 +22,7 @@ namespace Smart_bike_G3
             firstTimefileSetup();
             
             //CatchSleepmode();
-            MainPage = new NavigationPage(new Name());
+            MainPage = new NavigationPage(new VideoOrGame());
         }
 
         
@@ -38,10 +38,6 @@ namespace Smart_bike_G3
             }
         }
 
-        
-
-
-
         public void CatchSleepmode()
         {
             Device.StartTimer(TimeSpan.FromMinutes(1), () =>
@@ -49,7 +45,7 @@ namespace Smart_bike_G3
                 Console.WriteLine("Navigate back to Namepage");
                 var navigation = MainPage.Navigation;
                 navigation.PopToRootAsync(true); //clear stack history
-                navigation.PushAsync(new Name());
+                navigation.PushAsync(new VideoOrGame());
                 return false;
             });
         }
@@ -69,7 +65,7 @@ namespace Smart_bike_G3
 
             var navigation = MainPage.Navigation;
             navigation.PopToRootAsync(true); //clear stack history
-            navigation.PushAsync(new Name());
+            navigation.PushAsync(new VideoOrGame());
         }
     }
 }

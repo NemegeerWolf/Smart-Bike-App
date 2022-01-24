@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace Smart_bike_G3.Services
 {
-    class Bluetooth
+    public class Bluetooth
     {
         public static AdapterConnectStatus BleStatus;
         public static IBle ble;

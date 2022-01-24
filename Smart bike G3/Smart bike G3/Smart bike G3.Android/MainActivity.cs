@@ -46,6 +46,14 @@ namespace Smart_bike_G3.Droid
                 ActivityCompat.RequestPermissions(this, locationPermissions, locationPermissionsRequestCode);
             }
 
+            // Register for broadcasts when a device is discovered
+            _receiver = new BluetoothDeviceReceiver();
+
+            RegisterReceiver(_receiver, new IntentFilter(BluetoothDevice.ActionFound));
+            
+
+            //BluetoothDeviceReceiver.Adapter.StartDiscovery();
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

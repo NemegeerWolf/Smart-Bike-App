@@ -203,7 +203,7 @@ namespace Smart_bike_G3.Repositories
             int rank = 0;
             if (kind == "video")
             {
-                int videoid = OptionsVideo.VideoId;
+                int videoid = ChooseVideo.VideoId;
                 List<Video> list = await GetAllscoresVideoAsync(videoid);
                 foreach (var i in list)
                 {
