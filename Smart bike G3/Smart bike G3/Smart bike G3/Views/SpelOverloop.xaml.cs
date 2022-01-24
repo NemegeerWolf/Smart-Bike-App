@@ -96,7 +96,7 @@ namespace Smart_bike_G3.Views
                     Repository.AddResultsGame(2, Name.User, Convert.ToInt32(Time), 0);
                     
                     Thread.Sleep(3000);
-                    Navigation.PushAsync(new ScorebordTime(Time)); // push to scoreboard
+                    Navigation.PushAsync(new Scorebord(Time)); // push to scoreboard
                     return false;
                     // cool effect of zo...
                     

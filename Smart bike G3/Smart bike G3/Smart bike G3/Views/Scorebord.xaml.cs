@@ -17,28 +17,22 @@ using Xamarin.Forms.Xaml;
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ScorebordDistance : ContentPage
+    public partial class Scorebord : ContentPage
     {
-        public ScorebordDistance(int score)
+        public Scorebord(int score)
         {
 
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                lblScore.Text = score.ToString() + " km";
                 lblName.Text = Name.User;
                 string vidorgame = VideoOrGame.Kind;
+
                 Console.WriteLine(vidorgame);
 
-                if (vidorgame == "video")
+                if (vidorgame == "video" || vidorgame == "game")
                 {
-                    //Er werd een video afgespeeld
-                    loadData(vidorgame);
-                }
-                else if (vidorgame == "game")
-                {
-                    //Er werd een game gespeeld
-                    loadData(vidorgame);
+                    LoadData(score,vidorgame);
                 }
                 else
                 {
@@ -54,38 +48,59 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        private void BtnOpnieuw_Clicked(object sender, EventArgs e)
+        private async void LoadData(int score,string kind)
         {
-            Navigation.PushAsync(new ChooseGame());
-        }
-
-        private void BtnHome_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new VideoOrGame());
-        }
-
-        private async void loadData(string kind)
-        {
+            await SetRank(score, VideoOrGame.Kind);
             if (kind == "video")
-            {
-                
+            { 
                 int videoid = OptionsVideo.VideoId;
-                var i = await Repository.GetAllscoresVideoAsync(videoid);
-                if (i.Count >= 3) { lvwOverview.ItemsSource = i.GetRange(0, 3); }
-                else { lvwOverview.ItemsSource = i; }
+                List<Video> i = await Repository.GetAllscoresVideoAsync(videoid);
+                lvwOverview.ItemsSource = i.Count >= 3 ? i.GetRange(0, 3) : i;
+                lblScore.Text = $"{score.ToString()} m";
+
             }
             else if (kind == "game")
             {
                 int gameid = ChooseGame.gameId;
-                var i = await Repository.GetAllscoresGameAsync(gameid);
-
-                if (i.Count >= 3) { lvwOverview.ItemsSource = i.GetRange(0, 3); }
-                else { lvwOverview.ItemsSource = i; }
+                List<Game> i = await Repository.GetAllscoresGameAsync(gameid);
+                lvwOverview.ItemsSource = i.Count >= 3 ? i.GetRange(0, 3) : i;
+                if (gameid != 3)
+                {
+                    lblScore.Text = $"{score.ToString()} s";
+                }
+                else
+                {
+                    lblScore.Text = $"{score.ToString()} m";
+                }
             }
             else
             {
                 Console.WriteLine("Something went wrong");
             }
+        }
+
+        private async Task SetRank(int score, string kind)
+        {
+            int rank = await Repository.CheckRank(Name.User, score, kind);
+            lblPosition.Text = $"{rank}.";
+        }
+
+
+        private void BtnOpnieuw_Clicked(object sender, EventArgs e)
+        {
+            if (VideoOrGame.Kind == "game")
+            {
+                Navigation.PushAsync(new ChooseGame());
+            }
+            else
+            {
+                Navigation.PushAsync(new OptionsVideo());
+            }
+        }
+
+        private void BtnHome_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new VideoOrGame());
         }
     }
 }
