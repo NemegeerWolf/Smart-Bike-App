@@ -21,9 +21,13 @@
     <None Remove="Assets\Asset2.png" />
     <None Remove="Assets\Background.png" />
     <None Remove="Assets\background_button.png" />
+    <None Remove="Assets\Bike.png" />
     <None Remove="Assets\Clouds.png" />
     <None Remove="Assets\Game.png" />
     <None Remove="Assets\GameConsole.png" />
+    <None Remove="Assets\Glass.png" />
+    <None Remove="Assets\help.png" />
+    <None Remove="Assets\Light.png" />
     <None Remove="Assets\Luisterboek.png" />
     <None Remove="Assets\Muziek.png" />
     <None Remove="Assets\no_wifi.png" />
@@ -45,9 +49,13 @@
     <EmbeddedResource Include="Assets\Asset2.png" />
     <EmbeddedResource Include="Assets\Background.png" />
     <EmbeddedResource Include="Assets\background_button.png" />
+    <EmbeddedResource Include="Assets\Bike.png" />
     <EmbeddedResource Include="Assets\Clouds.png" />
     <EmbeddedResource Include="Assets\Game.png" />
     <EmbeddedResource Include="Assets\GameConsole.png" />
+    <EmbeddedResource Include="Assets\Glass.png" />
+    <EmbeddedResource Include="Assets\help.png" />
+    <EmbeddedResource Include="Assets\Light.png" />
     <EmbeddedResource Include="Assets\Luisterboek.png" />
     <EmbeddedResource Include="Assets\Muziek.png" />
     <EmbeddedResource Include="Assets\no_wifi.png" />

@@ -76,7 +76,7 @@ namespace Smart_bike_G3.Views
         {
             
             Kind = "game";
-            AbsLayGame.Scale = 8;
+            
             Console.WriteLine(Kind + " chosen");
             Navigation.PushAsync(new ChooseGame());
         }
@@ -84,7 +84,7 @@ namespace Smart_bike_G3.Views
         private void AbsLayVideo_Tabbed(object sender, EventArgs e)
         {
             Kind = "video";
-            AbsLayVideo.Scale = 8;
+            
             Console.WriteLine(Kind + " chosen");
             Navigation.PushAsync(new OptionsVideo());
         }

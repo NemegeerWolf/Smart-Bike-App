@@ -77,11 +77,7 @@
 
             </Grid>
 
-            <!--<Grid BackgroundColor="red" VerticalOptions="End" >
-
-                <Image x:Name="ImgBackground" Scale="1.5"/>
-
-            </Grid>-->
+            
             
         </StackLayout>
     </ContentPage.Content>
