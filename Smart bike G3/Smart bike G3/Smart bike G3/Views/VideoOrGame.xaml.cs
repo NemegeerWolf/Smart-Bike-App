@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Android;
+
 
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-Regular")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-SemiBold.ttf", Alias = "Rubik-SemiBold")]
+
+
 
 namespace Smart_bike_G3.Views
 {
@@ -24,13 +28,23 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+                Pictures();
                 AddEvents();
+                
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
 
+        }
+
+        private void Pictures()
+        {
+            ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
+            ImgGame.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GameConsole.png");
+            ImgVideo.Source =ImageSource.FromResource(@"Smart_bike_G3.Assets.Play.png");
+            ImgClouds.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Clouds.png");
         }
 
         private void AddEvents()
@@ -47,10 +61,10 @@ namespace Smart_bike_G3.Views
             tapGestureRecognizer3.Tapped += AbsLayGame_Tabbed;
             AbsLayGame.GestureRecognizers.Add(tapGestureRecognizer3);
 
-            TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
-            tapGestureRecognizer4.Tapped += AbsLayOtherUser_Tabbed;
-            AbsLayOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
-            lblOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
+            //TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
+            //tapGestureRecognizer4.Tapped += AbsLayOtherUser_Tabbed;
+            //AbsLayOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
+            //lblOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
         }
 
         private void AbsLayOtherUser_Tabbed(object sender, EventArgs e)
