@@ -1,9 +1,14 @@
-﻿using System;
+﻿using Smart_bike_G3.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using TestBluethoot.Models;
+using TestBluethoot.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -25,6 +30,7 @@ namespace Smart_bike_G3.Views
             {
                 InitializeComponent();
                 AddEvents();
+                
             }
             else
             {
@@ -32,6 +38,8 @@ namespace Smart_bike_G3.Views
             }
 
         }
+
+        
 
         private void AddEvents()
         {

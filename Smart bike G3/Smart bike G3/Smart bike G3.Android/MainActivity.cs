@@ -18,7 +18,7 @@ namespace Smart_bike_G3.Droid
     [Activity(Label = "Smart_bike_G3", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        private BluetoothDeviceReceiver _receiver;
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -45,14 +45,6 @@ namespace Smart_bike_G3.Droid
             {
                 ActivityCompat.RequestPermissions(this, locationPermissions, locationPermissionsRequestCode);
             }
-
-            // Register for broadcasts when a device is discovered
-            _receiver = new BluetoothDeviceReceiver();
-
-            RegisterReceiver(_receiver, new IntentFilter(BluetoothDevice.ActionFound));
-            
-
-            BluetoothDeviceReceiver.Adapter.StartDiscovery();
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

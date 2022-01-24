@@ -1,6 +1,12 @@
-﻿using System;
+﻿using Smart_bike_G3.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Linq;
 using System.Text;
+using System.Threading;
+using TestBluethoot.Models;
 
 namespace TestBluethoot.Services
 {
@@ -15,7 +21,7 @@ namespace TestBluethoot.Services
         static double rpm = 0;
         static double prevRPM = 0;
         static int prevCrankStaleness = 0;
-        static int stalenessLimit = 1;
+        static int stalenessLimit = 4;
         static int scanCount = 0;
 
         public static event EventHandler<int> NewDataCadence;
@@ -103,6 +109,46 @@ namespace TestBluethoot.Services
             NewDataCadence?.Invoke("SelectCharacteristic", cadence);
             NewDataBool?.Invoke("SelectCharacteristic", true);
             NewDataSpeed?.Invoke("SelectCharacteristic", (int) Sensor.GetSpeed(0.03));
+        }
+
+
+        public static void Start()
+        {
+            
+            ObservableCollection<BleList> blelist = Bluetooth.Scan();
+            //pk.ItemsSource = Bluethoottest.Scan();
+            blelist.CollectionChanged += ConnectSensor;
+            
+            
+        }
+
+        private static void ConnectSensor(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems.Cast<BleList>().Any(x => x.Name == "46003-81"))
+            {
+                Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == "46003-81").First());
+                ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
+
+                listChar.CollectionChanged += NotifySpeed;
+            }
+
+
+        }
+
+        private static void NotifySpeed(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (!Bluetooth.isnotify)
+            {
+                if (e.NewItems.Cast<CharacteristicsList>().Any(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb"))
+                {
+                    Bluetooth.Select_Characteristic(Bluetooth.GetCharacteristics().Where(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb").First());
+
+                    Bluetooth.NewData += Sensor.GotNewdata;
+                    //Sensor.NewDataCadence += changeLabel;
+                    Bluetooth.Notify();
+                }
+
+            }
         }
 
 

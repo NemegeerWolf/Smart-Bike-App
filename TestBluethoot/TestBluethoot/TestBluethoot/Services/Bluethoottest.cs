@@ -21,7 +21,7 @@ namespace TestBluethoot.Services
         static List<IGattCharacteristic> AllCharacteristics = new List<IGattCharacteristic>();
         static IGattCharacteristic SelectCharacteristic = null;
         static ObservableCollection<CharacteristicsList> CharacteristicsList = new ObservableCollection<CharacteristicsList>();
-        static bool isnotify = false;
+        public static bool isnotify = false;
         public static event EventHandler<byte[]> NewData;
 
         public static ObservableCollection<BleList> Scan()

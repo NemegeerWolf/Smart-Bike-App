@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Smart_bike_G3.Services;
-using BluetoothLE.Core;
 using TestBluethoot.Services;
-using Quick.Xamarin.BLE;
-using Quick.Xamarin.BLE.Abstractions;
 using TestBluethoot.Models;
 using System.Threading;
+using System.Collections.Specialized;
+using System.Collections.ObjectModel;
+using TestBluethoot.Views;
 
 namespace TestBluethoot
 {
@@ -21,8 +16,8 @@ namespace TestBluethoot
         public MainPage()
         {
             InitializeComponent();
-
-            pk.ItemsSource = Bluethoottest.Scan();
+            Scan();
+            
 
         }
 
@@ -55,31 +50,94 @@ namespace TestBluethoot
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            List<string> i = new List<string> { };
-            foreach (CharacteristicsList c in Bluethoottest.GetCharacteristics())
-            {
-                i.Add(c.Uuid);
-            }
-            pkc.ItemsSource = i;
 
-            int t = 0;
-            while (!Bluethoottest.GetCharacteristics().Any(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb"))
+            Navigation.PushAsync(new Page1());
+
+            //List<string> i = new List<string> { };
+            //foreach (CharacteristicsList c in Bluethoottest.GetCharacteristics())
+            //{
+            //    i.Add(c.Uuid);
+            //}
+            //pkc.ItemsSource = i;
+
+            //int t = 0;
+            //while (!Bluethoottest.GetCharacteristics().Any(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb"))
+            //{
+            //    Thread.Sleep(1000);
+            //    t++;
+            //    if (t > 10) 
+            //    {
+            //        Bluethoottest.Connect((BleList)pk.SelectedItem);
+            //        Thread.Sleep(2000);
+            //        lbl.Text = "failed";
+            //        return;
+            //    }
+            //}
+            //    Bluethoottest.Select_Characteristic(Bluethoottest.GetCharacteristics().Where(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb").First());
+
+            //Bluethoottest.NewData += Sensor.GotNewdata;
+            //Sensor.NewDataCadence += changeLabel;
+            //Bluethoottest.Notify();
+        }
+
+        private void Scan()
+        {
+            Thread thread = new Thread(() => { 
+            ObservableCollection<BleList> blelist = Bluethoottest.Scan();
+            //pk.ItemsSource = Bluethoottest.Scan();
+            blelist.CollectionChanged += ConnectSensor;
+            });
+            thread.Start();
+        }
+
+        private void ConnectSensor(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems.Cast<BleList>().Any(x => x.Name == "46003-81"))
             {
-                Thread.Sleep(1000);
-                t++;
-                if (t > 10) 
-                {
-                    Bluethoottest.Connect((BleList)pk.SelectedItem);
-                    Thread.Sleep(2000);
-                    lbl.Text = "failed";
-                    return;
-                }
+                Bluethoottest.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == "46003-81").First());
+                ObservableCollection<CharacteristicsList> listChar = Bluethoottest.GetCharacteristics();
+
+                listChar.CollectionChanged += NotifySpeed;
             }
+            //while(!blelist.Any(x => x.Name == "46003-81"))
+            //{}
+
+
+
+
+
+            //int t = 0;
+            //while (!Bluetooth.GetCharacteristics().Any(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb"))
+            //{
+            //    Thread.Sleep(1000);
+            //    t++;
+            //    if (t > 10)
+            //    {
+            //        ConnectSensor();
+            //        return;
+            //    }
+            //}
+            //Bluetooth.Select_Characteristic(Bluetooth.GetCharacteristics().Where(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb").First());
+
+            //Bluetooth.NewData += Sensor.GotNewdata;
+            //Bluetooth.Notify();
+
+        }
+
+        private void NotifySpeed(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (!Bluethoottest.isnotify)
+            {
+                if (e.NewItems.Cast<CharacteristicsList>().Any(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb"))
+            {
                 Bluethoottest.Select_Characteristic(Bluethoottest.GetCharacteristics().Where(x => x.Uuid == "00002a5b-0000-1000-8000-00805f9b34fb").First());
-
-            Bluethoottest.NewData += Sensor.GotNewdata;
-            Sensor.NewDataCadence += changeLabel;
-            Bluethoottest.Notify();
+                
+                    Bluethoottest.NewData += Sensor.GotNewdata;
+                    Sensor.NewDataCadence += changeLabel;
+                    Bluethoottest.Notify();
+                }
+                
+            }
         }
     }
 }

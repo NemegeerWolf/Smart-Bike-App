@@ -1,9 +1,16 @@
+using Smart_bike_G3.Services;
 using Smart_bike_G3.Views;
 using System;
 using System.Diagnostics;
 using System.IO;
+using TestBluethoot.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Collections.Specialized;
+using System.Collections.ObjectModel;
+using TestBluethoot.Services;
+using System.Linq;
+using System.Threading;
 
 namespace Smart_bike_G3
 {
@@ -13,9 +20,12 @@ namespace Smart_bike_G3
         {
             InitializeComponent();
             firstTimefileSetup();
+            
             //CatchSleepmode();
             MainPage = new NavigationPage(new Name());
         }
+
+        
 
         private void firstTimefileSetup() //Makes file for videoUrls if non exist
         {
@@ -27,6 +37,8 @@ namespace Smart_bike_G3
                 File.WriteAllText(fileName, vidUrls);
             }
         }
+
+        
 
 
 
