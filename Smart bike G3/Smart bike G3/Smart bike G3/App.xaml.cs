@@ -28,8 +28,6 @@ namespace Smart_bike_G3
             }
         }
 
-
-
         public void CatchSleepmode()
         {
             Device.StartTimer(TimeSpan.FromMinutes(1), () =>

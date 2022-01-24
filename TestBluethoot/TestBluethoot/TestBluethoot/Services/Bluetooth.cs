@@ -3,7 +3,7 @@ using Android.Bluetooth.LE;
 using Android.Content;
 using Android.Runtime;
 using Java.IO;
-using Smart_bike_G3.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Smart_bike_G3.Services
 {
-    public class Bluetooth
+    class Bluetooth
     {
         public static BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
         private static BluetoothAdapter.ILeScanCallback DeviceDiscovered;
@@ -46,7 +46,7 @@ namespace Smart_bike_G3.Services
             return UnPairedBluetoothDevices;
         }
 
-        
+
 
 
 
@@ -87,17 +87,17 @@ namespace Smart_bike_G3.Services
 
 
 
-        
+
 
         public List<string> GetDevices()
         {
-            
-            
+
+
             listDevices = adapter.BondedDevices.ToList();
             List<string> listDeviceNames = new List<string>();
-            foreach(BluetoothDevice device in listDevices)
+            foreach (BluetoothDevice device in listDevices)
             {
-                listDeviceNames.Add( device.Name);
+                listDeviceNames.Add(device.Name);
             }
             return listDeviceNames;
         }
@@ -106,18 +106,18 @@ namespace Smart_bike_G3.Services
         {
             byte[] buffer = new byte[200];
             // Read data from the device
-            int rawdata =  await _socket.InputStream.ReadAsync(buffer, 0, buffer.Length);
+            int rawdata = await _socket.InputStream.ReadAsync(buffer, 0, buffer.Length);
 
             string message = ASCIIEncoding.UTF8.GetString(buffer);
-            
+
 
             return message;
-         
 
-           
+
+
         }
 
 
-       
+
     }
 }

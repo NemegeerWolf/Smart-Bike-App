@@ -53,7 +53,7 @@ namespace Smart_bike_G3.Views
             await SetRank(score, VideoOrGame.Kind);
             if (kind == "video")
             { 
-                int videoid = OptionsVideo.VideoId;
+                int videoid = ChooseVideo.VideoId;
                 List<Video> i = await Repository.GetAllscoresVideoAsync(videoid);
                 lvwOverview.ItemsSource = i.Count >= 3 ? i.GetRange(0, 3) : i;
                 lblScore.Text = $"{score.ToString()} m";
@@ -94,7 +94,7 @@ namespace Smart_bike_G3.Views
             }
             else
             {
-                Navigation.PushAsync(new OptionsVideo());
+                Navigation.PushAsync(new ChooseVideo());
             }
         }
 

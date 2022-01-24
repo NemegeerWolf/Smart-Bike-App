@@ -49,7 +49,7 @@ namespace Smart_bike_G3.Views
 
         private async Task SetVideoAndAudio()
         {
-            int videoId = OptionsVideo.VideoId;
+            int videoId = ChooseVideo.VideoId;
             string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
             List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
             List<string> urls = new List<string>();
@@ -85,7 +85,7 @@ namespace Smart_bike_G3.Views
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
             playing = false;
-            int videoId = OptionsVideo.VideoId;
+            int videoId = ChooseVideo.VideoId;
             string user = Name.User;
             Random rand = new Random();
             int score = rand.Next(1, 1000);

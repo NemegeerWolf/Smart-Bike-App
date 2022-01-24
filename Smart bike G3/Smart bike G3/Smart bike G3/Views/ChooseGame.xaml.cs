@@ -24,10 +24,7 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                Pictures();
                 AddEvents();
-                imgHelp.Clicked += ImgHelp_Clicked;
-                btnOk.Clicked += BtnOk_Clicked;
             }
             else
             {
@@ -35,34 +32,12 @@ namespace Smart_bike_G3.Views
             }
             
         }
-
-        private void BtnOk_Clicked(object sender, EventArgs e)
-        {
-            GridHelp.IsVisible = false;
-            GridHelpBackGround.IsVisible = false;
-        }
-
-        private async void ImgHelp_Clicked(object sender, EventArgs e)
-        {
-            GridHelp.IsVisible = true;
-            GridHelpBackGround.IsVisible = true;
-        }
-
         //public ChooseGame(string kind)
         //{
         //    InitializeComponent();
         //    AddEvents();
         //}
 
-        private void Pictures()
-        {
-            ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
-            Img123Piano.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Light.png");
-            ImgBalance.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Bike.png");
-            ImgOverloop.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Glass.png");
-            imgHelp.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.help.png");
-
-        }
         private void AddEvents()
         {
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
@@ -76,7 +51,7 @@ namespace Smart_bike_G3.Views
 
             TapGestureRecognizer tapGestureRecognizer3 = new TapGestureRecognizer();
             tapGestureRecognizer3.Tapped += AbsLayHillClimb_Tabbed;
-            AbsLayBalance.GestureRecognizers.Add(tapGestureRecognizer3);
+            AbsLayHillClimb.GestureRecognizers.Add(tapGestureRecognizer3);
 
             TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
             tapGestureRecognizer4.Tapped += AbsLayOverloop_Tabbed;
@@ -86,22 +61,23 @@ namespace Smart_bike_G3.Views
         private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
         {
             gameId = 2;
-           
-            Navigation.PushAsync(new Overloop());
+            AbsLayOverloop.Scale = 8;
+            //Navigation.PushAsync(new Overloop());
         }
 
         private void AbsLayHillClimb_Tabbed(object sender, EventArgs e)
         {
             gameId = 3;
-            
+            AbsLayHillClimb.Scale = 8;
             Console.WriteLine("Tabbed hill climb");
         }
 
         private void AbsLay123piano_Tabbed(object sender, EventArgs e)
         {
             gameId = 1;
-            
-            Navigation.PushAsync(new _123Piano());
+            AbsLay123piano.Scale = 8;
+            //Navigation.PushAsync(new _123Piano());
+            Navigation.PushAsync(new Spel123Piano());
         }
 
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
