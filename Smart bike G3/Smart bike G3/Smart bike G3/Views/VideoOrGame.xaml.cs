@@ -24,7 +24,9 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+                //imgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.background.png");
                 AddEvents();
+                
             }
             else
             {
@@ -47,10 +49,10 @@ namespace Smart_bike_G3.Views
             tapGestureRecognizer3.Tapped += AbsLayGame_Tabbed;
             AbsLayGame.GestureRecognizers.Add(tapGestureRecognizer3);
 
-            TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
-            tapGestureRecognizer4.Tapped += AbsLayOtherUser_Tabbed;
-            AbsLayOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
-            lblOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
+            //TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
+            //tapGestureRecognizer4.Tapped += AbsLayOtherUser_Tabbed;
+            //AbsLayOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
+            //lblOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
         }
 
         private void AbsLayOtherUser_Tabbed(object sender, EventArgs e)

@@ -30,7 +30,6 @@ namespace Smart_bike_G3.Views
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
-            
         }
 
         private void AddEvents()
