@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Smart_bike_G3.Services
 {
-    class Bluetooth
+    public class Bluetooth
     {
         public static BluetoothAdapter adapter = BluetoothAdapter.DefaultAdapter;
         private static BluetoothAdapter.ILeScanCallback DeviceDiscovered;

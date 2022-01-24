@@ -23,7 +23,7 @@ namespace Smart_bike_G3.Views
         // local variables
 
 
-        string[] gameovers = new string[] { "Get up and try again.", "Instead of giving up, try again.", "Fall seven times, stand up eight.", "F.A.I.L.: First Attempt In Learning.", "I know you can do it if you just try again.", "If you fall, you rise back up. If you fail, you try again.", "The sun will rise again and you also will try again." };
+        string[] gameovers = new string[] {"Jammer, geef niet op", "Niet opgeven, volgende keer beter","Probeer opnieuw" };
 
         List<Xamarin.Forms.Shapes.Rectangle> wayMarks = new List<Xamarin.Forms.Shapes.Rectangle>();
         private bool started;
@@ -45,6 +45,8 @@ namespace Smart_bike_G3.Views
             {
                 InitializeComponent();
 
+                pictures();
+
                 imagetest.Source= image.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.background_button.png");
             
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
@@ -57,6 +59,14 @@ namespace Smart_bike_G3.Views
                 Navigation.PushAsync(new NoNetworkPage());
             }
             
+        }
+
+        private void pictures()
+        {
+            ImgGreen1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green1.png");
+            ImgGreen2.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green2.png");
+            ImgGreen3.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green3.png");
+            ImgGreen4.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green4.png");
         }
 
         private bool ChangeTime()

@@ -35,7 +35,7 @@ namespace Smart_bike_G3
                 Console.WriteLine("Navigate back to Namepage");
                 var navigation = MainPage.Navigation;
                 navigation.PopToRootAsync(true); //clear stack history
-                navigation.PushAsync(new Name());
+                navigation.PushAsync(new VideoOrGame());
                 return false;
             });
         }

@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Android;
+
 
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-Regular")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-SemiBold.ttf", Alias = "Rubik-SemiBold")]
+
+
 
 namespace Smart_bike_G3.Views
 {
@@ -24,7 +28,7 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                //imgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.background.png");
+                Pictures();
                 AddEvents();
                 
             }
@@ -33,6 +37,14 @@ namespace Smart_bike_G3.Views
                 Navigation.PushAsync(new NoNetworkPage());
             }
 
+        }
+
+        private void Pictures()
+        {
+            ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
+            ImgGame.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GameConsole.png");
+            ImgVideo.Source =ImageSource.FromResource(@"Smart_bike_G3.Assets.Play.png");
+            ImgClouds.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Clouds.png");
         }
 
         private void AddEvents()
@@ -64,7 +76,7 @@ namespace Smart_bike_G3.Views
         {
             
             Kind = "game";
-            AbsLayGame.Scale = 8;
+            
             Console.WriteLine(Kind + " chosen");
             Navigation.PushAsync(new ChooseGame());
         }
@@ -72,7 +84,7 @@ namespace Smart_bike_G3.Views
         private void AbsLayVideo_Tabbed(object sender, EventArgs e)
         {
             Kind = "video";
-            AbsLayVideo.Scale = 8;
+            
             Console.WriteLine(Kind + " chosen");
             Navigation.PushAsync(new ChooseVideo());
         }

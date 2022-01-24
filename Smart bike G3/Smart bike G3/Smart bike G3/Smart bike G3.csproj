@@ -19,12 +19,23 @@
   <ItemGroup>
     <None Remove="Assets\arrow_back.png" />
     <None Remove="Assets\Asset2.png" />
-    <None Remove="Assets\background.png" />
+    <None Remove="Assets\Background.png" />
     <None Remove="Assets\background_button.png" />
+    <None Remove="Assets\Bike.png" />
+    <None Remove="Assets\Clouds.png" />
     <None Remove="Assets\Game.png" />
+    <None Remove="Assets\GameConsole.png" />
+    <None Remove="Assets\Glass.png" />
+    <None Remove="Assets\Green1.png" />
+    <None Remove="Assets\green2.png" />
+    <None Remove="Assets\Green3.png" />
+    <None Remove="Assets\Green4.png" />
+    <None Remove="Assets\help.png" />
+    <None Remove="Assets\Light.png" />
     <None Remove="Assets\Luisterboek.png" />
     <None Remove="Assets\Muziek.png" />
     <None Remove="Assets\no_wifi.png" />
+    <None Remove="Assets\Play.png" />
     <None Remove="Assets\traffic_light.png" />
     <None Remove="Assets\two_wheeler.png" />
     <None Remove="Assets\video.png" />
@@ -40,12 +51,23 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\arrow_back.png" />
     <EmbeddedResource Include="Assets\Asset2.png" />
-    <EmbeddedResource Include="Assets\background.png" />
     <EmbeddedResource Include="Assets\background_button.png" />
+    <EmbeddedResource Include="Assets\Bike.png" />
+    <EmbeddedResource Include="Assets\Clouds.png" />
     <EmbeddedResource Include="Assets\Game.png" />
+    <EmbeddedResource Include="Assets\GameConsole.png" />
+    <EmbeddedResource Include="Assets\Glass.png" />
+    <EmbeddedResource Include="Assets\Green1.png" />
+    <EmbeddedResource Include="Assets\Green2.png" />
+    <EmbeddedResource Include="Assets\Green3.png" />
+    <EmbeddedResource Include="Assets\Green4.png" />
+    <EmbeddedResource Include="Assets\Background.png" />
+    <EmbeddedResource Include="Assets\help.png" />
+    <EmbeddedResource Include="Assets\Light.png" />
     <EmbeddedResource Include="Assets\Luisterboek.png" />
     <EmbeddedResource Include="Assets\Muziek.png" />
     <EmbeddedResource Include="Assets\no_wifi.png" />
+    <EmbeddedResource Include="Assets\Play.png" />
     <EmbeddedResource Include="Assets\traffic_light.png" />
     <EmbeddedResource Include="Assets\two_wheeler.png" />
     <EmbeddedResource Include="Assets\video.png" />
@@ -73,22 +95,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ChooseVideo.xaml.cs">
-      <DependentUpon>ChooseVideo.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\Scorebord.xaml.cs">
       <DependentUpon>Scorebord.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\ChooseVideo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Name.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\NoNetworkPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ChooseVideo.xaml">
+    <EmbeddedResource Update="Views\OptionsVideo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Overloop.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ResultsVideo.xaml">
@@ -98,6 +123,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SpelOverloop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VideoExplanation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
      <EmbeddedResource Update="Views\VideoAdminPage.xaml">
