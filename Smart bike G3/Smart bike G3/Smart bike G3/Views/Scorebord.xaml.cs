@@ -127,20 +127,35 @@ namespace Smart_bike_G3.Views
         }
 
 
-        private void BtnOpnieuw_Clicked(object sender, EventArgs e)
+        private async void BtnOpnieuw_Clicked(object sender, EventArgs e)
         {
             if (VideoOrGame.Kind == "game")
             {
+                var i = await Repository.GetLastUserAsync();
+                if (entName.Text == null)
+                {
+                    await Repository.DeleteAsync(i.id);
+                }
                 Navigation.PushAsync(new ChooseGame());
             }
             else
             {
+                var i = await Repository.GetLastUserAsync();
+                if (entName.Text == null)
+                {
+                    await Repository.DeleteAsync(i.id);
+                }
                 Navigation.PushAsync(new ChooseVideo());
             }
         }
 
-        private void BtnHome_Clicked(object sender, EventArgs e)
+        private async void BtnHome_Clicked(object sender, EventArgs e)
         {
+            var i = await Repository.GetLastUserAsync();
+            if (entName.Text == null)
+            {
+                await Repository.DeleteAsync(i.id);
+            }
             Navigation.PushAsync(new VideoOrGame());
         }
     }

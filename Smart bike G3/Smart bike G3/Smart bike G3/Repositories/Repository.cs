@@ -94,6 +94,30 @@ namespace Smart_bike_G3.Repositories
             }
         }
 
+        public async static Task DeleteAsync(string id)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+                try
+                {
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/null/{id}";
+
+                    var response = await client.DeleteAsync(url);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Something went wrong");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
         public async static Task<Game> GetLastUserAsync()
         {
             using (HttpClient client = GetHttpClient())
@@ -145,6 +169,33 @@ namespace Smart_bike_G3.Repositories
 
             }
         }
+
+        public async static Task<List<Game>> GetAllscoresGameWithNullAsync(int gameid)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/null/{gameid} ";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<List<Game>>(json);
+
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
         public async static Task<List<Video>> GetAllscoresVideoAsync(int videoid)
         {
             using (HttpClient client = GetHttpClient())
@@ -268,7 +319,7 @@ namespace Smart_bike_G3.Repositories
             else if (kind == "game")
             {
                 int gameid = ChooseGame.gameId;
-                List<Game> list = await GetAllscoresGameAsync(gameid);
+                List<Game> list = await GetAllscoresGameWithNullAsync(gameid);
                 foreach (var i in list)
                 {
                     if (gameid == 3 & i.id == id & i.Distance == score)
