@@ -119,7 +119,7 @@
                 </Grid>
                 
                 <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" VerticalOptions="Start" HorizontalTextAlignment="Center"/>
-                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="1" RowHeight="352"  >
+                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="1" RowHeight="352" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
