@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-namespace OneWheel
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace Smart_bike_G3.Views
 {
-    public partial class MainPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class BalanceGame : ContentPage
     {
-        public MainPage()
+        public BalanceGame()
         {
             InitializeComponent();
             oneWheel.AnchorY = 0.85;
@@ -22,7 +24,7 @@ namespace OneWheel
                 Speed = e;
             });*/
         }
-        double speed;
+        double speed = 11;
 
         readonly bool playing = true;
         private bool Animate()
@@ -30,8 +32,8 @@ namespace OneWheel
             double targetSpeed = 10;
             //5sec 2sec
             double difference = Math.Abs(targetSpeed - speed);
-            
-            uint fallSpeed = Convert.ToUInt32((10 - difference)*1000);
+
+            uint fallSpeed = Convert.ToUInt32((10 - difference) * 1000);
             int angle;
             if (speed < targetSpeed)
             {
@@ -47,13 +49,12 @@ namespace OneWheel
         }
 
         private async Task Rotate(int degrees, uint speed)
-        {        
+        {
             await oneWheel.RotateTo(degrees, speed);
-            if(Math.Round(oneWheel.Rotation) == 90 || Math.Round(oneWheel.Rotation) == -90)
+            if (Math.Round(oneWheel.Rotation) == 90 || Math.Round(oneWheel.Rotation) == -90)
             {
                 Debug.WriteLine("dead");
             }
-            Debug.WriteLine(Math.Round(oneWheel.Rotation));
         }
     }
 }

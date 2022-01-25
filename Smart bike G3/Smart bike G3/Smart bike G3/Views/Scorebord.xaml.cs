@@ -53,6 +53,7 @@ namespace Smart_bike_G3.Views
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
+            
             string user = entName.Text;
 
             if (user != null)
@@ -64,6 +65,12 @@ namespace Smart_bike_G3.Views
                 //    id = item.id;
                 //}
                 await Repository.UpdateName(user, i.id);
+                btnAdd.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Check.png");
+                entName.Text = "";
+            }
+            if (user == null)
+            {
+                entName.Placeholder = "vul jouw naam in";
             }
         }
 
@@ -92,7 +99,12 @@ namespace Smart_bike_G3.Views
             {
                 int gameid = ChooseGame.gameId;
                 List<Game> i = await Repository.GetAllscoresGameAsync(gameid);
-                lvwOverview.ItemsSource = i.Count >= 3 ? i.GetRange(0, 3) : i;
+                lvwOverview.ItemsSource = i.Skip(1);
+                    //.Count >= 3 ? i.GetRange(1, 4) : i;
+                var first = i.First();
+                lblNameFirst.Text = first.User;
+                lblRankFirst.Text = first.Rank;
+                lblScoreFirst.Text = first.ScoreBordString;
                 if (gameid != 3)
                 {
                     lblScore.Text = $"{score.ToString()} s";

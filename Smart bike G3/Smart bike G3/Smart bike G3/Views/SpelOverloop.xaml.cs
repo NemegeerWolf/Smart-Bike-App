@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using TestBluethoot.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +15,9 @@ namespace Smart_bike_G3.Views
     public partial class SpelOverloop : ContentPage
     {
         public int Time = 0;
+
+        public int Speed = 30;
+
         public SpelOverloop()
         {
             InitializeComponent();
@@ -23,6 +26,13 @@ namespace Smart_bike_G3.Views
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
             AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+
+
+            // If there is new data -> Read sensor
+            Sensor.NewDataSpeed += ((s, e) =>
+            {
+                Speed = e;
+            });
         }
 
         private bool ChangeTime()
@@ -40,9 +50,9 @@ namespace Smart_bike_G3.Views
 
         private bool gameplay()
         {
-            int speed = 30;
+            
             int minSpeed = 10;
-            lblSnelheid.Text = speed.ToString();
+            lblSnelheid.Text = Speed.ToString();
             
 
 
@@ -58,8 +68,8 @@ namespace Smart_bike_G3.Views
                 //stopWater.Offset -= (float)0.001 * (speed - 7);
                 var i = new GradientStopCollection();
 
-                startLucht = new GradientStop(startLucht.Color, startLucht.Offset - (float)0.001 * (speed - minSpeed));
-                stopWater = new GradientStop(stopWater.Color, stopWater.Offset -(float)0.001 * (speed - minSpeed));
+                startLucht = new GradientStop(startLucht.Color, startLucht.Offset - (float)0.001 * (Speed - minSpeed));
+                stopWater = new GradientStop(stopWater.Color, stopWater.Offset -(float)0.001 * (Speed - minSpeed));
                 i.Add(startLucht);
                 i.Add(stopWater);
 

@@ -77,20 +77,7 @@
             <Label x:Name="lblScoreText" Text="Distance:  " TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
             <Label x:Name="lblscore" Text="0" WidthRequest="100" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
         </StackLayout>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
-
-            <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
-            <StackLayout Orientation="Horizontal" Scale="0.8">
-            <Grid x:Name="btnRestart" IsVisible="false">
-                <Image x:Name="image" HeightRequest="70"  />
-                <Button x:Name="btnRestartText" Text="Opnieuw" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" />
-            </Grid>
-            <Grid x:Name="btnHome" IsVisible="false">
-                <Image x:Name="imagetest" HeightRequest="70" />
-                <Button  Text="Startpagina" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
-            </Grid>
-            </StackLayout>
-        </StackLayout>
+       
         
         
         <ActivityIndicator x:Name="loadingIndicator" Color="Blue" IsRunning="True" IsVisible="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
@@ -119,7 +106,20 @@
         <Image x:Name="ImgGreen4" VerticalOptions="End" HorizontalOptions="End" Scale="1.5" />
 
 
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
+            <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
+            <StackLayout Orientation="Horizontal" Scale="0.8" HorizontalOptions="Center">
+                <Grid x:Name="btnRestart" IsVisible="false">
+                    <Image x:Name="image" HeightRequest="70"  />
+                    <Button x:Name="btnRestartText" WidthRequest="200" Text="Opnieuw"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" />
+                </Grid>
+                <Grid x:Name="btnHome" IsVisible="false">
+                    <Image x:Name="imagetest" HeightRequest="70" />
+                    <Button  Text="Startpagina"  VerticalOptions="Center" WidthRequest="200" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
+                </Grid>
+            </StackLayout>
+        </StackLayout>
 
 
     </Grid>

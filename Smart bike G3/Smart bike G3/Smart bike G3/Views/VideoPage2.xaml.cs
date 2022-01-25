@@ -26,12 +26,18 @@ namespace Smart_bike_G3.Views
                 SetVideo();
                 AddEvents();
                 NavigationPage.SetHasNavigationBar(this, false);
+                /*Sensor.NewDataSpeed += ((s, e) =>
+                {
+                    Speed = e;
+                });*/
+
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
         }
+        float speed;
 
         private bool playing = false;
 
@@ -67,7 +73,7 @@ namespace Smart_bike_G3.Views
             loading.IsVisible = false;
             speedframe.IsVisible = true;
             playing = true;
-            speed.Text = "0 km/h";
+            speedlbl.Text = "0 km/h";
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
         }
@@ -87,20 +93,15 @@ namespace Smart_bike_G3.Views
             Device.BeginInvokeOnMainThread(() => {
                 video.Pause();
                 video.IsLooping = false;
-                speed.Text = $"20 km/u";
+                speedlbl.Text = $"20 km/u";
             });
             return false;
         }
 
         private bool IsCycling()
         {
-            Random test = new Random();
-            int testSpeed = test.Next(0, 25);
-
-            float val = testSpeed; //get value from sensor 
-            //calc sensordata to km/u
-            int speedVal = (int)val;
-            speed.Text = $"{speedVal} km/u";
+            int speedVal = (int)Math.Round(speed);
+            speedlbl.Text = $"{speedVal} km/u";
             if (playing)
             {
                 if (speedVal > 1)

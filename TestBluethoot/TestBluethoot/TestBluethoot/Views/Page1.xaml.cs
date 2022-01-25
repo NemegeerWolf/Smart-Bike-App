@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TestBluethoot.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +15,12 @@ namespace TestBluethoot.Views
         public Page1()
         {
             InitializeComponent();
+            Sensor.NewDataCadence += changelbl;
+        }
+
+        private void changelbl(object sender, int e)
+        {
+            lbl.Text = e.ToString();
         }
     }
 }
