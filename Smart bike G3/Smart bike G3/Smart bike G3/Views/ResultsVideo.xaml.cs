@@ -23,8 +23,12 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                btnScorebord.Clicked += BtnScorebord_Clicked;
-                showKilometers();
+                //btnScorebord.Clicked += BtnScorebord_Clicked;
+                //showKilometers();
+                btnHome.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
+                btnOpnieuw.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
+                ImgLeft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");
+                ImgRight.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
             }
             else
             {
@@ -35,9 +39,9 @@ namespace Smart_bike_G3.Views
         private async void showKilometers()
         {
 
-            int kilometers = 12;
-            string kilometerString = $"{kilometers}km";
-            lblKilometers.Text = kilometerString;
+            //int kilometers = 12;
+            //string kilometerString = $"{kilometers}km";
+            //lblKilometers.Text = kilometerString;
 
             // await Repository.AddResultsVideo(1, "test", kilometers);
         }
