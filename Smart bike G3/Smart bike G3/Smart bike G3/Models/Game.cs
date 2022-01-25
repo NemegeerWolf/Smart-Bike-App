@@ -40,7 +40,7 @@ namespace Smart_bike_G3.Models
         {
             get
             {
-                return $"{this.Rank}.";
+                return $"{this.Rank}";
             }
         }
 

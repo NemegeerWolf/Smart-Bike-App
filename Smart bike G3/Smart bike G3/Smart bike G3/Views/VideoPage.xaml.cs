@@ -18,7 +18,7 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoPage : ContentPage
     {
-        public VideoPage()
+        /*public VideoPage()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
@@ -141,6 +141,6 @@ namespace Smart_bike_G3.Views
         private string GetIDFromUrl(string url)
         {
             return url.Split('=')[1].Split('?')[0].Split('&')[0];
-        }
+        }*/
     }
 }

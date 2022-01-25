@@ -103,7 +103,7 @@ namespace Smart_bike_G3.Views
                     lblScore.Text = $"{dateTime.Minute}min{dateTime.Second}";
                     btnRestart.IsEnabled = false;
 
-                    Repository.AddResultsGame(2, Name.User, Convert.ToInt32(Time), 0);
+                    Repository.AddResultsGame(2, Convert.ToInt32(Time), 0);
                     
                     Thread.Sleep(3000);
                     Navigation.PushAsync(new Scorebord(Time)); // push to scoreboard

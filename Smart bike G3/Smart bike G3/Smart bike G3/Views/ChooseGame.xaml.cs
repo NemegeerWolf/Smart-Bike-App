@@ -93,7 +93,8 @@ namespace Smart_bike_G3.Views
         private void AbsLayHillClimb_Tabbed(object sender, EventArgs e)
         {
             gameId = 3;
-            
+            Navigation.PushAsync(new BalanceGame());
+
             Console.WriteLine("Tabbed hill climb");
         }
 
