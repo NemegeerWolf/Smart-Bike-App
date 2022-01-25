@@ -46,13 +46,13 @@ namespace Smart_bike_G3.Repositories
             }
         }
 
-        public async static Task AddResultsGame(int gameid, string user, int speed, int distance)
+        public async static Task AddResultsGame(int gameid, int speed, int distance)
         {
             using (HttpClient client = GetHttpClient())
             {
                 try
                 {
-                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{user}/{distance}/{speed}";
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{distance}/{speed}";
 
                     var response = await client.PostAsync(url, null);
                     if (!response.IsSuccessStatusCode)
@@ -60,6 +60,80 @@ namespace Smart_bike_G3.Repositories
                         throw new Exception("Something went wrong");
                     }
 
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async static Task UpdateName(string name, string id)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+                try
+                {
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/name/{name}/{id}";
+
+                    var response = await client.PutAsync(url, null);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Something went wrong");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async static Task DeleteAsync(string id)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+                try
+                {
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/null/{id}";
+
+                    var response = await client.DeleteAsync(url);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Something went wrong");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async static Task<Game> GetLastUserAsync()
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/last/user";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<Game>(json);
+
+                    }
+                    return null;
                 }
                 catch (Exception ex)
                 {
@@ -95,6 +169,33 @@ namespace Smart_bike_G3.Repositories
 
             }
         }
+
+        public async static Task<List<Game>> GetAllscoresGameWithNullAsync(int gameid)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/null/{gameid} ";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<List<Game>>(json);
+
+                    }
+                    return null;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
         public async static Task<List<Video>> GetAllscoresVideoAsync(int videoid)
         {
             using (HttpClient client = GetHttpClient())
@@ -198,7 +299,7 @@ namespace Smart_bike_G3.Repositories
 
             }
         }
-        public async static Task<int> CheckRank(string username, int score, string kind)
+        public async static Task<int> CheckRank(string id, int score, string kind)
         {
             int rank = 0;
             if (kind == "video")
@@ -207,7 +308,7 @@ namespace Smart_bike_G3.Repositories
                 List<Video> list = await GetAllscoresVideoAsync(videoid);
                 foreach (var i in list)
                 {
-                    if (i.User == username & i.Distance == score)
+                    if (i.id == id & i.Distance == score)
                     {
                         rank = int.Parse(i.Rank);
                         Debug.WriteLine(rank);
@@ -218,15 +319,15 @@ namespace Smart_bike_G3.Repositories
             else if (kind == "game")
             {
                 int gameid = ChooseGame.gameId;
-                List<Game> list = await GetAllscoresGameAsync(gameid);
+                List<Game> list = await GetAllscoresGameWithNullAsync(gameid);
                 foreach (var i in list)
                 {
-                    if (gameid == 3 & i.User == username & i.Distance == score)
+                    if (gameid == 3 & i.id == id & i.Distance == score)
                     {
                         rank = int.Parse(i.Rank);
 
                     }
-                    else if (Enumerable.Range(1, 2).Contains(gameid) & i.User == username & i.Speed == score)
+                    else if (Enumerable.Range(1, 2).Contains(gameid) & i.id == id & i.Speed == score)
                     {
                         rank = int.Parse(i.Rank);
                         

@@ -25,7 +25,8 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                lblName.Text = Name.User;
+                Pictures();
+                //lblName.Text = Name.User;
                 string vidorgame = VideoOrGame.Kind;
 
                 Console.WriteLine(vidorgame);
@@ -41,11 +42,38 @@ namespace Smart_bike_G3.Views
 
                 btnHome.Clicked += BtnHome_Clicked;
                 btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
+                btnAdd.Clicked += BtnAdd_Clicked;
+                
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
+        }
+
+        private async void BtnAdd_Clicked(object sender, EventArgs e)
+        {
+            string user = entName.Text;
+
+            if (user != null)
+            {
+                var i = await Repository.GetLastUserAsync();
+                //string id = null;
+                //foreach (var item in i)
+                //{
+                //    id = item.id;
+                //}
+                await Repository.UpdateName(user, i.id);
+            }
+        }
+
+        private void Pictures()
+        {
+            btnAdd.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Plus.png");
+            btnHome.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
+            btnOpnieuw.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
+            ImgLeft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");
+            ImgRight.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
         }
 
         private async void LoadData(int score,string kind)
@@ -81,25 +109,53 @@ namespace Smart_bike_G3.Views
 
         private async Task SetRank(int score, string kind)
         {
-            int rank = await Repository.CheckRank(Name.User, score, kind);
-            lblPosition.Text = $"{rank}.";
+
+            var i = await Repository.GetLastUserAsync();
+            
+            //string id = null;
+            //foreach (var item in i)
+            //{
+            //    id = item.id;
+            //}
+
+            int rank = await Repository.CheckRank(i.id, score, kind);
+
+            
+
+
+            lblPosition.Text = $"{rank}";
         }
 
 
-        private void BtnOpnieuw_Clicked(object sender, EventArgs e)
+        private async void BtnOpnieuw_Clicked(object sender, EventArgs e)
         {
             if (VideoOrGame.Kind == "game")
             {
+                var i = await Repository.GetLastUserAsync();
+                if (entName.Text == null)
+                {
+                    await Repository.DeleteAsync(i.id);
+                }
                 Navigation.PushAsync(new ChooseGame());
             }
             else
             {
+                var i = await Repository.GetLastUserAsync();
+                if (entName.Text == null)
+                {
+                    await Repository.DeleteAsync(i.id);
+                }
                 Navigation.PushAsync(new ChooseVideo());
             }
         }
 
-        private void BtnHome_Clicked(object sender, EventArgs e)
+        private async void BtnHome_Clicked(object sender, EventArgs e)
         {
+            var i = await Repository.GetLastUserAsync();
+            if (entName.Text == null)
+            {
+                await Repository.DeleteAsync(i.id);
+            }
             Navigation.PushAsync(new VideoOrGame());
         }
     }

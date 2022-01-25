@@ -81,23 +81,28 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="1.2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4.5*"/>
                     
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition  Width="*" />
+                    <ColumnDefinition Width="60"/>
                 </Grid.ColumnDefinitions>
-                <Grid VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  WidthRequest="1000">
+                <Grid VerticalOptions="Start" HorizontalOptions="CenterAndExpand"  WidthRequest="2000" Grid.ColumnSpan="5">
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
 
                     </Grid.ColumnDefinitions>
-                    <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="60, 48, 0,0">
+                    <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="64, 48, 0,0">
                         <Path x:Name="path112">
                             <Path.Data>
                                 <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -110,47 +115,45 @@
                         </Path>
                     </AbsoluteLayout>
 
-                    <Label Grid.Column="1" FontFamily="Rubik-Bold" Text="Kies een video" FontSize="48" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,48, 0, 0"/>
+                    <Label Grid.Column="2" FontFamily="Rubik-Bold" Text="Kies een video" FontSize="48" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,48, 0, 0"/>
                 </Grid>
                 
-                <Label Grid.Column="0" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="60, 0, 0, 0"/>
-
-                <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="0">
+                <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" VerticalOptions="Start" HorizontalTextAlignment="Center"/>
+                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="1" RowHeight="352"  >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid >
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="0.5*"/>
                                         <RowDefinition Height="2*"/>
-                                        <RowDefinition Height="2*"/>
-                                        <RowDefinition Height="0.5*"/>
+                                        <RowDefinition Height="0.20*"/>
                                     </Grid.RowDefinitions>
-                                    <ImageButton x:Name="imgbtnFirst" Source="" Aspect="AspectFill" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380" MinimumWidthRequest="480"/>
-                                    <Label x:Name="lblTime1" Text="" Grid.Row="1" Grid.Column="1" TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
-                                    <ImageButton x:Name="ImgPlay1" Source="" Grid.Row="1" Grid.Column="1" Margin="72" BackgroundColor="Transparent"/>
+                                  
+                                    <ImageButton x:Name="imgbtnFirst" Source="{Binding Picture}" Aspect="AspectFill" Grid.Row="0"  BackgroundColor="Transparent"  HeightRequest="320" MinimumWidthRequest="480"/>
+                                    <Label x:Name="lblTime1" Text="{Binding Duration}" Grid.Row="0"  TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
+                                    <ImageButton x:Name="ImgPlay1" Source="{Binding Playbuttn}" Grid.Row="0"  Margin="72" BackgroundColor="Transparent"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                
 
-                <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Kortfilms" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="60, 0, 0, 0"/>
+                <Label Grid.Column="3" Grid.Row="1" FontFamily="Rubik-Bold" Text="Kortfilms" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
 
-                <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="1">
+                <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="3" RowHeight="352"  >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Grid >
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="0.5*"/>
                                         <RowDefinition Height="2*"/>
-                                        <RowDefinition Height="2*"/>
-                                        <RowDefinition Height="0.5*"/>
+                                        <RowDefinition Height="0.20*"/>
                                     </Grid.RowDefinitions>
-                                    <ImageButton x:Name="imgbtnFirst" Source="" Aspect="AspectFill" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380" MinimumWidthRequest="480"/>
-                                    <Label x:Name="lblTime1" Text="" Grid.Row="1" Grid.Column="1" TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
-                                    <ImageButton x:Name="ImgPlay1" Source="" Grid.Row="1" Grid.Column="1" Margin="72" BackgroundColor="Transparent"/>
+
+                                    <ImageButton x:Name="imgbtnFirst" Source="{Binding Picture}" Aspect="AspectFill" Grid.Row="0"  BackgroundColor="Transparent"  HeightRequest="320" MinimumWidthRequest="480"/>
+                                    <Label x:Name="lblTime1" Text="{Binding Duration}" Grid.Row="0"  TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
+                                    <ImageButton x:Name="ImgPlay1" Source="{Binding Playbuttn}" Grid.Row="0"  Margin="72" BackgroundColor="Transparent"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

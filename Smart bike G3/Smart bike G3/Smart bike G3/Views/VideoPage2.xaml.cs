@@ -16,21 +16,21 @@ using Smart_bike_G3.Models;
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VideoPage : ContentPage
+    public partial class VideoPage2 : ContentPage
     {
-        /*public VideoPage()
+        public VideoPage2()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                SetVideoAndAudio();
+                SetVideo();
                 AddEvents();
                 NavigationPage.SetHasNavigationBar(this, false);
-            } 
+            }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
-            }      
+            }
         }
 
         private bool playing = false;
@@ -47,24 +47,15 @@ namespace Smart_bike_G3.Views
             Navigation.PopAsync();
         }
 
-        private async Task SetVideoAndAudio()
+        private async Task SetVideo()
         {
-            int videoId = ChooseVideo.VideoId;
-            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
-            List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
-            List<string> urls = new List<string>();
-            List<int> buttns = new List<int>();
+            //string vidId = ChooseVideo.VideoId;
+            //await SetYoutubeSource(vidId);  
+        }
 
-            foreach (var i in settings)
-            {
-                urls.Add(i.vid.Url);
-                buttns.Add(i.vid.Audio);
-            }
-
-            await GetYoutubeSource(urls[videoId - 1]);
-
-            if (buttns[videoId - 1] == 1)
-            {
+        private void SetAudio(bool audioBool)
+        {
+            if (audioBool == true){
                 video.Volume = 0;
                 audio.Source = "ms-appx:///testaudio.mp3";
             }
@@ -85,14 +76,10 @@ namespace Smart_bike_G3.Views
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
             playing = false;
-            int videoId = ChooseVideo.VideoId;
-            string user = Name.User;
-            Random rand = new Random();
-            int score = rand.Next(1, 1000);
             audio.Stop();
-            Repository.AddResultsVideo(videoId, user, score);
-            Debug.WriteLine("sending data to api");
-            Navigation.PushAsync(new Scorebord(score));
+
+            //Repository.AddResultsVideo(videoId, user, score); 
+            //Navigation.PushAsync(new Scorebord(score));
         }
 
         private bool FixAutoplay()
@@ -128,19 +115,13 @@ namespace Smart_bike_G3.Views
             return true;
         }
 
-        private async Task GetYoutubeSource(string vidUrl) 
+        private async Task SetYoutubeSource(string vidId)
         {
-            string vidId = GetIDFromUrl(vidUrl);
-            Debug.WriteLine(vidId);
             var youtube = new YoutubeClient();
             var streamManifest = await youtube.Videos.Streams.GetManifestAsync(vidId);
             var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
             var stream = await youtube.Videos.Streams.GetAsync(streamInfo);
             video.Source = streamInfo.Url;
         }
-        private string GetIDFromUrl(string url)
-        {
-            return url.Split('=')[1].Split('?')[0].Split('&')[0];
-        }*/
     }
 }

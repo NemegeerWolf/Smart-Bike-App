@@ -159,7 +159,7 @@ namespace Smart_bike_G3.Views
                 btnRestartText.Text = $"{dateTime.Minute}min{dateTime.Second}";
                 btnRestart.IsEnabled = false;
                 
-                Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Time), 0);
+                Repository.AddResultsGame(1, Convert.ToInt32(Time), 0);
                 Thread.Sleep(3000);
                 Navigation.PushAsync(new Scorebord(Convert.ToInt32(Time))); // push to scoreboard
                 return false;

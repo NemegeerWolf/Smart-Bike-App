@@ -13,33 +13,33 @@ using System.Diagnostics;
 
 namespace SmartBike_Api.Functions.Gets
 {
-    public static class GetAllScoresGame
+    public static class GetAllScoresGamewithNull
     {
         
 
-        [FunctionName("GetAllScoresGame")]
-        public static async Task<IActionResult> GetGameScoreAll(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/game/{gameid}")] HttpRequest req, int gameid,
+        [FunctionName("GetAllScoresGameWithNull")]
+        public static async Task<IActionResult> GetGameScoreAllWithNull(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/game/null/{gameid}")] HttpRequest req, int gameid,
             ILogger log)
         {
 
             log.LogInformation("Calling GetAllScoresGame");
             if (gameid == 1)
             {
-                QueryDefinition query = new QueryDefinition("select * from Games i where i.user!=null AND i.gameId = @gameId order by i.speed asc").WithParameter("@gameId", gameid);
+                QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId order by i.speed asc").WithParameter("@gameId", gameid);
                 List<Game> items = await GetScoresAsync(query);
                 return new OkObjectResult(AddRank(items));
                 
             }
             else if (gameid == 2)
             {
-                QueryDefinition query = new QueryDefinition("select * from Games i where i.user!=null AND i.gameId = @gameId  order by i.speed asc").WithParameter("@gameId", gameid);
+                QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId  order by i.speed asc").WithParameter("@gameId", gameid);
                 List<Game> items = await GetScoresAsync(query);
                 return new OkObjectResult(AddRank(items));
             }
             else if (gameid == 3)
             {
-                QueryDefinition query = new QueryDefinition("select * from Games i where i.user!=null AND i.gameId = @gameId  null order by i.distance desc").WithParameter("@gameId", gameid);
+                QueryDefinition query = new QueryDefinition("select * from Games i where i.gameId = @gameId  null order by i.distance desc").WithParameter("@gameId", gameid);
                 List<Game> items = await GetScoresAsync(query);
                 return new OkObjectResult(AddRank(items));
             }
