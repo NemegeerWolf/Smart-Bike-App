@@ -25,6 +25,7 @@
     <None Remove="Assets\BackgroundScore2.png" />
     <None Remove="Assets\background_button.png" />
     <None Remove="Assets\Bike.png" />
+    <None Remove="Assets\Check.png" />
     <None Remove="Assets\Clouds.png" />
     <None Remove="Assets\Game.png" />
     <None Remove="Assets\GameConsole.png" />
@@ -61,6 +62,7 @@
     <EmbeddedResource Include="Assets\BackgroundScore2.png" />
     <EmbeddedResource Include="Assets\background_button.png" />
     <EmbeddedResource Include="Assets\Bike.png" />
+    <EmbeddedResource Include="Assets\Check.png" />
     <EmbeddedResource Include="Assets\Clouds.png" />
     <EmbeddedResource Include="Assets\Game.png" />
     <EmbeddedResource Include="Assets\GameConsole.png" />
