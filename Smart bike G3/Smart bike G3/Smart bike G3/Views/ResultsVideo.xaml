@@ -4,11 +4,35 @@
              x:Class="Smart_bike_G3.Views.ResultsVideo"
              BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout Margin="48">
-            <Label FontFamily="Rubik-Bold" Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
-            <Label FontFamily="Rubik-SemiBold" Text="Resultaat" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#615C66"/>
-            <Label FontFamily="Rubik-Regular" x:Name="lblKilometers"  Margin="88" Text="12 km" FontSize="40" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
-            <Button  FontFamily="Rubik-Regular" Margin="88" x:Name="btnScorebord" Text="Scorebord" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
+        <StackLayout>
+            <Grid RowSpacing="0" HeightRequest="620">
+                <Image x:Name="ImgLeft" Grid.Row="0" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Start" Scale="1.5"/>
+                <Image x:Name="ImgRight" Grid.Row="0" Grid.Column="0" VerticalOptions="End" HorizontalOptions="End"  Scale="1.5"/>
+
+                <StackLayout Grid.Row="0" Grid.Column="0">
+            <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Resultaat" FontSize="48" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Tijd" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Column="1" x:Name="lblTime"  FontFamily="Rubik-Regular" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Afstand" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Column="1" x:Name="lblDistance" FontFamily="Rubik-Regular"  FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Gemiddelde snelheid" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" x:Name="lblAveradeSpeed"  FontFamily="Rubik-Regular" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                        
+                    </Grid.ColumnDefinitions>
+                    <ImageButton x:Name="btnHome" Grid.Column="1" BackgroundColor="Transparent" Scale="2"/>
+                    <ImageButton x:Name="btnOpnieuw" Grid.Column="3" BackgroundColor="Transparent" Scale="2"/>
+                </Grid>
+            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

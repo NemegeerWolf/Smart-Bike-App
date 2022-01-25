@@ -24,12 +24,13 @@ namespace Smart_bike_G3.Views
     public partial class ChooseVideo : ContentPage
     {
 
-        public static int VideoId;
+        public static string VideoId;
         public ChooseVideo()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+                ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
                 LoadThumbnails(0);
                 LoadThumbnails(1);
 
@@ -42,11 +43,10 @@ namespace Smart_bike_G3.Views
                 tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
                 AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
-                //btnSettings.Clicked += BtnSettings_Clicked;
 
-                //TapGestureRecognizer tapGestureRecognizer1 = new TapGestureRecognizer();
-                //tapGestureRecognizer1.Tapped += AbsLaSetting_Tabbed;
-                //AbsLaySettings.GestureRecognizers.Add(tapGestureRecognizer1);
+
+                //btnSettings.Clicked += BtnSettings_Clicked;
+                
             }
             else
             {
@@ -54,7 +54,7 @@ namespace Smart_bike_G3.Views
             }
         }
 
-  
+        
 
         private async void AbsLaSetting_Tabbed(object sender, EventArgs e)
         {
@@ -175,6 +175,28 @@ namespace Smart_bike_G3.Views
         {
             AbsLayBack.Scale = 1.5;
             Navigation.PushAsync(new VideoOrGame());
+        }
+
+        private void lvwEnvVideos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Console.WriteLine("selected Env videos");
+            Console.WriteLine(lvwEnvVideos.SelectedItem.ToString());
+            Thumbnail item = (Thumbnail)lvwEnvVideos.SelectedItem;
+            Console.WriteLine(item.VideoId);
+            VideoId = item.VideoId;
+            Navigation.PushAsync(new VideoPage2());
+            //lvwEnvVideos.SelectedItem = null;
+        }
+
+        private void lvwShortMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Console.WriteLine("selected shortmovie");
+            Console.WriteLine(lvwShortMovies.SelectedItem.ToString());
+            Thumbnail item = (Thumbnail)lvwShortMovies.SelectedItem;
+            Console.WriteLine(item.VideoId);
+            VideoId = item.VideoId;
+            Navigation.PushAsync(new VideoPage2());
+            //lvwShortMovies.SelectedItem = null;
         }
     }
 }

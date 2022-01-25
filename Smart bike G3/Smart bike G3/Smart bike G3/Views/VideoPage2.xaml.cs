@@ -55,8 +55,8 @@ namespace Smart_bike_G3.Views
 
         private async Task SetVideo()
         {
-            //string vidId = ChooseVideo.VideoId;
-            //await SetYoutubeSource(vidId);  
+            string vidId = ChooseVideo.VideoId;
+            await SetYoutubeSource(vidId);  
         }
 
         private void SetAudio(bool audioBool)

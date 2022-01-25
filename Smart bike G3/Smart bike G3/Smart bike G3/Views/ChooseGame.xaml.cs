@@ -86,8 +86,8 @@ namespace Smart_bike_G3.Views
         private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
         {
             gameId = 2;
-            AbsLayOverloop.Scale = 8;
-            //Navigation.PushAsync(new Overloop());
+            //AbsLayOverloop.Scale = 8;
+            Navigation.PushAsync(new SpelOverloop());
         }
 
         private void AbsLayHillClimb_Tabbed(object sender, EventArgs e)
