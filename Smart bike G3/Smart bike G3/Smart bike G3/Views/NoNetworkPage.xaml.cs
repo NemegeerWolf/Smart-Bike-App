@@ -29,7 +29,7 @@ namespace Smart_bike_G3.Views
             Console.WriteLine("Clicked try again");
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                Navigation.PushAsync(new Name());
+                Navigation.PushAsync(new VideoOrGame());
                 Console.WriteLine("Yay, internet!");
             }
             else
