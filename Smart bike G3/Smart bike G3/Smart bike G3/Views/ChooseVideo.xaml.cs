@@ -40,7 +40,7 @@ namespace Smart_bike_G3.Views
             
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
                 tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-                //AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+                AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
                 //btnSettings.Clicked += BtnSettings_Clicked;
 
@@ -54,13 +54,7 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        private void PlayImage()
-        {
-            //ImgPlay1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            //ImgPlay2.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            //ImgPlay3.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            //ImgPlay4.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-        }
+  
 
         private async void AbsLaSetting_Tabbed(object sender, EventArgs e)
         {
@@ -84,15 +78,13 @@ namespace Smart_bike_G3.Views
         {
 
             List<Thumbnail> thumbnails = new List<Thumbnail>();
-            Thumbnail thumbnial = new Thumbnail();
             List<string> ids = await YoutubeRepository.GetPlaylist(playlistId);
             foreach (var i in ids)
             {
-                thumbnial.Duration = await SetTime(i);
-                thumbnial.Playbuttn = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-                thumbnial.Picture = GetThumbnail(i);
-                thumbnails.Add(thumbnial);
-                Debug.WriteLine(i);
+                thumbnails.Add(new Thumbnail() { Duration = await SetTime(i),
+                Playbuttn = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png"),
+                Picture = GetThumbnail(i), VideoId = i
+            });
             }
             if (playlistId == 0)
             {
