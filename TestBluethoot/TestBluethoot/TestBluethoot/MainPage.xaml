@@ -17,7 +17,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-          
+        
         <Picker x:Name="pkc" SelectedIndexChanged="pk_SelectedIndexChanged"/>
         <Label x:Name="lbl" Text="hi" BackgroundColor="Red" VerticalOptions="StartAndExpand"/>
 

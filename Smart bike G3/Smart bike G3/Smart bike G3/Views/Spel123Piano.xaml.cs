@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Threading;
 using Xamarin.Essentials;
 using Smart_bike_G3.Repositories;
+using TestBluethoot.Services;
 
 namespace Smart_bike_G3.Views
 {
@@ -17,13 +18,13 @@ namespace Smart_bike_G3.Views
     public partial class Spel123Piano : ContentPage
     {//public variables
         public double Time = 0;
-        public double Distance { get; set; } = 500; // 1000m / 1km
+        public double Distance { get; set; } = 1000; // 1000m / 1km
         public bool GameOver { get; set; } = false;
 
         // local variables
 
 
-        string[] gameovers = new string[] {"Jammer, geef niet op", "Niet opgeven, volgende keer beter","Probeer opnieuw" };
+        string[] gameovers = new string[] {"Jammer, geef niet op", "Niet opgeven, volgende keer beter","Probeer opnieuw", "Winnen, da’s iets voor losers.", "Je kan veel winnen als je van je verlies leert.", "Een glimlach om een nederlaag is een eindoverwinning.", "Bijna elke overwinning begint met een nederlaag", "Gefeliciteerd, Je reed door het rood." };
 
         List<Xamarin.Forms.Shapes.Rectangle> wayMarks = new List<Xamarin.Forms.Shapes.Rectangle>();
         private bool started;
@@ -31,8 +32,13 @@ namespace Smart_bike_G3.Views
         private double height;
         private double gap;
         private DisplayInfo mainDisplayInfo;
-        private double globalSpeed = 100;
-        Random random = new Random(Convert.ToInt32(DateTime.Now.Millisecond));
+        private double globalSpeed = 10;
+
+        //Luck of Time
+        //Random random = new Random(Convert.ToInt32(DateTime.Now.Millisecond));
+
+        //Luck of the Devil
+        Random random = new Random(13);
 
         private DateTime startOrange = DateTime.MinValue;
         private DateTime startRed = DateTime.MinValue;
@@ -42,7 +48,7 @@ namespace Smart_bike_G3.Views
         public Spel123Piano()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
+            { 
                 InitializeComponent();
 
                 pictures();
@@ -53,6 +59,12 @@ namespace Smart_bike_G3.Views
 
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
                 Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
+
+                // If there is new data -> Read sensor
+                Sensor.NewDataSpeed += ((s, e) =>
+                {
+                    globalSpeed = e;
+                });
             }
             else
             {
@@ -84,14 +96,14 @@ namespace Smart_bike_G3.Views
 
         private bool GamePlay()
         {
-            globalSpeed = 30;// read sensor here
+            // read sensor here
 
 
 
             // lights
             if (startRed == DateTime.MinValue && startOrange == DateTime.MinValue)
             {
-                int luck = random.Next(0, 80);
+                int luck = random.Next(0, 90);
                 if (luck == 1)
                 {
                     circGreen.Opacity = 0.5;
@@ -103,7 +115,7 @@ namespace Smart_bike_G3.Views
                 }
             }
 
-            if (startOrange.AddSeconds(2) < DateTime.Now && startOrange != DateTime.MinValue)
+            if (startOrange.AddSeconds(4) < DateTime.Now && startOrange != DateTime.MinValue)
             {
                 startOrange = DateTime.MinValue;
                 startRed = DateTime.Now;
@@ -113,7 +125,7 @@ namespace Smart_bike_G3.Views
                 Debug.WriteLine("rood");
             }
 
-            if (startRed.AddSeconds(8) < DateTime.Now && startRed != DateTime.MinValue)
+            if (startRed.AddSeconds(10) < DateTime.Now && startRed != DateTime.MinValue)
             {
                 startRed = DateTime.MinValue;
                 circRed.Opacity = 0.5;
@@ -124,22 +136,22 @@ namespace Smart_bike_G3.Views
 
             //game over went speed more than 1km/u
 
-            /*if (IsRed == true && globalSpeed > 1)
+            if (IsRed == true && globalSpeed > 5)
             {
                 lblGameOver.Text = gameovers[random.Next(0, gameovers.Length)];
                 lblGameOver.IsVisible = true;
                 btnRestart.IsVisible = true;
                 btnRestart.IsEnabled = true;
                 btnHome.IsVisible = true;
-                btnRestartText.Text = $"Restart";
+                btnRestartText.Text = $"Opnieuw";
                 //sent to API
-                
+
                 //Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Distance), 0); // desable for not filling the database 
 
                 //Navigation.PushAsync(new Scorebord(Convert.ToInt32(0))); // push to scoreboard
                 return false;
-                
-            }*/
+
+            }
 
             //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
             Distance -= globalSpeed * 0.0277777778; // meter
@@ -292,7 +304,7 @@ namespace Smart_bike_G3.Views
             lblGameOver.IsVisible = false;
             btnRestart.IsVisible = false;
             btnHome.IsVisible = false;
-            Distance = 500;
+            Distance = 1000;
             Time = 0;
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);

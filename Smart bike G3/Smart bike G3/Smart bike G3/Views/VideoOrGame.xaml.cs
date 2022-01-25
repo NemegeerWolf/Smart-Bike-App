@@ -1,13 +1,18 @@
-﻿using System;
+﻿using Smart_bike_G3.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using TestBluethoot.Models;
+using TestBluethoot.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Android;
+//using Android;
 
 
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-Regular")]
@@ -30,7 +35,7 @@ namespace Smart_bike_G3.Views
                 InitializeComponent();
                 Pictures();
                 AddEvents();
-                
+                Sensor.Start();
             }
             else
             {
