@@ -10,13 +10,13 @@ using Newtonsoft.Json;
 using Microsoft.Azure.Cosmos;
 using SmartBike_Api.Models;
 
-namespace SmartBike_Api.Functions
+namespace SmartBike_Api.Functions.Delete
 {
-    public static class Delete
+    public static class DeleteNull
     {
         [FunctionName("DeleteNull")]
-        public static async Task<IActionResult> DeleteNull(
-            [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "smartbike/game/null/{id}")] HttpRequest req, string id,
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "smartbike/game/null/{id}")] HttpRequest req, string id,
             ILogger log)
         {
             try
