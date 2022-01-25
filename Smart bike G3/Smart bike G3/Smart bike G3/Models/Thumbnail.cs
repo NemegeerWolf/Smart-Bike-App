@@ -9,7 +9,7 @@ namespace Smart_bike_G3.Models
     {
         public string Duration { get; set; }
 
-        public string Playbuttn { get; set; }
+        public Xamarin.Forms.ImageSource Playbuttn { get; set; }
 
         public string Picture { get; set; }
     }

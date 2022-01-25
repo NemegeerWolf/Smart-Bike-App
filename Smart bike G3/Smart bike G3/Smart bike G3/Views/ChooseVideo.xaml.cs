@@ -30,8 +30,8 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-
-                LoadThumbnails(2);
+                LoadThumbnails(0);
+                LoadThumbnails(1);
 
                 //ImgPlay1.Clicked += BtnFirst_Clicked;
                 //ImgPlay2.Clicked += BtnSecond_Clicked;
@@ -82,7 +82,6 @@ namespace Smart_bike_G3.Views
 
         private async Task LoadThumbnails(int playlistId)
         {
-            Debug.WriteLine("testing");
 
             List<Thumbnail> thumbnails = new List<Thumbnail>();
             Thumbnail thumbnial = new Thumbnail();
@@ -90,16 +89,20 @@ namespace Smart_bike_G3.Views
             foreach (var i in ids)
             {
                 thumbnial.Duration = await SetTime(i);
-                thumbnial.Playbuttn = "Smart_bike_G3.Assets.Asset2.png";
+                thumbnial.Playbuttn = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
                 thumbnial.Picture = GetThumbnail(i);
                 thumbnails.Add(thumbnial);
+                Debug.WriteLine(i);
             }
-            foreach(var i in thumbnails)
+            if (playlistId == 0)
             {
-                Debug.WriteLine(i.Duration);
-                Debug.WriteLine(i.Picture);
-                Debug.WriteLine(i.Playbuttn);
+                lvwEnvVideos.ItemsSource = thumbnails;
             }
+            else
+            {
+                lvwShortMovies.ItemsSource = thumbnails;
+            }
+
 
         }
         private string GetThumbnail(string vidId) {

@@ -81,9 +81,9 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
                     
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -113,9 +113,9 @@
                     <Label Grid.Column="1" FontFamily="Rubik-Bold" Text="Kies een video" FontSize="48" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,48, 0, 0"/>
                 </Grid>
                 
-                <Label Grid.Column="0" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="60, 0, 0, 0"/>
-
-                <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="0">
+                <Label Grid.Column="0" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" VerticalOptions="Start" HorizontalTextAlignment="Center" Margin="60, 0, 0, 0"/>
+                <StackLayout>
+                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="0" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -126,16 +126,17 @@
                                         <RowDefinition Height="2*"/>
                                         <RowDefinition Height="0.5*"/>
                                     </Grid.RowDefinitions>
-                                    <ImageButton x:Name="imgbtnFirst" Source="" Aspect="AspectFill" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380" MinimumWidthRequest="480"/>
-                                    <Label x:Name="lblTime1" Text="" Grid.Row="1" Grid.Column="1" TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
-                                    <ImageButton x:Name="ImgPlay1" Source="" Grid.Row="1" Grid.Column="1" Margin="72" BackgroundColor="Transparent"/>
+                                    <ImageButton x:Name="imgbtnFirst" Source="{Binding Picture}" Aspect="AspectFill" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380" MinimumWidthRequest="480"/>
+                                    <Label x:Name="lblTime1" Text="{Binding Duration}" Grid.Row="1" Grid.Column="1" TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
+                                    <ImageButton x:Name="ImgPlay1" Source="{Binding Playbuttn}" Grid.Row="1" Grid.Column="1" Margin="72" BackgroundColor="Transparent"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                </StackLayout>
 
-                <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Kortfilms" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="60, 0, 0, 0"/>
+                <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Kortfilms" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" Margin="60, 0, 0, 0"/>
 
                 <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="1">
                     <ListView.ItemTemplate>
@@ -148,9 +149,9 @@
                                         <RowDefinition Height="2*"/>
                                         <RowDefinition Height="0.5*"/>
                                     </Grid.RowDefinitions>
-                                    <ImageButton x:Name="imgbtnFirst" Source="" Aspect="AspectFill" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380" MinimumWidthRequest="480"/>
-                                    <Label x:Name="lblTime1" Text="" Grid.Row="1" Grid.Column="1" TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
-                                    <ImageButton x:Name="ImgPlay1" Source="" Grid.Row="1" Grid.Column="1" Margin="72" BackgroundColor="Transparent"/>
+                                    <ImageButton x:Name="imgbtnFirst" Source="{Binding Picture}" Aspect="AspectFill" Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent"  HeightRequest="380" MinimumWidthRequest="480"/>
+                                    <Label x:Name="lblTime1" Text="{Binding Duration}" Grid.Row="1" Grid.Column="1" TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
+                                    <ImageButton x:Name="ImgPlay1" Source="{Binding Playbuttn}" Grid.Row="1" Grid.Column="1" Margin="72" BackgroundColor="Transparent"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
