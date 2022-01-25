@@ -25,7 +25,8 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                lblName.Text = Name.User;
+                Pictures();
+                //lblName.Text = Name.User;
                 string vidorgame = VideoOrGame.Kind;
 
                 Console.WriteLine(vidorgame);
@@ -41,11 +42,21 @@ namespace Smart_bike_G3.Views
 
                 btnHome.Clicked += BtnHome_Clicked;
                 btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
+                
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
+        }
+
+        private void Pictures()
+        {
+            btnAdd.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Plus.png");
+            btnHome.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
+            btnOpnieuw.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
+            ImgLeft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");
+            ImgRight.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
         }
 
         private async void LoadData(int score,string kind)

@@ -3,98 +3,124 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_bike_G3.Views.Scorebord"
              
-             NavigationPage.HasNavigationBar="False" Background="White"
-             BackgroundColor="White">
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="#EAFCFC">
     <ContentPage.Content>
 
-        <StackLayout Margin="16" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-            <ScrollView>
-                <StackLayout>
-                    <!--<Label  FontFamily="Rubik-Bold" Margin="16" Text="Video" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>-->
-                    <Label FontFamily="Rubik-Bold" Text="Scorebord" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#302e33"/>
+        <StackLayout>
+            <Grid>
+                <Image x:Name="ImgLeft" Grid.Row="0" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Start" Scale="1.5"/>
+                <Image x:Name="ImgRight" Grid.Row="0" Grid.Column="0" VerticalOptions="End" HorizontalOptions="End"  Scale="1.5"/>
+                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".2*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height=".1*"/>
+                    <RowDefinition Height=".8*"/>
 
-                    <ListView x:Name="lvwOverview" Margin="40,0" RowHeight="75" HeightRequest="235" SelectionMode="None">
+                </Grid.RowDefinitions>
 
-                        <ListView.ItemTemplate>
+                <Label Grid.Row="1" FontFamily="Rubik-Bold" Text="Scorebord" FontSize="60" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#4b789e"/>
+                <ScrollView Grid.Row="3">
+                    <StackLayout >
+                        <ListView x:Name="lvwOverview" Margin="40,0" RowHeight="75" HeightRequest="235" SelectionMode="None">
 
-                            <DataTemplate>
+                            <ListView.ItemTemplate>
 
-                                <ViewCell>
-                                    <Grid  Margin="2" >
-                                        <Frame BorderColor="#5589EE" CornerRadius="50" BackgroundColor="#E9F2FF">
+                                <DataTemplate>
 
+                                    <ViewCell Height="500">
+                                        <Grid>
+                                            <Frame HasShadow="True"   BackgroundColor="#F7FFFF">
+                                                <StackLayout Margin="0" >
+                                                    <Grid Margin="0">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="50"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Label Grid.Column="0" FontFamily="Rubik-SemiBold"  Text="{Binding RankDot}" TextColor="#4b789e" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                                                        <Label Grid.Column="1" FontFamily="Rubik-Regular" Text="{Binding User}" TextColor="#4b789e" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center"/>
+                                                        <Label Grid.Column="2" FontFamily="Rubik-Regular" Text="{Binding ScoreBordString}" TextColor="#4b789e" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End"/>
 
-                                            <StackLayout Margin="0" >
-                                                <Grid Margin="0">
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="50"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                        <ColumnDefinition Width="*"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <Label Grid.Column="0" FontFamily="Rubik-Regular"  Text="{Binding RankDot}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                                    <Label Grid.Column="1" FontFamily="Rubik-Regular" Text="{Binding User}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                                    <Label Grid.Column="2" FontFamily="Rubik-Regular" Text="{Binding ScoreBordString}" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                                    </Grid>
 
-                                                </Grid>
+                                                </StackLayout>
 
-                                            </StackLayout>
-
-                                            <!--<StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
+                                                <!--<StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
                                     -->
-                                            <!--<Label Text="{Binding TimeStamp.Day}" FontAttributes="Bold" TextColor="Black" FontSize="Large"/>-->
-                                            <!--
+                                                <!--<Label Text="{Binding TimeStamp.Day}" FontAttributes="Bold" TextColor="Black" FontSize="Large"/>-->
+                                                <!--
                                     <Label Text="{Binding User}" TextColor="#615C66" FontSize="24"/>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
 
                                     <Label Text="{Binding Distance}" TextColor="#615C66" FontSize="24"/>
                                 </StackLayout>-->
-                                        </Frame>
-                                    </Grid>
-                                </ViewCell>
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
 
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+            </ScrollView>
 
-                    <Grid  Margin="42,0,42,20" >
-                        <Frame BorderColor="#5589EE" CornerRadius="50" BackgroundColor="#E9F2FF">
+                <Grid Grid.Row="5" >
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width=".2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width=".5*"/>
+                    </Grid.ColumnDefinitions>
 
-
+                    <Grid Grid.Column="1" HorizontalOptions="Center" >
+                        <Frame HasShadow="True"   BackgroundColor="#F7FFFF" >
                             <StackLayout Margin="0" >
                                 <Grid Margin="0">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" x:Name="lblPosition" FontFamily="Rubik-Regular"  Text="1." TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                    <Label Grid.Column="1" x:Name="lblName" FontFamily="Rubik-Regular" Text="Score: " TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                                    <Label Grid.Column="2" x:Name="lblScore" FontFamily="Rubik-Regular" Text="500 km" TextColor="#615C66" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                    <Label Grid.Column="0" x:Name="lblPosition" FontFamily="Rubik-SemiBold"  Text="10" TextColor="#4b789e" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                                    <!--<Label Grid.Column="1" x:Name="lblName" FontFamily="Rubik-Regular" Text="Score: " TextColor="#4b789e" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
+                                    <Entry x:Name="entName"  Grid.Column="1" Placeholder="Vul je naam in" TextColor="#4b789e" />
+                                    <Label Grid.Column="2" x:Name="lblScore" FontFamily="Rubik-Regular" Text="500 km" TextColor="#4b789e" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End"/>
                                 </Grid>
 
                             </StackLayout>
-
-
                         </Frame>
-                    </Grid>
 
-                    <Grid HorizontalOptions="CenterAndExpand" >
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="195" />
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="195"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                        </Grid.RowDefinitions>
-                        <Button Grid.Column="0" FontFamily="Rubik-Regular" Grid.Row="0" x:Name="btnHome" Text="Startpagina" TextColor="White" HeightRequest="200" BackgroundColor="#5589ee" CornerRadius="10"/>
-                        <Button Grid.Column="2" FontFamily="Rubik-Regular" x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>
                     </Grid>
-                </StackLayout>
-            </ScrollView>
+                    <ImageButton x:Name="btnAdd" Grid.Column="3" Scale=".5" BackgroundColor="Transparent"  />
+                </Grid>
+
+
+                <Grid Grid.Row="7"  HorizontalOptions="CenterAndExpand" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <!--<Button Grid.Column="0" FontFamily="Rubik-Regular" Grid.Row="0" x:Name="btnHome" Text="Startpagina" TextColor="White" HeightRequest="200" BackgroundColor="#5589ee" CornerRadius="10"/>-->
+                <!--<Button Grid.Column="2" FontFamily="Rubik-Regular" x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>-->
+
+                <ImageButton x:Name="btnHome" Grid.Column="0" BackgroundColor="Transparent" Scale="2"/>
+                <ImageButton x:Name="btnOpnieuw" Grid.Column="2" BackgroundColor="Transparent" Scale="2"/>
+
+            </Grid>
+            </Grid>
+            </Grid>
         </StackLayout>
-
-
     </ContentPage.Content>
 </ContentPage>
