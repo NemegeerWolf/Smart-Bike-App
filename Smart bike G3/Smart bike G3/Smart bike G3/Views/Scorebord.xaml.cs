@@ -42,11 +42,28 @@ namespace Smart_bike_G3.Views
 
                 btnHome.Clicked += BtnHome_Clicked;
                 btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
+                btnAdd.Clicked += BtnAdd_Clicked;
                 
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
+            }
+        }
+
+        private async void BtnAdd_Clicked(object sender, EventArgs e)
+        {
+            string user = entName.Text;
+
+            if (user != null)
+            {
+                var i = await Repository.GetLastUserAsync();
+                //string id = null;
+                //foreach (var item in i)
+                //{
+                //    id = item.id;
+                //}
+                await Repository.UpdateName(user, i.id);
             }
         }
 
@@ -92,8 +109,21 @@ namespace Smart_bike_G3.Views
 
         private async Task SetRank(int score, string kind)
         {
-            int rank = await Repository.CheckRank(Name.User, score, kind);
-            lblPosition.Text = $"{rank}.";
+
+            var i = await Repository.GetLastUserAsync();
+            
+            //string id = null;
+            //foreach (var item in i)
+            //{
+            //    id = item.id;
+            //}
+
+            int rank = await Repository.CheckRank(i.id, score, kind);
+
+            
+
+
+            lblPosition.Text = $"{rank}";
         }
 
 

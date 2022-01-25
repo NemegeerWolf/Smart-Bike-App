@@ -94,19 +94,19 @@ namespace Smart_bike_G3.Repositories
             }
         }
 
-        public async static Task<List<Game>> GetLastUserAsync()
+        public async static Task<Game> GetLastUserAsync()
         {
             using (HttpClient client = GetHttpClient())
             {
 
-                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/last/user ";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/last/user";
                 try
                 {
                     string json = await client.GetStringAsync(url);
                     if (json != null)
                     {
 
-                        return JsonConvert.DeserializeObject<List<Game>>(json);
+                        return JsonConvert.DeserializeObject<Game>(json);
 
                     }
                     return null;
@@ -248,7 +248,7 @@ namespace Smart_bike_G3.Repositories
 
             }
         }
-        public async static Task<int> CheckRank(string username, int score, string kind)
+        public async static Task<int> CheckRank(string id, int score, string kind)
         {
             int rank = 0;
             if (kind == "video")
@@ -257,7 +257,7 @@ namespace Smart_bike_G3.Repositories
                 List<Video> list = await GetAllscoresVideoAsync(videoid);
                 foreach (var i in list)
                 {
-                    if (i.User == username & i.Distance == score)
+                    if (i.id == id & i.Distance == score)
                     {
                         rank = int.Parse(i.Rank);
                         Debug.WriteLine(rank);
@@ -271,12 +271,12 @@ namespace Smart_bike_G3.Repositories
                 List<Game> list = await GetAllscoresGameAsync(gameid);
                 foreach (var i in list)
                 {
-                    if (gameid == 3 & i.User == username & i.Distance == score)
+                    if (gameid == 3 & i.id == id & i.Distance == score)
                     {
                         rank = int.Parse(i.Rank);
 
                     }
-                    else if (Enumerable.Range(1, 2).Contains(gameid) & i.User == username & i.Speed == score)
+                    else if (Enumerable.Range(1, 2).Contains(gameid) & i.id == id & i.Speed == score)
                     {
                         rank = int.Parse(i.Rank);
                         
