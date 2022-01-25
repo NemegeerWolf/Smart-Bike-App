@@ -10,6 +10,8 @@ using TestBluethoot.Models;
 
 namespace TestBluethoot.Services
 {
+
+    // don't touth the code
     static class Sensor
     {
         static int cadence = 0;
@@ -21,7 +23,7 @@ namespace TestBluethoot.Services
         static double rpm = 0;
         static double prevRPM = 0;
         static int prevCrankStaleness = 0;
-        static int stalenessLimit = 4;
+        static int stalenessLimit = 0;
         static int scanCount = 0;
 
         public static event EventHandler<int> NewDataCadence;

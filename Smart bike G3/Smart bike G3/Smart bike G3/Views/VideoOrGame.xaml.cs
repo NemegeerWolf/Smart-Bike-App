@@ -35,7 +35,7 @@ namespace Smart_bike_G3.Views
                 InitializeComponent();
                 Pictures();
                 AddEvents();
-                
+                Sensor.Start();
             }
             else
             {
