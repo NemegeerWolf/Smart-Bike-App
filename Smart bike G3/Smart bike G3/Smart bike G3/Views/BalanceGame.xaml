@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.BalanceGame">
+    
+    <Grid BackgroundColor="#EAFCFC">
+        <Image Source="backgroundOneWheeler.png" VerticalOptions="EndAndExpand" Aspect="AspectFill"/>
+
+        <Grid>
+            <StackLayout>
+                <Image x:Name="oneWheel"  Source="oneWheeler.png" HorizontalOptions="Center" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </Grid>
+
+    </Grid>
+
+
+</ContentPage>
