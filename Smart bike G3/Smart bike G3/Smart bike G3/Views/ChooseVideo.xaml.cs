@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Smart_bike_G3.Models;
+using Smart_bike_G3.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,9 +30,8 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-
-                Loadpictures();
-                PlayImage();
+                LoadThumbnails(0);
+                LoadThumbnails(1);
 
                 //ImgPlay1.Clicked += BtnFirst_Clicked;
                 //ImgPlay2.Clicked += BtnSecond_Clicked;
@@ -40,7 +40,7 @@ namespace Smart_bike_G3.Views
             
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
                 tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-                //AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+                AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
                 //btnSettings.Clicked += BtnSettings_Clicked;
 
@@ -54,13 +54,7 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        private void PlayImage()
-        {
-            //ImgPlay1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            //ImgPlay2.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            //ImgPlay3.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-            //ImgPlay4.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png");
-        }
+  
 
         private async void AbsLaSetting_Tabbed(object sender, EventArgs e)
         {
@@ -80,48 +74,49 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        private async Task Loadpictures()
+        private async Task LoadThumbnails(int playlistId)
         {
-            int videoId = ChooseVideo.VideoId;
-            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
-            List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
-            List<string> urls = new List<string>();
 
-            foreach (var i in settings)
+            List<Thumbnail> thumbnails = new List<Thumbnail>();
+            List<string> ids = await YoutubeRepository.GetPlaylist(playlistId);
+            foreach (var i in ids)
             {
-                urls.Add(i.vid.Url);
+                thumbnails.Add(new Thumbnail() { Duration = await SetTime(i),
+                Playbuttn = ImageSource.FromResource(@"Smart_bike_G3.Assets.Asset2.png"),
+                Picture = GetThumbnail(i), VideoId = i
+            });
             }
-            //setThumbnail(urls[0], imgbtnFirst);
-            //setThumbnail(urls[1], imgbtnSecond);
-            //setThumbnail(urls[2], imgbtnThird);
-            //setThumbnail(urls[3], imgbtnFourth);
-            //setTime(urls[0], lblTime1);
-            //setTime(urls[1], lblTime2);
-            //setTime(urls[2], lblTime3);
-            //setTime(urls[3], lblTime4);
-        }
-        private void setThumbnail(string url,ImageButton btn) {
-            string vidId = GetIDFromUrl(url);
-            
-            if (RemoteFileExists($"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg"))
+            if (playlistId == 0)
             {
-                btn.Source = $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
+                lvwEnvVideos.ItemsSource = thumbnails;
             }
             else
             {
-                btn.Source = $"https://img.youtube.com/vi/{vidId}/hqdefault.jpg";
+                lvwShortMovies.ItemsSource = thumbnails;
+            }
+
+
+        }
+        private string GetThumbnail(string vidId) {
+            
+            
+            if (RemoteFileExists($"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg"))
+            {
+                return $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
+            }
+            else
+            {
+                return $"https://img.youtube.com/vi/{vidId}/hqdefault.jpg";
 
             }
-            Debug.Write(btn.Source);
         }
 
-        private async Task setTime(string url,Label lbl)
+        private async Task<string> SetTime(string vidId)
         {
-            string vidId = GetIDFromUrl(url);
             var youtube = new YoutubeClient();
             var video = await youtube.Videos.GetAsync(vidId);
             var duration = video.Duration.ToString().Remove(0, 3);
-            lbl.Text = duration; 
+            return duration; 
         }
 
         private string GetIDFromUrl(string url)

@@ -1,3 +1,4 @@
+using Smart_bike_G3.Repositories;
 using Smart_bike_G3.Views;
 using System;
 using System.Diagnostics;
