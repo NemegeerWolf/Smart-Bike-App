@@ -14,6 +14,8 @@ namespace TestBluethoot.Services
     // don't touth the code
     static class Sensor
     {
+        public static string SensorName { get; set; } = "46003-81";
+
         static int cadence = 0;
         static  ulong runtime = 0;
         static  ulong last_millis = 0;
@@ -126,9 +128,9 @@ namespace TestBluethoot.Services
 
         private static void ConnectSensor(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.NewItems.Cast<BleList>().Any(x => x.Name == "46003-81"))
+            if (e.NewItems.Cast<BleList>().Any(x => x.Name == SensorName))
             {
-                Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == "46003-81").First());
+                Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == SensorName).First());
                 ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
 
                 listChar.CollectionChanged += NotifySpeed;

@@ -115,7 +115,7 @@
     <EmbeddedResource Update="Views\NoNetworkPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="NoSensorPage.xaml">
+    <EmbeddedResource Update="Views\NoSensorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OptionsVideo.xaml">
