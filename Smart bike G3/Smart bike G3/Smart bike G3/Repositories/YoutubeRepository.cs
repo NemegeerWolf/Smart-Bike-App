@@ -26,7 +26,7 @@ namespace Smart_bike_G3.Repositories
             string secretKey = "AIzaSyAzqXN9nivfePgfnh_f1F1ziXhYGXmmUks";
             string shorts = "PL65ceuuCPcAwtCNR0oHVsWqcmCSWgWcz3";
 
-            if (playlistId == 1)
+            if (playlistId == 2)
             {
                 using (HttpClient client = GetHttpClient())
                 {

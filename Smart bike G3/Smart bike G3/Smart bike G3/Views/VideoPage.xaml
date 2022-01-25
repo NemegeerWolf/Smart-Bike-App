@@ -4,7 +4,7 @@
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Class="Smart_bike_G3.Views.VideoPage"
              BackgroundColor="White">
-    <ContentPage.Content>
+    <!--<ContentPage.Content>
         <Grid BackgroundColor="Black">
             <xct:MediaElement x:Name="audio" HeightRequest="0" WidthRequest="0"/>
             <xct:MediaElement x:Name="video" MediaOpened="Vid_MediaOpened" MediaEnded="Vid_MediaEnded" VerticalOptions="FillAndExpand" Aspect="AspectFill" ShowsPlaybackControls="False" IsLooping="False" />
@@ -28,6 +28,6 @@
                 </Frame>
             </Grid>
         </Grid>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
 
 </ContentPage>

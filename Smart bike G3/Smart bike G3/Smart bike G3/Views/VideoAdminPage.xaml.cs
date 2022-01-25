@@ -24,7 +24,7 @@ namespace Smart_bike_G3.Views
             {
                 InitializeComponent();
                 NavigationPage.SetHasNavigationBar(this, false);
-                SetEntrysAndButtons();
+                //SetEntrysAndButtons();
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
                 tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
                 AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
@@ -40,7 +40,7 @@ namespace Smart_bike_G3.Views
             Navigation.PopAsync();
         }
 
-        private void SetEntrysAndButtons()
+        /*private void SetEntrysAndButtons()
         {
             string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
             List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
@@ -59,7 +59,7 @@ namespace Smart_bike_G3.Views
             SetRadio(buttns[1], radio20, radio21);
             SetRadio(buttns[2], radio30, radio31);
             SetRadio(buttns[3], radio40, radio41);
-        }
+        }*/
 
         private void SetRadio(int val, RadioButton name, RadioButton name2)
         {

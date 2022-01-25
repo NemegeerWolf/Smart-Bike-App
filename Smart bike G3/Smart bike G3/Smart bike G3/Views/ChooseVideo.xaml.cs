@@ -32,7 +32,6 @@ namespace Smart_bike_G3.Views
                 InitializeComponent();
 
                 LoadThumbnails(2);
-                PlayImage();
 
                 //ImgPlay1.Clicked += BtnFirst_Clicked;
                 //ImgPlay2.Clicked += BtnSecond_Clicked;
@@ -83,30 +82,38 @@ namespace Smart_bike_G3.Views
 
         private async Task LoadThumbnails(int playlistId)
         {
+            Debug.WriteLine("testing");
+
             List<Thumbnail> thumbnails = new List<Thumbnail>();
             Thumbnail thumbnial = new Thumbnail();
             List<string> ids = await YoutubeRepository.GetPlaylist(playlistId);
             foreach (var i in ids)
             {
-                thumbnial.Duration = SetTime(i);
-                thumbnails.Add();
+                thumbnial.Duration = await SetTime(i);
+                thumbnial.Playbuttn = "Smart_bike_G3.Assets.Asset2.png";
+                thumbnial.Picture = GetThumbnail(i);
+                thumbnails.Add(thumbnial);
             }
-            
-         
+            foreach(var i in thumbnails)
+            {
+                Debug.WriteLine(i.Duration);
+                Debug.WriteLine(i.Picture);
+                Debug.WriteLine(i.Playbuttn);
+            }
+
         }
-        private void setThumbnail(string url,ImageButton btn) {
-            string vidId = GetIDFromUrl(url);
+        private string GetThumbnail(string vidId) {
+            
             
             if (RemoteFileExists($"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg"))
             {
-                btn.Source = $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
+                return $"https://img.youtube.com/vi/{vidId}/maxresdefault.jpg";
             }
             else
             {
-                btn.Source = $"https://img.youtube.com/vi/{vidId}/hqdefault.jpg";
+                return $"https://img.youtube.com/vi/{vidId}/hqdefault.jpg";
 
             }
-            Debug.Write(btn.Source);
         }
 
         private async Task<string> SetTime(string vidId)
