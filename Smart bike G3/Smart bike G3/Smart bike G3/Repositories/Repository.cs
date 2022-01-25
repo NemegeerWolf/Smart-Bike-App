@@ -46,13 +46,13 @@ namespace Smart_bike_G3.Repositories
             }
         }
 
-        public async static Task AddResultsGame(int gameid, string user, int speed, int distance)
+        public async static Task AddResultsGame(int gameid, int speed, int distance)
         {
             using (HttpClient client = GetHttpClient())
             {
                 try
                 {
-                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{user}/{distance}/{speed}";
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{distance}/{speed}";
 
                     var response = await client.PostAsync(url, null);
                     if (!response.IsSuccessStatusCode)
@@ -60,6 +60,56 @@ namespace Smart_bike_G3.Repositories
                         throw new Exception("Something went wrong");
                     }
 
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async static Task UpdateName(string name, string id)
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+                try
+                {
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/name/{name}/{id}";
+
+                    var response = await client.PutAsync(url, null);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Something went wrong");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+        }
+
+        public async static Task<List<Game>> GetLastUserAsync()
+        {
+            using (HttpClient client = GetHttpClient())
+            {
+
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/last/user ";
+                try
+                {
+                    string json = await client.GetStringAsync(url);
+                    if (json != null)
+                    {
+
+                        return JsonConvert.DeserializeObject<List<Game>>(json);
+
+                    }
+                    return null;
                 }
                 catch (Exception ex)
                 {
