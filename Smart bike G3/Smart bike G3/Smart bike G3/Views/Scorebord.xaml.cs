@@ -79,15 +79,16 @@ namespace Smart_bike_G3.Views
         private async void LoadData(int score,string kind)
         {
             await SetRank(score, VideoOrGame.Kind);
-            if (kind == "video")
-            { 
-                int videoid = ChooseVideo.VideoId;
-                List<Video> i = await Repository.GetAllscoresVideoAsync(videoid);
-                lvwOverview.ItemsSource = i.Count >= 3 ? i.GetRange(0, 3) : i;
-                lblScore.Text = $"{score.ToString()} m";
+            //if (kind == "video")
+            //{ 
+            //    int videoid = ChooseVideo.VideoId;
+            //    List<Video> i = await Repository.GetAllscoresVideoAsync(videoid);
+            //    lvwOverview.ItemsSource = i.Count >= 3 ? i.GetRange(0, 3) : i;
+            //    lblScore.Text = $"{score.ToString()} m";
 
-            }
-            else if (kind == "game")
+            //}
+            //else
+            if (kind == "game")
             {
                 int gameid = ChooseGame.gameId;
                 List<Game> i = await Repository.GetAllscoresGameAsync(gameid);

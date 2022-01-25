@@ -302,21 +302,22 @@ namespace Smart_bike_G3.Repositories
         public async static Task<int> CheckRank(string id, int score, string kind)
         {
             int rank = 0;
-            if (kind == "video")
-            {
-                int videoid = ChooseVideo.VideoId;
-                List<Video> list = await GetAllscoresVideoAsync(videoid);
-                foreach (var i in list)
-                {
-                    if (i.id == id & i.Distance == score)
-                    {
-                        rank = int.Parse(i.Rank);
-                        Debug.WriteLine(rank);
-                    }
-                }
-                return rank;
-            }
-            else if (kind == "game")
+            //if (kind == "video")
+            //{
+            //    int videoid = ChooseVideo.VideoId;
+            //    List<Video> list = await GetAllscoresVideoAsync(videoid);
+            //    foreach (var i in list)
+            //    {
+            //        if (i.id == id & i.Distance == score)
+            //        {
+            //            rank = int.Parse(i.Rank);
+            //            Debug.WriteLine(rank);
+            //        }
+            //    }
+            //    return rank;
+            //}
+            //else
+            if (kind == "game")
             {
                 int gameid = ChooseGame.gameId;
                 List<Game> list = await GetAllscoresGameWithNullAsync(gameid);
