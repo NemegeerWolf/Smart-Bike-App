@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Smart_bike_G3.Models;
+using Smart_bike_G3.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,7 +31,7 @@ namespace Smart_bike_G3.Views
             {
                 InitializeComponent();
 
-                Loadpictures();
+                LoadThumbnails(2);
                 PlayImage();
 
                 //ImgPlay1.Clicked += BtnFirst_Clicked;
@@ -80,25 +81,18 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        private async Task Loadpictures()
+        private async Task LoadThumbnails(int playlistId)
         {
-            int videoId = ChooseVideo.VideoId;
-            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
-            List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
-            List<string> urls = new List<string>();
-
-            foreach (var i in settings)
+            List<Thumbnail> thumbnails = new List<Thumbnail>();
+            Thumbnail thumbnial = new Thumbnail();
+            List<string> ids = await YoutubeRepository.GetPlaylist(playlistId);
+            foreach (var i in ids)
             {
-                urls.Add(i.vid.Url);
+                thumbnial.Duration = SetTime(i);
+                thumbnails.Add();
             }
-            //setThumbnail(urls[0], imgbtnFirst);
-            //setThumbnail(urls[1], imgbtnSecond);
-            //setThumbnail(urls[2], imgbtnThird);
-            //setThumbnail(urls[3], imgbtnFourth);
-            //setTime(urls[0], lblTime1);
-            //setTime(urls[1], lblTime2);
-            //setTime(urls[2], lblTime3);
-            //setTime(urls[3], lblTime4);
+            
+         
         }
         private void setThumbnail(string url,ImageButton btn) {
             string vidId = GetIDFromUrl(url);
@@ -115,13 +109,12 @@ namespace Smart_bike_G3.Views
             Debug.Write(btn.Source);
         }
 
-        private async Task setTime(string url,Label lbl)
+        private async Task<string> SetTime(string vidId)
         {
-            string vidId = GetIDFromUrl(url);
             var youtube = new YoutubeClient();
             var video = await youtube.Videos.GetAsync(vidId);
             var duration = video.Duration.ToString().Remove(0, 3);
-            lbl.Text = duration; 
+            return duration; 
         }
 
         private string GetIDFromUrl(string url)
