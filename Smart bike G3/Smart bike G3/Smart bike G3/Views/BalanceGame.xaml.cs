@@ -32,7 +32,7 @@ namespace Smart_bike_G3.Views
         {
             //Random rand = new Random();
             //speed = rand.Next(7, 15);
-            if (speed < 100)
+            if (speed > 0 || speed < 100)
             {
                 double targetSpeed = 10;
                 //5sec 2sec
