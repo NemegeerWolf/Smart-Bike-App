@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TestBluethoot.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,18 +13,18 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BalanceGame : ContentPage
     {
+        double speed = 10;
         public BalanceGame()
         {
             InitializeComponent();
             oneWheel.AnchorY = 0.85;
             Animate();
             Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
-            /*Sensor.NewDataSpeed += ((s, e) =>
+            Sensor.NewDataSpeed += ((s, e) =>
             {
-                Speed = e;
-            });*/
+                speed = e;
+            });
         }
-        double speed = 11;
 
         readonly bool playing = true;
         private bool Animate()
@@ -43,9 +43,9 @@ namespace Smart_bike_G3.Views
             {
                 angle = -90;
             }
-
             Rotate(angle, fallSpeed);
             return true;
+
         }
 
         private async Task Rotate(int degrees, uint speed)
