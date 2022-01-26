@@ -13,7 +13,7 @@ using Smart_bike_G3.Models;
 using AndroidX.Core.Content;
 using AndroidX.Core.App;
 
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using BluetoothLE.Core;
 using BluetoothLE.Droid;
@@ -26,6 +26,7 @@ namespace Smart_bike_G3.Droid
         private readonly string[] Permissions =
 {
             Manifest.Permission.Bluetooth,
+            Manifest.Permission.BluetoothPrivileged,
             Manifest.Permission.BluetoothAdmin,
             Manifest.Permission.AccessCoarseLocation,
             Manifest.Permission.AccessFineLocation
@@ -89,6 +90,7 @@ namespace Smart_bike_G3.Droid
                 if (CheckSelfPermission(permission) != Permission.Granted)
                 {
                     minimumPermissionsGranted = false;
+                    
                 }
             }
 
