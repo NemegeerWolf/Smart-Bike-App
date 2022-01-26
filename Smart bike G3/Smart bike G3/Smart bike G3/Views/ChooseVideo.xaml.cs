@@ -25,6 +25,7 @@ namespace Smart_bike_G3.Views
     {
 
         public static string VideoId;
+        public static string VideoDur;
         public ChooseVideo()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -186,7 +187,8 @@ namespace Smart_bike_G3.Views
             Thumbnail item = (Thumbnail)lvwEnvVideos.SelectedItem;
             Console.WriteLine(item.VideoId);
             VideoId = item.VideoId;
-            Navigation.PushAsync(new VideoPage2());
+            VideoDur = item.Duration;
+            Navigation.PushAsync(new VideoPage());
             //lvwEnvVideos.SelectedItem = null;
         }
 
@@ -197,7 +199,8 @@ namespace Smart_bike_G3.Views
             Thumbnail item = (Thumbnail)lvwShortMovies.SelectedItem;
             Console.WriteLine(item.VideoId);
             VideoId = item.VideoId;
-            Navigation.PushAsync(new VideoPage2());
+            VideoDur = item.Duration;
+            Navigation.PushAsync(new VideoPage());
             //lvwShortMovies.SelectedItem = null;
         }
     }
