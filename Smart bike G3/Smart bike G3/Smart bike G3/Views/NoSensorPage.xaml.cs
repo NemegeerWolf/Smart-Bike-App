@@ -12,6 +12,10 @@ using Smart_bike_G3.Services;
 using System.Diagnostics;
 using Smart_bike_G3.Views;
 
+[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-regular")]
+[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
+[assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-SemiBold.ttf", Alias = "Rubik-SemiBold")]
+
 namespace Smart_bike_G3
 {
     public partial class NoSensorPage : ContentPage

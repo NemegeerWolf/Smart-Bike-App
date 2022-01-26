@@ -53,8 +53,9 @@ namespace Smart_bike_G3.Views
 
                 pictures();
 
-                imagetest.Source= image.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.background_button.png");
-            
+                imagetest.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
+                image.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
+
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);
@@ -103,7 +104,7 @@ namespace Smart_bike_G3.Views
             // lights
             if (startRed == DateTime.MinValue && startOrange == DateTime.MinValue)
             {
-                int luck = random.Next(0, 90);
+                int luck = random.Next(0, 110);
                 if (luck == 1)
                 {
                     circGreen.Opacity = 0.5;
@@ -115,7 +116,7 @@ namespace Smart_bike_G3.Views
                 }
             }
 
-            if (startOrange.AddSeconds(4) < DateTime.Now && startOrange != DateTime.MinValue)
+            if (startOrange.AddSeconds(3) < DateTime.Now && startOrange != DateTime.MinValue)
             {
                 startOrange = DateTime.MinValue;
                 startRed = DateTime.Now;
@@ -125,7 +126,7 @@ namespace Smart_bike_G3.Views
                 Debug.WriteLine("rood");
             }
 
-            if (startRed.AddSeconds(10) < DateTime.Now && startRed != DateTime.MinValue)
+            if (startRed.AddSeconds(3) < DateTime.Now && startRed != DateTime.MinValue)
             {
                 startRed = DateTime.MinValue;
                 circRed.Opacity = 0.5;
