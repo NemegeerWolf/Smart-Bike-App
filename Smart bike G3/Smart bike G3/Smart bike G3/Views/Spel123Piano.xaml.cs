@@ -53,8 +53,9 @@ namespace Smart_bike_G3.Views
 
                 pictures();
 
-                imagetest.Source= image.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.background_button.png");
-            
+                imagetest.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
+                image.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
+
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), GamePlay);

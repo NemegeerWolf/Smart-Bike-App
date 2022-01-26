@@ -27,6 +27,7 @@ namespace Smart_bike_G3.Droid
 {
             Manifest.Permission.Bluetooth,
             Manifest.Permission.BluetoothAdmin,
+            Manifest.Permission.BluetoothPrivileged,
             Manifest.Permission.AccessCoarseLocation,
             Manifest.Permission.AccessFineLocation
 };
