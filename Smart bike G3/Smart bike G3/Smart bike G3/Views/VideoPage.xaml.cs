@@ -34,10 +34,10 @@ namespace Smart_bike_G3.Views
                 BackRgt.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
                 SetVideo();
                 NavigationPage.SetHasNavigationBar(this, false);
-                /*Sensor.NewDataSpeed += ((s, e) =>
+                Sensor.NewDataSpeed += ((s, e) =>
                 {
                     speed = e;
-                });*/
+                });
 
             }
             else
@@ -72,7 +72,7 @@ namespace Smart_bike_G3.Views
             speedframe.IsVisible = true;
             playing = true;
             speedlbl.Text = "0 km/h";
-            Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
         }
 
@@ -122,15 +122,14 @@ namespace Smart_bike_G3.Views
             Device.BeginInvokeOnMainThread(() => {
                 video.Pause();
                 video.IsLooping = false;
-                speedlbl.Text = $"20 km/u";
             });
             return false;
         }
 
         private bool IsCycling()
         {
-            Random rand = new Random();
-            speed = rand.Next(10, 56);
+            //Random rand = new Random();
+            //speed = rand.Next(10, 56);
             count += 1;
             if (count == 30)
             {
@@ -165,7 +164,6 @@ namespace Smart_bike_G3.Views
         {
             Navigation.PopAsync();
             Cross.Scale = 0.8;
-
         }
     }
 }

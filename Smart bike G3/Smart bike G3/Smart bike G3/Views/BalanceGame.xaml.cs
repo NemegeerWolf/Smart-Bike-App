@@ -21,10 +21,10 @@ namespace Smart_bike_G3.Views
             Animate();
             Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
             
-            /*Sensor.NewDataSpeed += ((s, e) =>
+            Sensor.NewDataSpeed += ((s, e) =>
             {
                 speed = e;
-            });*/
+            });
         }
 
         readonly bool playing = true;
@@ -32,24 +32,24 @@ namespace Smart_bike_G3.Views
         {
             //Random rand = new Random();
             //speed = rand.Next(7, 15);
-            speed = 9;
-            double targetSpeed = 10;
-            //5sec 2sec
-            double difference = Math.Abs(targetSpeed - speed);
-
-            uint fallSpeed = Convert.ToUInt32((10 - difference) * 1000);
-            int angle;
-            if (speed < targetSpeed)
+            if (speed < 100)
             {
-                angle = 90;
+                double targetSpeed = 10;
+                //5sec 2sec
+                double difference = Math.Abs(targetSpeed - speed);
+                uint fallSpeed = Convert.ToUInt32((10 - difference) * 1000);
+                int angle;
+                if (speed < targetSpeed)
+                {
+                    angle = 90;
+                }
+                else
+                {
+                    angle = -90;
+                }
+                Rotate(angle, fallSpeed);
             }
-            else
-            {
-                angle = -90;
-            }
-            Rotate(angle, fallSpeed);
             return true;
-
         }
 
         private async Task Rotate(int degrees, uint speed)
