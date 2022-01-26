@@ -117,8 +117,8 @@
     <Compile Update="Views\Scorebord.xaml.cs">
       <DependentUpon>Scorebord.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\VideoPage2.xaml.cs">
-      <DependentUpon>VideoPage2.xaml</DependentUpon>
+    <Compile Update="Views\VideoPage.xaml.cs">
+      <DependentUpon>VideoPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -163,9 +163,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\VideoPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\VideoPage2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -20,15 +20,19 @@ namespace Smart_bike_G3.Views
             oneWheel.AnchorY = 0.85;
             Animate();
             Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
-            Sensor.NewDataSpeed += ((s, e) =>
+            
+            /*Sensor.NewDataSpeed += ((s, e) =>
             {
                 speed = e;
-            });
+            });*/
         }
 
         readonly bool playing = true;
         private bool Animate()
         {
+            //Random rand = new Random();
+            //speed = rand.Next(7, 15);
+            speed = 9;
             double targetSpeed = 10;
             //5sec 2sec
             double difference = Math.Abs(targetSpeed - speed);
@@ -51,7 +55,7 @@ namespace Smart_bike_G3.Views
         private async Task Rotate(int degrees, uint speed)
         {
             await oneWheel.RotateTo(degrees, speed);
-            if (Math.Round(oneWheel.Rotation) == 90 || Math.Round(oneWheel.Rotation) == -90)
+            if (Math.Round(oneWheel.Rotation) == 80 || Math.Round(oneWheel.Rotation) == -80)
             {
                 Debug.WriteLine("dead");
             }

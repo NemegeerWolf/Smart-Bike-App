@@ -12,59 +12,52 @@ using YoutubeExplode.Videos.Streams;
 using System.IO;
 using Newtonsoft.Json;
 using Smart_bike_G3.Models;
+using TestBluethoot.Services;
+using System.Linq;
 
 namespace Smart_bike_G3.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoPage : ContentPage
     {
-        /*public VideoPage()
+        double speed;
+        int count = 0;
+        List<double> speedOvertime = new List<double>();
+
+        public VideoPage()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                SetVideoAndAudio();
-                AddEvents();
+                Cross.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Cross.png");
+                BackLft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");
+                BackRgt.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
+                SetVideo();
                 NavigationPage.SetHasNavigationBar(this, false);
-            } 
+                /*Sensor.NewDataSpeed += ((s, e) =>
+                {
+                    speed = e;
+                });*/
+
+            }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
-            }      
+            }
         }
 
         private bool playing = false;
 
-        private void AddEvents()
+     
+        private async Task SetVideo()
         {
-            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+            string vidId = ChooseVideo.VideoId;
+            await SetYoutubeSource(vidId);  
         }
 
-        private void AbsLayBack_Tabbed(object sender, EventArgs e)
+        private void SetAudio(bool audioBool)
         {
-            Navigation.PopAsync();
-        }
-
-        private async Task SetVideoAndAudio()
-        {
-            int videoId = ChooseVideo.VideoId;
-            string fileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "videoUrls.txt");
-            List<VideoSettings> settings = JsonConvert.DeserializeObject<List<VideoSettings>>(File.ReadAllText(fileName));
-            List<string> urls = new List<string>();
-            List<int> buttns = new List<int>();
-
-            foreach (var i in settings)
-            {
-                urls.Add(i.vid.Url);
-                buttns.Add(i.vid.Audio);
-            }
-
-            await GetYoutubeSource(urls[videoId - 1]);
-
-            if (buttns[videoId - 1] == 1)
-            {
+            if (audioBool == true){
                 video.Volume = 0;
                 audio.Source = "ms-appx:///testaudio.mp3";
             }
@@ -73,10 +66,12 @@ namespace Smart_bike_G3.Views
 
         private void Vid_MediaOpened(object sender, EventArgs e)
         {
+            BackLft.IsVisible = false;
+            BackRgt.IsVisible = false;
             loading.IsVisible = false;
             speedframe.IsVisible = true;
             playing = true;
-            speed.Text = "0 km/h";
+            speedlbl.Text = "0 km/h";
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay); //fixes autoplay not working
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
         }
@@ -85,14 +80,41 @@ namespace Smart_bike_G3.Views
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
             playing = false;
-            int videoId = ChooseVideo.VideoId;
-            string user = Name.User;
-            Random rand = new Random();
-            int score = rand.Next(1, 1000);
+            video.IsVisible = false;
+            speedframe.IsVisible = false;
+            BackLft.IsVisible = true;
+            BackRgt.IsVisible = true;
             audio.Stop();
-            Repository.AddResultsVideo(videoId, user, score);
-            Debug.WriteLine("sending data to api");
-            Navigation.PushAsync(new Scorebord(score));
+            double average = CheckEnoughData(speedOvertime);
+            
+            double distance = CalcDistance(average, ChooseVideo.VideoDur);
+            Avglbl.Text = $"{average} km/u";
+            Dislbl.Text = $"{distance} m";
+            resultAvg.IsVisible = true;
+            resultDis.IsVisible = true;
+            Debug.WriteLine(average);
+        }
+
+        private double CheckEnoughData(List<double> list)
+        {
+            if (speedOvertime.Count != 0)
+            {
+                return Queryable.Average(speedOvertime.AsQueryable());
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private double CalcDistance(double average , string duration)
+        {
+            double MeterPerSecond = speed / 3.6;
+            int minutes = int.Parse(duration.Split(':')[0]);
+            int seconds = int.Parse(duration.Split(':')[1]);
+            int totalSeconds = (minutes * 60) + seconds;
+            return  Math.Round(MeterPerSecond * totalSeconds);
+
         }
 
         private bool FixAutoplay()
@@ -100,23 +122,25 @@ namespace Smart_bike_G3.Views
             Device.BeginInvokeOnMainThread(() => {
                 video.Pause();
                 video.IsLooping = false;
-                speed.Text = $"20 km/u";
+                speedlbl.Text = $"20 km/u";
             });
             return false;
         }
 
         private bool IsCycling()
         {
-            Random test = new Random();
-            int testSpeed = test.Next(0, 25);
-
-            float val = testSpeed; //get value from sensor 
-            //calc sensordata to km/u
-            int speedVal = (int)val;
-            speed.Text = $"{speedVal} km/u";
+            Random rand = new Random();
+            speed = rand.Next(10, 56);
+            count += 1;
+            if (count == 30)
+            {
+                speedOvertime.Add(speed);
+                count = 0;
+            }
+            speedlbl.Text = $"{speed} km/u";
             if (playing)
             {
-                if (speedVal > 1)
+                if (speed > 1)
                 {
                     video.Play();
                 }
@@ -128,19 +152,20 @@ namespace Smart_bike_G3.Views
             return true;
         }
 
-        private async Task GetYoutubeSource(string vidUrl) 
+        private async Task SetYoutubeSource(string vidId)
         {
-            string vidId = GetIDFromUrl(vidUrl);
-            Debug.WriteLine(vidId);
             var youtube = new YoutubeClient();
             var streamManifest = await youtube.Videos.Streams.GetManifestAsync(vidId);
             var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
             var stream = await youtube.Videos.Streams.GetAsync(streamInfo);
             video.Source = streamInfo.Url;
         }
-        private string GetIDFromUrl(string url)
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
         {
-            return url.Split('=')[1].Split('?')[0].Split('&')[0];
-        }*/
+            Navigation.PopAsync();
+            Cross.Scale = 0.8;
+
+        }
     }
 }
