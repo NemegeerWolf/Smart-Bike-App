@@ -29,7 +29,7 @@ namespace Smart_bike_G3.Droid
             Manifest.Permission.BluetoothAdmin,
             Manifest.Permission.BluetoothPrivileged,
             Manifest.Permission.AccessCoarseLocation,
-            Manifest.Permission.AccessFineLocation
+            Manifest.Permission.AccessFineLocationn,
 };
 
         protected override void OnCreate(Bundle savedInstanceState)

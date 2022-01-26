@@ -134,6 +134,7 @@ namespace TestBluethoot.Services
                 ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
 
                 listChar.CollectionChanged += NotifySpeed;
+                Console.WriteLine("connected");
             }
 
 
