@@ -43,12 +43,12 @@ namespace Smart_bike_G3.Views
                 tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
                 AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
-                Device.StartTimer(TimeSpan.FromMinutes(1), () =>
-                {
-                    Console.WriteLine("Return to startpage"); 
-                    Navigation.PushAsync(new VideoOrGame());
-                    return false;
-                });
+                //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
+                //{
+                //    Console.WriteLine("Return to startpage"); 
+                //    Navigation.PushAsync(new VideoOrGame());
+                //    return false;
+                //});
             }
             else
             {
