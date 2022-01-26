@@ -125,7 +125,7 @@ namespace Smart_bike_G3.Views
                 Debug.WriteLine("rood");
             }
 
-            if (startRed.AddSeconds(6) < DateTime.Now && startRed != DateTime.MinValue)
+            if (startRed.AddSeconds(3) < DateTime.Now && startRed != DateTime.MinValue)
             {
                 startRed = DateTime.MinValue;
                 circRed.Opacity = 0.5;

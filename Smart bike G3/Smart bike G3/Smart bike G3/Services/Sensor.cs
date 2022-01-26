@@ -17,8 +17,8 @@ namespace TestBluethoot.Services
         public static string SensorName { get; set; } = "46003-81";
 
         static int cadence = 0;
-        static  ulong runtime = 0;
-        static  ulong last_millis = 0;
+        //static  ulong runtime = 0;
+        //static  ulong last_millis = 0;
 
         static int prevCumulativeCrankRev = 0;
         static int prevCrankTime = 0;
@@ -26,7 +26,7 @@ namespace TestBluethoot.Services
         static double prevRPM = 0;
         static int prevCrankStaleness = 0;
         static int stalenessLimit = 1;
-        static int scanCount = 0;
+       // static int scanCount = 0;
 
         public static event EventHandler<int> NewDataCadence;
         public static event EventHandler<int> NewDataSpeed;
@@ -112,7 +112,7 @@ namespace TestBluethoot.Services
             //cadence = cadence + 2;
             NewDataCadence?.Invoke("SelectCharacteristic", cadence);
             NewDataBool?.Invoke("SelectCharacteristic", true);
-            NewDataSpeed?.Invoke("SelectCharacteristic", (int) Sensor.GetSpeed(0.03));
+            NewDataSpeed?.Invoke("SelectCharacteristic", (int) Sensor.GetSpeed(0.04));
         }
 
 
