@@ -1,9 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.NoSensorPage">
+             x:Class="Smart_bike_G3.NoSensorPage"
+             BackgroundColor="#eafcfc"
+             NavigationPage.HasNavigationBar="False">
     <StackLayout>
-        
+        <Grid HeightRequest="1000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="0"/>
+                
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                <Label Text="Oeps, de sensor is niet verbonden." TextColor="#4b789e" FontSize="40" FontFamily="Rubik-SemiBold"/>
+                <Label/>
+                <Label Text="Fiets even zodat de sensor wordt wakker gemaakt." TextColor="Black" FontSize="28" FontFamily="Rubik-Regular"/>
+                
+            </StackLayout>
+            <AbsoluteLayout  Grid.Column="3" VerticalOptions="Center">
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+                    <Path.Data>
+                        <PathGeometry Figures="M0 0H518V518H0Z" FillRule="Nonzero"/>
+                    </Path.Data>
+                </Path>
+                <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  Fill="#FF4B789E">
+                    <Path.Data>
+                        <PathGeometry Figures="M198.25 84.664l40.577 40.577-34.533 34.533 30.433 30.432 65.182-65.182L176.667 2H155.083V110.564l43.167 43.167V84.664ZM34.432 45.167 4 75.6 146.234 217.833 25.583 338.484l30.432 30.432 99.068-99.067V433.667h21.583l92.593-92.593L318.9 390.5l30.432-30.432ZM198.25 351V269.849l40.577 40.577Z" FillRule="Nonzero"/>
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <TranslateTransform X="82.333" Y="41.167"/>
+                    </Path.RenderTransform>
+                </Path>
+            </AbsoluteLayout>
+        </Grid>
 
     </StackLayout>
 </ContentPage>

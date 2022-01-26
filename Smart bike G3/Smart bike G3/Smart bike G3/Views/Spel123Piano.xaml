@@ -108,15 +108,16 @@
 
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
-            <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
+            <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" TextColor="#AF0011" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
             <StackLayout Orientation="Horizontal" Scale="0.8" HorizontalOptions="Center">
                 <Grid x:Name="btnRestart" IsVisible="false">
                     <Image x:Name="image" HeightRequest="70"  />
-                    <Button x:Name="btnRestartText" WidthRequest="200" Text="Opnieuw"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" />
+                    <Button x:Name="btnRestartText" WidthRequest="200"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" />
+                    
                 </Grid>
                 <Grid x:Name="btnHome" IsVisible="false">
                     <Image x:Name="imagetest" HeightRequest="70" />
-                    <Button  Text="Startpagina"  VerticalOptions="Center" WidthRequest="200" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
+                    <Button  VerticalOptions="Center" WidthRequest="200" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
                 </Grid>
             </StackLayout>
         </StackLayout>
