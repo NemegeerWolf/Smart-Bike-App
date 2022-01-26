@@ -27,6 +27,7 @@
     <None Remove="Assets\Bike.png" />
     <None Remove="Assets\Check.png" />
     <None Remove="Assets\Clouds.png" />
+    <None Remove="Assets\Cross.png" />
     <None Remove="Assets\Game.png" />
     <None Remove="Assets\GameConsole.png" />
     <None Remove="Assets\Glass.png" />
@@ -64,6 +65,7 @@
     <EmbeddedResource Include="Assets\Bike.png" />
     <EmbeddedResource Include="Assets\Check.png" />
     <EmbeddedResource Include="Assets\Clouds.png" />
+    <EmbeddedResource Include="Assets\Cross.png" />
     <EmbeddedResource Include="Assets\Game.png" />
     <EmbeddedResource Include="Assets\GameConsole.png" />
     <EmbeddedResource Include="Assets\Glass.png" />
