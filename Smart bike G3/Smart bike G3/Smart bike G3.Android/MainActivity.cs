@@ -3,107 +3,78 @@
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
+using Android.Views;
+using Android.Widget;
 using Android.OS;
 
 using Android;
 using Android.Bluetooth;
-using Android.Content;
-using Android.Support.V4.App;
-using Smart_bike_G3.Models;
-using AndroidX.Core.Content;
-using AndroidX.Core.App;
-
-
+using Android.Locations;
 using Xamarin.Forms;
-using BluetoothLE.Core;
-using BluetoothLE.Droid;
+using System.Runtime.Remoting.Contexts;
+using Android.Content;
+using Android.Support.V4.Content;
 
 namespace Smart_bike_G3.Droid
 {
-    [Activity(Label = "Smart_bike_G3", Icon = "@drawable/Naamloos", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "Fiets_App", Icon = "@drawable/Naamloos", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        private readonly string[] Permissions =
-{
-            Manifest.Permission.Bluetooth,
-            Manifest.Permission.BluetoothAdmin,
-            Manifest.Permission.BluetoothPrivileged,
-            Manifest.Permission.AccessCoarseLocation,
-            Manifest.Permission.AccessFineLocation
-};
-
+        BluetoothManager _manager;
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+            _manager = (BluetoothManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.BluetoothService);
+            _manager.Adapter.Enable();
             base.OnCreate(savedInstanceState);
-
-            //const int locationPermissionsRequestCode = 1000;
-
-            //var locationPermissions = new[]
-            //{
-            //    Manifest.Permission.AccessCoarseLocation,
-            //    Manifest.Permission.AccessFineLocation
-            //};
-
-            //// check if the app has permission to access coarse location
-            //var coarseLocationPermissionGranted =
-            //    ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessCoarseLocation);
-
-            //// check if the app has permission to access fine location
-            //var fineLocationPermissionGranted =
-            //    ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation);
-
-            //// if either is denied permission, request permission from the user
-            //if (coarseLocationPermissionGranted == Permission.Denied ||
-            //    fineLocationPermissionGranted == Permission.Denied)
-            //{
-            //    ActivityCompat.RequestPermissions(this, locationPermissions, locationPermissionsRequestCode);
-            //}
-
-            //// Register for broadcasts when a device is discovered
-
-
-
-
-
-            ////BluetoothDeviceReceiver.Adapter.StartDiscovery();
-
-            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            CheckPermissions();
-            DependencyService.Register<IAdapter, Adapter>();
-
             LoadApplication(new App());
-        }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-        {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-
-        private void CheckPermissions()
-        {
-            bool minimumPermissionsGranted = true;
-
-            foreach (string permission in Permissions)
+            int add = 0;
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessCoarseLocation) != (int)Permission.Granted)
             {
-                if (CheckSelfPermission(permission) != Permission.Granted)
+                add++;
+            }
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) != (int)Permission.Granted)
+            {
+                add++;
+            }
+            if (add != 0)
+            {
+                Android.Support.V4.App.ActivityCompat.RequestPermissions(this,
+                          new string[] {
+                    Android.Manifest.Permission.AccessCoarseLocation,
+                    Android.Manifest.Permission.AccessFineLocation,
+                    Android.Manifest.Permission.Bluetooth,
+                  }, 4);
+            }
+            OpenLocationSettings();
+        }
+        public void OpenLocationSettings()
+        {
+
+
+            LocationManager LM = (LocationManager)Forms.Context.GetSystemService(Android.Content.Context.LocationService);
+            if (LM.IsProviderEnabled(LocationManager.GpsProvider) == false)
+            {
+                AlertDialog ad = new AlertDialog.Builder(this).Create();
+
+                ad.SetMessage("Please open location");
+                ad.SetCancelable(false);
+                ad.SetCanceledOnTouchOutside(false);
+                ad.SetButton("ok", delegate
                 {
-                    minimumPermissionsGranted = false;
-                }
-            }
+                    Android.Content.Context ctx = Forms.Context;
+                    ctx.StartActivity(new Intent(Android.Provider.Settings.ActionLocationSourceSettings));
+                });
 
-            // If any of the minimum permissions aren't granted, we request them from the user
-            if (!minimumPermissionsGranted)
-            {
-                RequestPermissions(Permissions, 0);
+                ad.SetButton2("cancle", delegate
+                {
+
+                });
+                ad.Show();
+
             }
         }
-
-        //[Android.Runtime.Register("onUserInteraction", "()V", "GetOnUserInteractionHandler")]
-        //public override void OnUserInteraction()
-        //{
-        //    Console.WriteLine("USER INTERACTED");
-        //}
     }
 }
