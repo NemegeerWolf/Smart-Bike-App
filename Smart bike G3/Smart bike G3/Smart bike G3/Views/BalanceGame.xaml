@@ -6,7 +6,7 @@
     
     <Grid BackgroundColor="#EAFCFC">
         <Image Source="backgroundOneWheeler.png" VerticalOptions="EndAndExpand" Aspect="AspectFill"/>
-
+        
         <Grid>
             <ImageButton x:Name="pauseBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"  Clicked="pauseBtn_Clicked" BackgroundColor="Transparent"/>
             <ImageButton x:Name="StartBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Clicked="StartBtn_Clicked" BackgroundColor="Transparent"/>

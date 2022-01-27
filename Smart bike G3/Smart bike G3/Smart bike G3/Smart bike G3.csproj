@@ -21,6 +21,7 @@
     <None Remove="Assets\arrow_back.png" />
     <None Remove="Assets\Asset2.png" />
     <None Remove="Assets\Background.png" />
+    <None Remove="Assets\BackgroundGlass.png" />
     <None Remove="Assets\BackgroundScore1.png" />
     <None Remove="Assets\BackgroundScore2.png" />
     <None Remove="Assets\background_button.png" />
@@ -31,6 +32,7 @@
     <None Remove="Assets\Game.png" />
     <None Remove="Assets\GameConsole.png" />
     <None Remove="Assets\Glass.png" />
+    <None Remove="Assets\GlassGame.png" />
     <None Remove="Assets\Green1.png" />
     <None Remove="Assets\green2.png" />
     <None Remove="Assets\Green3.png" />
@@ -63,6 +65,7 @@
     <EmbeddedResource Include="Assets\Again.png" />
     <EmbeddedResource Include="Assets\arrow_back.png" />
     <EmbeddedResource Include="Assets\Asset2.png" />
+    <EmbeddedResource Include="Assets\BackgroundGlass.png" />
     <EmbeddedResource Include="Assets\BackgroundScore1.png" />
     <EmbeddedResource Include="Assets\BackgroundScore2.png" />
     <EmbeddedResource Include="Assets\background_button.png" />
@@ -73,6 +76,7 @@
     <EmbeddedResource Include="Assets\Game.png" />
     <EmbeddedResource Include="Assets\GameConsole.png" />
     <EmbeddedResource Include="Assets\Glass.png" />
+    <EmbeddedResource Include="Assets\GlassGame.png" />
     <EmbeddedResource Include="Assets\Green1.png" />
     <EmbeddedResource Include="Assets\Green2.png" />
     <EmbeddedResource Include="Assets\Green3.png" />

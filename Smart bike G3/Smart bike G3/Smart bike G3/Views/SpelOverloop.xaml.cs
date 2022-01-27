@@ -21,6 +21,7 @@ namespace Smart_bike_G3.Views
         public SpelOverloop()
         {
             InitializeComponent();
+            pictures();
             Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
             Device.StartTimer(TimeSpan.FromMilliseconds(100), gameplay);
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
@@ -33,6 +34,12 @@ namespace Smart_bike_G3.Views
             {
                 Speed = e;
             });
+        }
+
+        private void pictures()
+        {
+            imgbackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundGlass.png");
+            imgGlass.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GlassGame.png");
         }
 
         private bool ChangeTime()

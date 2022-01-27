@@ -4,6 +4,9 @@
              x:Class="Smart_bike_G3.Views.SpelOverloop" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid>
+            <Image Grid.Column="0" Grid.Row="0" x:Name="imgbackground" ScaleX="1.2"/>
+
+            <Grid  Grid.Column="0" Grid.Row="0">
             <StackLayout>
                 <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Start" Grid.Column="0" Scale="2" Margin="32">
                     <Path x:Name="path112">
@@ -57,7 +60,7 @@
                 </Path>
             </AbsoluteLayout>
         
-            <AbsoluteLayout HorizontalOptions="CenterAndExpand" Scale="0.7">
+            <!--<AbsoluteLayout HorizontalOptions="CenterAndExpand" Scale="0.7">
                 
                 <AbsoluteLayout HorizontalOptions="CenterAndExpand" TranslationY="5">
                     <Path  x:Name="water">
@@ -107,9 +110,40 @@
                 </Path>
                 </AbsoluteLayout>
                 
-            </AbsoluteLayout>
+            </AbsoluteLayout>-->
 
-            <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" Scale=".5" Margin="40,115" >
+                    <Path  x:Name="water">
+                        <Path.Fill>
+                            <LinearGradientBrush x:Name="waterBrush" EndPoint="0,1">
+                                <GradientStop Color="Transparent"
+                          Offset="0.0" />
+                                <GradientStop x:Name="startLucht" Color="Transparent"
+                          Offset="0.5" />
+                                <GradientStop x:Name="stopWater" Color="#FF86B1F2"
+                          Offset="0.4" />
+                                <!--<GradientStop Color="Blue"
+                          Offset="1.0" />-->
+                            </LinearGradientBrush>
+                        </Path.Fill>
+                        <Path.Data>
+                            <PathGeometry Figures="M 575.6429443359375 572.3681640625 L 94.28166198730469 572.3681640625 L 0.5885785818099976 0.4999986886978149 L 666.4143676757813 0.4999986886978149 L 575.6429443359375 572.3681640625 Z" FillRule="Nonzero"/>
+                        </Path.Data>
+                        <!--<Path.Data>
+                            <PathGeometry Figures="M4949.878 3407.051s-32.435 3.833-43.662-14.054-66.117 14.054-66.117 14.054-43.663 23-91.068 0-60.332 28.959-60.332 28.959l17.688 124.807 227.451-3.1" FillRule="Nonzero"/>
+                        </Path.Data>
+                        <Path.RenderTransform>
+                            <TranslateTransform X="-4687.174" Y="-3386.018"/>
+                        </Path.RenderTransform>-->
+                    </Path>
+                <!--<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  Fill="#FF86B1F2" StrokeThickness="3" Stroke="#FF86B1F2" >
+                    
+                </Path>-->
+                </AbsoluteLayout>
+
+                <Image x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" Scale="1.6"/>
+
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
                 <Label x:Name="lblUWin" Text="You Win" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Green" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
                 <StackLayout Orientation="Horizontal" Scale="0.8">
@@ -124,6 +158,7 @@
                 </StackLayout>
             </StackLayout>
 
+        </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

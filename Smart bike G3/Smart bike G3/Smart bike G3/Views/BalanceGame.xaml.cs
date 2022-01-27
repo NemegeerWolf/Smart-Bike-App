@@ -69,6 +69,7 @@ namespace Smart_bike_G3.Views
                     angle = SetAngle(speedval, targetSpeed);
                     Rotate(angle, fallSpeed);
                 }
+                
             }
             else
             {
