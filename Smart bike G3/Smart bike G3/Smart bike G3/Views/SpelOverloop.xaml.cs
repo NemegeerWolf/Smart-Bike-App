@@ -81,7 +81,7 @@ namespace Smart_bike_G3.Views
                 i.Add(stopWater);
 
                 waterBrush.GradientStops = i;
-                water.Fill = new LinearGradientBrush(i, new Point(0.5,0), new Point(0.5, 1));
+                water.Fill = new LinearGradientBrush(i, new Point(0.5,-.5), new Point(0.5, 1));
 
                 lblVolume.Text = Math.Round(100-((stopWater.Offset/1 )*100),0).ToString();
 
