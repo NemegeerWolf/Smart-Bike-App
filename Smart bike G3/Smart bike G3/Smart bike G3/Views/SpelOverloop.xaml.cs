@@ -1,4 +1,5 @@
-﻿using Smart_bike_G3.Repositories;
+﻿using Smart_bike_G3.Models;
+using Smart_bike_G3.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,7 +82,7 @@ namespace Smart_bike_G3.Views
                 i.Add(stopWater);
 
                 waterBrush.GradientStops = i;
-                water.Fill = new LinearGradientBrush(i, new Point(0.5,-.5), new Point(0.5, 1));
+                water.Fill = new LinearGradientBrush(i, new Point(0.5,0), new Point(0.5, 1));
 
                 lblVolume.Text = Math.Round(100-((stopWater.Offset/1 )*100),0).ToString();
 
@@ -110,7 +111,7 @@ namespace Smart_bike_G3.Views
                     lblScore.Text = $"{dateTime.Minute}min{dateTime.Second}";
                     btnRestart.IsEnabled = false;
 
-                    Repository.AddResultsGame(2, Convert.ToInt32(Time), 0);
+                    Repository.AddResultsGame(3, Convert.ToInt32(Time), 0);
                     
                     Thread.Sleep(3000);
                     Navigation.PushAsync(new Scorebord(Time)); // push to scoreboard
@@ -132,10 +133,16 @@ namespace Smart_bike_G3.Views
             return true;
         }
 
-        private void AbsLayBack_Tabbed(object sender, EventArgs e)
+        private async void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
+            Game lastuser = await Repository.GetLastUserAsync();
+            if (lastuser.User == null)
+            {
+                await Repository.DeleteAsync(lastuser.id);
+            }
             AbsLayBack.Scale = 1.5;
             Navigation.PopAsync();
+            
         }
 
         private void btnHome_Clicked(object sender, EventArgs e)
