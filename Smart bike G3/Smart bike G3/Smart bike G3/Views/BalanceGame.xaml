@@ -8,11 +8,17 @@
         <Image Source="backgroundOneWheeler.png" VerticalOptions="EndAndExpand" Aspect="AspectFill"/>
 
         <Grid>
-            <StackLayout>
-                <Label  x:Name="lblText"  VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontSize="30" TextColor="#4b789e" FontFamily="Rubik-Bold"/>
+            <ImageButton x:Name="pauseBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"  Clicked="pauseBtn_Clicked" BackgroundColor="Transparent"/>
+            <ImageButton x:Name="StartBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  Clicked="StartBtn_Clicked" BackgroundColor="Transparent"/>
+            <Image x:Name="oneWheel"  Source="oneWheeler.png" HorizontalOptions="Center" VerticalOptions="EndAndExpand"/>
+            <Frame x:Name="pauzedFrame" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF" IsVisible="false">
                 
-                <Image x:Name="oneWheel"  Source="oneWheeler.png" HorizontalOptions="Center" VerticalOptions="EndAndExpand"/>
-            </StackLayout>
+                <StackLayout Spacing="20" Orientation="Vertical">
+                    <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="ResumeBtn_Clicked" BackgroundColor="Transparent"/>
+                    <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="QuitBtn_Clicked" BackgroundColor="Transparent"/>
+
+                </StackLayout>
+            </Frame>
         </Grid>
 
     </Grid>

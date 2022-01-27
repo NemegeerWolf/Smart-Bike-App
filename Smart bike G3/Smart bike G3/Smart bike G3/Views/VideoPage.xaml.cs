@@ -1,17 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
-using Smart_bike_G3.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
-using System.IO;
-using Newtonsoft.Json;
-using Smart_bike_G3.Models;
 using TestBluethoot.Services;
 using System.Linq;
 
