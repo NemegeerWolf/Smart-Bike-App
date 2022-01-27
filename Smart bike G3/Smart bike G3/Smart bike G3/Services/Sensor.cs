@@ -25,7 +25,7 @@ namespace TestBluethoot.Services
         static double rpm = 0;
         static double prevRPM = 0;
         static int prevCrankStaleness = 0;
-        static int stalenessLimit = 1;
+        static int stalenessLimit = 2;
        // static int scanCount = 0;
 
         public static event EventHandler<int> NewDataCadence;
@@ -112,7 +112,7 @@ namespace TestBluethoot.Services
             //cadence = cadence + 2;
             NewDataCadence?.Invoke("SelectCharacteristic", cadence);
             NewDataBool?.Invoke("SelectCharacteristic", true);
-            NewDataSpeed?.Invoke("SelectCharacteristic", (int) Sensor.GetSpeed(0.04));
+            NewDataSpeed?.Invoke("SelectCharacteristic", (int) Sensor.GetSpeed(0.03));
         }
 
 
@@ -134,6 +134,7 @@ namespace TestBluethoot.Services
                 ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
 
                 listChar.CollectionChanged += NotifySpeed;
+                Console.WriteLine("connected");
             }
 
 

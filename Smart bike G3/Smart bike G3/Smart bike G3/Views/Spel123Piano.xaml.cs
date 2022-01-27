@@ -144,7 +144,7 @@ namespace Smart_bike_G3.Views
                 btnRestart.IsVisible = true;
                 btnRestart.IsEnabled = true;
                 btnHome.IsVisible = true;
-                btnRestartText.Text = $"Opnieuw";
+                //btnRestartText.Text = $"Opnieuw";
                 //sent to API
 
                 //Repository.AddResultsGame(1, Name.User, Convert.ToInt32(Distance), 0); // desable for not filling the database 
