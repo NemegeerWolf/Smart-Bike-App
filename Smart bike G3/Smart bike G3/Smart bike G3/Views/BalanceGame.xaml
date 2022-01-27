@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.BalanceGame">
+             x:Class="Smart_bike_G3.Views.BalanceGame"
+             NavigationPage.HasNavigationBar="False">
     
     <Grid BackgroundColor="#EAFCFC">
         <Image Source="backgroundOneWheeler.png" VerticalOptions="EndAndExpand" Aspect="AspectFill"/>
 
         <Grid>
             <StackLayout>
+                <Label  x:Name="lblText"  VerticalOptions="CenterAndExpand" HorizontalOptions="Center" FontSize="30" TextColor="#4b789e" FontFamily="Rubik-Bold"/>
+                
                 <Image x:Name="oneWheel"  Source="oneWheeler.png" HorizontalOptions="Center" VerticalOptions="EndAndExpand"/>
             </StackLayout>
         </Grid>

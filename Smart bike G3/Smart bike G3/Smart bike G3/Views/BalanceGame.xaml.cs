@@ -21,11 +21,14 @@ namespace Smart_bike_G3.Views
             Animate();
             Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
             
+            
             Sensor.NewDataSpeed += ((s, e) =>
             {
                 speed = e;
             });
         }
+
+        
 
         readonly bool playing = true;
         private bool Animate()
@@ -42,10 +45,24 @@ namespace Smart_bike_G3.Views
                 if (speed < targetSpeed)
                 {
                     angle = 90;
+                    
                 }
                 else
                 {
                     angle = -90;
+                    
+                }
+                if (angle > 45)
+                {
+                    lblText.Text = "SNELLER FIETSEN!";
+                }
+                else if (angle > -45 && angle < 45)
+                {
+                    lblText.Text = "";
+                }
+                else if (angle<-45)
+                {
+                    lblText.Text = "TRAGER FIETSEN!";
                 }
                 Rotate(angle, fallSpeed);
             }
