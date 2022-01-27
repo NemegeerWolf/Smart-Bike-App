@@ -23,6 +23,8 @@ namespace Smart_bike_G3.Services
         static ObservableCollection<CharacteristicsList> CharacteristicsList = new ObservableCollection<CharacteristicsList>();
         public static bool isnotify = false;
         public static event EventHandler<byte[]> NewData;
+        public static event EventHandler<bool> LostConnection;
+        public static event EventHandler<bool> MadeConnection;
 
         public static ObservableCollection<BleList> Scan()
         {
@@ -34,7 +36,8 @@ namespace Smart_bike_G3.Services
             //BleStatus = ble.AdapterConnectStatus;
 
             //});
-
+            ScanDevices.Clear();
+            blelist.Clear();
             ble = CrossBle.Createble();
             //when search devices
             ble.OnScanDevicesIn += Ble_OnScanDevicesIn;
@@ -56,6 +59,7 @@ namespace Smart_bike_G3.Services
                     ConnectDevice.ConnectToDevice();
                     ble.AdapterStatusChange += Ble_AdapterStatusChange;
                     ble.ServerCallBackEvent += Ble_ServerCallBackEvent;
+                    ble.StopScanningForDevices();
                     break;
                     // listView.ItemsSource = CharacteristicsList;
                 }
@@ -128,14 +132,16 @@ namespace Smart_bike_G3.Services
 
 
                     ReadCharacteristics();
-
+                    MadeConnection?.Invoke("SelectCharacteristic", true);
                 }
                 if (BleStatus == AdapterConnectStatus.None)
                 {
                     //await Navigation.PopToRootAsync(true);
+                    LostConnection?.Invoke("SelectCharacteristic", true);
                 }
             });
         }
+
         private static void ReadCharacteristics()
         {
             ConnectDevice.CharacteristicsDiscovered(cha =>

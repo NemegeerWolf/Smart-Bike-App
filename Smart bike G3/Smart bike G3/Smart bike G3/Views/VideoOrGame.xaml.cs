@@ -35,7 +35,12 @@ namespace Smart_bike_G3.Views
                 InitializeComponent();
                 Pictures();
                 AddEvents();
-                //Sensor.Start();
+                Sensor.Start();
+
+                Bluetooth.LostConnection += ((s, e) =>
+                {
+                    Navigation.PushAsync(new NoSensorPage());
+                });
             }
             else
             {
