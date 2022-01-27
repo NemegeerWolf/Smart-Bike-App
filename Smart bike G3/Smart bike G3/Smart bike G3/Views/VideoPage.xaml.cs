@@ -23,7 +23,7 @@ namespace Smart_bike_G3.Views
         double speed;
         int count = 0;
         List<double> speedOvertime = new List<double>();
-
+        bool checkSpeed;
         public VideoPage()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -36,7 +36,7 @@ namespace Smart_bike_G3.Views
                 NavigationPage.SetHasNavigationBar(this, false);
                 Sensor.NewDataSpeed += ((s, e) =>
                 {
-                    speed = e;
+                    speed =e;
                 });
 
             }
@@ -66,14 +66,16 @@ namespace Smart_bike_G3.Views
 
         private void Vid_MediaOpened(object sender, EventArgs e)
         {
+            checkSpeed = true;
             BackLft.IsVisible = false;
             BackRgt.IsVisible = false;
             loading.IsVisible = false;
             speedframe.IsVisible = true;
             playing = true;
             speedlbl.Text = "0 km/h";
+            video.KeepScreenOn = true;
            // Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
-            Device.StartTimer(TimeSpan.FromMilliseconds(2000), IsCycling);
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
         }
 
 
@@ -86,13 +88,12 @@ namespace Smart_bike_G3.Views
             BackRgt.IsVisible = true;
             audio.Stop();
             double average = CheckEnoughData(speedOvertime);
-            
             double distance = CalcDistance(average, ChooseVideo.VideoDur);
             Avglbl.Text = $"{average} km/u";
             Dislbl.Text = $"{distance} m";
             resultAvg.IsVisible = true;
             resultDis.IsVisible = true;
-            Debug.WriteLine(average);
+            checkSpeed = false;
         }
 
         private double CheckEnoughData(List<double> list)
@@ -139,16 +140,24 @@ namespace Smart_bike_G3.Views
             speedlbl.Text = $"{speed} km/u";
             if (playing)
             {
-                if (speed > 1)
+                if (speed > 1 & video.CurrentState == Xamarin.CommunityToolkit.UI.Views.MediaElementState.Paused)
                 {
                     video.Play();
                 }
-                else
+                else if (speed < 1 & video.CurrentState == Xamarin.CommunityToolkit.UI.Views.MediaElementState.Playing)
                 {
                     video.Pause();
                 }
             }
-            return true;
+            if (checkSpeed)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private async Task SetYoutubeSource(string vidId)
