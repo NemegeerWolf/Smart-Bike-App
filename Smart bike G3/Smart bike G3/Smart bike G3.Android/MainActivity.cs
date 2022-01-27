@@ -26,7 +26,7 @@ namespace Smart_bike_G3.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             _manager = (BluetoothManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.BluetoothService);
-            _manager.Adapter.Enable();
+            //_manager.Adapter.Enable(); /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> Sensor.start() in videoorgame.cs ook******/
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

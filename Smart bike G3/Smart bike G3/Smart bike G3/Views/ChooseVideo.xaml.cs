@@ -34,15 +34,12 @@ namespace Smart_bike_G3.Views
                 ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
                 LoadThumbnails(0);
                 LoadThumbnails(1);
-
-                //ImgPlay1.Clicked += BtnFirst_Clicked;
-                //ImgPlay2.Clicked += BtnSecond_Clicked;
-                //ImgPlay3.Clicked += BtnThird_Clicked;
-                //ImgPlay4.Clicked += BtnFourth_Clicked;
             
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
                 tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
                 AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+
+                imgHelp.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.help.png");
 
                 //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
                 //{
@@ -202,6 +199,18 @@ namespace Smart_bike_G3.Views
             VideoDur = item.Duration;
             Navigation.PushAsync(new VideoPage());
             //lvwShortMovies.SelectedItem = null;
+        }
+
+        private void imgHelp_Clicked(object sender, EventArgs e)
+        {
+            GridHelp.IsVisible = true;
+            GridHelpBackGround.IsVisible = true;
+        }
+
+        private void btnOk_Clicked(object sender, EventArgs e)
+        {
+            GridHelp.IsVisible = false;
+            GridHelpBackGround.IsVisible = false;
         }
     }
 }
