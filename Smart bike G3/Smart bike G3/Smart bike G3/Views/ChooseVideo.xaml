@@ -56,7 +56,7 @@
                     </Grid>
                     
                     <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" VerticalOptions="Start" HorizontalTextAlignment="Center"/>
-                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="1" RowHeight="352"  ItemSelected="lvwEnvVideos_ItemSelected" BackgroundColor="Transparent" >
+                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="1" RowHeight="352" ItemTapped="lvwEnvVideos_ItemTapped" BackgroundColor="Transparent" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -78,7 +78,7 @@
 
                     <Label Grid.Column="3" Grid.Row="1" FontFamily="Rubik-Bold" Text="Kortfilms" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
 
-                    <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="3" RowHeight="352"  ItemSelected="lvwShortMovies_ItemSelected" BackgroundColor="Transparent">
+                    <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="3" RowHeight="352" ItemTapped="lvwShortMovies_ItemTapped" BackgroundColor="Transparent">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
