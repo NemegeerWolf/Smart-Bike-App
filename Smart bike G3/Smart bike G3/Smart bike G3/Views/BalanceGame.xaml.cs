@@ -34,10 +34,10 @@ namespace Smart_bike_G3.Views
             //speed = rand.Next(7, 15);
             if (speed > 0 || speed < 100)
             {
-                double targetSpeed = 10;
+                double targetSpeed = 15;
                 //5sec 2sec
                 double difference = Math.Abs(targetSpeed - speed);
-                uint fallSpeed = Convert.ToUInt32((10 - difference) * 1000);
+                uint fallSpeed = Convert.ToUInt32(Math.Abs(10 - difference) * 1000);
                 int angle;
                 if (speed < targetSpeed)
                 {

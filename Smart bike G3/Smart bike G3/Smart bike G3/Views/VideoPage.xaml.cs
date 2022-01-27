@@ -72,8 +72,8 @@ namespace Smart_bike_G3.Views
             speedframe.IsVisible = true;
             playing = true;
             speedlbl.Text = "0 km/h";
-            Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
-            Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
+           // Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
+            Device.StartTimer(TimeSpan.FromMilliseconds(2000), IsCycling);
         }
 
 
