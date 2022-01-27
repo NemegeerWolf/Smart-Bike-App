@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using TestBluethoot.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -26,10 +27,10 @@ namespace Smart_bike_G3.Views
                 SetXaml();
                 Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
 
-                /*Sensor.NewDataSpeed += ((s, e) =>
+                Sensor.NewDataSpeed += ((s, e) =>
                 {
                     speed = e;
-                });*/
+                });
             }
             else
             {
@@ -49,8 +50,8 @@ namespace Smart_bike_G3.Views
 
         private bool Animate()
         {
-            Random rand = new Random();
-            speed = rand.Next(0, 30);
+            //Random rand = new Random();
+            //speed = rand.Next(0, 30);
             double speedval;
             int angle;
 
