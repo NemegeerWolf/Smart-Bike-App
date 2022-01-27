@@ -34,22 +34,19 @@ namespace Smart_bike_G3.Views
                 ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
                 LoadThumbnails(0);
                 LoadThumbnails(1);
-
-                //ImgPlay1.Clicked += BtnFirst_Clicked;
-                //ImgPlay2.Clicked += BtnSecond_Clicked;
-                //ImgPlay3.Clicked += BtnThird_Clicked;
-                //ImgPlay4.Clicked += BtnFourth_Clicked;
             
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
                 tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
                 AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
-                Device.StartTimer(TimeSpan.FromMinutes(1), () =>
-                {
-                    Console.WriteLine("Return to startpage"); 
-                    Navigation.PushAsync(new VideoOrGame());
-                    return false;
-                });
+                imgHelp.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.help.png");
+
+                //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
+                //{
+                //    Console.WriteLine("Return to startpage"); 
+                //    Navigation.PushAsync(new VideoOrGame());
+                //    return false;
+                //});
             }
             else
             {
@@ -143,37 +140,6 @@ namespace Smart_bike_G3.Views
             }
         }
 
-
-
-        //private void BtnFourth_Clicked(object sender, EventArgs e)
-        //{
-            
-        //    VideoId = 4;
-        //    //Navigation.PushAsync(new VideoExplanation());
-        //    Navigation.PushAsync(new VideoPage());
-        //}
-
-        //private void BtnThird_Clicked(object sender, EventArgs e)
-        //{
-        //    VideoId= 3;
-        //    //Navigation.PushAsync(new VideoExplanation());
-        //    Navigation.PushAsync(new VideoPage());
-        //}
-
-        //private void BtnSecond_Clicked(object sender, EventArgs e)
-        //{
-        //    VideoId = 2;
-        //    //Navigation.PushAsync(new VideoExplanation());
-        //    Navigation.PushAsync(new VideoPage());
-        //}
-
-        //private void BtnFirst_Clicked(object sender, EventArgs e)
-        //{
-        //    VideoId = 1;
-        //    //Navigation.PushAsync(new VideoExplanation());
-        //    Navigation.PushAsync(new VideoPage());
-        //}
-
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
             AbsLayBack.Scale = 1.5;
@@ -202,6 +168,42 @@ namespace Smart_bike_G3.Views
             VideoDur = item.Duration;
             Navigation.PushAsync(new VideoPage());
             //lvwShortMovies.SelectedItem = null;
+        }
+
+        private void imgHelp_Clicked(object sender, EventArgs e)
+        {
+            GridHelp.IsVisible = true;
+            GridHelpBackGround.IsVisible = true;
+        }
+
+        private void btnOk_Clicked(object sender, EventArgs e)
+        {
+            GridHelp.IsVisible = false;
+            GridHelpBackGround.IsVisible = false;
+        }
+
+        private void lvwShortMovies_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Console.WriteLine("selected shortmovie");
+            Console.WriteLine(lvwShortMovies.SelectedItem.ToString());
+            Thumbnail item = (Thumbnail)lvwShortMovies.SelectedItem;
+            Console.WriteLine(item.VideoId);
+            VideoId = item.VideoId;
+            VideoDur = item.Duration;
+            Navigation.PushAsync(new VideoPage());
+            lvwShortMovies.SelectedItem = null;
+        }
+
+        private void lvwEnvVideos_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Console.WriteLine("selected Env videos");
+            Console.WriteLine(lvwEnvVideos.SelectedItem.ToString());
+            Thumbnail item = (Thumbnail)lvwEnvVideos.SelectedItem;
+            Console.WriteLine(item.VideoId);
+            VideoId = item.VideoId;
+            VideoDur = item.Duration;
+            Navigation.PushAsync(new VideoPage());
+            lvwEnvVideos.SelectedItem = null;
         }
     }
 }
