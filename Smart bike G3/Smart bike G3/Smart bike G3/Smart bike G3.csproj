@@ -41,8 +41,12 @@
     <None Remove="Assets\Luisterboek.png" />
     <None Remove="Assets\Muziek.png" />
     <None Remove="Assets\no_wifi.png" />
+    <None Remove="Assets\pauze.png" />
     <None Remove="Assets\Play.png" />
     <None Remove="Assets\Plus.png" />
+    <None Remove="Assets\Quit.png" />
+    <None Remove="Assets\Resume.png" />
+    <None Remove="Assets\StartB.png" />
     <None Remove="Assets\traffic_light.png" />
     <None Remove="Assets\two_wheeler.png" />
     <None Remove="Assets\video.png" />
@@ -80,8 +84,12 @@
     <EmbeddedResource Include="Assets\Luisterboek.png" />
     <EmbeddedResource Include="Assets\Muziek.png" />
     <EmbeddedResource Include="Assets\no_wifi.png" />
+    <EmbeddedResource Include="Assets\pauze.png" />
     <EmbeddedResource Include="Assets\Play.png" />
     <EmbeddedResource Include="Assets\Plus.png" />
+    <EmbeddedResource Include="Assets\Quit.png" />
+    <EmbeddedResource Include="Assets\Resume.png" />
+    <EmbeddedResource Include="Assets\StartB.png" />
     <EmbeddedResource Include="Assets\traffic_light.png" />
     <EmbeddedResource Include="Assets\two_wheeler.png" />
     <EmbeddedResource Include="Assets\video.png" />

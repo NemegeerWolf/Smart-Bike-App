@@ -20,7 +20,7 @@ namespace Smart_bike_G3
         public App()
         {
             InitializeComponent();
-            firstTimefileSetup();
+            //firstTimefileSetup();
             
            //  MainPage = new NavigationPage(new NoSensorPage());
             MainPage = new NavigationPage(new VideoOrGame());
