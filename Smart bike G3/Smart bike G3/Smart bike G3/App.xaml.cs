@@ -20,7 +20,7 @@ namespace Smart_bike_G3
         public App()
         {
             InitializeComponent();
-            firstTimefileSetup();
+            //firstTimefileSetup();
             
             //CatchSleepmode();
            //  MainPage = new NavigationPage(new NoSensorPage());
