@@ -28,12 +28,12 @@ namespace Smart_bike_G3.Views
                 AddEvents();
                 imgHelp.Clicked += ImgHelp_Clicked;
                 btnOk.Clicked += BtnOk_Clicked;
-                Device.StartTimer(TimeSpan.FromMinutes(1), () =>
-                {
-                    Console.WriteLine("Return to startpage");
-                    Navigation.PushAsync(new VideoOrGame());
-                    return false;
-                });
+                //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
+                //{
+                //    Console.WriteLine("Return to startpage");
+                //    Navigation.PushAsync(new VideoOrGame());
+                //    return false;
+                //});
             }
             else
             {
