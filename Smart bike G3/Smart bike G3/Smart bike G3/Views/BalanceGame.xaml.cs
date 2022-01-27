@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using TestBluethoot.Services;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,6 +15,7 @@ namespace Smart_bike_G3.Views
         bool playing = false;
         bool started = false;
         bool stopped = false;
+        int countdown = 1;
         public BalanceGame()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -26,19 +23,13 @@ namespace Smart_bike_G3.Views
 
                 InitializeComponent();
                 NavigationPage.SetHasNavigationBar(this, false);
-                oneWheel.AnchorY = 0.85;
-                resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
-                quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
-                StartBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.StartB.png");
-                pauseBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.pauze.png");
-                pauseBtn.IsVisible = false;
-                Animate();
+                SetXaml();
                 Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
 
-                Sensor.NewDataSpeed += ((s, e) =>
+                /*Sensor.NewDataSpeed += ((s, e) =>
                 {
                     speed = e;
-                });
+                });*/
             }
             else
             {
@@ -46,11 +37,20 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        
+        private void SetXaml()
+        {
+            oneWheel.AnchorY = 0.85;
+            pauseBtn.IsVisible = false;
+            resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
+            quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
+            StartBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.StartB.png");
+            pauseBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.pauze.png");
+        }
+
         private bool Animate()
         {
-            //Random rand = new Random();
-            //speed = rand.Next(0, 30);
+            Random rand = new Random();
+            speed = rand.Next(0, 30);
             double speedval;
             int angle;
 
@@ -59,7 +59,7 @@ namespace Smart_bike_G3.Views
                 speedval = CheckSpeedLimit(speed);
                 double targetSpeed = 15;
                 uint fallSpeed = CalcFallSpeed(speedval, targetSpeed);
-
+                SetFeedback();
                 if (speedval == targetSpeed)
                 {
                     Rotate(0, 3000);
@@ -90,6 +90,23 @@ namespace Smart_bike_G3.Views
             return true;
         }
 
+        private void SetFeedback()
+        {
+            double Angle = Math.Round(oneWheel.Rotation);
+            if (Angle > 10)
+            {
+                feedbacklbl.Text = "Rapper!!";
+            }
+            else if (Angle < -10)
+            {
+                feedbacklbl.Text = "Trager!!";
+
+            }
+            else
+            {
+                feedbacklbl.Text = "Goed";
+            }
+        }
         private uint CalcFallSpeed(double speedval, double targetSpeed)
         {
             double difference = Math.Abs(targetSpeed - speedval);
@@ -130,26 +147,65 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        private void pauseBtn_Clicked(object sender, EventArgs e)
+        private void PauseBtn_Clicked(object sender, EventArgs e)
         {
             playing = false;
             pauseBtn.IsVisible = false;
             pauzedFrame.IsVisible = true;
+            feedbacklbl.IsVisible = false;
         }
 
         private void StartBtn_Clicked(object sender, EventArgs e)
         {
+            StartBtn.IsVisible = false;
+            timerlbl.IsVisible = true;
+            timerlbl.Text = "3";
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), Countdown);
+        }
+
+        private bool Countdown()
+        {
+            if (countdown == 1)
+            {
+                countdown = 2;
+                timerlbl.Text = "2";
+                return true;
+            }
+            else if (countdown == 2)
+            {
+                countdown = 3;
+                timerlbl.Text = "1";
+                return true;
+            }
+            else if (countdown == 3)
+            {
+                countdown = 4;
+                timerlbl.Text = "GO!!";
+                return true;
+            }
+            else
+            {
+                countdown = 1;
+                timerlbl.IsVisible = false;
+                Start();
+                return false;
+            }
+        }
+
+        private void Start()
+        {
             started = true;
             playing = true;
-            StartBtn.IsVisible = false;
             pauseBtn.IsVisible = true;
+            feedbacklbl.IsVisible = true;
         }
 
         private void ResumeBtn_Clicked(object sender, EventArgs e)
         {
-            playing = true;
-            pauseBtn.IsVisible = true;
             pauzedFrame.IsVisible = false;
+            timerlbl.IsVisible = true;
+            timerlbl.Text = "3";
+            Device.StartTimer(TimeSpan.FromMilliseconds(1000), Countdown);
         }
 
         private void QuitBtn_Clicked(object sender, EventArgs e)
