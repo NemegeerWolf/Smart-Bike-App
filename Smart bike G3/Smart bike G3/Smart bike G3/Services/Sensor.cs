@@ -112,7 +112,7 @@ namespace TestBluethoot.Services
             //cadence = cadence + 2;
             NewDataCadence?.Invoke("SelectCharacteristic", cadence);
             NewDataBool?.Invoke("SelectCharacteristic", true);
-            NewDataSpeed?.Invoke("SelectCharacteristic", (int) Sensor.GetSpeed(0.04));
+            NewDataSpeed?.Invoke("SelectCharacteristic", (int) Sensor.GetSpeed(0.02));
         }
 
 
