@@ -81,7 +81,7 @@ namespace Smart_bike_G3.Views
             }
             if (user == null)
             {
-                entName.Placeholder = "vul eerst jouw naam in";
+                entName.Placeholder = "vul eerst jouw bijnaam in";
             }
         }
 

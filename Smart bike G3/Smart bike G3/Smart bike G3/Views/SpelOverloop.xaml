@@ -83,6 +83,9 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
+
+                
+                
                 <AbsoluteLayout HorizontalOptions="CenterAndExpand" Rotation="9" TranslationX="620">
                         <Rectangle  WidthRequest="40" HeightRequest="595.193" x:Name="rect2" Fill="#FFE9F2FF" StrokeThickness="1" Stroke="#FF5589EE"/>
                         <Rectangle AbsoluteLayout.LayoutBounds="0.5,0.5"  WidthRequest="39" HeightRequest="594.193" x:Name="rect4" StrokeThickness="1" Stroke="#FF5589EE"/>
