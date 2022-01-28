@@ -103,16 +103,16 @@ namespace Smart_bike_G3.Views
 
                     
 
-                    lblUWin.IsVisible = true;
-                    btnRestart.IsVisible = true;
+                    //lblUWin.IsVisible = true;
+                    //btnRestart.IsVisible = true;
 
                     var dateTime = DateTime.MinValue.AddSeconds(Time);
                     lblScore.Text = $"{dateTime.Minute}min{dateTime.Second}";
-                    btnRestart.IsEnabled = false;
+                    //btnRestart.IsEnabled = false;
 
                     Repository.AddResultsGame(3, Convert.ToInt32(Time), 0);
                     
-                    Thread.Sleep(3000);
+                    //Thread.Sleep(3000);
                     Navigation.PushAsync(new Scorebord(Time)); // push to scoreboard
                     return false;
                     // cool effect of zo...
