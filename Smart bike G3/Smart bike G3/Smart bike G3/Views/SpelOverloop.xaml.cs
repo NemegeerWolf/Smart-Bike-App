@@ -84,11 +84,11 @@ namespace Smart_bike_G3.Views
                 waterBrush.GradientStops = i;
                 water.Fill = new LinearGradientBrush(i, new Point(0.5,0), new Point(0.5, 1));
 
-                lblVolume.Text = Math.Round(100-((stopWater.Offset/1 )*100),0).ToString();
+                //lblVolume.Text = Math.Round(100-((stopWater.Offset/1 )*100),0).ToString();
 
-                Waves.TranslationY = 150 - 300.0 * (Convert.ToDouble(lblVolume.Text) / 100.0);
-                Waves.ScaleX = 1 + Convert.ToDouble(lblVolume.Text) * 0.3 / 100.0 ;
-                Waves.TranslationX = -50 - Convert.ToDouble(lblVolume.Text) * 20.0 / 100.0;
+                //Waves.TranslationY = 150 - 300.0 * (Convert.ToDouble(lblVolume.Text) / 100.0);
+                //Waves.ScaleX = 1 + Convert.ToDouble(lblVolume.Text) * 0.3 / 100.0 ;
+                //Waves.TranslationX = -50 - Convert.ToDouble(lblVolume.Text) * 20.0 / 100.0;
             });
 
             if (stopWater.Offset > 1)
@@ -119,14 +119,14 @@ namespace Smart_bike_G3.Views
                     // cool effect of zo...
                     
 
-                    lblVolume.Text = "100";
+                    //lblVolume.Text = "100";
                     // reset to empty for test
                     startLucht.Offset = 1- (float)0.01;
                     stopWater.Offset = 1- (float)0;
-                    Waves.TranslationY = 150;
-                    Waves.TranslationY = 150 - 300.0 * (Convert.ToDouble(lblVolume.Text) / 100.0);
-                    Waves.ScaleX = 1 + Convert.ToDouble(lblVolume.Text) * 0.3 / 100.0;
-                    Waves.TranslationX = -50 - Convert.ToDouble(lblVolume.Text) * 20.0 / 100.0;
+                    //Waves.TranslationY = 150;
+                    //Waves.TranslationY = 150 - 300.0 * (Convert.ToDouble(lblVolume.Text) / 100.0);
+                    //Waves.ScaleX = 1 + Convert.ToDouble(lblVolume.Text) * 0.3 / 100.0;
+                    //Waves.TranslationX = -50 - Convert.ToDouble(lblVolume.Text) * 20.0 / 100.0;
                 }
 
             
