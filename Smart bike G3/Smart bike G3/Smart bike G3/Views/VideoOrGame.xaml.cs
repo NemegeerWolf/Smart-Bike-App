@@ -38,7 +38,7 @@ namespace Smart_bike_G3.Views
                 delete();
                 Pictures();
                 AddEvents();
-                //Sensor.Start();/*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
+                Sensor.Start();/*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
 
                 Bluetooth.LostConnection += ((s, e) =>
                 {
