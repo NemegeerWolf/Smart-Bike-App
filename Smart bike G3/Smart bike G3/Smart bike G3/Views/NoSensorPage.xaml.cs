@@ -43,7 +43,7 @@ namespace Smart_bike_G3
 
         private void ConnectSensor(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.NewItems.Cast<BleList>().Any(x => x.Name == "46003-81"))
+            if (e.NewItems.Cast<BleList>().Any(x => x.Name == Sensor.SensorName))
             {
                 Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == "46003-81").First());
                 ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
