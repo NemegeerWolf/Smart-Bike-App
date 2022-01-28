@@ -123,6 +123,28 @@ namespace Smart_bike_G3.Services
 
         }
 
+        public static void ClearAllDelegatesOfLostConnection()
+        {
+            if (LostConnection != null)
+            {
+                foreach (Delegate d in LostConnection.GetInvocationList())
+                {
+                    LostConnection -= (EventHandler<bool>)d;
+                }
+            }
+        }
+
+        public static void ClearAllDelegatesOfMadeConnection()
+        {
+            if (LostConnection != null)
+            {
+                foreach (Delegate d in MadeConnection.GetInvocationList())
+                {
+                    MadeConnection -= (EventHandler<bool>)d;
+                }
+            }
+        }
+
         private static void Ble_AdapterStatusChange(object sender, AdapterConnectStatus e)
         {
             Device.BeginInvokeOnMainThread(async () =>
