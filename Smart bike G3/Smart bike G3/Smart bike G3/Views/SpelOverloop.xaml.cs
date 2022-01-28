@@ -25,9 +25,9 @@ namespace Smart_bike_G3.Views
             pictures();
             Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
             Device.StartTimer(TimeSpan.FromMilliseconds(100), gameplay);
-            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
-            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+            //TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            //tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            //AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
 
             // If there is new data -> Read sensor
@@ -41,6 +41,9 @@ namespace Smart_bike_G3.Views
         {
             imgbackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundGlass.png");
             imgGlass.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GlassGame.png");
+            resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
+            quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
+            pauseBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.pauze.png");
         }
 
         private bool ChangeTime()
@@ -138,21 +141,38 @@ namespace Smart_bike_G3.Views
             return true;
         }
 
-        private async void AbsLayBack_Tabbed(object sender, EventArgs e)
-        {
-            Game lastuser = await Repository.GetLastUserAsync();
-            if (lastuser.User == null)
-            {
-                await Repository.DeleteAsync(lastuser.id);
-            }
-            AbsLayBack.Scale = 1.5;
-            Navigation.PopAsync();
+        //private async void AbsLayBack_Tabbed(object sender, EventArgs e)
+        //{
+        //    Game lastuser = await Repository.GetLastUserAsync();
+        //    if (lastuser.User == null)
+        //    {
+        //        await Repository.DeleteAsync(lastuser.id);
+        //    }
+        //    //AbsLayBack.Scale = 1.5;
+        //    Navigation.PopAsync();
             
-        }
+        //}
 
         private void btnHome_Clicked(object sender, EventArgs e)
         {
             Navigation.PopToRootAsync(); // root page moet veranderd worden.
+        }
+
+        private void resumeBtn_Clicked(object sender, EventArgs e)
+        {
+            GridPause.IsVisible = false;
+            pauzedFrame.IsVisible = false;
+        }
+
+        private void quitBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ChooseGame());
+        }
+
+        private void pauseBtn_Clicked(object sender, EventArgs e)
+        {
+            GridPause.IsVisible = true;
+            pauzedFrame.IsVisible = true;
         }
     }
 }
