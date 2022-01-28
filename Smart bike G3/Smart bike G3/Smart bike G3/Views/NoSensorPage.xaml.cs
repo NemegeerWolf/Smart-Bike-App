@@ -25,7 +25,10 @@ namespace Smart_bike_G3
             InitializeComponent();
             Scan();
             Navigation.PushAsync(new VideoOrGame());
-
+            Bluetooth.MadeConnection += ((s, e) =>
+            {
+                Navigation.PopToRootAsync();
+            });
         }
 
        
@@ -43,14 +46,15 @@ namespace Smart_bike_G3
 
         private void ConnectSensor(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.NewItems.Cast<BleList>().Any(x => x.Name == Sensor.SensorName))
+            if(e.NewItems != null) {
+            if (e.NewItems.Cast<BleList>().Any(x => x.Name == "46003-81"))
             {
                 Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == "46003-81").First());
                 ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
 
                 listChar.CollectionChanged += NotifySpeed;
             }
-            
+            }
 
         }
 
