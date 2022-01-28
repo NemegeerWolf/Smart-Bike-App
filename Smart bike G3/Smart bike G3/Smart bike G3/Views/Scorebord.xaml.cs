@@ -145,14 +145,15 @@ namespace Smart_bike_G3.Views
                     lblNameFirst.Text = first.User;
                     lblRankFirst.Text = first.Rank;
                     lblScoreFirst.Text = first.ScoreBordString;
-                    if (gameid != 3)
-                    {
-                        lblScore.Text = $"{score.ToString()} s";
-                    }
-                    else
-                    {
-                        lblScore.Text = $"{score.ToString()} m";
-                    }
+                    lblScore.Text = $"{score.ToString()} s";
+                    //if (gameid != null)
+                    //{
+                        
+                    //}
+                    //else
+                    //{
+                    //    lblScore.Text = $"{score.ToString()} m";
+                    //}
                 }
                 
             }
@@ -174,10 +175,6 @@ namespace Smart_bike_G3.Views
             //}
 
             int rank = await Repository.CheckRank(i.id, score, kind);
-
-            
-
-
             lblPosition.Text = $"{rank}";
         }
 

@@ -42,6 +42,7 @@ namespace Smart_bike_G3.Views
 
         private DateTime startOrange = DateTime.MinValue;
         private DateTime startRed = DateTime.MinValue;
+        private bool IsPauzed = false;
 
         public bool IsRed { get; private set; }
 
@@ -52,6 +53,12 @@ namespace Smart_bike_G3.Views
                 InitializeComponent();
 
                 pictures();
+
+                TapGestureRecognizer recognizer = new TapGestureRecognizer();
+                recognizer.Tapped += btnPauze_Clicked;
+                btnPauze.GestureRecognizers.Add(recognizer);
+                Pauze.GestureRecognizers.Add(recognizer);
+                Play.GestureRecognizers.Add(recognizer);
 
                 imagetest.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
                 image.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
@@ -74,6 +81,21 @@ namespace Smart_bike_G3.Views
             
         }
 
+        private void btnPauze_Clicked(object sender, EventArgs e)
+        {
+            if (IsPauzed)
+            {
+                IsPauzed = false;
+                
+            }
+            else
+            {
+                IsPauzed = true;
+            }
+            Pauze.IsVisible = !IsPauzed;
+            Play.IsVisible = IsPauzed;
+        }
+
         private void pictures()
         {
             ImgGreen1.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Green1.png");
@@ -84,25 +106,30 @@ namespace Smart_bike_G3.Views
 
         private bool ChangeTime()
         {
-            if(lblGameOver.IsVisible == false)
+            if (!IsPauzed)
             {
-                Time += 1;
-                var dateTime = DateTime.MinValue.AddSeconds(Time);
-                lblTime.Text = $"{dateTime.Minute}min{dateTime.Second}" ;
-                return true;
+                if (lblGameOver.IsVisible == false)
+                {
+                    Time += 1;
+                    var dateTime = DateTime.MinValue.AddSeconds(Time);
+                    lblTime.Text = $"{dateTime.Minute}min{dateTime.Second}";
+                    return true;
+                }
+                return false;
             }
-            return false;
-            
+            return true;
+
         }
 
         private bool GamePlay()
         {
-            // read sensor here
+            if (!IsPauzed)
+            {
 
 
 
-            // lights
-            if (startRed == DateTime.MinValue && startOrange == DateTime.MinValue)
+                // lights
+                if (startRed == DateTime.MinValue && startOrange == DateTime.MinValue)
             {
                 int luck = random.Next(0, 110);
                 if (luck == 1)
@@ -179,72 +206,78 @@ namespace Smart_bike_G3.Views
             }
 
             return true;
+            }
+            return true;
         }
 
         private bool Streetmove()
         {
-            if (!lblGameOver.IsVisible)
+            if (!IsPauzed)
             {
-                mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
-                DeviceDisplay.MainDisplayInfoChanged += ((l, m) =>
+                if (!lblGameOver.IsVisible)
                 {
-                    Debug.WriteLine("Hellloooow wolfffiieeieieieiei");
-                    if (mainDisplayInfo.Height != DeviceDisplay.MainDisplayInfo.Height)
+                    mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+                    DeviceDisplay.MainDisplayInfoChanged += ((l, m) =>
                     {
+                        Debug.WriteLine("Hellloooow wolfffiieeieieieiei");
+                        if (mainDisplayInfo.Height != DeviceDisplay.MainDisplayInfo.Height)
+                        {
+                            loadingIndicator.IsRunning = true;
+                            setup();
+                            Thread.Sleep(3000);
+                            setup();
+                            loadingIndicator.IsRunning = false;
+                        }
+
+
+
+                    });
+
+                    if (!started)
+                    {
+                        started = true;
                         loadingIndicator.IsRunning = true;
                         setup();
-                        Thread.Sleep(3000);
-                        setup();
                         loadingIndicator.IsRunning = false;
+
                     }
-
-
-
-                });
-
-                if (!started)
-                {
-                    started = true;
-                    loadingIndicator.IsRunning = true;
-                    setup();
-                    loadingIndicator.IsRunning = false;
-                    
-                }
-                double speed = globalSpeed;
-                if (!(speed <= 0))
-                {
-                   
-                    foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
+                    double speed = globalSpeed;
+                    if (!(speed <= 0))
                     {
 
-
-
-
-                        if (rectangle.Y > gap * 6)
-                        {
-                            if (Distance < 30 && Distance > 27)
-                            {
-                                rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 6, 20));
-                            }
-                            else if (Distance > 35)
-                            {
-                                rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 0.2, height));
-                            }
-
-                        }
-                        else
+                        foreach (Xamarin.Forms.Shapes.Rectangle rectangle in wayMarks)
                         {
 
-                            rectangle.Layout(new Rectangle(-rectangle.Width / 2, rectangle.Y + gap / (200 / speed), rectangle.Width + rectangle.Width * (0.001 / (1.0 / speed)), rectangle.Height - rectangle.Height * (0.00025 / (1.0 / speed))));
+
+
+
+                            if (rectangle.Y > gap * 6)
+                            {
+                                if (Distance < 30 && Distance > 27)
+                                {
+                                    rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 6, 20));
+                                }
+                                else if (Distance > 35)
+                                {
+                                    rectangle.Layout(new Rectangle(-width * 0.3 / 2, -height + gap / (200 / speed), width * 0.2, height));
+                                }
+
+                            }
+                            else
+                            {
+
+                                rectangle.Layout(new Rectangle(-rectangle.Width / 2, rectangle.Y + gap / (200 / speed), rectangle.Width + rectangle.Width * (0.001 / (1.0 / speed)), rectangle.Height - rectangle.Height * (0.00025 / (1.0 / speed))));
+                            }
                         }
                     }
+                    return true;
                 }
-                return true;
+                else
+                {
+                    return false;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return true;
         }
 
         private void setup()

@@ -81,7 +81,7 @@ namespace Smart_bike_G3.Views
             AbsLay123piano.GestureRecognizers.Add(tapGestureRecognizer2);
 
             TapGestureRecognizer tapGestureRecognizer3 = new TapGestureRecognizer();
-            tapGestureRecognizer3.Tapped += AbsLayHillClimb_Tabbed;
+            tapGestureRecognizer3.Tapped += AbsLayBalance_Tabbed;
             AbsLayBalance.GestureRecognizers.Add(tapGestureRecognizer3);
 
             TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
@@ -91,24 +91,20 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
         {
-            gameId = 2;
+            gameId = 3;
             //AbsLayOverloop.Scale = 8;
             Navigation.PushAsync(new SpelOverloop());
         }
 
-        private void AbsLayHillClimb_Tabbed(object sender, EventArgs e)
+        private void AbsLayBalance_Tabbed(object sender, EventArgs e)
         {
-            gameId = 3;
+            gameId = 2;
             Navigation.PushAsync(new BalanceGame());
-
-            Console.WriteLine("Tabbed hill climb");
         }
 
         private void AbsLay123piano_Tabbed(object sender, EventArgs e)
         {
             gameId = 1;
-            
-            //Navigation.PushAsync(new _123Piano());
             Navigation.PushAsync(new Spel123Piano());
         }
 

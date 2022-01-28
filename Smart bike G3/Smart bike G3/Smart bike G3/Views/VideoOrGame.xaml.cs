@@ -1,4 +1,6 @@
-﻿using Smart_bike_G3.Services;
+﻿using Smart_bike_G3.Models;
+using Smart_bike_G3.Repositories;
+using Smart_bike_G3.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,15 +35,30 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+                delete();
                 Pictures();
                 AddEvents();
-                Sensor.Start(); /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
+                Sensor.Start();/*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
+
+                Bluetooth.LostConnection += ((s, e) =>
+                {
+                    Navigation.PushAsync(new NoSensorPage());
+                });
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
 
+        }
+
+        private async void delete()
+        {
+            Game lastuser = await Repository.GetLastUserAsync();
+            if (lastuser.User == null)
+            {
+                await Repository.DeleteAsync(lastuser.id);
+            }
         }
 
         private void Pictures()

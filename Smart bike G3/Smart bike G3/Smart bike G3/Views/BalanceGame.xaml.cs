@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Smart_bike_G3.Models;
+using Smart_bike_G3.Repositories;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using TestBluethoot.Services;
@@ -239,9 +241,14 @@ namespace Smart_bike_G3.Views
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), Countdown);
         }
 
-        private void QuitBtn_Clicked(object sender, EventArgs e)
+        private async void QuitBtn_Clicked(object sender, EventArgs e)
         {
             stopped = true;
+            Game lastuser = await Repository.GetLastUserAsync();
+            if (lastuser.User == null)
+            {
+                await Repository.DeleteAsync(lastuser.id);
+            }
             Navigation.PopAsync();
         }
     }
