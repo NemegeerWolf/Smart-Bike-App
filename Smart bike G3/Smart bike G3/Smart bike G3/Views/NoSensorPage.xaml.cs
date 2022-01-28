@@ -77,5 +77,9 @@ namespace Smart_bike_G3
             Debug.WriteLine(e.ToString() + " rpm");
         }
 
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Search());
+        }
     }
 }

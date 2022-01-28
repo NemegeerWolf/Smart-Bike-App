@@ -19,15 +19,18 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Scorebord : ContentPage
     {
+         int parscore;
+         string vidorgame;
+
         public Scorebord(int score)
         {
-
+            parscore = score;
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
                 Pictures();
                 //lblName.Text = Name.User;
-                string vidorgame = VideoOrGame.Kind;
+                vidorgame = VideoOrGame.Kind;
 
                 Console.WriteLine(vidorgame);
 
@@ -64,20 +67,47 @@ namespace Smart_bike_G3.Views
 
             if (user != null)
             {
-                var i = await Repository.GetLastUserAsync();
+                // var i = await Repository.GetLastUserAsync();
                 //string id = null;
                 //foreach (var item in i)
                 //{
                 //    id = item.id;
                 //}
-                await Repository.UpdateName(user, i.id);
+                warning(user);
+                // await Repository.UpdateName(user, i.id);
                 btnAdd.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Check.png");
                 entName.Text = "";
+                btnAdd.IsEnabled = false;
             }
             if (user == null)
             {
-                entName.Placeholder = "vul jouw naam in";
+                entName.Placeholder = "vul eerst jouw bijnaam in";
             }
+        }
+
+        private async void warning(string user)
+        {
+            var i = await Repository.GetLastUserAsync();
+            bool check = await Repository.CheckUsernameAsync(user);
+            if (check == true)
+            {
+                bool answer = await DisplayAlert("Deze naam is al in gebruik.", $"Ben jij {user}?", "Ja", "Nee");
+                if (answer == true)
+                {
+                    await Repository.UpdateName(user, i.id);
+                    LoadData(parscore, vidorgame);
+                }
+                else
+                {
+                    await DisplayAlert("Kies een andere naam.", "", "OK");
+                }
+            }
+            else
+            {
+                await Repository.UpdateName(user, i.id);
+                LoadData(parscore, vidorgame);
+            }
+
         }
 
         private void Pictures()
@@ -105,20 +135,27 @@ namespace Smart_bike_G3.Views
             {
                 int gameid = ChooseGame.gameId;
                 List<Game> i = await Repository.GetAllscoresGameAsync(gameid);
-                lvwOverview.ItemsSource = i.Skip(1);
+                
+                bool isEmpty = !i.Any();
+                if (isEmpty == false)
+                {
+                    lvwOverview.ItemsSource = i.Skip(1);
                     //.Count >= 3 ? i.GetRange(1, 4) : i;
-                var first = i.First();
-                lblNameFirst.Text = first.User;
-                lblRankFirst.Text = first.Rank;
-                lblScoreFirst.Text = first.ScoreBordString;
-                if (gameid != 3)
-                {
+                    var first = i.First();
+                    lblNameFirst.Text = first.User;
+                    lblRankFirst.Text = first.Rank;
+                    lblScoreFirst.Text = first.ScoreBordString;
                     lblScore.Text = $"{score.ToString()} s";
+                    //if (gameid != null)
+                    //{
+                        
+                    //}
+                    //else
+                    //{
+                    //    lblScore.Text = $"{score.ToString()} m";
+                    //}
                 }
-                else
-                {
-                    lblScore.Text = $"{score.ToString()} m";
-                }
+                
             }
             else
             {
@@ -138,10 +175,6 @@ namespace Smart_bike_G3.Views
             //}
 
             int rank = await Repository.CheckRank(i.id, score, kind);
-
-            
-
-
             lblPosition.Text = $"{rank}";
         }
 
@@ -155,7 +188,25 @@ namespace Smart_bike_G3.Views
                 {
                     await Repository.DeleteAsync(i.id);
                 }
-                Navigation.PushAsync(new ChooseGame());
+                //Navigation.PopToRootAsync(true);
+                //Navigation.PopAsync();
+                if (ChooseGame.gameId == 1)
+                {
+                    Navigation.PushAsync(new Spel123Piano());
+                }
+                if (ChooseGame.gameId == 2)
+                {
+                    Navigation.PushAsync(new BalanceGame());
+                }
+                if (ChooseGame.gameId == 3)
+                {
+                    Navigation.PushAsync(new SpelOverloop());
+                }
+                else
+                {
+                    Navigation.PopToRootAsync(true);
+                }
+                //Navigation.PushAsync(new ChooseGame());
             }
             else
             {
@@ -175,6 +226,7 @@ namespace Smart_bike_G3.Views
             {
                 await Repository.DeleteAsync(i.id);
             }
+            //Navigation.PopToRootAsync(true);
             Navigation.PushAsync(new VideoOrGame());
         }
     }

@@ -126,7 +126,7 @@
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Column="0" x:Name="lblPosition" FontFamily="Rubik-SemiBold"  TextColor="#4b789e" FontSize="40" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
                                         <!--<Label Grid.Column="1" x:Name="lblName" FontFamily="Rubik-Regular" Text="Score: " TextColor="#4b789e" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
-                                        <Entry x:Name="entName"  Grid.Column="1" Placeholder="Vul je naam in" TextColor="#4b789e" />
+                                        <Entry x:Name="entName"  Grid.Column="1" Placeholder="Vul je bijnaam in" TextColor="#4b789e" />
                                         <Label Grid.Column="2" x:Name="lblScore" FontFamily="Rubik-Regular" TextColor="#4b789e" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End"/>
                                     </Grid>
 
