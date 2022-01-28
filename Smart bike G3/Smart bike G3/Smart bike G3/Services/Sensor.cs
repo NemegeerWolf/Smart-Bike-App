@@ -128,15 +128,16 @@ namespace TestBluethoot.Services
 
         private static void ConnectSensor(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.NewItems.Cast<BleList>().Any(x => x.Name == SensorName))
-            {
-                Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == SensorName).First());
-                ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
+            if (e.NewItems != null) { 
+                if (e.NewItems.Cast<BleList>().Any(x => x.Name == SensorName))
+                {
+                    Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == SensorName).First());
+                    ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
 
-                listChar.CollectionChanged += NotifySpeed;
-                Console.WriteLine("connected");
-            }
-
+                    listChar.CollectionChanged += NotifySpeed;
+                    Console.WriteLine("connected");
+                }
+        }
 
         }
 
