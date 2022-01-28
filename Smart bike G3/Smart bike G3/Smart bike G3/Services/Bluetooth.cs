@@ -36,6 +36,9 @@ namespace Smart_bike_G3.Services
             //BleStatus = ble.AdapterConnectStatus;
 
             //});
+
+
+            LostConnection?.Invoke("SelectCharacteristic", true);
             ScanDevices.Clear();
             blelist.Clear();
             ble = CrossBle.Createble();

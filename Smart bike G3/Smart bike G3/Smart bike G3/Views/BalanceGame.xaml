@@ -18,7 +18,7 @@
                 </StackLayout>
             </Frame>
             <Label x:Name="feedbacklbl" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" IsVisible="false"/>
-            <Label x:Name="timelbl" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" IsVisible="true"/>
+            <Label x:Name="timelbl" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" IsVisible="true"/>
             <Label x:Name="timerlbl" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="false"/>
             
         </Grid>
