@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Smart_bike_G3.Models;
+using Smart_bike_G3.Repositories;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using TestBluethoot.Services;
@@ -13,6 +15,8 @@ namespace Smart_bike_G3.Views
     {
         
         double speed;
+        int seconds;
+        DateTime time;
         bool playing = false;
         bool started = false;
         bool stopped = false;
@@ -36,6 +40,29 @@ namespace Smart_bike_G3.Views
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
+        }
+
+        private bool Timer()
+        {
+            if (!stopped)
+            {
+                if (playing)
+                {
+                    seconds += 1;
+                    time = DateTime.MinValue.AddSeconds(seconds);
+                    timelbl.Text = time.ToString();
+                    if (time.Second >= 60)
+                    {
+                        timelbl.Text = $"{time.Minute}min{time.Second}";
+                        return true;
+
+                    }
+                    timelbl.Text = $"{time.Second} sec";
+                    return true;
+                }
+                return true;
+            }
+            return false;
         }
 
         private void SetXaml()
@@ -143,10 +170,34 @@ namespace Smart_bike_G3.Views
         private async Task Rotate(int degrees, uint speed)
         {
             await oneWheel.RotateTo(degrees, speed);
+            CheckDead();
+        }
+
+        private void CheckDead()
+        {
             if (Math.Round(oneWheel.Rotation) == 80 || Math.Round(oneWheel.Rotation) == -80)
             {
-                Debug.WriteLine("dead");
+                playing = false;
+                stopped = true;
+                timerlbl.Text = TimeForBord(time);
+                timerlbl.IsVisible = true;
             }
+        }
+
+        private string TimeForBord(DateTime time)
+        {
+            string minute = CheckDigits(time.Minute.ToString());
+            string second = CheckDigits(time.Second.ToString());
+            return $"{minute}:{second}";
+        }
+
+        private string CheckDigits(string str)
+        {
+            if (str.Length == 1)
+            {
+                return $"0{str}";
+            }
+            return str;
         }
 
         private void PauseBtn_Clicked(object sender, EventArgs e)
@@ -199,7 +250,8 @@ namespace Smart_bike_G3.Views
             started = true;
             playing = true;
             pauseBtn.IsVisible = true;
-            feedbacklbl.IsVisible = true;
+            feedbacklbl.IsVisible = true; 
+            Device.StartTimer(TimeSpan.FromSeconds(1), Timer);
         }
 
         private void ResumeBtn_Clicked(object sender, EventArgs e)
@@ -210,9 +262,14 @@ namespace Smart_bike_G3.Views
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), Countdown);
         }
 
-        private void QuitBtn_Clicked(object sender, EventArgs e)
+        private async void QuitBtn_Clicked(object sender, EventArgs e)
         {
             stopped = true;
+            Game lastuser = await Repository.GetLastUserAsync();
+            if (lastuser.User == null)
+            {
+                await Repository.DeleteAsync(lastuser.id);
+            }
             Navigation.PopAsync();
         }
     }

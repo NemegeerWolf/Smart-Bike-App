@@ -18,14 +18,15 @@ namespace Smart_bike_G3.Models
         {
             get
             {
-                if (GameId != 3)
-                {
-                    return $"{this.Speed} s";
-                }
-                else
-                {
-                    return $"{this.Distance} m";
-                }
+                return $"{this.Speed} s";
+                //if (GameId != null)
+                //{
+                    
+                //}
+                //else
+                //{
+                //    return $"{this.Distance} m";
+                //}
             }
         }
 

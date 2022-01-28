@@ -323,12 +323,12 @@ namespace Smart_bike_G3.Repositories
                 List<Game> list = await GetAllscoresGameWithNullAsync(gameid);
                 foreach (var i in list)
                 {
-                    if (gameid == 3 & i.id == id & i.Distance == score)
-                    {
-                        rank = int.Parse(i.Rank);
+                    //if (gameid == 3 & i.id == id & i.Distance == score)
+                    //{
+                    //    rank = int.Parse(i.Rank);
 
-                    }
-                    else if (Enumerable.Range(1, 2).Contains(gameid) & i.id == id & i.Speed == score)
+                    //}
+                    if (Enumerable.Range(1, 3).Contains(gameid) & i.id == id & i.Speed == score)
                     {
                         rank = int.Parse(i.Rank);
                         

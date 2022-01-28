@@ -145,14 +145,15 @@ namespace Smart_bike_G3.Views
                     lblNameFirst.Text = first.User;
                     lblRankFirst.Text = first.Rank;
                     lblScoreFirst.Text = first.ScoreBordString;
-                    if (gameid != 3)
-                    {
-                        lblScore.Text = $"{score.ToString()} s";
-                    }
-                    else
-                    {
-                        lblScore.Text = $"{score.ToString()} m";
-                    }
+                    lblScore.Text = $"{score.ToString()} s";
+                    //if (gameid != null)
+                    //{
+                        
+                    //}
+                    //else
+                    //{
+                    //    lblScore.Text = $"{score.ToString()} m";
+                    //}
                 }
                 
             }
@@ -174,10 +175,6 @@ namespace Smart_bike_G3.Views
             //}
 
             int rank = await Repository.CheckRank(i.id, score, kind);
-
-            
-
-
             lblPosition.Text = $"{rank}";
         }
 
@@ -191,7 +188,25 @@ namespace Smart_bike_G3.Views
                 {
                     await Repository.DeleteAsync(i.id);
                 }
-                Navigation.PushAsync(new ChooseGame());
+                //Navigation.PopToRootAsync(true);
+                //Navigation.PopAsync();
+                if (ChooseGame.gameId == 1)
+                {
+                    Navigation.PushAsync(new Spel123Piano());
+                }
+                if (ChooseGame.gameId == 2)
+                {
+                    Navigation.PushAsync(new BalanceGame());
+                }
+                if (ChooseGame.gameId == 3)
+                {
+                    Navigation.PushAsync(new SpelOverloop());
+                }
+                else
+                {
+                    Navigation.PopToRootAsync(true);
+                }
+                //Navigation.PushAsync(new ChooseGame());
             }
             else
             {
@@ -211,6 +226,7 @@ namespace Smart_bike_G3.Views
             {
                 await Repository.DeleteAsync(i.id);
             }
+            //Navigation.PopToRootAsync(true);
             Navigation.PushAsync(new VideoOrGame());
         }
     }
