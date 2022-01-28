@@ -13,6 +13,8 @@ namespace Smart_bike_G3.Views
     {
         
         double speed;
+        int seconds;
+        DateTime time;
         bool playing = false;
         bool started = false;
         bool stopped = false;
@@ -36,6 +38,23 @@ namespace Smart_bike_G3.Views
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
+        }
+
+        private bool Timer()
+        {
+            if (!stopped)
+            {
+                if (playing)
+                {
+                    seconds += 1;
+                    time = DateTime.MinValue.AddSeconds(seconds);
+                    timelbl.Text = time.ToString();
+                    return true;
+                }
+                timelbl.Text = time.ToString();
+                return true;
+            }
+            return false;
         }
 
         private void SetXaml()
@@ -143,8 +162,17 @@ namespace Smart_bike_G3.Views
         private async Task Rotate(int degrees, uint speed)
         {
             await oneWheel.RotateTo(degrees, speed);
+            CheckDead();
+        }
+
+        private void CheckDead()
+        {
             if (Math.Round(oneWheel.Rotation) == 80 || Math.Round(oneWheel.Rotation) == -80)
             {
+                playing = false;
+                stopped = true;
+                timerlbl.Text = time.ToString();
+                timerlbl.IsVisible = true;
                 Debug.WriteLine("dead");
             }
         }
@@ -199,7 +227,8 @@ namespace Smart_bike_G3.Views
             started = true;
             playing = true;
             pauseBtn.IsVisible = true;
-            feedbacklbl.IsVisible = true;
+            feedbacklbl.IsVisible = true; 
+            Device.StartTimer(TimeSpan.FromSeconds(1), Timer);
         }
 
         private void ResumeBtn_Clicked(object sender, EventArgs e)

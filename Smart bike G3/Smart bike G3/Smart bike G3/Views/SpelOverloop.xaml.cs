@@ -52,7 +52,6 @@ namespace Smart_bike_G3.Views
                 return true;
             }
             return false;
-
         }
 
         private bool gameplay()
