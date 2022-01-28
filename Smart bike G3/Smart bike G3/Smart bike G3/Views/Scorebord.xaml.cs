@@ -188,7 +188,25 @@ namespace Smart_bike_G3.Views
                 {
                     await Repository.DeleteAsync(i.id);
                 }
-                Navigation.PushAsync(new ChooseGame());
+                //Navigation.PopToRootAsync(true);
+                //Navigation.PopAsync();
+                if (ChooseGame.gameId == 1)
+                {
+                    Navigation.PushAsync(new Spel123Piano());
+                }
+                if (ChooseGame.gameId == 2)
+                {
+                    Navigation.PushAsync(new BalanceGame());
+                }
+                if (ChooseGame.gameId == 3)
+                {
+                    Navigation.PushAsync(new SpelOverloop());
+                }
+                else
+                {
+                    Navigation.PopToRootAsync(true);
+                }
+                //Navigation.PushAsync(new ChooseGame());
             }
             else
             {
@@ -208,6 +226,7 @@ namespace Smart_bike_G3.Views
             {
                 await Repository.DeleteAsync(i.id);
             }
+            //Navigation.PopToRootAsync(true);
             Navigation.PushAsync(new VideoOrGame());
         }
     }

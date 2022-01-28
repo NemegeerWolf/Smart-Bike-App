@@ -170,7 +170,7 @@ namespace Smart_bike_G3.Views
 
             //game over went speed more than 1km/u
 
-            if (IsRed == true && globalSpeed > 5)
+            if (startOrange.AddSeconds(4) < DateTime.Now && startOrange != DateTime.MinValue && globalSpeed > 5)
             {
                 lblGameOver.Text = gameovers[random.Next(0, gameovers.Length)];
                 lblGameOver.IsVisible = true;

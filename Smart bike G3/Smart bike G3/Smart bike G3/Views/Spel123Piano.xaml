@@ -70,7 +70,7 @@
 
         <StackLayout>
 
-            <AbsoluteLayout  VerticalOptions="Start" Margin="10, 10, 0, -50" HorizontalOptions="Start" Scale="0.5" AnchorX="0" AnchorY="0" Padding="0" >
+            <AbsoluteLayout  VerticalOptions="Start" Margin="32, 32, 0, -50" HorizontalOptions="Start" Scale="0.5" AnchorX="0" AnchorY="0" Padding="0" >
 
                 <Rectangle x:Name="btnPauze" WidthRequest="96" HeightRequest="96"  RadiusX="17" RadiusY="17"  Fill="#FF86B1F2"/>
                 <AbsoluteLayout x:Name="Pauze">
@@ -94,19 +94,20 @@
 
             
 
-            <StackLayout  Orientation="Horizontal"  VerticalOptions="Start" HorizontalOptions="Start" >
+            <StackLayout  Orientation="Horizontal"  VerticalOptions="Start" HorizontalOptions="Start" Margin="32,8,0,8" >
                 <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="#4b789e" FontAttributes="Bold" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                 <Label x:Name="lblTime" Text="0" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
         </StackLayout>
-            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" >
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="32,0,0,8" >
                 <Label x:Name="lblSpeedText" Text="Snelheid:  " FontAttributes="Bold" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                 <Label x:Name="lblSpeed" Text="0" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
             </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="32,0">
+                <Label x:Name="lblScoreText" Text="Afstand:  " FontAttributes="Bold" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblscore" Text="0" WidthRequest="100" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            </StackLayout>
         </StackLayout>
-        <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
-            <Label x:Name="lblScoreText" Text="Distance:  " FontAttributes="Bold" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-            <Label x:Name="lblscore" Text="0" WidthRequest="100" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-        </StackLayout>
+        
        
         
         
