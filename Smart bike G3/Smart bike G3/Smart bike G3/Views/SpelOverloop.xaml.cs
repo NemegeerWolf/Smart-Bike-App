@@ -59,7 +59,7 @@ namespace Smart_bike_G3.Views
         private bool gameplay()
         {
             
-            int minSpeed = 10;
+            int minSpeed = 15;
             lblSnelheid.Text = Speed.ToString();
             
 

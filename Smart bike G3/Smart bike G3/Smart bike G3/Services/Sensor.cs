@@ -26,7 +26,7 @@ namespace TestBluethoot.Services
         static double prevRPM = 0;
         static int prevCrankStaleness = 0;
         static int stalenessLimit = 2;
-       // static int scanCount = 0;
+        // static int scanCount = 0;
 
         public static event EventHandler<int> NewDataCadence;
         public static event EventHandler<int> NewDataSpeed;
@@ -112,31 +112,33 @@ namespace TestBluethoot.Services
             //cadence = cadence + 2;
             NewDataCadence?.Invoke("SelectCharacteristic", cadence);
             NewDataBool?.Invoke("SelectCharacteristic", true);
-            NewDataSpeed?.Invoke("SelectCharacteristic", (int) Sensor.GetSpeed(0.03));
+            NewDataSpeed?.Invoke("SelectCharacteristic", (int)Sensor.GetSpeed(0.03));
         }
 
 
         public static void Start()
         {
-            
+
             ObservableCollection<BleList> blelist = Bluetooth.Scan();
             //pk.ItemsSource = Bluethoottest.Scan();
             blelist.CollectionChanged += ConnectSensor;
-            
-            
+
+
         }
 
         private static void ConnectSensor(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.NewItems.Cast<BleList>().Any(x => x.Name == SensorName))
+            if (e.NewItems != null)
             {
-                Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == SensorName).First());
-                ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
+                if (e.NewItems.Cast<BleList>().Any(x => x.Name == SensorName))
+                {
+                    Bluetooth.Connect((BleList)e.NewItems.Cast<BleList>().Where(x => x.Name == SensorName).First());
+                    ObservableCollection<CharacteristicsList> listChar = Bluetooth.GetCharacteristics();
 
-                listChar.CollectionChanged += NotifySpeed;
-                Console.WriteLine("connected");
+                    listChar.CollectionChanged += NotifySpeed;
+                    Console.WriteLine("connected");
+                }
             }
-
 
         }
 

@@ -119,9 +119,9 @@
                                 <GradientStop Color="Transparent"
                           Offset="0.0" />
                                 <GradientStop x:Name="startLucht" Color="Transparent"
-                          Offset="0.5" />
+                          Offset="0.8" />
                                 <GradientStop x:Name="stopWater" Color="#FF86B1F2"
-                          Offset="0.4" />
+                          Offset="0.9" />
                                 <!--<GradientStop Color="Blue"
                           Offset="1.0" />-->
                             </LinearGradientBrush>
