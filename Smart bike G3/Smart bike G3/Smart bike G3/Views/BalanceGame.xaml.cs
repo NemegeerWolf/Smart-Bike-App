@@ -51,9 +51,15 @@ namespace Smart_bike_G3.Views
                     seconds += 1;
                     time = DateTime.MinValue.AddSeconds(seconds);
                     timelbl.Text = time.ToString();
+                    if (time.Second >= 60)
+                    {
+                        timelbl.Text = $"{time.Minute}min{time.Second}";
+                        return true;
+
+                    }
+                    timelbl.Text = $"{time.Second} sec";
                     return true;
                 }
-                timelbl.Text = time.ToString();
                 return true;
             }
             return false;
@@ -173,10 +179,25 @@ namespace Smart_bike_G3.Views
             {
                 playing = false;
                 stopped = true;
-                timerlbl.Text = time.ToString();
+                timerlbl.Text = TimeForBord(time);
                 timerlbl.IsVisible = true;
-                Debug.WriteLine("dead");
             }
+        }
+
+        private string TimeForBord(DateTime time)
+        {
+            string minute = CheckDigits(time.Minute.ToString());
+            string second = CheckDigits(time.Second.ToString());
+            return $"{minute}:{second}";
+        }
+
+        private string CheckDigits(string str)
+        {
+            if (str.Length == 1)
+            {
+                return $"0{str}";
+            }
+            return str;
         }
 
         private void PauseBtn_Clicked(object sender, EventArgs e)
