@@ -49,7 +49,13 @@ namespace Smart_bike_G3.Views
             {
                 Time += 1;
                 var dateTime = DateTime.MinValue.AddSeconds(Time);
-                lblTime.Text = $"{dateTime.Minute}min{dateTime.Second}";
+                if(dateTime.Second >= 60)
+                {
+                    lblTime.Text = $"{dateTime.Minute}min{dateTime.Second}";
+                    return true;
+
+                }
+                lblTime.Text = $"{dateTime.Second} sec";
                 return true;
             }
             return false;
