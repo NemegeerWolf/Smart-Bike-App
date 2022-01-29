@@ -270,7 +270,8 @@ namespace Smart_bike_G3.Views
             {
                 await Repository.DeleteAsync(lastuser.id);
             }
-            Navigation.PopAsync();
+            //Navigation.PopAsync(); //na restart, gaat dit naar scoreboard
+            Navigation.PushAsync(new ChooseGame());
         }
     }
 }
