@@ -24,7 +24,7 @@ namespace Smart_bike_G3
         {
             InitializeComponent();
             Scan();
-            Navigation.PushAsync(new VideoOrGame());
+            //Navigation.PushAsync(new VideoOrGame());
             Bluetooth.MadeConnection += ((s, e) =>
             {
                 Navigation.PopToRootAsync();

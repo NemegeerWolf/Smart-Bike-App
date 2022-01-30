@@ -20,11 +20,11 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20,20,0,0">
                     <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                     <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20,0,0,0">
                     <Label x:Name="lblSnelheidText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                     <Label x:Name="lblSnelheid" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                 </StackLayout>
@@ -111,8 +111,9 @@
                 </AbsoluteLayout>
                 
             </AbsoluteLayout>-->
+                <!--Scale="1.07"-->
 
-                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" Scale="1.07" TranslationX="10" TranslationY="15" >
+                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center"  Scale="1.07" TranslationX="10" TranslationY="15" >
                     <Path  x:Name="water">
                         <Path.Fill>
                             <LinearGradientBrush x:Name="waterBrush" EndPoint="0,1">
@@ -146,6 +147,8 @@
                     
                 </Path>-->
                 </AbsoluteLayout>
+
+                <!--Scale="1.6"-->
 
                 <Image x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" Scale="1.6" TranslationY="15"/>
 

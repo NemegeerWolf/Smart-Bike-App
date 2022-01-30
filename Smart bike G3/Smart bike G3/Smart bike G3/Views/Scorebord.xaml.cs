@@ -211,7 +211,7 @@ namespace Smart_bike_G3.Views
             else
             {
                 var i = await Repository.GetLastUserAsync();
-                if (entName.Text == null)
+                if (entName.Text == null && i.User == null)
                 {
                     await Repository.DeleteAsync(i.id);
                 }

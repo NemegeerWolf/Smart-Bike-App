@@ -29,11 +29,7 @@ namespace SmartBike_Api.Functions.Gets
                 List<Game> items = await GetScoresAsync(query);
                 var lastItem = items.Last();
                 return new OkObjectResult(lastItem);
-
-
-
-
-                
+  
             }
             catch (Exception ex)
             {

@@ -1,4 +1,5 @@
-﻿using Smart_bike_G3.Models;
+﻿using Quick.Xamarin.BLE.Abstractions;
+using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
 using Smart_bike_G3.Services;
 using System;
@@ -38,13 +39,16 @@ namespace Smart_bike_G3.Views
                 delete();
                 Pictures();
                 AddEvents();
-                Sensor.Start();/*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
-
-                Bluetooth.LostConnection += ((s, e) =>
-                {
-                    Navigation.PushAsync(new NoSensorPage());
-                });
-            }
+                //Sensor.Start();/*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
+                //if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+                //{
+                //    Navigation.PushAsync(new NoSensorPage());
+                //}
+                    //Bluetooth.LostConnection += ((s, e) =>
+                    //{
+                    //    Navigation.PushAsync(new NoSensorPage());
+                    //});
+                }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
