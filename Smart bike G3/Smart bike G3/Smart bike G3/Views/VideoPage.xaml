@@ -9,10 +9,10 @@
             <xct:MediaElement x:Name="audio" BackgroundColor="#EAFCFC" HeightRequest="0" WidthRequest="0" IsVisible="false"/>
             <xct:MediaElement x:Name="video" BackgroundColor="#EAFCFC" MediaOpened="Vid_MediaOpened" MediaEnded="Vid_MediaEnded" VerticalOptions="FillAndExpand" Aspect="AspectFill" ShowsPlaybackControls="False" IsLooping="False"  />
             <Label x:Name="loading" Text="Loading..." FontSize="Header" TextColor="#4B789E" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Grid>
-                <ImageButton x:Name="Cross" Clicked="ImageButton_Clicked" Margin="0,48,48,0" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" HeightRequest="130"/>
-                <Frame x:Name="speedframe" IsVisible="false" BackgroundColor="#86B1F2" CornerRadius="15" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Margin="60,60,0,0">
-                    <Label x:Name="speedlbl" FontAttributes="Bold" FontSize="36" TextColor="#EAFCFC" HorizontalTextAlignment="Center"
+            <Grid TranslationY="-30">
+                <ImageButton x:Name="Cross" Clicked="ImageButton_Clicked" Margin="{OnIdiom Phone = 48, Tablet= 60}"  VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" WidthRequest="{OnIdiom Phone = 50, Tablet= 100}" HeightRequest="{OnIdiom Phone = 50, Tablet= 100}"/>
+                <Frame x:Name="speedframe" IsVisible="false" BackgroundColor="#86B1F2" CornerRadius="15" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Margin="{OnIdiom Phone = 48, Tablet= 60}">
+                    <Label x:Name="speedlbl" FontAttributes="Bold" FontSize="{OnIdiom Phone = 20, Tablet= 36}" TextColor="#EAFCFC" HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center" />
                 </Frame>
                 

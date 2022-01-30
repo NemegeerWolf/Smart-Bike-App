@@ -63,8 +63,8 @@ namespace Smart_bike_G3.Views
 
                 imagetest.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
                 image.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
-                //resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
-                //quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
+                resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
+                quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
                
 
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
@@ -87,7 +87,7 @@ namespace Smart_bike_G3.Views
 
         private void ResumeBtn_Clicked(object sender, EventArgs e)
         {
-            //pauzedFrame.IsVisible = false;
+            pauzedFrame.IsVisible = false;
             IsPauzed = false;
             Pauze.IsVisible = !IsPauzed;
             Play.IsVisible = IsPauzed;
@@ -119,7 +119,7 @@ namespace Smart_bike_G3.Views
             Pauze.IsVisible = !IsPauzed;
             Play.IsVisible = IsPauzed;
 
-            //pauzedFrame.IsVisible = IsPauzed;
+            pauzedFrame.IsVisible = IsPauzed;
         }
 
         private void pictures()

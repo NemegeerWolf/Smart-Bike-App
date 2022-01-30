@@ -23,6 +23,7 @@ namespace Smart_bike_G3.Droid
         BluetoothManager _manager;
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AndroidX.AppCompat.App.AppCompatDelegate.DefaultNightMode = AndroidX.AppCompat.App.AppCompatDelegate.ModeNightNo;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             _manager = (BluetoothManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.BluetoothService);
