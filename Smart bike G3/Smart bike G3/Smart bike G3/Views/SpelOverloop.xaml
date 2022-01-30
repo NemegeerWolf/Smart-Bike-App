@@ -115,7 +115,7 @@
                 
             </AbsoluteLayout>-->
 
-                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationX="10" TranslationY="15" >
+                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationX="{OnIdiom Phone = 2, Tablet= 10}" TranslationY="15" Scale="{OnIdiom Phone = 0.33, Tablet= 1}">
                     <Path  x:Name="water">
                         <Path.Fill>
                             <LinearGradientBrush x:Name="waterBrush" EndPoint="0,1">
