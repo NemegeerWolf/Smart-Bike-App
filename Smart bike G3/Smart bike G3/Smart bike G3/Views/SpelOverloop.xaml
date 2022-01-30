@@ -169,6 +169,10 @@
 
             </Grid>
 
+            <Grid x:Name="GridHelpBackGround" IsVisible="False" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">
+
+            </Grid>
+
             <Grid x:Name="GridPause" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
