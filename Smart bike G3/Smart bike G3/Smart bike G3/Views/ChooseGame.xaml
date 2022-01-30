@@ -57,7 +57,7 @@
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Row="1" Grid.Column="1" x:Name="AbsLay123piano">
-                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
+                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="0">
                             <Grid  >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -79,7 +79,7 @@
 
 
                     <StackLayout Grid.Row="1" Grid.Column="3" x:Name="AbsLayBalance">
-                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
+                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="0">
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -101,7 +101,7 @@
                     </StackLayout>
 
                     <StackLayout Grid.Row="1" Grid.Column="5" x:Name="AbsLayOverloop">
-                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
+                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="0">
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
