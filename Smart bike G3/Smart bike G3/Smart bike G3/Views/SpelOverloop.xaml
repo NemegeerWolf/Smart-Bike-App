@@ -22,7 +22,7 @@
                             </Path.Data>
                         </Path>
                     </AbsoluteLayout>-->
-                    <ImageButton x:Name="pauseBtn" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Start"  Clicked="pauseBtn_Clicked" BackgroundColor="Transparent"/>
+                    <ImageButton x:Name="pauseBtn" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Start"  Clicked="btnPauze_Clicked" BackgroundColor="Transparent"/>
                     <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
                         <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                         <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
