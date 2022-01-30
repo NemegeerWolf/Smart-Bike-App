@@ -22,9 +22,33 @@
             <Label x:Name="timelbl" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" IsVisible="true"/>
             <!--<Label x:Name="timerlbl" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="false"/>-->
             
+            </Grid>
+            
+            <Grid x:Name="GridPauseBackGround" IsVisible="false" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">
+
+            </Grid>
+
+            <Grid x:Name="GridPause" IsVisible="false" Grid.Row="0" Grid.Column="0" RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame x:Name="pauzedFrame" Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF">
+                    <StackLayout Spacing="20" Orientation="Vertical">
+                        <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="ResumeBtn_Clicked" BackgroundColor="Transparent"/>
+                        <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="QuitBtn_Clicked" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
         </Grid>
-
-    </Grid>
-
+        
+        
+    </ContentPage.Content>
 
 </ContentPage>

@@ -184,7 +184,7 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Frame x:Name="pauzedFrame" Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF" IsVisible="false">
+                <Frame x:Name="pauzedFrame" Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF">
                     <StackLayout Spacing="20" Orientation="Vertical">
                         <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="resumeBtn_Clicked" BackgroundColor="Transparent"/>
                         <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="quitBtn_Clicked" BackgroundColor="Transparent"/>

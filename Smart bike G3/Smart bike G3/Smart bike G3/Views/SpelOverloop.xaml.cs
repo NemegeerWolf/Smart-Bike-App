@@ -162,7 +162,6 @@ namespace Smart_bike_G3.Views
         {
             GridHelpBackGround.IsVisible = false;
             GridPause.IsVisible = false;
-            pauzedFrame.IsVisible = false;
         }
 
         private void quitBtn_Clicked(object sender, EventArgs e)
@@ -174,7 +173,6 @@ namespace Smart_bike_G3.Views
         {
             GridHelpBackGround.IsVisible = true;
             GridPause.IsVisible = true;
-            pauzedFrame.IsVisible = true;
         }
     }
 }
