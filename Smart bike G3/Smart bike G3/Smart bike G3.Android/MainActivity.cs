@@ -17,16 +17,17 @@ using Android.Support.V4.Content;
 
 namespace Smart_bike_G3.Droid
 {
-    [Activity(Label = "Fiets_App", Icon = "@drawable/Naamloos", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Fiets_App", Icon = "@drawable/Naamloos", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Landscape)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         BluetoothManager _manager;
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AndroidX.AppCompat.App.AppCompatDelegate.DefaultNightMode = AndroidX.AppCompat.App.AppCompatDelegate.ModeNightNo;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             _manager = (BluetoothManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.BluetoothService);
-            _manager.Adapter.Enable(); /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> Sensor.start() in videoorgame.cs ook******/
+           // _manager.Adapter.Enable(); /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> Sensor.start() in videoorgame.cs ook******/
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

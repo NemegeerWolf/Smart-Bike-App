@@ -25,7 +25,7 @@ namespace TestBluethoot.Services
         static double rpm = 0;
         static double prevRPM = 0;
         static int prevCrankStaleness = 0;
-        static int stalenessLimit = 2;
+        static int stalenessLimit = 1;
         // static int scanCount = 0;
 
         public static event EventHandler<int> NewDataCadence;

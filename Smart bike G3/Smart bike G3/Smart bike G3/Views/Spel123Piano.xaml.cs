@@ -11,6 +11,7 @@ using System.Threading;
 using Xamarin.Essentials;
 using Smart_bike_G3.Repositories;
 using TestBluethoot.Services;
+using Smart_bike_G3.Models;
 
 namespace Smart_bike_G3.Views
 {
@@ -62,6 +63,9 @@ namespace Smart_bike_G3.Views
 
                 imagetest.Source= ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
                 image.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
+                resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
+                quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
+               
 
                 Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
 
@@ -81,6 +85,26 @@ namespace Smart_bike_G3.Views
             
         }
 
+        private void ResumeBtn_Clicked(object sender, EventArgs e)
+        {
+            pauzedFrame.IsVisible = false;
+            IsPauzed = false;
+            Pauze.IsVisible = !IsPauzed;
+            Play.IsVisible = IsPauzed;
+        }
+
+        private async void QuitBtn_Clicked(object sender, EventArgs e)
+        {
+            //stopped = true;
+            Game lastuser = await Repository.GetLastUserAsync();
+            if (lastuser.User == null)
+            {
+                await Repository.DeleteAsync(lastuser.id);
+            }
+            //Navigation.PopAsync(); //na restart, gaat dit naar scoreboard
+            Navigation.PopAsync();
+        }
+
         private void btnPauze_Clicked(object sender, EventArgs e)
         {
             if (IsPauzed)
@@ -94,6 +118,8 @@ namespace Smart_bike_G3.Views
             }
             Pauze.IsVisible = !IsPauzed;
             Play.IsVisible = IsPauzed;
+
+            pauzedFrame.IsVisible = IsPauzed;
         }
 
         private void pictures()
@@ -170,7 +196,7 @@ namespace Smart_bike_G3.Views
 
             //game over went speed more than 1km/u
 
-            if (startOrange.AddSeconds(4) < DateTime.Now && startOrange != DateTime.MinValue && globalSpeed > 5)
+            if (IsRed == true && globalSpeed > 5)
             {
                 lblGameOver.Text = gameovers[random.Next(0, gameovers.Length)];
                 lblGameOver.IsVisible = true;

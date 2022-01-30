@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              
              x:Class="Smart_bike_G3.Views.Spel123Piano" NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#96d9c9"
+             BackgroundColor="#96d9c9" 
              >
     <Grid x:Name="Window">
         <Grid.RowDefinitions >
@@ -50,7 +50,7 @@
 
 
                 </AbsoluteLayout>
-                <AbsoluteLayout HorizontalOptions="EndAndExpand" Scale="2" Margin="80">
+                <AbsoluteLayout HorizontalOptions="EndAndExpand" Scale="{OnIdiom Phone = 1, Tablet= 1.8}" Margin="{OnIdiom Phone = 0, Tablet= 70}">
                     <Path  x:Name="path70" Fill="#FF1D1D1B" WidthRequest="186.365" HeightRequest="150.5">
                         <Path.Data>
                             <PathGeometry Figures="M36.19 38.49v-27S35.12-4.22 56.77 1.1l316 1.75v16.4L64.15 17.19s-12.1-.36-9.3 10.68V40" FillRule="Nonzero"/>
@@ -68,7 +68,7 @@
         <Image x:Name="ImgGreen3" VerticalOptions="Center" HorizontalOptions="End" Margin="16" Scale="1.2"/>
         <Image x:Name="ImgGreen4" VerticalOptions="End" HorizontalOptions="End" Scale="1.5" />
 
-        <StackLayout>
+        <StackLayout TranslationX="{OnIdiom Phone = -15, Tablet= 0}" TranslationY="{OnIdiom Phone = -15, Tablet= 0}">
 
             <AbsoluteLayout  VerticalOptions="Start" Margin="32, 32, 0, -50" HorizontalOptions="Start" Scale="0.5" AnchorX="0" AnchorY="0" Padding="0" >
 
@@ -112,7 +112,7 @@
         
         
         <ActivityIndicator x:Name="loadingIndicator" Color="Blue" IsRunning="True" IsVisible="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-        <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="End">
+        <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="End" Scale="{OnIdiom Phone = 0.8, Tablet= 1}" TranslationY="{OnIdiom Phone = 12, Tablet= 0}">
             <Path x:Name="path2" Fill="#FFD0CDBA">
                 <Path.Data>
                     <PathGeometry Figures="M62.25 1.4s39.15-9.53 69.44 21.11c0 0 22.47 14.64 35.41 15.66H193s31.32-8.51 44.6-22.13S275.35 0 275.35 0s24.51 0 24.17 1.74c0 0-4.76 8.17-2.72 10.56 0 0-33-6.85-44.25 6.78 0 0-35.75 29.64-59.58 30.32H168.46S145 48.72 125.57 32.72c0 0-19.41-27.23-61.28-21.1C64.29 11.62 66 6.85 62.25 1.4Z" FillRule="Nonzero"/>
@@ -135,7 +135,7 @@
 
         <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
-            <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="#AF0011" FontSize="30" FontFamily="Rubik-Bold" IsVisible="false"/>
+            <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="#AF0011" FontSize="{OnIdiom Phone = 20, Tablet= 30}" FontFamily="Rubik-Bold" IsVisible="false"/>
             <Label/>
             <StackLayout Orientation="Horizontal" Scale="0.8" HorizontalOptions="Center">
                 <Grid x:Name="btnRestart" IsVisible="false">
@@ -150,6 +150,12 @@
             </StackLayout>
         </StackLayout>
 
+        <Frame CornerRadius="5" x:Name="pauzedFrame" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF" IsVisible="false" Scale="{OnIdiom Phone = 2, Tablet= 1}">
+            <StackLayout Spacing="20" Orientation="Vertical">
+                <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="ResumeBtn_Clicked" BackgroundColor="Transparent"/>
+                <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="QuitBtn_Clicked" BackgroundColor="Transparent"/>
+            </StackLayout>
+        </Frame>
 
     </Grid>
 </ContentPage>
