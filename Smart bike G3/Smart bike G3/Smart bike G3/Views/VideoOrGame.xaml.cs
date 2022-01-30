@@ -30,7 +30,7 @@ namespace Smart_bike_G3.Views
     public partial class VideoOrGame : ContentPage
     {
         public static string Kind;
-       
+
         public VideoOrGame()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -39,21 +39,35 @@ namespace Smart_bike_G3.Views
                 delete();
                 Pictures();
                 AddEvents();
-                //Sensor.Start();/*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
                 //if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
                 //{
                 //    Navigation.PushAsync(new NoSensorPage());
+                //  //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
                 //}
-                    //Bluetooth.LostConnection += ((s, e) =>
-                    //{
-                    //    Navigation.PushAsync(new NoSensorPage());
-                    //});
-                }
+                //else
+                //{
+                 
+                
+
+                //}
+            }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
 
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            Bluetooth.ClearAllDelegatesOfMadeConnection();
+            Bluetooth.LostConnection += ((s, e) =>
+            {
+
+                Navigation.PushAsync(new NoSensorPage());
+
+            });
         }
 
         private async void delete()
@@ -69,7 +83,7 @@ namespace Smart_bike_G3.Views
         {
             ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
             ImgGame.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GameConsole.png");
-            ImgVideo.Source =ImageSource.FromResource(@"Smart_bike_G3.Assets.Play.png");
+            ImgVideo.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Play.png");
             ImgClouds.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Clouds.png");
         }
 
@@ -100,9 +114,9 @@ namespace Smart_bike_G3.Views
 
         private void AbsLayGame_Tabbed(object sender, EventArgs e)
         {
-            
+
             Kind = "game";
-            
+
             Console.WriteLine(Kind + " chosen");
             Navigation.PushAsync(new ChooseGame());
         }
@@ -110,7 +124,7 @@ namespace Smart_bike_G3.Views
         private void AbsLayVideo_Tabbed(object sender, EventArgs e)
         {
             Kind = "video";
-            
+
             Console.WriteLine(Kind + " chosen");
             Navigation.PushAsync(new ChooseVideo());
         }

@@ -1,40 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.Views.SpelOverloop" NavigationPage.HasNavigationBar="False">
+             x:Class="Smart_bike_G3.Views.SpelOverloop" 
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid>
+                    
             <Image Grid.Column="0" Grid.Row="0" x:Name="imgbackground" ScaleX="1.2"/>
 
             <Grid  Grid.Column="0" Grid.Row="0">
-            <StackLayout>
-                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Start" Grid.Column="0" Scale="2" Margin="32">
-                    <Path x:Name="path112">
-                        <Path.Data>
-                            <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
-                        </Path.Data>
-                    </Path>
-                    <Path  x:Name="path114" Fill="#302e33">
-                        <Path.Data>
-                            <PathGeometry Figures="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" FillRule="Nonzero"/>
-                        </Path.Data>
-                    </Path>
-                </AbsoluteLayout>
-                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20,20,0,0">
-                    <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                    <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <StackLayout>
+                    <!--<AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Start" Grid.Column="0" Scale="2" Margin="32">
+                        <Path x:Name="path112">
+                            <Path.Data>
+                                <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
+                            </Path.Data>
+                        </Path>
+                        <Path  x:Name="path114" Fill="#302e33">
+                            <Path.Data>
+                                <PathGeometry Figures="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" FillRule="Nonzero"/>
+                            </Path.Data>
+                        </Path>
+                    </AbsoluteLayout>-->
+                    <ImageButton x:Name="pauseBtn" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Start"  Clicked="pauseBtn_Clicked" BackgroundColor="Transparent"/>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                        <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                        <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                        <Label x:Name="lblSnelheidText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                        <Label x:Name="lblSnelheid" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                    </StackLayout>
+                    <!--<StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                        <Label x:Name="lblVolumeText" Text="Volume:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                        <Label x:Name="lblVolume" Text="0" WidthRequest="40" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                        <Label x:Name="lblprocentText" Text="%" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Start" />
+                    </StackLayout>-->
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20,0,0,0">
-                    <Label x:Name="lblSnelheidText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                    <Label x:Name="lblSnelheid" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                </StackLayout>
-                <!--<StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
-                    <Label x:Name="lblVolumeText" Text="Volume:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                    <Label x:Name="lblVolume" Text="0" WidthRequest="40" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                    <Label x:Name="lblprocentText" Text="%" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Start" />
-                </StackLayout>-->
-            </StackLayout>
-            <!--<AbsoluteLayout x:Name="Waves" HorizontalOptions="CenterAndExpand" Scale="0.26" ScaleX="1" VerticalOptions="Center" TranslationX="-50" TranslationY="150">
+                <!--<AbsoluteLayout x:Name="Waves" HorizontalOptions="CenterAndExpand" Scale="0.26" ScaleX="1" VerticalOptions="Center" TranslationX="-50" TranslationY="150">
                 
                 <Path x:Name="path9"  StrokeThickness="0" >
                     <Path.Fill>
@@ -113,23 +116,23 @@
             </AbsoluteLayout>-->
                 <!--Scale="1.07"-->
 
-                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center"  Scale="1.07" TranslationX="10" TranslationY="15" >
+                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationX="10" TranslationY="15" >
                     <Path  x:Name="water">
                         <Path.Fill>
                             <LinearGradientBrush x:Name="waterBrush" EndPoint="0,1">
                                 <GradientStop Color="Transparent"
-                          Offset="0.0" />
+                        Offset="0.0" />
                                 <GradientStop x:Name="startLucht" Color="Transparent"
-                          Offset="0.8" />
+                        Offset="0.8" />
                                 <GradientStop x:Name="stopWater" Color="#FF86B1F2"
-                          Offset="0.9" />
+                        Offset="0.9" />
                                 <!--<GradientStop Color="Blue"
-                          Offset="1.0" />-->
+                        Offset="1.0" />-->
                             </LinearGradientBrush>
                         </Path.Fill>
                         <!--<Path.Data>
-                            <PathGeometry Figures="M 575.6429443359375 572.3681640625 L 94.28166198730469 572.3681640625 L 0.5885785818099976 0.4999986886978149 L 666.4143676757813 0.4999986886978149 L 575.6429443359375 572.3681640625 Z" FillRule="Nonzero"/>
-                        </Path.Data>-->
+                        <PathGeometry Figures="M 575.6429443359375 572.3681640625 L 94.28166198730469 572.3681640625 L 0.5885785818099976 0.4999986886978149 L 666.4143676757813 0.4999986886978149 L 575.6429443359375 572.3681640625 Z" FillRule="Nonzero"/>
+                    </Path.Data>-->
                         <Path.Data>
                             <PathGeometry Figures="M47.5 381.932 5.389 39.733S44.583-.4 79.695 13.242s41.643 38.532 67.773 21.674 39.194-27.293 58.791-21.674 26.129 32.11 40.827 21.674 47.359-8.831 62.874 9.633-40.01 337.384-40.01 337.384Z" FillRule="Nonzero"/>
                         </Path.Data>
@@ -137,37 +140,58 @@
                             <TranslateTransform X="-5.389" Y="-10.412"/>
                         </Path.RenderTransform>
                         <!--<Path.Data>
-                            <PathGeometry Figures="M4949.878 3407.051s-32.435 3.833-43.662-14.054-66.117 14.054-66.117 14.054-43.663 23-91.068 0-60.332 28.959-60.332 28.959l17.688 124.807 227.451-3.1" FillRule="Nonzero"/>
-                        </Path.Data>
-                        <Path.RenderTransform>
-                            <TranslateTransform X="-4687.174" Y="-3386.018"/>
-                        </Path.RenderTransform>-->
+                        <PathGeometry Figures="M4949.878 3407.051s-32.435 3.833-43.662-14.054-66.117 14.054-66.117 14.054-43.663 23-91.068 0-60.332 28.959-60.332 28.959l17.688 124.807 227.451-3.1" FillRule="Nonzero"/>
+                    </Path.Data>
+                    <Path.RenderTransform>
+                        <TranslateTransform X="-4687.174" Y="-3386.018"/>
+                    </Path.RenderTransform>-->
                     </Path>
-                <!--<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  Fill="#FF86B1F2" StrokeThickness="3" Stroke="#FF86B1F2" >
+                    <!--<Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  Fill="#FF86B1F2" StrokeThickness="3" Stroke="#FF86B1F2" >
                     
-                </Path>-->
+                    </Path>-->
                 </AbsoluteLayout>
 
-                <!--Scale="1.6"-->
-
-                <Image x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" Scale="1.6" TranslationY="15"/>
+                <Image x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="15"/>
 
                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
-                <Label x:Name="lblUWin" Text="You Win" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Green" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
-                <StackLayout Orientation="Horizontal" Scale="0.8">
-                    <Grid x:Name="btnRestart" IsVisible="false">
-                        <Image x:Name="image" HeightRequest="70"  />
-                        <Label x:Name="lblScore" Text="Opnieuw" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000"/>
-                    </Grid>
-                    <!--<Grid x:Name="btnHome" IsVisible="false">
-                        <Image x:Name="imagetest" HeightRequest="70" />
-                        <Button  Text="Startpagina" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
-                    </Grid>-->
+                    <Label x:Name="lblUWin" Text="You Win" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Green" FontSize="Header" FontFamily="Game_font" IsVisible="false"/>
+                    <StackLayout Orientation="Horizontal" Scale="0.8">
+                        <Grid x:Name="btnRestart" IsVisible="false">
+                            <Image x:Name="image" HeightRequest="70"  />
+                            <Label x:Name="lblScore" Text="Opnieuw" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000"/>
+                        </Grid>
+                        <!--<Grid x:Name="btnHome" IsVisible="false">
+                                <Image x:Name="imagetest" HeightRequest="70" />
+                                <Button  Text="Startpagina" VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
+                               </Grid>-->
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
 
-        </Grid>
+            </Grid>
+
+            <Grid x:Name="GridHelpBackGround" IsVisible="False" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">
+
+            </Grid>
+
+            <Grid x:Name="GridPause" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame x:Name="pauzedFrame" Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF">
+                    <StackLayout Spacing="20" Orientation="Vertical">
+                        <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="resumeBtn_Clicked" BackgroundColor="Transparent"/>
+                        <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="quitBtn_Clicked" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
