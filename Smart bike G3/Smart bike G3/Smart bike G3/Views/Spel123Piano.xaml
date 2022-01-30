@@ -50,7 +50,7 @@
 
 
                 </AbsoluteLayout>
-                <AbsoluteLayout HorizontalOptions="EndAndExpand" Scale="{OnIdiom Phone = 1, Tablet= 2}" Margin="{OnIdiom Phone = 0, Tablet= 80}">
+                <AbsoluteLayout HorizontalOptions="EndAndExpand" Scale="{OnIdiom Phone = 1, Tablet= 1.8}" Margin="{OnIdiom Phone = 0, Tablet= 70}">
                     <Path  x:Name="path70" Fill="#FF1D1D1B" WidthRequest="186.365" HeightRequest="150.5">
                         <Path.Data>
                             <PathGeometry Figures="M36.19 38.49v-27S35.12-4.22 56.77 1.1l316 1.75v16.4L64.15 17.19s-12.1-.36-9.3 10.68V40" FillRule="Nonzero"/>

@@ -103,7 +103,7 @@
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Row="1" Grid.Column="1" x:Name="AbsLayVideo">
-                        <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
+                        <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="0">
                             <Grid  >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
