@@ -97,7 +97,7 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="10*" />
+                        <RowDefinition Height="8*" />
                         <RowDefinition Height="*"/>
 
                     </Grid.RowDefinitions>
@@ -118,7 +118,7 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Column="1" Grid.Row="1" x:Name="ImgVideo" Scale="1.5" VerticalOptions="CenterAndExpand"/>
-                                <Label Grid.Column="1"  Grid.Row="2" FontFamily="Rubik-SemiBold" Text="Video" FontSize="40" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
+                                <Label Grid.Column="1"  Grid.Row="2" FontFamily="Rubik-SemiBold" Text="Video" FontSize="{OnIdiom Phone = 30, Tablet= 40}" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
 
                             </Grid>
                         </Frame>
@@ -141,7 +141,7 @@
                                     <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Column="1" Grid.Row="1" x:Name="ImgGame" Scale="1.5" VerticalOptions="CenterAndExpand"/>
-                                <Label Grid.Column="1"  Grid.Row="2" FontFamily="Rubik-SemiBold" Text="Games" FontSize="40" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
+                                <Label Grid.Column="1"  Grid.Row="2" FontFamily="Rubik-SemiBold" Text="Games" FontSize="{OnIdiom Phone = 30, Tablet= 40}" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
 
                             </Grid>
                         </Frame>

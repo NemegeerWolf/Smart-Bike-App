@@ -8,6 +8,12 @@
         <StackLayout >
             <Grid VerticalOptions="FillAndExpand">
                 <Image x:Name="ImgBackground" Scale="1.5" Grid.Row="0" Grid.Column="0" VerticalOptions="End"/>
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*" />
+                        
+                    </Grid.RowDefinitions>
                 <Grid VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="32">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -15,7 +21,11 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     
-                    <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Scale="2" Margin="20, 0">
+                    
+
+                    <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een game" FontSize="{OnIdiom Phone = 20, Tablet= 48}" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <ImageButton Grid.Column="2" x:Name="imgHelp" HorizontalOptions="End" BackgroundColor="Transparent"/>
+                        <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Scale="{OnIdiom Phone = 1.5, Tablet= 2}" Margin="20, 0"  >
                         <Path x:Name="path112">
                             <Path.Data>
                                 <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -27,12 +37,9 @@
                             </Path.Data>
                         </Path>
                     </AbsoluteLayout>
-
-                    <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een game" FontSize="{OnIdiom Phone = 20, Tablet= 48}" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                    <ImageButton Grid.Column="2" x:Name="imgHelp" HorizontalOptions="End" BackgroundColor="Transparent"/>
                 </Grid>
 
-                <Grid Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+                <Grid Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.5*" />
                         <ColumnDefinition Width="3.5*"/>
@@ -44,13 +51,13 @@
                     </Grid.ColumnDefinitions>
                     
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition Height="6*" />
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="3*" />
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Row="1" Grid.Column="1" x:Name="AbsLay123piano">
-                        <Frame HasShadow="True" BackgroundColor="#f7ffff">
+                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
                             <Grid  >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -72,7 +79,7 @@
 
 
                     <StackLayout Grid.Row="1" Grid.Column="3" x:Name="AbsLayBalance">
-                        <Frame HasShadow="True" BackgroundColor="#f7ffff">
+                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -94,7 +101,7 @@
                     </StackLayout>
 
                     <StackLayout Grid.Row="1" Grid.Column="5" x:Name="AbsLayOverloop">
-                        <Frame HasShadow="True" BackgroundColor="#f7ffff">
+                            <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -115,6 +122,7 @@
                         </Frame>
                     </StackLayout>
 
+                </Grid>
                 </Grid>
 
                 <Grid x:Name="GridHelpBackGround" IsVisible="False" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">

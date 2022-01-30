@@ -17,7 +17,7 @@ using Android.Support.V4.Content;
 
 namespace Smart_bike_G3.Droid
 {
-    [Activity(Label = "Fiets_App", Icon = "@drawable/Naamloos", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Fiets_App", Icon = "@drawable/Naamloos", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Landscape)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         BluetoothManager _manager;

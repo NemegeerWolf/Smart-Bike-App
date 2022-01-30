@@ -89,6 +89,8 @@ namespace Smart_bike_G3.Views
         {
             pauzedFrame.IsVisible = false;
             IsPauzed = false;
+            Pauze.IsVisible = !IsPauzed;
+            Play.IsVisible = IsPauzed;
         }
 
         private async void QuitBtn_Clicked(object sender, EventArgs e)
