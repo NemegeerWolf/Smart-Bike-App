@@ -136,7 +136,7 @@ namespace Smart_bike_G3.Services
 
         public static void ClearAllDelegatesOfMadeConnection()
         {
-            if (LostConnection != null)
+            if (MadeConnection != null)
             {
                 foreach (Delegate d in MadeConnection.GetInvocationList())
                 {

@@ -9,7 +9,7 @@
     
     <ContentPage.Content>
         
-        <StackLayout>
+        <!--<StackLayout>
 
             <Grid WidthRequest="1000" HeightRequest="1000">
                 <Image x:Name="ImgClouds" Scale="1.5" Grid.Row="0" Grid.Column="0" VerticalOptions="Start"/>
@@ -79,6 +79,80 @@
 
             
             
+        </StackLayout>-->
+
+        <StackLayout>
+
+            <Grid VerticalOptions="FillAndExpand">
+                <Image x:Name="ImgClouds" Scale="1.5" Grid.Row="0" Grid.Column="0" VerticalOptions="Start"/>
+                <Image x:Name="ImgBackground" Scale="1.5" Grid.Row="0" Grid.Column="0" VerticalOptions="End"/>
+                <Grid Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3.5*" />
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="3.5*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10*" />
+                        <RowDefinition Height="*"/>
+
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="1" Grid.Column="1" x:Name="AbsLayVideo">
+                        <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
+                            <Grid  >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="10*"/>
+                                    
+                                    <RowDefinition Height="2.5*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Column="1" Grid.Row="1" x:Name="ImgVideo" Scale="1.5" VerticalOptions="CenterAndExpand"/>
+                                <Label Grid.Column="1"  Grid.Row="2" FontFamily="Rubik-SemiBold" Text="Video" FontSize="40" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
+
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Row="1" Grid.Column="3" x:Name="AbsLayGame">
+                        <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="10*"/>
+                                    
+                                    <RowDefinition Height="2.5*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Column="1" Grid.Row="1" x:Name="ImgGame" Scale="1.5" VerticalOptions="CenterAndExpand"/>
+                                <Label Grid.Column="1"  Grid.Row="2" FontFamily="Rubik-SemiBold" Text="Games" FontSize="40" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
+
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+
+                </Grid>
+
+            </Grid>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

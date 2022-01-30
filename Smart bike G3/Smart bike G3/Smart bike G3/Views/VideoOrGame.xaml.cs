@@ -39,17 +39,17 @@ namespace Smart_bike_G3.Views
                 delete();
                 Pictures();
                 AddEvents();
-                if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
-                {
-                    Navigation.PushAsync(new NoSensorPage());
-                  //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
-                }
-                else
-                {
-                    
+                //if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+                //{
+                //    Navigation.PushAsync(new NoSensorPage());
+                //  //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
+                //}
+                //else
+                //{
+                 
+                
 
-                    
-                }
+                //}
             }
             else
             {

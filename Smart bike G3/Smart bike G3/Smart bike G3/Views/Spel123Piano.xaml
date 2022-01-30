@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              
              x:Class="Smart_bike_G3.Views.Spel123Piano" NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#96d9c9"
+             BackgroundColor="#96d9c9" 
              >
     <Grid x:Name="Window">
         <Grid.RowDefinitions >
@@ -150,6 +150,12 @@
             </StackLayout>
         </StackLayout>
 
+        <Frame x:Name="pauzedFrame" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF" IsVisible="false">
+            <StackLayout Spacing="20" Orientation="Vertical">
+                <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="ResumeBtn_Clicked" BackgroundColor="Transparent"/>
+                <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="QuitBtn_Clicked" BackgroundColor="Transparent"/>
+            </StackLayout>
+        </Frame>
 
     </Grid>
 </ContentPage>

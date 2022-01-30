@@ -3,19 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_bike_G3.Views.ChooseGame"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#eafcfc">
-    <ContentPage.Content>
-        <StackLayout>
-            <Grid WidthRequest="1000" HeightRequest="1000">
+             BackgroundColor="#eafcfc" >
+    <ContentPage.Content >
+        <StackLayout >
+            <Grid VerticalOptions="FillAndExpand">
                 <Image x:Name="ImgBackground" Scale="1.5" Grid.Row="0" Grid.Column="0" VerticalOptions="End"/>
-                <Grid VerticalOptions="Start" HorizontalOptions="StartAndExpand" WidthRequest="2500" Margin="32">
+                <Grid VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="32">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     
-                    <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="30" Grid.Column="0" Scale="2" Margin="20, 0">
+                    <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center"  Grid.Column="0" Scale="2" Margin="20, 0">
                         <Path x:Name="path112">
                             <Path.Data>
                                 <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -27,91 +27,93 @@
                             </Path.Data>
                         </Path>
                     </AbsoluteLayout>
-                    
-                    <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een game" FontSize="48" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+                    <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Kies een game" FontSize="{OnIdiom Phone = 20, Tablet= 48}" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                     <ImageButton Grid.Column="2" x:Name="imgHelp" HorizontalOptions="End" BackgroundColor="Transparent"/>
                 </Grid>
 
                 <Grid Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="3.5*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="3.5*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="3.5*"/>
                         <ColumnDefinition Width="0.5*"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="0.5*"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="6*" />
+                        <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
 
-                    <AbsoluteLayout Grid.Column="1" x:Name="AbsLay123piano">
+                    <StackLayout Grid.Row="1" Grid.Column="1" x:Name="AbsLay123piano">
                         <Frame HasShadow="True" BackgroundColor="#f7ffff">
                             <Grid  >
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="200"/>
-                                    <RowDefinition Height="0"/>
-                                    <RowDefinition Height="50"/>
-                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="2.5*"/>
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Column="1" Grid.Row="1" x:Name="Img123Piano" Scale="1.5" VerticalOptions="CenterAndExpand"/>
-                                <Label Grid.Column="1"  Grid.Row="3" FontFamily="Rubik-SemiBold" Text="1 2 3 Piano" FontSize="35" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
+                                <Label Grid.Column="1"  Grid.Row="3" FontFamily="Rubik-SemiBold" Text="1 2 3 Piano" FontSize="{OnIdiom Phone = 16, Tablet= 28}" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
                             </Grid>
                         </Frame>
-                    </AbsoluteLayout>
+                    </StackLayout>
 
 
-                    <AbsoluteLayout Grid.Column="3" x:Name="AbsLayBalance">
+                    <StackLayout Grid.Row="1" Grid.Column="3" x:Name="AbsLayBalance">
                         <Frame HasShadow="True" BackgroundColor="#f7ffff">
                             <Grid >
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="200"/>
-                                    <RowDefinition Height="0"/>
-                                    <RowDefinition Height="50"/>
-                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="2.5*"/>
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Column="1" Grid.Row="1" x:Name="ImgBalance" Scale="1.5" VerticalOptions="CenterAndExpand"/>
-                                <Label Grid.Column="1"  Grid.Row="3" FontFamily="Rubik-SemiBold" Text="Evenwicht" FontSize="35" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
+                                <Label Grid.Column="1"  Grid.Row="3" FontFamily="Rubik-SemiBold" Text="Evenwicht" FontSize="{OnIdiom Phone = 16, Tablet= 28}" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
 
                             </Grid>
                         </Frame>
-                    </AbsoluteLayout>
+                    </StackLayout>
 
-                    <AbsoluteLayout Grid.Column="5" x:Name="AbsLayOverloop">
+                    <StackLayout Grid.Row="1" Grid.Column="5" x:Name="AbsLayOverloop">
                         <Frame HasShadow="True" BackgroundColor="#f7ffff">
                             <Grid >
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="200"/>
-                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="20"/>
-                                    <RowDefinition Height="200"/>
-                                    <RowDefinition Height="0"/>
-                                    <RowDefinition Height="50"/>
-                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="2.5*"/>
+                                    <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
                                 <Image Grid.Column="1" Grid.Row="1" x:Name="ImgOverloop" Scale="1.5" VerticalOptions="CenterAndExpand"/>
-                                <Label Grid.Column="1"  Grid.Row="3" FontFamily="Rubik-SemiBold" Text="Overloop" FontSize="35" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
+                                <Label Grid.Column="1"  Grid.Row="3" FontFamily="Rubik-SemiBold" Text="Overloop" FontSize="{OnIdiom Phone = 16, Tablet= 28}" HorizontalOptions="Center" VerticalOptions="End" TextColor="#86b1f2"/>
 
                             </Grid>
                         </Frame>
-                    </AbsoluteLayout>
+                    </StackLayout>
 
                 </Grid>
 
