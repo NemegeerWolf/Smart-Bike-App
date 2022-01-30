@@ -16,8 +16,8 @@
             
                 <Grid Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1.5*"/>
-                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="4.5*"/>
                     </Grid.RowDefinitions>
 
@@ -35,8 +35,8 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        
-                        <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="2" Margin="64, 48, 0,0">
+
+                        <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Scale="{OnIdiom Phone = 1.5, Tablet= 2}" Margin="64, 48, 0,0">
                             <Path x:Name="path112">
                                 <Path.Data>
                                     <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
@@ -49,12 +49,12 @@
                             </Path>
                         </AbsoluteLayout>
 
-                        <Label Grid.Column="2" FontFamily="Rubik-Bold" Text="Kies een video" FontSize="{OnIdiom Phone = 20, Tablet= 48}" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,48, 0, 0"/>
-                        <ImageButton Grid.Column="4" x:Name="imgHelp" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="Transparent" Margin="0,50,60,0" Clicked="imgHelp_Clicked"/>
+                        <Label Grid.Column="1" FontFamily="Rubik-Bold" Text="Kies een video" FontSize="{OnIdiom Phone = 28, Tablet= 48}" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,48, 0, 0"/>
+                        <ImageButton Grid.Column="2" x:Name="imgHelp" VerticalOptions="Center" HorizontalOptions="End" BackgroundColor="Transparent" Margin="0,50,60,0" Clicked="imgHelp_Clicked"/>
                     </Grid>
-                    
-                    <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" VerticalOptions="Start" HorizontalTextAlignment="Center"/>
-                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="1" RowHeight="352" ItemTapped="lvwEnvVideos_ItemTapped" BackgroundColor="Transparent" >
+
+                    <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="{OnIdiom Phone = 20, Tablet= 40}" FontAttributes="Bold" TextColor="#4B789E" VerticalOptions="Start" HorizontalTextAlignment="Center"/>
+                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="1" RowHeight="{OnIdiom Phone = 200, Tablet=352}" ItemTapped="lvwEnvVideos_ItemTapped" BackgroundColor="Transparent" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -64,19 +64,19 @@
                                             <RowDefinition Height="0.20*"/>
                                         </Grid.RowDefinitions>
                                   
-                                        <Image  Source="{Binding Picture}" Aspect="AspectFill" Grid.Row="0"  BackgroundColor="Transparent"  HeightRequest="320" MinimumWidthRequest="480"/>
-                                        <Label  Text="{Binding Duration}" Grid.Row="0"  TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
-                                        <Image  Source="{Binding Playbuttn}" Grid.Row="0"  Margin="72" BackgroundColor="Transparent"/>
+                                        <Image  Source="{Binding Picture}" Aspect="AspectFill" Grid.Row="0"  BackgroundColor="Transparent"  />
+                                        <Label  Text="{Binding Duration}" Grid.Row="0"  TextColor="White"  FontSize="{OnIdiom Phone = 18, Tablet= 24}" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
+                                        <Image  Source="{Binding Playbuttn}" Grid.Row="0"  Margin="{OnIdiom Phone = 40, Tablet= 72}" BackgroundColor="Transparent"/>
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                
 
-                    <Label Grid.Column="3" Grid.Row="1" FontFamily="Rubik-Bold" Text="Kortfilms" FontSize="40" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
 
-                    <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="3" RowHeight="352" ItemTapped="lvwShortMovies_ItemTapped" BackgroundColor="Transparent">
+                    <Label Grid.Column="3" Grid.Row="1" FontFamily="Rubik-Bold" Text="Kortfilms" FontSize="{OnIdiom Phone = 20, Tablet= 40}" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
+
+                    <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="3" RowHeight="{OnIdiom Phone = 200, Tablet=352}" ItemTapped="lvwShortMovies_ItemTapped" BackgroundColor="Transparent">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -86,9 +86,9 @@
                                             <RowDefinition Height="0.20*"/>
                                         </Grid.RowDefinitions>
 
-                                        <Image Source="{Binding Picture}" Aspect="AspectFill" Grid.Row="0"  BackgroundColor="Transparent"  HeightRequest="320" MinimumWidthRequest="480"/>
-                                        <Label  Text="{Binding Duration}" Grid.Row="0"  TextColor="White"  FontSize="24" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
-                                        <Image  Source="{Binding Playbuttn}" Grid.Row="0"  Margin="72" BackgroundColor="Transparent"/>
+                                        <Image Source="{Binding Picture}" Aspect="AspectFill" Grid.Row="0"  BackgroundColor="Transparent"/>
+                                        <Label  Text="{Binding Duration}" Grid.Row="0"  TextColor="White"  FontSize="{OnIdiom Phone = 18, Tablet= 24}" HorizontalOptions="End" VerticalOptions="End" FontFamily="Rubik-Bold" Margin="8"/>
+                                        <Image  Source="{Binding Playbuttn}" Grid.Row="0"  Margin="{OnIdiom Phone = 40, Tablet= 72}" BackgroundColor="Transparent"/>
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
