@@ -28,10 +28,7 @@ namespace Smart_bike_G3.Views
                 BackRgt.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
                 SetVideo();
                 NavigationPage.SetHasNavigationBar(this, false);
-                /*Sensor.NewDataSpeed += ((s, e) =>
-                {
-                    speed =e;
-                });*/
+                
             }
             else
             {

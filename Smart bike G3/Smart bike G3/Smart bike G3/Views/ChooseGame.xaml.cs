@@ -33,12 +33,7 @@ namespace Smart_bike_G3.Views
                 AddEvents();
                 imgHelp.Clicked += ImgHelp_Clicked;
                 btnOk.Clicked += BtnOk_Clicked;
-                //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
-                //{
-                //    Console.WriteLine("Return to startpage");
-                //    Navigation.PushAsync(new VideoOrGame());
-                //    return false;
-                //});
+                
             }
             else
             {
@@ -68,11 +63,7 @@ namespace Smart_bike_G3.Views
             imgHelp.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.help.png");
         }
 
-        //public ChooseGame(string kind)
-        //{
-        //    InitializeComponent();
-        //    AddEvents();
-        //}
+       
 
         private void AddEvents()
         {
@@ -97,7 +88,7 @@ namespace Smart_bike_G3.Views
         private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
         {
             gameId = 3;
-            //AbsLayOverloop.Scale = 8;
+            
             Navigation.PushAsync(new SpelOverloop());
         }
 
