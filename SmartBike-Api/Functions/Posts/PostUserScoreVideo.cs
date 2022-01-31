@@ -17,7 +17,7 @@ namespace SmartBike_Api.Functions.Posts
     {
         [FunctionName("PostUserScoreVideo")]
         public static async Task<IActionResult> PostVideo(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "smartbike/video/{videoid}/{user}/{distance}")] HttpRequest req, string user, int videoid, int distance,
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "smartbike/video/{videoid}/{user}/{distance}")] HttpRequest req, string user, int videoid, int distance,
             ILogger log)
         {
             log.LogInformation("Processing post request (video)");

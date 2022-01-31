@@ -16,7 +16,7 @@ namespace SmartBike_Api.Functions.Puts
     {
         [FunctionName("PutNameScore")]
         public static async Task<IActionResult> UpdateNameScore(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "put", Route = "smartbike/game/name/{name}/{id}")] HttpRequest req, string name,string id,
+            [HttpTrigger(AuthorizationLevel.Function, "put", Route = "smartbike/game/name/{name}/{id}")] HttpRequest req, string name,string id,
             ILogger log)
         {
             try

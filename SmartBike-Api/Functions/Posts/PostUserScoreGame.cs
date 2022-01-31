@@ -18,7 +18,7 @@ namespace SmartBike_Api
     {
         [FunctionName("PostUserScoreGame")]
         public static async Task<IActionResult> PostGame(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "smartbike/game/{gameid}/{distance}/{speed}")] HttpRequest req, int gameid, int distance, float speed, //add authentication
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = "smartbike/game/{gameid}/{distance}/{speed}")] HttpRequest req, int gameid, int distance, float speed, //add authentication
             ILogger log)
         {
             log.LogInformation("Processing post request (game)");

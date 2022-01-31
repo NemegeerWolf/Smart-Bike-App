@@ -16,7 +16,7 @@ namespace SmartBike_Api.Functions.Delete
     {
         [FunctionName("DeleteNull")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = "smartbike/game/null/{id}")] HttpRequest req, string id,
+            [HttpTrigger(AuthorizationLevel.Function, "delete", Route = "smartbike/game/null/{id}")] HttpRequest req, string id,
             ILogger log)
         {
             try

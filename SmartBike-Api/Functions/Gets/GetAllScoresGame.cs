@@ -19,7 +19,7 @@ namespace SmartBike_Api.Functions.Gets
 
         [FunctionName("GetAllScoresGame")]
         public static async Task<IActionResult> GetGameScoreAll(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/game/{gameid}")] HttpRequest req, int gameid,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "smartbike/game/{gameid}")] HttpRequest req, int gameid,
             ILogger log)
         {
 

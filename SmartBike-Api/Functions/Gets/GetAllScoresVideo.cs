@@ -17,7 +17,7 @@ namespace SmartBike_Api.Functions.Gets
     {
         [FunctionName("GetAllScoresVideo")]
         public static async Task<IActionResult> GetVideoScoreAll(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get",  Route = "smartbike/video/{videoid}")] HttpRequest req, int videoid,
+            [HttpTrigger(AuthorizationLevel.Function, "get",  Route = "smartbike/video/{videoid}")] HttpRequest req, int videoid,
             ILogger log)
         {
             log.LogInformation("Calling GetAllScoresVideo");
