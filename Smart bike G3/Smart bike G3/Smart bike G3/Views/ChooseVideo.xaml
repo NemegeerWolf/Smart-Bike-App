@@ -103,7 +103,7 @@
 
                 </Grid>
 
-                <Grid x:Name="GridHelp" IsVisible="False" Grid.Row="0" Grid.ColumnSpan="2" RowSpacing="0" >
+                <Grid x:Name="GridHelp" IsVisible="False" Grid.Row="0" Grid.ColumnSpan="2" RowSpacing="0" Margin="217">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="auto"/>
@@ -115,7 +115,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Frame BackgroundColor="#f7ffff" HasShadow="True" Grid.Column="1" Grid.Row="1" Opacity="1" BorderColor="Transparent">
+                    <Frame BackgroundColor="#f7ffff" HasShadow="True" Grid.Column="1" Grid.Row="1" Opacity="1" BorderColor="Transparent" Padding="50">
                         <StackLayout Margin="16">
                             <Label Text="Video afspelen" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#4b789e" FontFamily="Rubik-SemiBold"/>
                             <Label Text="Klik op een video en begin met trappen om de video te doen starten. Als je stopt met fietsen zal de video pauzeren." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>

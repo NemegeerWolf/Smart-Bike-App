@@ -129,7 +129,7 @@
 
                 </Grid>
 
-                <Grid x:Name="GridHelp" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" >
+                <Grid x:Name="GridHelp" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" Margin="217, 50">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="auto"/>
@@ -141,20 +141,20 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Frame BackgroundColor="#f7ffff" HasShadow="True" Grid.Column="1" Grid.Row="1" Opacity="1" BorderColor="Transparent">
+                    <Frame BackgroundColor="#f7ffff" HasShadow="True" Grid.Column="1" Grid.Row="1" Opacity="1" BorderColor="Transparent" Padding="50">
                         <ScrollView>
-                        <StackLayout Margin="16">
-                            <Label Text="1 2 3 piano" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#4b789e" FontFamily="Rubik-SemiBold"/>
-                            <Label Text="Fiets zo snel mogelijk naar de eindmeet. Pasop bij rood licht mag je niet meer bewegen anders is het game over." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
-                            <Label/>
-                            <Label Text="Evenwicht" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#4b789e" FontFamily="Rubik-SemiBold"/>
-                            <Label Text="Probeer de eenwieler in balans te houden door je snelheid onder controle te houden." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
-                            <Label Text="Fiets sneller als hij naar voren valt, fiets trager als hij naar achteren valt." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
-                            <Label/>
-                            <Label Text="Overloop" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#4b789e" FontFamily="Rubik-SemiBold"/>
-                            <Label Text="Fiets zo snel mogelijk dat het glas met water overloopt." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
-                            <Button x:Name="btnOk" Text="Ok" BackgroundColor="Transparent" HorizontalOptions="End" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#86b1f2"/>
-                        </StackLayout>
+                            <StackLayout>
+                                <Label Text="1 2 3 piano" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#4b789e" FontFamily="Rubik-SemiBold"/>
+                                <Label Text="Fiets zo snel mogelijk naar de eindmeet. Pasop bij rood licht mag je niet meer bewegen anders is het game over." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
+                                <Label/>
+                                <Label Text="Evenwicht" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#4b789e" FontFamily="Rubik-SemiBold"/>
+                                <Label Text="Probeer de eenwieler in balans te houden door je snelheid onder controle te houden." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
+                                <Label Text="Fiets sneller als hij naar voren valt, fiets trager als hij naar achteren valt." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
+                                <Label/>
+                                <Label Text="Overloop" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#4b789e" FontFamily="Rubik-SemiBold"/>
+                                <Label Text="Fiets zo snel mogelijk dat het glas met water overloopt." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
+                                <Button x:Name="btnOk" Text="Ok" BackgroundColor="Transparent" HorizontalOptions="End" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#86b1f2"/>
+                            </StackLayout>
                         </ScrollView>
                     </Frame>
                 </Grid>

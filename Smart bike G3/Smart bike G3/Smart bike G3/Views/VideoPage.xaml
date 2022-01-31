@@ -6,19 +6,20 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <Grid BackgroundColor="#EAFCFC">
-            <xct:MediaElement x:Name="audio" BackgroundColor="#EAFCFC" HeightRequest="0" WidthRequest="0" IsVisible="false"/>
             <xct:MediaElement x:Name="video" BackgroundColor="#EAFCFC" MediaOpened="Vid_MediaOpened" MediaEnded="Vid_MediaEnded" VerticalOptions="FillAndExpand" Aspect="AspectFill" ShowsPlaybackControls="False" IsLooping="False"  />
             <Label x:Name="loading" Text="Loading..." FontSize="Header" TextColor="#4B789E" VerticalOptions="Center" HorizontalOptions="Center"/>
-            <Grid TranslationY="-30">
+            <Grid>
                 <ImageButton x:Name="Cross" Clicked="ImageButton_Clicked" Margin="{OnIdiom Phone = 48, Tablet= 60}"  VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" WidthRequest="{OnIdiom Phone = 50, Tablet= 100}" HeightRequest="{OnIdiom Phone = 50, Tablet= 100}"/>
-                <Frame x:Name="speedframe" IsVisible="false" BackgroundColor="#86B1F2" CornerRadius="15" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Margin="{OnIdiom Phone = 48, Tablet= 60}">
-                    <Label x:Name="speedlbl" FontAttributes="Bold" FontSize="{OnIdiom Phone = 20, Tablet= 36}" TextColor="#EAFCFC" HorizontalTextAlignment="Center"
+                <Frame x:Name="speedframe" Opacity="0.7" IsVisible="false" BackgroundColor="#EAFCFC" CornerRadius="15" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Margin="0,0,60,130">
+                    <Label x:Name="speedlbl" FontSize="{OnIdiom Phone = 15, Tablet= 28}" TextColor="black" HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center" />
                 </Frame>
+                <Frame Margin="0,0,60,30" BackgroundColor="#EAFCFC" CornerRadius="15" HorizontalOptions="End" VerticalOptions="End" Opacity="0.7">
+                    <Label x:Name="timePassdlbl"  FontSize="{OnIdiom Phone = 15, Tablet= 28}" TextColor="black" />
 
-                <Label x:Name="timePassdlbl" HorizontalOptions="End" VerticalOptions="End" FontSize="{OnIdiom Phone = 20, Tablet= 36}"/>
-                <Image x:Name="BackLft" HorizontalOptions="Start" VerticalOptions="End" Margin="0,0,0,-10"/>
-                <Image x:Name="BackRgt" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,0,-10"/>
+                </Frame>
+                <Image x:Name="BackLft" HorizontalOptions="Start" VerticalOptions="EndAndExpand" Margin="0,0,0,-10"/>
+                <Image x:Name="BackRgt" HorizontalOptions="End" VerticalOptions="EndAndExpand" Margin="0,0,0,-10"/>
 
             </Grid>
         </Grid>
