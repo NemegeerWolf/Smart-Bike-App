@@ -1,9 +1,4 @@
-﻿using Smart_bike_G3.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -18,15 +13,14 @@ namespace Smart_bike_G3.Views
     public partial class ResultsVideo : ContentPage
     {
 
-        public ResultsVideo()
+        public ResultsVideo(double distance, double avg, string dur)
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
-                //btnScorebord.Clicked += BtnScorebord_Clicked;
-                //showKilometers();
+                NavigationPage.SetHasNavigationBar(this, false);
+                ShowResults(distance,avg,dur);
                 btnHome.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
-                btnOpnieuw.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Again.png");
                 ImgLeft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");
                 ImgRight.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
             }
@@ -36,20 +30,17 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        private async void showKilometers()
+        private void ShowResults(double distance, double avg, string dur)
         {
 
-            //int kilometers = 12;
-            //string kilometerString = $"{kilometers}km";
-            //lblKilometers.Text = kilometerString;
-
-            // await Repository.AddResultsVideo(1, "test", kilometers);
+            lblDistance.Text = $"{distance}m";
+            lblAverageSpeed.Text = $"{avg} km/u";
+            lblTime.Text = dur;
         }
 
-        private void BtnScorebord_Clicked(object sender, EventArgs e)
+        private void btnHome_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Scorebord(-1));
+            Navigation.PushAsync(new VideoOrGame());
         }
-
     }
 }

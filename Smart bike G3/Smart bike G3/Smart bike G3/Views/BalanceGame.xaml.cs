@@ -1,7 +1,6 @@
 ﻿using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
 using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using TestBluethoot.Services;
 using Xamarin.Essentials;
@@ -308,8 +307,7 @@ namespace Smart_bike_G3.Views
             {
                 await Repository.DeleteAsync(lastuser.id);
             }
-            //Navigation.PopAsync(); //na restart, gaat dit naar scoreboard
-            Navigation.PushAsync(new ChooseGame());
+            Navigation.PopAsync();
         }
     }
 }
