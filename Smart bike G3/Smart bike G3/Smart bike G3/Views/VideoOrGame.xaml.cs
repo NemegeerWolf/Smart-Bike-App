@@ -91,8 +91,6 @@ namespace Smart_bike_G3.Views
             
         }
 
-        
-
         private void AbsLayGame_Tabbed(object sender, EventArgs e)
         {
 
