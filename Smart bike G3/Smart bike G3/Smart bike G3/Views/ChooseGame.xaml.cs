@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quick.Xamarin.BLE.Abstractions;
+using Smart_bike_G3.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,18 +35,23 @@ namespace Smart_bike_G3.Views
                 AddEvents();
                 imgHelp.Clicked += ImgHelp_Clicked;
                 btnOk.Clicked += BtnOk_Clicked;
-                //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
-                //{
-                //    Console.WriteLine("Return to startpage");
-                //    Navigation.PushAsync(new VideoOrGame());
-                //    return false;
-                //});
+                
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
             
+        }
+
+        protected override void OnAppearing()
+        {
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
         }
 
         private void BtnOk_Clicked(object sender, EventArgs e)
@@ -68,11 +75,7 @@ namespace Smart_bike_G3.Views
             imgHelp.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.help.png");
         }
 
-        //public ChooseGame(string kind)
-        //{
-        //    InitializeComponent();
-        //    AddEvents();
-        //}
+       
 
         private void AddEvents()
         {
@@ -97,7 +100,7 @@ namespace Smart_bike_G3.Views
         private void AbsLayOverloop_Tabbed(object sender, EventArgs e)
         {
             gameId = 3;
-            //AbsLayOverloop.Scale = 8;
+            
             Navigation.PushAsync(new SpelOverloop());
         }
 

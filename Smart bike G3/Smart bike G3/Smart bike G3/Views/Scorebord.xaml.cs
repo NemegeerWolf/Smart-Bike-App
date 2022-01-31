@@ -30,11 +30,10 @@ namespace Smart_bike_G3.Views
                 InitializeComponent();
 
                 //prevent sleepmode
-                
                 DeviceDisplay.KeepScreenOn = false;
 
                 Pictures();
-                //lblName.Text = Name.User;
+                
                 vidorgame = VideoOrGame.Kind;
 
                 Console.WriteLine(vidorgame);
@@ -52,12 +51,7 @@ namespace Smart_bike_G3.Views
                 btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
                 btnAdd.Clicked += BtnAdd_Clicked;
 
-                //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
-                //{
-                //    Console.WriteLine("Return to startpage");
-                //    Navigation.PushAsync(new VideoOrGame());
-                //    return false;
-                //});
+                
             }
             else
             {
@@ -72,14 +66,9 @@ namespace Smart_bike_G3.Views
 
             if (user != null)
             {
-                // var i = await Repository.GetLastUserAsync();
-                //string id = null;
-                //foreach (var item in i)
-                //{
-                //    id = item.id;
-                //}
+                
                 warning(user);
-                // await Repository.UpdateName(user, i.id);
+                
                 btnAdd.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Check.png");
                 entName.Text = "";
                 btnAdd.IsEnabled = false;
@@ -131,15 +120,7 @@ namespace Smart_bike_G3.Views
         private async void LoadData(int score,string kind)
         {
             await SetRank(score, VideoOrGame.Kind);
-            //if (kind == "video")
-            //{ 
-            //    int videoid = ChooseVideo.VideoId;
-            //    List<Video> i = await Repository.GetAllscoresVideoAsync(videoid);
-            //    lvwOverview.ItemsSource = i.Count >= 3 ? i.GetRange(0, 3) : i;
-            //    lblScore.Text = $"{score.ToString()} m";
-
-            //}
-            //else
+            
             if (kind == "game")
             {
                 int gameid = ChooseGame.gameId;
@@ -149,20 +130,13 @@ namespace Smart_bike_G3.Views
                 if (isEmpty == false)
                 {
                     lvwOverview.ItemsSource = i.Skip(1);
-                    //.Count >= 3 ? i.GetRange(1, 4) : i;
+                    
                     var first = i.First();
                     lblNameFirst.Text = first.User;
                     lblRankFirst.Text = first.Rank;
                     lblScoreFirst.Text = first.ScoreBordString;
                     lblScore.Text = $"{score.ToString()} s";
-                    //if (gameid != null)
-                    //{
-                        
-                    //}
-                    //else
-                    //{
-                    //    lblScore.Text = $"{score.ToString()} m";
-                    //}
+                    
                 }
                 
             }
@@ -177,11 +151,7 @@ namespace Smart_bike_G3.Views
 
             var i = await Repository.GetLastUserAsync();
             
-            //string id = null;
-            //foreach (var item in i)
-            //{
-            //    id = item.id;
-            //}
+           
 
             int rank = await Repository.CheckRank(i.id, score, kind);
             lblPosition.Text = $"{rank}";
@@ -197,26 +167,38 @@ namespace Smart_bike_G3.Views
                 {
                     await Repository.DeleteAsync(i.id);
                 }
-                //Navigation.PopToRootAsync(true);
-                //Navigation.PopAsync();
+                
                 if (ChooseGame.gameId == 1)
                 {
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                     Navigation.PushAsync(new Spel123Piano());
                 }
-                if (ChooseGame.gameId == 2)
+                else if (ChooseGame.gameId == 2)
                 {
-                    await Navigation.PopAsync();
-                    //await Navigation.PushAsync(new BalanceGame());
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count-2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+
+                    
+
+                    await Navigation.PushAsync(new BalanceGame());
+                        //return;
+                    
+                    
+                
+                
                 }
-                if (ChooseGame.gameId == 3)
+                else if(ChooseGame.gameId == 3)
                 {
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                     Navigation.PushAsync(new SpelOverloop());
                 }
                 else
                 {
                     Navigation.PopToRootAsync(true);
                 }
-                //Navigation.PushAsync(new ChooseGame());
+                
             }
             else
             {
@@ -236,8 +218,12 @@ namespace Smart_bike_G3.Views
             {
                 await Repository.DeleteAsync(i.id);
             }
-            //Navigation.PopToRootAsync(true);
-            Navigation.PushAsync(new VideoOrGame());
+            //await Navigation.PopToRootAsync(true);
+            
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+            Navigation.PopAsync();
+            //Navigation.PushAsync(new VideoOrGame());
         }
     }
 }

@@ -10,9 +10,11 @@ using System.Threading.Tasks;
 using TestBluethoot.Models;
 using TestBluethoot.Services;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace Smart_bike_G3
+namespace Smart_bike_G3.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Search : ContentPage
     {
         //public static AdapterConnectStatus BleStatus;
@@ -48,7 +50,7 @@ namespace Smart_bike_G3
 
                     if (check)
                     {
-
+                        Sensor.SensorName = n.Name;
                         Bluetooth.Connect(n);
                         Navigation.PopToRootAsync();
                     }

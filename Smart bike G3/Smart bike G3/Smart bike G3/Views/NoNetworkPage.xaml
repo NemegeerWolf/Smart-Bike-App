@@ -8,15 +8,15 @@
         <StackLayout>
             <Grid Margin="24" VerticalOptions="Center">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*"/>
                     
                 </Grid.RowDefinitions>
-                <!--<Image x:Name="imgNoInternet" Grid.Column="1" Grid.Row="1"/>-->
+                
                 <StackLayout Grid.Column="0" Grid.Row="1" VerticalOptions="Center" Spacing="15">
                     <Label  Text="Oeps, geen internet verbinding!" TextColor="#4B789E" FontFamily="Rubik-SemiBold" FontSize="40"/>
                     <Label   Text="Je bent niet geconnecteerd met het internet. Controleer dat de WiFi aan ligt, vliegtuigmodus uitgeschakeld is en probeer het opnieuw. " TextColor="#302E33" FontFamily="Rubik-Regular" FontSize="28"/>
