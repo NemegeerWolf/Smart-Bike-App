@@ -49,6 +49,7 @@
     <None Remove="Assets\Quit.png" />
     <None Remove="Assets\Resume.png" />
     <None Remove="Assets\StartB.png" />
+    <None Remove="Assets\StartBl.png" />
     <None Remove="Assets\traffic_light.png" />
     <None Remove="Assets\two_wheeler.png" />
     <None Remove="Assets\video.png" />
@@ -93,7 +94,7 @@
     <EmbeddedResource Include="Assets\Plus.png" />
     <EmbeddedResource Include="Assets\Quit.png" />
     <EmbeddedResource Include="Assets\Resume.png" />
-    <EmbeddedResource Include="Assets\StartB.png" />
+    <EmbeddedResource Include="Assets\StartBl.png" />
     <EmbeddedResource Include="Assets\traffic_light.png" />
     <EmbeddedResource Include="Assets\two_wheeler.png" />
     <EmbeddedResource Include="Assets\video.png" />
@@ -123,6 +124,10 @@
     <Reference Include="Mono.Android">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\StartB.png" />
   </ItemGroup>
 
   <ItemGroup>

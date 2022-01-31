@@ -12,11 +12,10 @@
         <Grid>
             <Image x:Name="oneWheel"  Source="oneWheeler.png" HorizontalOptions="Center" VerticalOptions="EndAndExpand" WidthRequest="{OnIdiom Phone = 100, Tablet= 200}"/>
             <ImageButton x:Name="pauseBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"   Clicked="PauseBtn_Clicked" BackgroundColor="Transparent"/>
-            <ImageButton x:Name="StartBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" WidthRequest="{OnIdiom Phone = 100, Tablet= 200}" HeightRequest="{OnIdiom Phone = 50, Tablet= 100}" Clicked="StartBtn_Clicked" BackgroundColor="Transparent"/>
-            <Label x:Name="feedbacklbl" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" IsVisible="false"/>
-            <Label x:Name="timelbl" FontSize="Large" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" IsVisible="true"/>
-            <Label x:Name="timerlbl" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Center" IsVisible="false"/>
-            
+            <ImageButton x:Name="StartBtn" HorizontalOptions="CenterAndExpand"  WidthRequest="{OnIdiom Phone = 100, Tablet= 200}" HeightRequest="{OnIdiom Phone = 50, Tablet= 100}" Clicked="StartBtn_Clicked" BackgroundColor="Transparent" VerticalOptions="Start" Margin="0,90,0,0"/>
+                <Label x:Name="feedbacklbl" FontSize="Header" Scale="0.6" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" IsVisible="false" Margin="0,120,0,0" TextColor="#86B1F2"/>
+                <Label x:Name="timerlbl" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Start" IsVisible="false" Margin="0,90,0,0" TextColor="#86B1F2"/>
+                <Label x:Name="timePassdlbl" FontSize="Title" HorizontalOptions="End" VerticalOptions="StartAndExpand" TextColor="#86B1F2" IsVisible="false" Margin="0,60,60,0"/>
             </Grid>
             
             <Grid x:Name="GridPauseBackGround" IsVisible="false" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">

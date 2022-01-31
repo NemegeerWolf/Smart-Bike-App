@@ -196,7 +196,8 @@ namespace Smart_bike_G3.Views
                 }
                 if (ChooseGame.gameId == 2)
                 {
-                    Navigation.PushAsync(new BalanceGame());
+                    await Navigation.PopAsync();
+                    //await Navigation.PushAsync(new BalanceGame());
                 }
                 if (ChooseGame.gameId == 3)
                 {
