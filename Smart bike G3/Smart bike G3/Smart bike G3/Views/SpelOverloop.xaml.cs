@@ -163,7 +163,7 @@ namespace Smart_bike_G3.Views
 
         private void quitBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChooseGame());
+            Navigation.PopAsync();
         }
 
         private void pauseBtn_Clicked(object sender, EventArgs e)
