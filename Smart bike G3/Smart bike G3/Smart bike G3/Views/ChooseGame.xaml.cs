@@ -24,6 +24,8 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+                App app = new App();
+                app.ToggleScreenLock();
                 Pictures();
                 AddEvents();
                 imgHelp.Clicked += ImgHelp_Clicked;

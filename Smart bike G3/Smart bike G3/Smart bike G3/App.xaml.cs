@@ -32,6 +32,7 @@ namespace Smart_bike_G3
             //prevent sleepmode
             DeviceDisplay.KeepScreenOn = true;
         }
+        
 
         private void firstTimefileSetup() //Makes file for videoUrls if non exist
         {

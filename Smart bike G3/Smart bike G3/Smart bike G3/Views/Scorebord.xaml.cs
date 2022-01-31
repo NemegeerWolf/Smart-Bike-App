@@ -78,6 +78,10 @@ namespace Smart_bike_G3.Views
                 btnAdd.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Check.png");
                 entName.Text = "";
                 btnAdd.IsEnabled = false;
+                entName.IsVisible = false;
+                lblName.Text = user;
+                lblName.IsVisible = true;
+
             }
             if (user == null)
             {
