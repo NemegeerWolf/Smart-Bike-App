@@ -1,11 +1,7 @@
-﻿using Newtonsoft.Json;
-using Quick.Xamarin.BLE.Abstractions;
-using Smart_bike_G3.Models;
+﻿using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
-using Smart_bike_G3.Services;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
 using Xamarin.Essentials;

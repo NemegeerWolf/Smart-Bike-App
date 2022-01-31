@@ -1,18 +1,8 @@
-using Smart_bike_G3.Services;
-using Smart_bike_G3.Repositories;
 using Smart_bike_G3.Views;
 using System;
 using System.Diagnostics;
 using System.IO;
-using TestBluethoot.Models;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using System.Collections.Specialized;
-using System.Collections.ObjectModel;
-using TestBluethoot.Services;
-using System.Linq;
-using System.Threading;
-using Xamarin.Essentials;
 
 namespace Smart_bike_G3
 {

@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Linq;
 using Xamarin.Forms;
 using TestBluethoot.Services;
-using TestBluethoot.Models;
-using System.Threading;
-using System.Collections.Specialized;
-using System.Collections.ObjectModel;
-
-using Xamarin.Forms.Xaml;
 using Smart_bike_G3.Services;
-using System.Diagnostics;
-using System.Collections.Generic;
-using Smart_bike_G3.Views;
 using Xamarin.Essentials;
 
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-regular")]

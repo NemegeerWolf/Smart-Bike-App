@@ -7,9 +7,6 @@ using Xamarin.Forms.Xaml;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 using System.Linq;
-using Smart_bike_G3.Services;
-using Quick.Xamarin.BLE.Abstractions;
-using TestBluethoot.Services;
 
 namespace Smart_bike_G3.Views
 {
