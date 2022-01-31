@@ -29,8 +29,8 @@ namespace Smart_bike_G3.Views
                 InitializeComponent();
                 NavigationPage.SetHasNavigationBar(this, false);
                 SetXaml();
+                stopped = false;
                 Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
-
                 Sensor.NewDataSpeed += ((s, e) =>
                 {
                     speed = e;
@@ -181,6 +181,8 @@ namespace Smart_bike_G3.Views
                 stopped = true;
                 timerlbl.Text = TimeForBord(time);
                 timerlbl.IsVisible = true;
+                Repository.AddResultsGame(3, Convert.ToInt32(seconds), 0);
+                Navigation.PushAsync(new Scorebord(seconds));
             }
         }
 
