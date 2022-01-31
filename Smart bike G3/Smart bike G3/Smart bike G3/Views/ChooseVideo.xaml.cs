@@ -6,10 +6,7 @@ using Smart_bike_G3.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -34,6 +31,7 @@ namespace Smart_bike_G3.Views
             {
                 InitializeComponent();
                 ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
+                SetLoading();
                 LoadThumbnails(0);
                 LoadThumbnails(1);
             
@@ -42,13 +40,6 @@ namespace Smart_bike_G3.Views
                 AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
                 imgHelp.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.help.png");
-               
-                //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
-                //{
-                //    Console.WriteLine("Return to startpage"); 
-                //    Navigation.PushAsync(new VideoOrGame());
-                //    return false;
-                //});
             }
             else
             {
@@ -66,24 +57,21 @@ namespace Smart_bike_G3.Views
             base.OnAppearing();
         }
 
-
-
-        private async void AbsLaSetting_Tabbed(object sender, EventArgs e)
+        private void SetLoading()
         {
-            string result = await DisplayPromptAsync("Geef de code", "pincode", maxLength: 4, keyboard: Keyboard.Numeric);
-            if (result != null)
+            List<Thumbnail> thumbnails = new List<Thumbnail>();
+            for (var i = 0; i < 3; i++)
             {
-                if (Int32.Parse(result) == 8000)
+                thumbnails.Add(new Thumbnail()
                 {
-                    Debug.WriteLine("oké");
-                    await Navigation.PushAsync(new VideoAdminPage());
-                }
-                else
-                {
-                    await DisplayAlert("Foutieve code", "", "OK");
-
-                }
+                    Duration = "",
+                    Playbuttn = null,
+                    Picture = "Loading.png",
+                    VideoId = "",
+                });
             }
+            lvwEnvVideos.ItemsSource = thumbnails;
+            lvwShortMovies.ItemsSource = thumbnails;
         }
 
         private async Task LoadThumbnails(int playlistId)
@@ -131,11 +119,6 @@ namespace Smart_bike_G3.Views
             return duration; 
         }
 
-        private string GetIDFromUrl(string url)
-        {
-            return url.Split('=')[1].Split('?')[0].Split('&')[0];
-        }
-
         private bool RemoteFileExists(string url)
         {
             try
@@ -167,7 +150,6 @@ namespace Smart_bike_G3.Views
             VideoId = item.VideoId;
             VideoDur = item.Duration;
             Navigation.PushAsync(new VideoPage());
-            //lvwEnvVideos.SelectedItem = null;
         }
 
         private void lvwShortMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -179,7 +161,6 @@ namespace Smart_bike_G3.Views
             VideoId = item.VideoId;
             VideoDur = item.Duration;
             Navigation.PushAsync(new VideoPage());
-            //lvwShortMovies.SelectedItem = null;
         }
 
         private void imgHelp_Clicked(object sender, EventArgs e)

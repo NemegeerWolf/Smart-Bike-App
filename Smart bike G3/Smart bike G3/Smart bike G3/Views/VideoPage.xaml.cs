@@ -6,7 +6,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
-using TestBluethoot.Services;
 using System.Linq;
 using Smart_bike_G3.Services;
 using Quick.Xamarin.BLE.Abstractions;
@@ -16,10 +15,11 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoPage : ContentPage
     {
-        double speed;
+        double speed = 10;
         int count = 0;
         List<double> speedOvertime = new List<double>();
         bool checkSpeed;
+        private bool playing = false;
         public VideoPage()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -51,24 +51,11 @@ namespace Smart_bike_G3.Views
             }
             base.OnAppearing();
         }
-
-        private bool playing = false;
-
-     
         private async Task SetVideo()
         {
             string vidId = ChooseVideo.VideoId;
             await SetYoutubeSource(vidId);  
         }
-
-        private void SetAudio(bool audioBool)
-        {
-            if (audioBool == true){
-                video.Volume = 0;
-                audio.Source = "ms-appx:///testaudio.mp3";
-            }
-        }
-
 
         private void Vid_MediaOpened(object sender, EventArgs e)
         {
@@ -80,10 +67,8 @@ namespace Smart_bike_G3.Views
             playing = true;
             speedlbl.Text = "0 km/u";
             video.KeepScreenOn = true;
-           // Device.StartTimer(TimeSpan.FromMilliseconds(1000), FixAutoplay);
             Device.StartTimer(TimeSpan.FromMilliseconds(1000), IsCycling);
         }
-
 
         private void Vid_MediaEnded(object sender, EventArgs e)
         {
@@ -95,10 +80,7 @@ namespace Smart_bike_G3.Views
             audio.Stop();
             double average = CheckEnoughData(speedOvertime);
             double distance = CalcDistance(average, ChooseVideo.VideoDur);
-            Avglbl.Text = $"{average} km/u";
-            Dislbl.Text = $"{distance} m";
-            resultAvg.IsVisible = true;
-            resultDis.IsVisible = true;
+            Navigation.PushAsync(new ResultsVideo(distance,average, ChooseVideo.VideoDur));
             checkSpeed = false;
         }
 
@@ -123,20 +105,8 @@ namespace Smart_bike_G3.Views
             return  Math.Round(MeterPerSecond * totalSeconds);
 
         }
-
-        private bool FixAutoplay()
-        {
-            Device.BeginInvokeOnMainThread(() => {
-                video.Pause();
-                video.IsLooping = false;
-            });
-            return false;
-        }
-
         private bool IsCycling()
         {
-            //Random rand = new Random();
-            //speed = rand.Next(10, 56);
             count += 1;
             if (count == 30)
             {

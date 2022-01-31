@@ -2,37 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Smart_bike_G3.Views.ResultsVideo"
-             BackgroundColor="White">
+             BackgroundColor="#EAFCFC">
     <ContentPage.Content>
-        <StackLayout>
-            <Grid RowSpacing="0" HeightRequest="620">
+        
+            <Grid >
                 <Image x:Name="ImgLeft" Grid.Row="0" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Start" Scale="1.5"/>
                 <Image x:Name="ImgRight" Grid.Row="0" Grid.Column="0" VerticalOptions="End" HorizontalOptions="End"  Scale="1.5"/>
+                <Label  FontFamily="Rubik-Bold" Text="Resultaat" FontSize="48" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,60,0,0"/>
 
-                <StackLayout Grid.Row="0" Grid.Column="0">
-            <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Resultaat" FontSize="48" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Tijd" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <Label Grid.Column="1" x:Name="lblTime"  FontFamily="Rubik-Regular" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Afstand" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <Label Grid.Column="1" x:Name="lblDistance" FontFamily="Rubik-Regular"  FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-            <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Gemiddelde snelheid" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
-                    <Label Grid.Column="1" x:Name="lblAveradeSpeed"  FontFamily="Rubik-Regular" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <StackLayout Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" Spacing="20" Margin="0,0,0,60">
+                    <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Tijd" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" x:Name="lblTime"  FontFamily="Rubik-Regular" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Afstand" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" x:Name="lblDistance" FontFamily="Rubik-Regular"  FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1"  FontFamily="Rubik-Bold" Text="Gemiddelde snelheid" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" x:Name="lblAverageSpeed"  FontFamily="Rubik-Regular" FontSize="30" TextColor="#4b789e" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 </StackLayout>
                 
                 <Grid Grid.Row="0" Grid.Column="0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="*"/>
-                        
-                    </Grid.ColumnDefinitions>
-                    <ImageButton x:Name="btnHome" Grid.Column="1" BackgroundColor="Transparent" Scale="2"/>
-                    <ImageButton x:Name="btnOpnieuw" Grid.Column="3" BackgroundColor="Transparent" Scale="2"/>
+                       <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                    <ImageButton x:Name="btnHome" Clicked="btnHome_Clicked" Grid.Column="1" BackgroundColor="Transparent" VerticalOptions="EndAndExpand"/>
                 </Grid>
             </Grid>
 
-        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

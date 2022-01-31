@@ -14,6 +14,7 @@ using Xamarin.Forms;
 using System.Runtime.Remoting.Contexts;
 using Android.Content;
 using Android.Support.V4.Content;
+using Xamarin.Essentials;
 
 namespace Smart_bike_G3.Droid
 {
@@ -21,14 +22,23 @@ namespace Smart_bike_G3.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         BluetoothManager _manager;
+
+        //public void togglescreenlock()
+        //{
+        //    //prevent sleepmode
+        //    devicedisplay.keepscreenon = true;
+        //}
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             AndroidX.AppCompat.App.AppCompatDelegate.DefaultNightMode = AndroidX.AppCompat.App.AppCompatDelegate.ModeNightNo;
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             _manager = (BluetoothManager)Android.App.Application.Context.GetSystemService(Android.Content.Context.BluetoothService);
-            _manager.Adapter.Enable(); /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> Sensor.start() in videoorgame.cs ook******/
+            // _manager.Adapter.Enable(); /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> Sensor.start() in videoorgame.cs ook******/
+            this.Window.AddFlags(WindowManagerFlags.Fullscreen);//prevent sleepmode
             base.OnCreate(savedInstanceState);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);//prevent sleepmode
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
             int add = 0;

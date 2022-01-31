@@ -54,7 +54,7 @@
                     </Grid>
 
                     <Label Grid.Column="1" Grid.Row="1" FontFamily="Rubik-Bold" Text="Omgevingsbeelden" FontSize="{OnIdiom Phone = 20, Tablet= 40}" FontAttributes="Bold" TextColor="#4B789E" VerticalOptions="Start" HorizontalTextAlignment="Center"/>
-                    <ListView x:Name="lvwEnvVideos" Grid.Row="2" Grid.Column="1" RowHeight="{OnIdiom Phone = 200, Tablet=352}" ItemTapped="lvwEnvVideos_ItemTapped" BackgroundColor="Transparent" >
+                    <ListView x:Name="lvwEnvVideos"  Grid.Row="2" Grid.Column="1" RowHeight="{OnIdiom Phone = 200, Tablet=352}" ItemTapped="lvwEnvVideos_ItemTapped" BackgroundColor="Transparent" SeparatorVisibility="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -76,7 +76,7 @@
 
                     <Label Grid.Column="3" Grid.Row="1" FontFamily="Rubik-Bold" Text="Kortfilms" FontSize="{OnIdiom Phone = 20, Tablet= 40}" FontAttributes="Bold" TextColor="#4B789E" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"/>
 
-                    <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="3" RowHeight="{OnIdiom Phone = 200, Tablet=352}" ItemTapped="lvwShortMovies_ItemTapped" BackgroundColor="Transparent">
+                    <ListView x:Name="lvwShortMovies" Grid.Row="2" Grid.Column="3" RowHeight="{OnIdiom Phone = 200, Tablet=352}" ItemTapped="lvwShortMovies_ItemTapped" BackgroundColor="Transparent" SeparatorVisibility="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

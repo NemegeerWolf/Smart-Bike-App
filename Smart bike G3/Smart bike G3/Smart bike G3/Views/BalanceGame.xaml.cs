@@ -3,7 +3,6 @@ using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
 using Smart_bike_G3.Services;
 using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using TestBluethoot.Services;
 using Xamarin.Essentials;
@@ -19,6 +18,7 @@ namespace Smart_bike_G3.Views
         double speed;
         int seconds;
         DateTime time;
+        string timeStr;
         bool playing = false;
         bool started = false;
         bool stopped = false;
@@ -29,9 +29,13 @@ namespace Smart_bike_G3.Views
             {
 
                 InitializeComponent();
+
+                //prevent sleepmode
+                
+                DeviceDisplay.KeepScreenOn = true;
+
                 NavigationPage.SetHasNavigationBar(this, false);
                 SetXaml();
-                stopped = false;
                 Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
                 Sensor.NewDataSpeed += ((s, e) =>
                 {
@@ -64,14 +68,14 @@ namespace Smart_bike_G3.Views
                 {
                     seconds += 1;
                     time = DateTime.MinValue.AddSeconds(seconds);
-                    timelbl.Text = time.ToString();
-                    if (time.Second >= 60)
+                    timePassdlbl.Text = TimeForDisplay(time);
+                    if (time.Minute >= 1)
                     {
-                        timelbl.Text = $"{time.Minute}min{time.Second}";
+                        timeStr = $"{time.Minute}min{time.Second}";
                         return true;
 
                     }
-                    timelbl.Text = $"{time.Second} sec";
+                    timeStr = $"{time.Second} sec";
                     return true;
                 }
                 return true;
@@ -83,9 +87,10 @@ namespace Smart_bike_G3.Views
         {
             oneWheel.AnchorY = 0.85;
             pauseBtn.IsVisible = false;
+            timePassdlbl.Text = "00:00";
             resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
             quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
-            StartBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.StartB.png");
+            StartBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.StartBl.png");
             pauseBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.pauze.png");
         }
 
@@ -95,42 +100,42 @@ namespace Smart_bike_G3.Views
             //speed = rand.Next(0, 30);
             double speedval;
             int angle;
-
-            if (playing)
+            CheckDead();
+            if (!stopped)
             {
-                speedval = CheckSpeedLimit(speed);
-                double targetSpeed = 15;
-                uint fallSpeed = CalcFallSpeed(speedval, targetSpeed);
-                SetFeedback();
-                if (speedval == targetSpeed)
+                if (playing)
                 {
-                    Rotate(0, 3000);
+                    speedval = CheckSpeedLimit(speed);
+                    double targetSpeed = 15;
+                    uint fallSpeed = CalcFallSpeed(speedval, targetSpeed);
+                    SetFeedback();
+                    if (speedval == targetSpeed)
+                    {
+                        Rotate(0, 3000);
+                        return true;
+                    }
+                    else
+                    {
+                        angle = SetAngle(speedval, targetSpeed);
+                        Rotate(angle, fallSpeed);
+                        return true;
+                    }
                 }
                 else
                 {
-                    angle = SetAngle(speedval, targetSpeed);
-                    Rotate(angle, fallSpeed);
-                }
-                
-            }
-            else
-            {
-                if (started)
-                {
-                    Rotate((int)oneWheel.Rotation, 0);
+                    if (started)
+                    {
+                        Rotate((int)oneWheel.Rotation, 0);
+                        return true;
 
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                else
-                {
-                    Rotate(0, 0);
-                }
-
             }
-            if (stopped)
-            {
-                return false;
-            }
-            return true;
+            return false;
         }
 
         private void SetFeedback()
@@ -138,12 +143,11 @@ namespace Smart_bike_G3.Views
             double Angle = Math.Round(oneWheel.Rotation);
             if (Angle > 10)
             {
-                feedbacklbl.Text = "Rapper!!";
+                feedbacklbl.Text = "Sneller!!";
             }
             else if (Angle < -10)
             {
                 feedbacklbl.Text = "Trager!!";
-
             }
             else
             {
@@ -184,23 +188,49 @@ namespace Smart_bike_G3.Views
         private async Task Rotate(int degrees, uint speed)
         {
             await oneWheel.RotateTo(degrees, speed);
-            CheckDead();
         }
 
-        private void CheckDead()
+        private async Task CheckDead()
         {
             if (Math.Round(oneWheel.Rotation) == 80 || Math.Round(oneWheel.Rotation) == -80)
             {
                 playing = false;
                 stopped = true;
-                timerlbl.Text = TimeForBord(time);
+                feedbacklbl.IsVisible = false;
+                timePassdlbl.IsVisible = false;
+                timerlbl.Text = $"{timeStr} overleefd";
                 timerlbl.IsVisible = true;
-                Repository.AddResultsGame(3, Convert.ToInt32(seconds), 0);
-                Navigation.PushAsync(new Scorebord(seconds));
+                started = false;
+                await Repository.AddResultsGame(2, Convert.ToInt32(seconds), 0);
+                Device.StartTimer(TimeSpan.FromMilliseconds(2500), Reset);
+                Device.StartTimer(TimeSpan.FromMilliseconds(2000), Navigate);
+
             }
         }
 
-        private string TimeForBord(DateTime time)
+        private bool Reset()
+        {
+            Rotate(0, 0);
+            timePassdlbl.Text = "00:00";
+            stopped = false;
+            StartBtn.IsVisible = true;
+            pauseBtn.IsVisible = false;
+            feedbacklbl.IsVisible = false;
+            timerlbl.IsVisible = false;
+            seconds = 0;
+            Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
+
+            return false;
+
+        }
+
+        private bool Navigate()
+        {
+            Navigation.PushAsync(new Scorebord(seconds));
+            return false;
+        }
+
+        private string TimeForDisplay(DateTime time)
         {
             string minute = CheckDigits(time.Minute.ToString());
             string second = CheckDigits(time.Second.ToString());
@@ -264,6 +294,7 @@ namespace Smart_bike_G3.Views
 
         private void Start()
         {
+            timePassdlbl.IsVisible = true;
             started = true;
             playing = true;
             pauseBtn.IsVisible = true;
@@ -283,13 +314,12 @@ namespace Smart_bike_G3.Views
         private async void QuitBtn_Clicked(object sender, EventArgs e)
         {
             stopped = true;
+            started = false;
             Game lastuser = await Repository.GetLastUserAsync();
             if (lastuser.User == null)
             {
                 await Repository.DeleteAsync(lastuser.id);
             }
-            //Navigation.PopAsync(); //na restart, gaat dit naar scoreboard
-            //Navigation.PushAsync(new ChooseGame());
             Navigation.PopAsync();
         }
     }
