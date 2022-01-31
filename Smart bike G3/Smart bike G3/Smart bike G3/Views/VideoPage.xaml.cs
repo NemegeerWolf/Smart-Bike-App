@@ -23,6 +23,9 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+
+                
+
                 Cross.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Cross.png");
                 BackLft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");
                 BackRgt.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");

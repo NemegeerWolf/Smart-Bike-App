@@ -28,6 +28,11 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+
+                //prevent sleepmode
+                
+                DeviceDisplay.KeepScreenOn = false;
+
                 Pictures();
                 //lblName.Text = Name.User;
                 vidorgame = VideoOrGame.Kind;
@@ -78,6 +83,10 @@ namespace Smart_bike_G3.Views
                 btnAdd.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Check.png");
                 entName.Text = "";
                 btnAdd.IsEnabled = false;
+                entName.IsVisible = false;
+                lblName.Text = user;
+                lblName.IsVisible = true;
+
             }
             if (user == null)
             {
@@ -184,7 +193,7 @@ namespace Smart_bike_G3.Views
             if (VideoOrGame.Kind == "game")
             {
                 var i = await Repository.GetLastUserAsync();
-                if (entName.Text == null)
+                if (entName.Text == null && i.User == null)
                 {
                     await Repository.DeleteAsync(i.id);
                 }
@@ -212,7 +221,7 @@ namespace Smart_bike_G3.Views
             else
             {
                 var i = await Repository.GetLastUserAsync();
-                if (entName.Text == null)
+                if (entName.Text == null && i.User == null)
                 {
                     await Repository.DeleteAsync(i.id);
                 }
@@ -223,7 +232,7 @@ namespace Smart_bike_G3.Views
         private async void BtnHome_Clicked(object sender, EventArgs e)
         {
             var i = await Repository.GetLastUserAsync();
-            if (entName.Text == null)
+            if (entName.Text == null && i.User == null)
             {
                 await Repository.DeleteAsync(i.id);
             }

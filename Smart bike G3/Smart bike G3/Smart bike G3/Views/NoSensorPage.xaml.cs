@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using Smart_bike_G3.Services;
 using System.Diagnostics;
 using Smart_bike_G3.Views;
+using Xamarin.Essentials;
 
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-regular")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
@@ -23,6 +24,11 @@ namespace Smart_bike_G3
         public NoSensorPage()
         {
             InitializeComponent();
+
+            //prevent sleepmode
+            
+            DeviceDisplay.KeepScreenOn = false;
+
             Sensor.Start();
             Bluetooth.ClearAllDelegatesOfLostConnection();
             //Navigation.PushAsync(new VideoOrGame());

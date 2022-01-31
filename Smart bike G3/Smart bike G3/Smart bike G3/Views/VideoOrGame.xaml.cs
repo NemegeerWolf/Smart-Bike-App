@@ -36,6 +36,11 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+
+                //prevent sleepmode
+               
+                DeviceDisplay.KeepScreenOn = false;
+
                 delete();
                 Pictures();
                 AddEvents();

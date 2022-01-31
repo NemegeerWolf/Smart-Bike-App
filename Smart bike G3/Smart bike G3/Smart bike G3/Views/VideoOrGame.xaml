@@ -96,14 +96,14 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="8*" />
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.8*"/>
+                        <RowDefinition Height="12*" />
+                        <RowDefinition Height="0.8*"/>
 
                     </Grid.RowDefinitions>
 
                     <StackLayout Grid.Row="1" Grid.Column="1" x:Name="AbsLayVideo">
-                        <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
+                        <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="0">
                             <Grid  >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -126,7 +126,7 @@
 
 
                     <StackLayout Grid.Row="1" Grid.Column="3" x:Name="AbsLayGame">
-                        <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="10">
+                        <Frame HasShadow="True" BackgroundColor="#f7ffff" CornerRadius="0">
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TestBluethoot.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,6 +23,11 @@ namespace Smart_bike_G3.Views
         public SpelOverloop()
         {
             InitializeComponent();
+
+            ////prevent sleepmode
+            
+            DeviceDisplay.KeepScreenOn = true;
+
             pictures();
             Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
             Device.StartTimer(TimeSpan.FromMilliseconds(100), gameplay);

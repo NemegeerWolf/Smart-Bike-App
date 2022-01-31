@@ -28,6 +28,11 @@ namespace Smart_bike_G3.Views
             {
 
                 InitializeComponent();
+
+                //prevent sleepmode
+                
+                DeviceDisplay.KeepScreenOn = true;
+
                 NavigationPage.SetHasNavigationBar(this, false);
                 SetXaml();
                 Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
