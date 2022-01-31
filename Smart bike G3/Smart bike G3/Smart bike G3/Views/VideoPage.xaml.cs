@@ -67,7 +67,7 @@ namespace Smart_bike_G3.Views
                 {
                     seconds += 1;
                     time = DateTime.MinValue.AddSeconds(seconds);
-                    timePassdlbl.Text = TimeForDisplay(time);
+                    //timePassdlbl.Text = TimeForDisplay(time);
                     return true;
                 }
                 return true;

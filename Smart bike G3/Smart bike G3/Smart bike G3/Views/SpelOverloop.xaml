@@ -52,7 +52,7 @@
                     
                 </AbsoluteLayout>
 
-                <Image x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="{OnIdiom Phone = 50, Tablet= 15}"/>
+                <Image Scale="{OnIdiom Tablet=1.5}" x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="{OnIdiom Phone = 50, Tablet= 15}"/>
 
                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
