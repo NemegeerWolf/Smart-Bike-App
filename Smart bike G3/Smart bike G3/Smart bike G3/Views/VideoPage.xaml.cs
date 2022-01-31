@@ -21,6 +21,9 @@ namespace Smart_bike_G3.Views
         List<double> speedOvertime = new List<double>();
         bool checkSpeed;
         private bool playing = false;
+        private bool pauzed = false;
+        int seconds;
+        DateTime time;
         public VideoPage()
         {
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -31,11 +34,10 @@ namespace Smart_bike_G3.Views
                 BackRgt.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
                 SetVideo();
                 NavigationPage.SetHasNavigationBar(this, false);
-
-                Sensor.NewDataSpeed += ((s, e) =>
+                /*Sensor.NewDataSpeed += ((s, e) =>
                 {
                     speed =e;
-                });
+                });*/
                 
             }
             else
@@ -44,15 +46,36 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        protected override void OnAppearing()
-        {
 
-            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+
+        //protected override void OnAppearing()
+        //{
+
+        //    if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+        //    {
+        //        Navigation.PushAsync(new NoSensorPage());
+        //    }
+        //    base.OnAppearing();
+        //}
+
+        private bool Timer()
+        {        
+            if (playing && !pauzed)
             {
-                Navigation.PushAsync(new NoSensorPage());
+                seconds += 1;
+                time = DateTime.MinValue.AddSeconds(seconds);
+                timePassdlbl.Text = TimeForDisplay(time);
+                if (time.Minute >= 1)
+                {
+                    return true;
+
+                }
+                return true;
             }
-            base.OnAppearing();
+            return true;     
         }
+
+
         private async Task SetVideo()
         {
             string vidId = ChooseVideo.VideoId;
@@ -121,10 +144,13 @@ namespace Smart_bike_G3.Views
                 if (speed > 1 & video.CurrentState == Xamarin.CommunityToolkit.UI.Views.MediaElementState.Paused)
                 {
                     video.Play();
+                    pauzed = false;
                 }
                 else if (speed < 1 & video.CurrentState == Xamarin.CommunityToolkit.UI.Views.MediaElementState.Playing)
                 {
                     video.Pause();
+                    pauzed = true;
+
                 }
             }
             if (checkSpeed)
@@ -151,6 +177,20 @@ namespace Smart_bike_G3.Views
         {
             Navigation.PopAsync();
             Cross.Scale = 0.8;
+        }
+        private string TimeForDisplay(DateTime time)
+        {
+            string minute = CheckDigits(time.Minute.ToString());
+            string second = CheckDigits(time.Second.ToString());
+            return $"{minute}:{second}";
+        }
+        private string CheckDigits(string str)
+        {
+            if (str.Length == 1)
+            {
+                return $"0{str}";
+            }
+            return str;
         }
     }
 }
