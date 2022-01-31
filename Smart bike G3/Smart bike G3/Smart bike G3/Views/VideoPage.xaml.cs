@@ -9,6 +9,7 @@ using YoutubeExplode.Videos.Streams;
 using System.Linq;
 using Smart_bike_G3.Services;
 using Quick.Xamarin.BLE.Abstractions;
+using TestBluethoot.Services;
 
 namespace Smart_bike_G3.Views
 {
@@ -30,6 +31,7 @@ namespace Smart_bike_G3.Views
                 BackRgt.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
                 SetVideo();
                 NavigationPage.SetHasNavigationBar(this, false);
+
                 Sensor.NewDataSpeed += ((s, e) =>
                 {
                     speed =e;

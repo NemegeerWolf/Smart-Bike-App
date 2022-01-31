@@ -34,7 +34,7 @@ namespace Smart_bike_G3.Views
         public VideoOrGame()
         {
             InitializeComponent();
-            delete();
+            //delete();
             Pictures();
             AddEvents();
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
