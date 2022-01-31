@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using TestBluethoot.Services;
 using System.Linq;
 using System.Threading;
+using Xamarin.Essentials;
 
 namespace Smart_bike_G3
 {
@@ -26,7 +27,11 @@ namespace Smart_bike_G3
             MainPage = new NavigationPage(new VideoOrGame());
         }
 
-        
+        public void ToggleScreenLock()
+        {
+            //prevent sleepmode
+            DeviceDisplay.KeepScreenOn = true;
+        }
 
         private void firstTimefileSetup() //Makes file for videoUrls if non exist
         {
