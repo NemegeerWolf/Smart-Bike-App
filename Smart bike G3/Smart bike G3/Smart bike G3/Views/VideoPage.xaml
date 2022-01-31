@@ -15,8 +15,8 @@
                     <Label x:Name="speedlbl" FontAttributes="Bold" FontSize="{OnIdiom Phone = 20, Tablet= 36}" TextColor="#EAFCFC" HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center" />
                 </Frame>
-                
-     
+
+                <Label x:Name="timePassdlbl" HorizontalOptions="End" VerticalOptions="End" FontSize="{OnIdiom Phone = 20, Tablet= 36}"/>
                 <Image x:Name="BackLft" HorizontalOptions="Start" VerticalOptions="End" Margin="0,0,0,-10"/>
                 <Image x:Name="BackRgt" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,0,-10"/>
 

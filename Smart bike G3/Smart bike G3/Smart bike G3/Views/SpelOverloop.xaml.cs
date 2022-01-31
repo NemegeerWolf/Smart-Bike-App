@@ -28,6 +28,15 @@ namespace Smart_bike_G3.Views
             Device.StartTimer(TimeSpan.FromMilliseconds(100), gameplay);
             
 
+        //protected override void OnAppearing()
+        //{
+
+        //    if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+        //    {
+        //        Navigation.PushAsync(new NoSensorPage());
+        //    }
+        //    base.OnAppearing();
+        //}
 
             // If there is new data -> Read sensor
             Sensor.NewDataSpeed += ((s, e) =>

@@ -93,15 +93,15 @@ namespace Smart_bike_G3.Views
             
         }
 
-        protected override void OnAppearing()
-        {
+        //protected override void OnAppearing()
+        //{
 
-            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
-            {
-                Navigation.PushAsync(new NoSensorPage());
-            }
-            base.OnAppearing();
-        }
+        //    if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+        //    {
+        //        Navigation.PushAsync(new NoSensorPage());
+        //    }
+        //    base.OnAppearing();
+        //}
 
         private void ResumeBtn_Clicked(object sender, EventArgs e)
         {

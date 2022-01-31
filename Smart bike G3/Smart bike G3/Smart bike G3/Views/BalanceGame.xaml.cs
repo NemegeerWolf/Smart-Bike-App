@@ -36,6 +36,7 @@ namespace Smart_bike_G3.Views
 
                 NavigationPage.SetHasNavigationBar(this, false);
                 SetXaml();
+                AddEvents();
                 Device.StartTimer(TimeSpan.FromMilliseconds(100), Animate);
                 Device.StartTimer(TimeSpan.FromMilliseconds(100), CheckDead);
 
@@ -50,15 +51,15 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        protected override void OnAppearing()
-        {
+        //protected override void OnAppearing()
+        //{
 
-            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
-            {
-                Navigation.PushAsync(new NoSensorPage());
-            }
-            base.OnAppearing();
-        }
+        //    if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+        //    {
+        //        Navigation.PushAsync(new NoSensorPage());
+        //    }
+        //    base.OnAppearing();
+        //}
 
 
 
@@ -90,11 +91,22 @@ namespace Smart_bike_G3.Views
             oneWheel.AnchorY = 0.85;
             pauseBtn.IsVisible = false;
             timePassdlbl.Text = "00:00";
-            homeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Home.png");
             resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
             quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
             StartBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.StartBl.png");
             pauseBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.pauze.png");
+        }
+
+        private void AddEvents()
+        {
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+            AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+        private void AbsLayBack_Tabbed(object sender, EventArgs e)
+        {
+            AbsLayBack.Scale = 1.5;
+            Navigation.PopAsync();
         }
 
         private bool Animate()
@@ -214,7 +226,7 @@ namespace Smart_bike_G3.Views
         private bool Reset()
         {
             Rotate(0, 0);
-            homeBtn.IsVisible = true;
+            AbsLayBack.IsVisible = true;
 
             timePassdlbl.Text = "00:00";
             stopped = false;
@@ -304,7 +316,7 @@ namespace Smart_bike_G3.Views
             playing = true;
             pauseBtn.IsVisible = true;
             feedbacklbl.IsVisible = true;
-            homeBtn.IsVisible = false;
+            AbsLayBack.IsVisible = false;
 
             Device.StartTimer(TimeSpan.FromSeconds(1), Timer);
         }
@@ -328,6 +340,11 @@ namespace Smart_bike_G3.Views
                 await Repository.DeleteAsync(lastuser.id);
             }
             Navigation.PopAsync();
+        }
+
+        private void homeBtn_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
