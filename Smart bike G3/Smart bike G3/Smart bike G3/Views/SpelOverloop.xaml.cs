@@ -1,5 +1,7 @@
-﻿using Smart_bike_G3.Models;
+﻿using Quick.Xamarin.BLE.Abstractions;
+using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
+using Smart_bike_G3.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,26 +24,41 @@ namespace Smart_bike_G3.Views
 
         public SpelOverloop()
         {
-            InitializeComponent();
-
-            ////prevent sleepmode
-            
-            DeviceDisplay.KeepScreenOn = true;
-
-            pictures();
-            Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
-            Device.StartTimer(TimeSpan.FromMilliseconds(100), gameplay);
-            
-
-
-            
-            Sensor.NewDataSpeed += ((s, e) =>
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                Speed = e;
-            });
+                InitializeComponent();
+                pictures();
+                Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
+                Device.StartTimer(TimeSpan.FromMilliseconds(100), gameplay);
+                //TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+                //tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
+                //AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+                
+
+                // If there is new data -> Read sensor
+                Sensor.NewDataSpeed += ((s, e) =>
+                {
+                    Speed = e;
+                });
+
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
         }
 
-        private void pictures()
+        protected override void OnAppearing()
+        {
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
+        }
+
+            private void pictures()
         {
             imgbackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundGlass.png");
             imgGlass.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GlassGame.png");
@@ -144,7 +161,7 @@ namespace Smart_bike_G3.Views
 
         private void quitBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChooseGame());
+            Navigation.PopAsync();
         }
 
         private void pauseBtn_Clicked(object sender, EventArgs e)

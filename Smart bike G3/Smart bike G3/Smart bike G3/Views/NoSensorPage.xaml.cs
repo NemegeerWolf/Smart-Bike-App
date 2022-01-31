@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using Xamarin.Forms.Xaml;
 using Smart_bike_G3.Services;
 using System.Diagnostics;
+using System.Collections.Generic;
 using Smart_bike_G3.Views;
 using Xamarin.Essentials;
 
@@ -17,7 +18,7 @@ using Xamarin.Essentials;
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-SemiBold.ttf", Alias = "Rubik-SemiBold")]
 
-namespace Smart_bike_G3
+namespace Smart_bike_G3.Views
 {
     public partial class NoSensorPage : ContentPage
     {
@@ -34,13 +35,23 @@ namespace Smart_bike_G3
             
             Bluetooth.MadeConnection += ((s, e) =>
             {
-                Navigation.PopAsync();
-                Bluetooth.LostConnection += ((se, ev) =>
-                {
+                //List<Page> pages = (List<Page>)Navigation.NavigationStack;
+                //foreach (Page page in pages)
+                //{
+                //    Navigation.RemovePage(page);
+                //}
 
-                    Navigation.PushAsync(new NoSensorPage());
+               
+               
+                Navigation.PushAsync(new VideoOrGame());
+                //Navigation.PopToRootAsync();
+                //Navigation.PopAsync();
+                //Bluetooth.LostConnection += ((se, ev) =>
+                //{
 
-                });
+                //    Navigation.PushAsync(new NoSensorPage());
+
+                //});
 
             });
         }
@@ -95,9 +106,9 @@ namespace Smart_bike_G3
         //    Debug.WriteLine(e.ToString() + " rpm");
         //}
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Search());
+            await this.Navigation.PushAsync(new Search());
         }
     }
 }

@@ -1,27 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Smart_bike_G3.NoSensorPage"
+             xmlns:local="clr-namespace:Smart_bike_G3.Views"
+             x:Class="Smart_bike_G3.Views.NoSensorPage"
              BackgroundColor="#eafcfc"
              NavigationPage.HasNavigationBar="False">
     <StackLayout>
         <Grid HeightRequest="1000">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="4*"/>
+                
                 
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Column="1" VerticalOptions="Center">
-                <Label Text="Oeps, de sensor is niet verbonden." TextColor="#4b789e" FontSize="40" FontFamily="Rubik-SemiBold"/>
+                <Label Text="Oeps, de sensor is niet verbonden." TextColor="#4b789e" FontSize="{OnIdiom Phone = 28, Tablet= 40}" FontFamily="Rubik-SemiBold"/>
                 <Label/>
                 <Label Text="Fiets even zodat de sensor wordt wakker gemaakt." TextColor="Black" FontSize="28" FontFamily="Rubik-Regular"/>
                 <Button Text="Indien dit niet werkt verbindt met andere sensor" Clicked="Button_Clicked"/>
 
             </StackLayout>
-            <AbsoluteLayout  Grid.Column="3" VerticalOptions="Center">
+            <AbsoluteLayout  Grid.Column="3" VerticalOptions="Center" Scale="{OnIdiom Phone = 0.5, Tablet= 1}">
                 <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
                     <Path.Data>
                         <PathGeometry Figures="M0 0H518V518H0Z" FillRule="Nonzero"/>

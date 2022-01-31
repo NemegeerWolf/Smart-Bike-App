@@ -170,15 +170,28 @@ namespace Smart_bike_G3.Views
                 
                 if (ChooseGame.gameId == 1)
                 {
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                     Navigation.PushAsync(new Spel123Piano());
                 }
-                if (ChooseGame.gameId == 2)
+                else if (ChooseGame.gameId == 2)
                 {
-                    await Navigation.PopAsync();
-                    //await Navigation.PushAsync(new BalanceGame());
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count-2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+
+                    
+
+                    await Navigation.PushAsync(new BalanceGame());
+                        //return;
+                    
+                    
+                
+                
                 }
-                if (ChooseGame.gameId == 3)
+                else if(ChooseGame.gameId == 3)
                 {
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                     Navigation.PushAsync(new SpelOverloop());
                 }
                 else
@@ -205,8 +218,12 @@ namespace Smart_bike_G3.Views
             {
                 await Repository.DeleteAsync(i.id);
             }
+            //await Navigation.PopToRootAsync(true);
             
-            Navigation.PushAsync(new VideoOrGame());
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+            Navigation.PopAsync();
+            //Navigation.PushAsync(new VideoOrGame());
         }
     }
 }
