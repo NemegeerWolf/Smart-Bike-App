@@ -181,7 +181,7 @@ namespace Smart_bike_G3.Views
                 stopped = true;
                 timerlbl.Text = TimeForBord(time);
                 timerlbl.IsVisible = true;
-                Repository.AddResultsGame(3, Convert.ToInt32(seconds), 0);
+                Repository.AddResultsGame(2, Convert.ToInt32(seconds), 0);
                 Navigation.PushAsync(new Scorebord(seconds));
             }
         }
