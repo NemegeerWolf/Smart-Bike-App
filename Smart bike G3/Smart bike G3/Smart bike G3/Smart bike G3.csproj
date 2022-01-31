@@ -65,7 +65,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\Again.png" />
     <EmbeddedResource Include="Assets\arrow_back.png" />
-    <EmbeddedResource Include="Assets\Asset2.png" />
     <EmbeddedResource Include="Assets\BackgroundGlass.png" />
     <EmbeddedResource Include="Assets\BackgroundScore1.png" />
     <EmbeddedResource Include="Assets\BackgroundScore2.png" />

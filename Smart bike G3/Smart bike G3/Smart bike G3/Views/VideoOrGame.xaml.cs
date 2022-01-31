@@ -34,7 +34,7 @@ namespace Smart_bike_G3.Views
         public VideoOrGame()
         {
             InitializeComponent();
-            
+            //delete();
             Pictures();
             AddEvents();
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
@@ -110,6 +110,8 @@ namespace Smart_bike_G3.Views
 
             
         }
+
+        
 
         private void AbsLayGame_Tabbed(object sender, EventArgs e)
         {
