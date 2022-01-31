@@ -20,6 +20,7 @@ namespace Smart_bike_G3.Views
         int count = 0;
         List<double> speedOvertime = new List<double>();
         bool checkSpeed;
+        private bool stopped = false;
         private bool playing = false;
         private bool pauzed = false;
         int seconds;
@@ -59,20 +60,19 @@ namespace Smart_bike_G3.Views
         //}
 
         private bool Timer()
-        {        
-            if (playing && !pauzed)
+        {
+            if (!stopped)
             {
-                seconds += 1;
-                time = DateTime.MinValue.AddSeconds(seconds);
-                timePassdlbl.Text = TimeForDisplay(time);
-                if (time.Minute >= 1)
+                if (playing && !pauzed)
                 {
+                    seconds += 1;
+                    time = DateTime.MinValue.AddSeconds(seconds);
+                    timePassdlbl.Text = TimeForDisplay(time);
                     return true;
-
                 }
                 return true;
             }
-            return true;     
+            return false;     
         }
 
 
@@ -102,6 +102,7 @@ namespace Smart_bike_G3.Views
             speedframe.IsVisible = false;
             BackLft.IsVisible = true;
             BackRgt.IsVisible = true;
+            stopped = true;
             audio.Stop();
             double average = CheckEnoughData(speedOvertime);
             double distance = CalcDistance(average, ChooseVideo.VideoDur);
@@ -176,6 +177,7 @@ namespace Smart_bike_G3.Views
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PopAsync();
+            stopped = true;
             Cross.Scale = 0.8;
         }
         private string TimeForDisplay(DateTime time)
