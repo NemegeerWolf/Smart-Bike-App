@@ -57,8 +57,8 @@ namespace TestBluethoot.Services
             int crankTimeIndex = 3;
             if (hasWheel)
             {
-                crankRevIndex = 7;
-                crankTimeIndex = 9;
+                crankRevIndex = 4;
+                crankTimeIndex = 5;
             }
 
             int cumulativeCrankRev = (int)((data[crankRevIndex + 1] << 8) + data[crankRevIndex]);

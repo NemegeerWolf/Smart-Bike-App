@@ -8,6 +8,8 @@ using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 using TestBluethoot.Services;
 using System.Linq;
+using Smart_bike_G3.Services;
+using Quick.Xamarin.BLE.Abstractions;
 
 namespace Smart_bike_G3.Views
 {
@@ -32,12 +34,22 @@ namespace Smart_bike_G3.Views
                 {
                     speed =e;
                 });
-
+                
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
+        }
+
+        protected override void OnAppearing()
+        {
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
         }
 
         private bool playing = false;

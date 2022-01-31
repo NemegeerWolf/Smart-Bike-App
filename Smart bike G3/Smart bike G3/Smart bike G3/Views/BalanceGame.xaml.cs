@@ -1,5 +1,7 @@
-﻿using Smart_bike_G3.Models;
+﻿using Quick.Xamarin.BLE.Abstractions;
+using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
+using Smart_bike_G3.Services;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -41,6 +43,18 @@ namespace Smart_bike_G3.Views
                 Navigation.PushAsync(new NoNetworkPage());
             }
         }
+
+        protected override void OnAppearing()
+        {
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
+        }
+
+
 
         private bool Timer()
         {
@@ -275,7 +289,8 @@ namespace Smart_bike_G3.Views
                 await Repository.DeleteAsync(lastuser.id);
             }
             //Navigation.PopAsync(); //na restart, gaat dit naar scoreboard
-            Navigation.PushAsync(new ChooseGame());
+            //Navigation.PushAsync(new ChooseGame());
+            Navigation.PopAsync();
         }
     }
 }

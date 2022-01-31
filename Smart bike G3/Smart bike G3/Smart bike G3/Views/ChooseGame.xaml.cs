@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quick.Xamarin.BLE.Abstractions;
+using Smart_bike_G3.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,6 +42,16 @@ namespace Smart_bike_G3.Views
                 Navigation.PushAsync(new NoNetworkPage());
             }
             
+        }
+
+        protected override void OnAppearing()
+        {
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
         }
 
         private void BtnOk_Clicked(object sender, EventArgs e)

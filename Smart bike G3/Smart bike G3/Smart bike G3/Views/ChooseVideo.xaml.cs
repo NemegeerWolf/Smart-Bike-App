@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Quick.Xamarin.BLE.Abstractions;
 using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
+using Smart_bike_G3.Services;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -40,7 +42,7 @@ namespace Smart_bike_G3.Views
                 AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
 
                 imgHelp.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.help.png");
-
+               
                 //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
                 //{
                 //    Console.WriteLine("Return to startpage"); 
@@ -54,7 +56,17 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        
+        protected override void OnAppearing()
+        {
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
+        }
+
+
 
         private async void AbsLaSetting_Tabbed(object sender, EventArgs e)
         {

@@ -33,23 +33,31 @@ namespace Smart_bike_G3.Views
 
         public VideoOrGame()
         {
+            InitializeComponent();
+            delete();
+            Pictures();
+            AddEvents();
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                InitializeComponent();
-                delete();
-                Pictures();
-                AddEvents();
-                //if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
-                //{
-                //    Navigation.PushAsync(new NoSensorPage());
-                //  //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
-                //}
-                //else
-                //{
-                 
-                
+                if (Bluetooth.BleStatus == AdapterConnectStatus.Connected)
+                {
 
-                //}
+                    //Bluetooth.LostConnection += ((s, e) =>
+                    //{
+
+                    //    Navigation.PushAsync(new NoSensorPage());
+
+                    //});
+                }
+                else
+                {
+
+                
+                
+                    Navigation.PushAsync(new NoSensorPage());
+                    //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
+                }
+                
             }
             else
             {
@@ -60,14 +68,20 @@ namespace Smart_bike_G3.Views
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            Bluetooth.ClearAllDelegatesOfMadeConnection();
-            Bluetooth.LostConnection += ((s, e) =>
+           
+            if (Bluetooth.BleStatus == AdapterConnectStatus.Connected)
             {
+                Bluetooth.ClearAllDelegatesOfMadeConnection();
+            }
+            base.OnAppearing();
+            // Niet verwijderen (zou moeten werken maar werk om een of andere reden niet)
+            //Bluetooth.LostConnection += ((s, e) =>
+            //{
 
-                Navigation.PushAsync(new NoSensorPage());
+            //    Navigation.PushAsync(new NoSensorPage());
 
-            });
+            //});
+
         }
 
         private async void delete()

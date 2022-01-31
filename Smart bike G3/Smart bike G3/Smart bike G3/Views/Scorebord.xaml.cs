@@ -47,6 +47,7 @@ namespace Smart_bike_G3.Views
                 btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
                 btnAdd.Clicked += BtnAdd_Clicked;
 
+
                 //Device.StartTimer(TimeSpan.FromMinutes(1), () =>
                 //{
                 //    Console.WriteLine("Return to startpage");
@@ -192,14 +193,28 @@ namespace Smart_bike_G3.Views
                 //Navigation.PopAsync();
                 if (ChooseGame.gameId == 1)
                 {
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                     Navigation.PushAsync(new Spel123Piano());
                 }
-                if (ChooseGame.gameId == 2)
+                else if (ChooseGame.gameId == 2)
                 {
-                    Navigation.PushAsync(new BalanceGame());
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count-2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+
+                    
+
+                    await Navigation.PushAsync(new BalanceGame());
+                        //return;
+                    
+                    
+                
+                
                 }
-                if (ChooseGame.gameId == 3)
+                else if(ChooseGame.gameId == 3)
                 {
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
                     Navigation.PushAsync(new SpelOverloop());
                 }
                 else
@@ -226,8 +241,12 @@ namespace Smart_bike_G3.Views
             {
                 await Repository.DeleteAsync(i.id);
             }
-            //Navigation.PopToRootAsync(true);
-            Navigation.PushAsync(new VideoOrGame());
+            //await Navigation.PopToRootAsync(true);
+            
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+            Navigation.PopAsync();
+            //Navigation.PushAsync(new VideoOrGame());
         }
     }
 }

@@ -12,6 +12,8 @@ using Xamarin.Essentials;
 using Smart_bike_G3.Repositories;
 using TestBluethoot.Services;
 using Smart_bike_G3.Models;
+using Smart_bike_G3.Services;
+using Quick.Xamarin.BLE.Abstractions;
 
 namespace Smart_bike_G3.Views
 {
@@ -77,12 +79,24 @@ namespace Smart_bike_G3.Views
                 {
                     globalSpeed = e;
                 });
+
+               
             }
             else
             {
                 Navigation.PushAsync(new NoNetworkPage());
             }
             
+        }
+
+        protected override void OnAppearing()
+        {
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
         }
 
         private void ResumeBtn_Clicked(object sender, EventArgs e)

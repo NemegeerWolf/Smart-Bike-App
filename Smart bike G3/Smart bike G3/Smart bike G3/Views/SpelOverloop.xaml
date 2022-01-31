@@ -115,7 +115,7 @@
                 
             </AbsoluteLayout>-->
 
-                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationX="{OnIdiom Phone = 2, Tablet= 10}" TranslationY="15" Scale="{OnIdiom Phone = 0.33, Tablet= 1}">
+                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationX="{OnIdiom Phone = 2, Tablet= 10}" TranslationY="{OnIdiom Phone = 50, Tablet= 15}" Scale="{OnIdiom Phone = 0.33, Tablet= 1}">
                     <Path  x:Name="water">
                         <Path.Fill>
                             <LinearGradientBrush x:Name="waterBrush" EndPoint="0,1">
@@ -150,7 +150,7 @@
                     </Path>-->
                 </AbsoluteLayout>
 
-                <Image x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="15"/>
+                <Image x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="{OnIdiom Phone = 50, Tablet= 15}"/>
 
                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
@@ -173,7 +173,7 @@
 
             </Grid>
 
-            <Grid x:Name="GridPause" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" >
+            <Grid x:Name="GridPause" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" Scale="{OnIdiom Phone = 2, Tablet= 1}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
