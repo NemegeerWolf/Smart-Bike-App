@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TestBluethoot.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,9 +24,9 @@ namespace Smart_bike_G3.Views
         {
             InitializeComponent();
 
-            //prevent sleepmode
-            App app = new App();
-            app.ToggleScreenLock(false);
+            ////prevent sleepmode
+            
+            DeviceDisplay.KeepScreenOn = true;
 
             pictures();
             Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);

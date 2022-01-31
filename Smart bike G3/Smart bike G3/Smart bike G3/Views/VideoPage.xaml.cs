@@ -24,9 +24,7 @@ namespace Smart_bike_G3.Views
             {
                 InitializeComponent();
 
-                //prevent sleepmode
-                App app = new App();
-                app.ToggleScreenLock(true);
+                
 
                 Cross.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Cross.png");
                 BackLft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");

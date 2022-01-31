@@ -25,8 +25,8 @@ namespace Smart_bike_G3.Views
                 InitializeComponent();
 
                 //prevent sleepmode
-                App app = new App();
-                app.ToggleScreenLock(true);
+                
+                DeviceDisplay.KeepScreenOn = false;
 
                 NavigationPage.SetHasNavigationBar(this, false);
                 //SetEntrysAndButtons();
