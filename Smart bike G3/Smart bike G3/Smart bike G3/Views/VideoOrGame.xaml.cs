@@ -40,7 +40,7 @@ namespace Smart_bike_G3.Views
                 //prevent sleepmode
                 DeviceDisplay.KeepScreenOn = false;
 
-                delete();
+                
                 Pictures();
                 AddEvents();
                 
@@ -64,14 +64,7 @@ namespace Smart_bike_G3.Views
             });
         }
 
-        private async void delete()
-        {
-            Game lastuser = await Repository.GetLastUserAsync();
-            if (lastuser.User == null)
-            {
-                await Repository.DeleteAsync(lastuser.id);
-            }
-        }
+        
 
         private void Pictures()
         {
