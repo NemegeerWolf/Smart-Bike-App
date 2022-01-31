@@ -145,6 +145,7 @@ namespace Smart_bike_G3.Views
             GridPause.IsVisible = IsPauzed;
             pauzedFrame.IsVisible = IsPauzed;
             GridHelpBackGround.IsVisible = IsPauzed;
+
         }
 
         private void btnHome_Clicked(object sender, EventArgs e)
@@ -162,7 +163,7 @@ namespace Smart_bike_G3.Views
 
         private void quitBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ChooseGame());
+            Navigation.PopAsync();
         }
 
         private void pauseBtn_Clicked(object sender, EventArgs e)
