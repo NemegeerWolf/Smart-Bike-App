@@ -48,7 +48,7 @@ namespace Smart_bike_G3.Views
         private void pictures()
         {
             imgbackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundGlass.png");
-            imgGlass.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GlassGame.png");
+            //imgGlass.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GlassGame.png");
             resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
             quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
             pauseBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.pauze.png");
