@@ -184,7 +184,7 @@ namespace Smart_bike_G3.Views
             if (VideoOrGame.Kind == "game")
             {
                 var i = await Repository.GetLastUserAsync();
-                if (entName.Text == null)
+                if (entName.Text == null && i.User == null)
                 {
                     await Repository.DeleteAsync(i.id);
                 }
@@ -222,7 +222,7 @@ namespace Smart_bike_G3.Views
         private async void BtnHome_Clicked(object sender, EventArgs e)
         {
             var i = await Repository.GetLastUserAsync();
-            if (entName.Text == null)
+            if (entName.Text == null && i.User == null)
             {
                 await Repository.DeleteAsync(i.id);
             }
