@@ -11,7 +11,7 @@
         
         <Grid>
             <Image x:Name="oneWheel"  Source="oneWheeler.png" HorizontalOptions="Center" VerticalOptions="EndAndExpand" WidthRequest="{OnIdiom Phone = 100, Tablet= 200}"/>
-                <ImageButton x:Name="homeBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"   Clicked="homeBtn_Clicked" BackgroundColor="Transparent"/>
+                <ImageButton x:Name="homeBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Clicked="homeBtn_Clicked" BackgroundColor="Transparent"/>
 
                 <ImageButton x:Name="pauseBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"   Clicked="PauseBtn_Clicked" BackgroundColor="Transparent"/>
             <ImageButton x:Name="StartBtn" HorizontalOptions="CenterAndExpand"  WidthRequest="{OnIdiom Phone = 100, Tablet= 200}" HeightRequest="{OnIdiom Phone = 50, Tablet= 100}" Clicked="StartBtn_Clicked" BackgroundColor="Transparent" VerticalOptions="Start" Margin="0,90,0,0"/>

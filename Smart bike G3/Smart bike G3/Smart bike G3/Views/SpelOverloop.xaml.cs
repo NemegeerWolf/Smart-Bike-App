@@ -136,6 +136,7 @@ namespace Smart_bike_G3.Views
             GridPause.IsVisible = IsPauzed;
             pauzedFrame.IsVisible = IsPauzed;
             GridHelpBackGround.IsVisible = IsPauzed;
+
         }
 
         private void btnHome_Clicked(object sender, EventArgs e)
