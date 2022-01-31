@@ -7,9 +7,6 @@ using Xamarin.Forms.Xaml;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 using System.Linq;
-using Smart_bike_G3.Services;
-using Quick.Xamarin.BLE.Abstractions;
-using TestBluethoot.Services;
 
 namespace Smart_bike_G3.Views
 {
@@ -34,6 +31,8 @@ namespace Smart_bike_G3.Views
                 BackLft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");
                 BackRgt.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
                 SetVideo();
+                Device.StartTimer(TimeSpan.FromSeconds(1), Timer);
+
                 NavigationPage.SetHasNavigationBar(this, false);
                 /*Sensor.NewDataSpeed += ((s, e) =>
                 {
@@ -67,7 +66,7 @@ namespace Smart_bike_G3.Views
                 {
                     seconds += 1;
                     time = DateTime.MinValue.AddSeconds(seconds);
-                    timePassdlbl.Text = TimeForDisplay(time);
+                    timePassdlbl.Text = $"{TimeForDisplay(time)}/{ChooseVideo.VideoDur}";
                     return true;
                 }
                 return true;
@@ -102,7 +101,6 @@ namespace Smart_bike_G3.Views
             BackLft.IsVisible = true;
             BackRgt.IsVisible = true;
             stopped = true;
-            audio.Stop();
             double average = CheckEnoughData(speedOvertime);
             double distance = CalcDistance(average, ChooseVideo.VideoDur);
             Navigation.PushAsync(new ResultsVideo(distance,average, ChooseVideo.VideoDur));

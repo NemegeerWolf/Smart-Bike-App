@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using Xamarin.Essentials;
 using Smart_bike_G3.Repositories;
 using TestBluethoot.Services;
 using Smart_bike_G3.Models;
-using Smart_bike_G3.Services;
-using Quick.Xamarin.BLE.Abstractions;
 
 namespace Smart_bike_G3.Views
 {
@@ -234,7 +228,7 @@ namespace Smart_bike_G3.Views
             //Distance += speed * (2.77777778 * Math.Pow(10, -5)); // km
             Distance -= globalSpeed * 0.0277777778; // meter
             lblscore.Text = $"{Math.Round(Distance, 0).ToString()} m";
-            lblSpeed.Text = globalSpeed.ToString();
+            lblSpeed.Text = $"{globalSpeed.ToString()} km/u";
             // if finished ...
             if (Distance < 0)
             {

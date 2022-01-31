@@ -10,7 +10,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="4*"/>
                 
                 
@@ -19,10 +19,11 @@
                 <Label Text="Oeps, de sensor is niet verbonden." TextColor="#4b789e" FontSize="{OnIdiom Phone = 28, Tablet= 40}" FontFamily="Rubik-SemiBold"/>
                 <Label/>
                 <Label Text="Fiets even zodat de sensor wordt wakker gemaakt." TextColor="Black" FontSize="28" FontFamily="Rubik-Regular"/>
-                <Button Text="Indien dit niet werkt verbindt met andere sensor" Clicked="Button_Clicked"/>
+                <Label/>
+                <Button BackgroundColor="#86b1f2" CornerRadius="6" TextColor="White" Text="Zoek sensor" Clicked="Button_Clicked"/>
 
             </StackLayout>
-            <AbsoluteLayout  Grid.Column="3" VerticalOptions="Center" Scale="{OnIdiom Phone = 0.5, Tablet= 1}">
+            <AbsoluteLayout  Grid.Column="3" VerticalOptions="Center"  Scale="{OnIdiom Phone = 0.5, Tablet= 1.3}">
                 <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
                     <Path.Data>
                         <PathGeometry Figures="M0 0H518V518H0Z" FillRule="Nonzero"/>

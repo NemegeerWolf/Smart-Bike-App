@@ -1,10 +1,4 @@
-﻿using Quick.Xamarin.BLE.Abstractions;
-using Smart_bike_G3.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;

@@ -23,12 +23,6 @@ namespace Smart_bike_G3.Droid
     {
         BluetoothManager _manager;
 
-        //public void togglescreenlock()
-        //{
-        //    //prevent sleepmode
-        //    devicedisplay.keepscreenon = true;
-        //}
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             AndroidX.AppCompat.App.AppCompatDelegate.DefaultNightMode = AndroidX.AppCompat.App.AppCompatDelegate.ModeNightNo;

@@ -1,11 +1,7 @@
-﻿using Newtonsoft.Json;
-using Quick.Xamarin.BLE.Abstractions;
-using Smart_bike_G3.Models;
+﻿using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
-using Smart_bike_G3.Services;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -141,27 +137,27 @@ namespace Smart_bike_G3.Views
             Navigation.PushAsync(new VideoOrGame());
         }
 
-        private void lvwEnvVideos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            Console.WriteLine("selected Env videos");
-            Console.WriteLine(lvwEnvVideos.SelectedItem.ToString());
-            Thumbnail item = (Thumbnail)lvwEnvVideos.SelectedItem;
-            Console.WriteLine(item.VideoId);
-            VideoId = item.VideoId;
-            VideoDur = item.Duration;
-            Navigation.PushAsync(new VideoPage());
-        }
+        //private void lvwEnvVideos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    Console.WriteLine("selected Env videos");
+        //    Console.WriteLine(lvwEnvVideos.SelectedItem.ToString());
+        //    Thumbnail item = (Thumbnail)lvwEnvVideos.SelectedItem;
+        //    Console.WriteLine(item.VideoId);
+        //    VideoId = item.VideoId;
+        //    VideoDur = item.Duration;
+        //    Navigation.PushAsync(new VideoPage());
+        //}
 
-        private void lvwShortMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            Console.WriteLine("selected shortmovie");
-            Console.WriteLine(lvwShortMovies.SelectedItem.ToString());
-            Thumbnail item = (Thumbnail)lvwShortMovies.SelectedItem;
-            Console.WriteLine(item.VideoId);
-            VideoId = item.VideoId;
-            VideoDur = item.Duration;
-            Navigation.PushAsync(new VideoPage());
-        }
+        //private void lvwShortMovies_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    Console.WriteLine("selected shortmovie");
+        //    Console.WriteLine(lvwShortMovies.SelectedItem.ToString());
+        //    Thumbnail item = (Thumbnail)lvwShortMovies.SelectedItem;
+        //    Console.WriteLine(item.VideoId);
+        //    VideoId = item.VideoId;
+        //    VideoDur = item.Duration;
+        //    Navigation.PushAsync(new VideoPage());
+        //}
 
         private void imgHelp_Clicked(object sender, EventArgs e)
         {
