@@ -23,6 +23,11 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+
+                //prevent sleepmode
+                App app = new App();
+                app.ToggleScreenLock(true);
+
                 NavigationPage.SetHasNavigationBar(this, false);
                 //SetEntrysAndButtons();
                 TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();

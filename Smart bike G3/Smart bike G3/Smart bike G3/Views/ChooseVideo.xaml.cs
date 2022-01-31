@@ -31,6 +31,11 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+
+                //prevent sleepmode
+                App app = new App();
+                app.ToggleScreenLock(true);
+
                 ImgBackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Background.png");
                 LoadThumbnails(0);
                 LoadThumbnails(1);

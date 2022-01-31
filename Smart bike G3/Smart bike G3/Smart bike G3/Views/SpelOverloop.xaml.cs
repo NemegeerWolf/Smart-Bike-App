@@ -25,7 +25,7 @@ namespace Smart_bike_G3.Views
 
             //prevent sleepmode
             App app = new App();
-            app.ToggleScreenLock();
+            app.ToggleScreenLock(false);
 
             pictures();
             Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);

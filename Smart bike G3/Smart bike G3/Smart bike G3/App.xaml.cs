@@ -27,10 +27,13 @@ namespace Smart_bike_G3
             MainPage = new NavigationPage(new VideoOrGame());
         }
 
-        public void ToggleScreenLock()
+        public void ToggleScreenLock(bool needSleepmode)
         {
             //prevent sleepmode
-            DeviceDisplay.KeepScreenOn = true;
+            if (needSleepmode)//true = sleepmode
+                DeviceDisplay.KeepScreenOn = false;
+            else //false = no sleepmode
+                DeviceDisplay.KeepScreenOn = true;
         }
 
         private void firstTimefileSetup() //Makes file for videoUrls if non exist

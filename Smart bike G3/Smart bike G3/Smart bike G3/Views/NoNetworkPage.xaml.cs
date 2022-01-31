@@ -19,6 +19,12 @@ namespace Smart_bike_G3.Views
         public NoNetworkPage()
         {
             InitializeComponent();
+
+            //prevent sleepmode
+            App app = new App();
+            app.ToggleScreenLock(true);
+
+
             //imgNoInternet.Source = ImageSource.FromResource(@"Smart_Bike_G3.Assets.no_wifi.png");
 
             Connectivity.ConnectivityChanged += btnTryAgain_Clicked;

@@ -23,6 +23,11 @@ namespace Smart_bike_G3
         public NoSensorPage()
         {
             InitializeComponent();
+
+            //prevent sleepmode
+            App app = new App();
+            app.ToggleScreenLock(true);
+
             Sensor.Start();
             Bluetooth.ClearAllDelegatesOfLostConnection();
             //Navigation.PushAsync(new VideoOrGame());

@@ -28,6 +28,11 @@ namespace Smart_bike_G3.Views
             if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
                 InitializeComponent();
+
+                //prevent sleepmode
+                App app = new App();
+                app.ToggleScreenLock(true);
+
                 Pictures();
                 //lblName.Text = Name.User;
                 vidorgame = VideoOrGame.Kind;
