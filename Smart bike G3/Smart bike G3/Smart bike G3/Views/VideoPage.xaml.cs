@@ -77,7 +77,6 @@ namespace Smart_bike_G3.Views
             return false;     
         }
 
-
         private async Task SetVideo()
         {
             string vidId = ChooseVideo.VideoId;
