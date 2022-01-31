@@ -1,15 +1,11 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Smart_bike_G3.Models;
 using Smart_bike_G3.Views;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 
 namespace Smart_bike_G3.Repositories
 {
@@ -21,14 +17,14 @@ namespace Smart_bike_G3.Repositories
             client.DefaultRequestHeaders.Add("accept", "application/json");
             return client;
         }
-
+        private const string _secretKey = "4oJiv77gg/tM2the1oUk2CZdNbAahGkSnaaaBw7d0Mmr5tyenxo4dg==";
         public async static Task AddResultsVideo(int videoid, string user, int distance )
         {
             using (HttpClient client = GetHttpClient())
             {
                 try
                 {
-                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid}/{user}/{distance}";
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid}/{user}/{distance}?code={_secretKey}";
 
                     var response = await client.PostAsync(url, null);
                     if (!response.IsSuccessStatusCode)
@@ -52,7 +48,7 @@ namespace Smart_bike_G3.Repositories
             {
                 try
                 {
-                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{distance}/{speed}";
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{distance}/{speed}?code={_secretKey}";
 
                     var response = await client.PostAsync(url, null);
                     if (!response.IsSuccessStatusCode)
@@ -76,7 +72,7 @@ namespace Smart_bike_G3.Repositories
             {
                 try
                 {
-                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/name/{name}/{id}";
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/name/{name}/{id}?code={_secretKey}";
 
                     var response = await client.PutAsync(url, null);
                     if (!response.IsSuccessStatusCode)
@@ -100,7 +96,7 @@ namespace Smart_bike_G3.Repositories
             {
                 try
                 {
-                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/null/{id}";
+                    string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/null/{id}?code={_secretKey}";
 
                     var response = await client.DeleteAsync(url);
                     if (!response.IsSuccessStatusCode)
@@ -123,7 +119,7 @@ namespace Smart_bike_G3.Repositories
             using (HttpClient client = GetHttpClient())
             {
 
-                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/last/user";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/last/user?code={_secretKey}";
                 try
                 {
                     string json = await client.GetStringAsync(url);
@@ -149,7 +145,7 @@ namespace Smart_bike_G3.Repositories
             using (HttpClient client = GetHttpClient())
             {
                 
-                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid} ";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}?code={_secretKey}";
                 try
                 {
                     string json = await client.GetStringAsync(url);
@@ -175,7 +171,7 @@ namespace Smart_bike_G3.Repositories
             using (HttpClient client = GetHttpClient())
             {
 
-                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/null/{gameid} ";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/null/{gameid}?code={_secretKey}";
                 try
                 {
                     string json = await client.GetStringAsync(url);
@@ -201,7 +197,7 @@ namespace Smart_bike_G3.Repositories
             using (HttpClient client = GetHttpClient())
             {
                 
-                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid} ";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid}?code={_secretKey}";
                 try
                 {
                     string json = await client.GetStringAsync(url);
@@ -227,7 +223,7 @@ namespace Smart_bike_G3.Repositories
             using (HttpClient client = GetHttpClient())
             {
                 
-                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid}/{user} ";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/video/{videoid}/{user}?code={_secretKey}";
                 try
                 {
                     string json = await client.GetStringAsync(url);
@@ -253,7 +249,7 @@ namespace Smart_bike_G3.Repositories
             using (HttpClient client = GetHttpClient())
             {
 
-                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{user} ";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/game/{gameid}/{user}?code={_secretKey}";
                 try
                 {
                     string json = await client.GetStringAsync(url);
@@ -279,7 +275,7 @@ namespace Smart_bike_G3.Repositories
             using (HttpClient client = GetHttpClient())
             {
 
-                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/check/{username} ";
+                string url = $"https://smartbikeapi.azurewebsites.net/api/smartbike/check/{username}?code={_secretKey}";
                 try
                 {
                     string json = await client.GetStringAsync(url);
@@ -299,48 +295,20 @@ namespace Smart_bike_G3.Repositories
 
             }
         }
-        public async static Task<int> CheckRank(string id, int score, string kind)
+        public async static Task<int> CheckRank(string id, int score)
         {
             int rank = 0;
-            //if (kind == "video")
-            //{
-            //    int videoid = ChooseVideo.VideoId;
-            //    List<Video> list = await GetAllscoresVideoAsync(videoid);
-            //    foreach (var i in list)
-            //    {
-            //        if (i.id == id & i.Distance == score)
-            //        {
-            //            rank = int.Parse(i.Rank);
-            //            Debug.WriteLine(rank);
-            //        }
-            //    }
-            //    return rank;
-            //}
-            //else
-            if (kind == "game")
+            int gameid = ChooseGame.gameId;
+            List<Game> list = await GetAllscoresGameWithNullAsync(gameid);
+            foreach (var i in list)
             {
-                int gameid = ChooseGame.gameId;
-                List<Game> list = await GetAllscoresGameWithNullAsync(gameid);
-                foreach (var i in list)
+                if (Enumerable.Range(1, 3).Contains(gameid) & i.id == id & i.Speed == score)
                 {
-                    //if (gameid == 3 & i.id == id & i.Distance == score)
-                    //{
-                    //    rank = int.Parse(i.Rank);
-
-                    //}
-                    if (Enumerable.Range(1, 3).Contains(gameid) & i.id == id & i.Speed == score)
-                    {
-                        rank = int.Parse(i.Rank);
+                    rank = int.Parse(i.Rank);
                         
-                    }
                 }
-                return rank;
-
             }
-            else
-            {
-                return 0;
-            }
+            return rank; 
         }
     }
 }

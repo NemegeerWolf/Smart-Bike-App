@@ -152,7 +152,7 @@ namespace Smart_bike_G3.Views
             
            
 
-            int rank = await Repository.CheckRank(i.id, score, kind);
+            int rank = await Repository.CheckRank(i.id, score);
             lblPosition.Text = $"{rank}";
         }
 

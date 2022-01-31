@@ -19,7 +19,7 @@ namespace SmartBike_Api.Functions.Gets
     {
         [FunctionName("GetIdLastUser")]
         public static async Task<IActionResult> GetId(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/game/last/user")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "smartbike/game/last/user")] HttpRequest req,
             ILogger log)
         {
             try

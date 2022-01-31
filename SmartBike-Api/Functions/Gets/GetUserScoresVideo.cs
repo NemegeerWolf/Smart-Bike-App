@@ -17,7 +17,7 @@ namespace SmartBike_Api.Functions.Gets
     {
         [FunctionName("GetUserScoresVideo")]
         public static async Task<IActionResult> GetVideoScoreUser(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/video/{videoid}/{user}")] HttpRequest req, int videoid, string user,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "smartbike/video/{videoid}/{user}")] HttpRequest req, int videoid, string user,
             ILogger log)
         {
             CosmosClientOptions options = new CosmosClientOptions();

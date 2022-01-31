@@ -17,7 +17,7 @@ namespace SmartBike_Api.Functions.Gets
     {
         [FunctionName("CheckUserName")]
         public static async Task<IActionResult> CheckUserName(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/check/{username}")] HttpRequest req, string username,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "smartbike/check/{username}")] HttpRequest req, string username,
             ILogger log)
         {
             List<string> usernames = new List<string>();

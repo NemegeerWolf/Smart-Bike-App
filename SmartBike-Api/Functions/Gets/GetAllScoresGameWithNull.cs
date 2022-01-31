@@ -19,7 +19,7 @@ namespace SmartBike_Api.Functions.Gets
 
         [FunctionName("GetAllScoresGameWithNull")]
         public static async Task<IActionResult> GetGameScoreAllWithNull(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "smartbike/game/null/{gameid}")] HttpRequest req, int gameid,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "smartbike/game/null/{gameid}")] HttpRequest req, int gameid,
             ILogger log)
         {
 
