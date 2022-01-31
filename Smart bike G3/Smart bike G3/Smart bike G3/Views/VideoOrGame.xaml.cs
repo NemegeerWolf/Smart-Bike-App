@@ -84,14 +84,7 @@ namespace Smart_bike_G3.Views
 
         }
 
-        private async void delete()
-        {
-            Game lastuser = await Repository.GetLastUserAsync();
-            if (lastuser.User == null)
-            {
-                await Repository.DeleteAsync(lastuser.id);
-            }
-        }
+        
 
         private void Pictures()
         {
@@ -105,7 +98,7 @@ namespace Smart_bike_G3.Views
         {
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += AbsLayBack_Tabbed;
-            //AbsLayBack.GestureRecognizers.Add(tapGestureRecognizer);
+            
 
             TapGestureRecognizer tapGestureRecognizer2 = new TapGestureRecognizer();
             tapGestureRecognizer2.Tapped += AbsLayVideo_Tabbed;
@@ -115,16 +108,10 @@ namespace Smart_bike_G3.Views
             tapGestureRecognizer3.Tapped += AbsLayGame_Tabbed;
             AbsLayGame.GestureRecognizers.Add(tapGestureRecognizer3);
 
-            //TapGestureRecognizer tapGestureRecognizer4 = new TapGestureRecognizer();
-            //tapGestureRecognizer4.Tapped += AbsLayOtherUser_Tabbed;
-            //AbsLayOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
-            //lblOtherUser.GestureRecognizers.Add(tapGestureRecognizer4);
+            
         }
 
-        //private void AbsLayOtherUser_Tabbed(object sender, EventArgs e)
-        //{
-        //    Navigation.PushAsync(new Name());
-        //}
+        
 
         private void AbsLayGame_Tabbed(object sender, EventArgs e)
         {

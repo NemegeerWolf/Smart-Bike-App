@@ -32,7 +32,7 @@ namespace Smart_bike_G3.Views
 
             Sensor.Start();
             Bluetooth.ClearAllDelegatesOfLostConnection();
-            //Navigation.PushAsync(new VideoOrGame());
+            
             Bluetooth.MadeConnection += ((s, e) =>
             {
                 //List<Page> pages = (List<Page>)Navigation.NavigationStack;

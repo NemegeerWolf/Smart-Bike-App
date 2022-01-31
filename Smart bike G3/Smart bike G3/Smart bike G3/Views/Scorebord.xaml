@@ -49,7 +49,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Column="0" x:Name="lblRankFirst" FontFamily="Rubik-SemiBold"   TextColor="#EAFCFC" FontSize="{OnIdiom Phone = 20, Tablet= 32}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Start" />
-                                        <!--<Label Grid.Column="1" x:Name="lblName" FontFamily="Rubik-Regular" Text="Score: " TextColor="#4b789e" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
+                                        
                                         <Label x:Name="lblNameFirst"  Grid.Column="1" TextColor="#EAFCFC" HorizontalOptions="Center" VerticalOptions="Center" FontSize="{OnIdiom Phone = 20, Tablet= 32}"/>
                                         <Label Grid.Column="2" x:Name="lblScoreFirst" FontFamily="Rubik-Regular" TextColor="#EAFCFC" FontSize="{OnIdiom Phone = 16, Tablet= 32}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End"/>
                                     </Grid>
@@ -63,7 +63,7 @@
 
 
                     
-                    <!--<ScrollView Grid.Row="3" Margin="85,0">-->
+                    
                     <StackLayout Grid.Row="3" Margin="0,2">
                         <ListView x:Name="lvwOverview"  Margin="100,0" RowHeight="{OnIdiom Phone = 40, Tablet= 80}" SelectionMode="None" IsPullToRefreshEnabled="False">
 
@@ -89,16 +89,7 @@
 
                                                 </StackLayout>
 
-                                                <!--<StackLayout Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
-                                    -->
-                                                <!--<Label Text="{Binding TimeStamp.Day}" FontAttributes="Bold" TextColor="Black" FontSize="Large"/>-->
-                                                <!--
-                                    <Label Text="{Binding User}" TextColor="#615C66" FontSize="24"/>
-                                </StackLayout>
-                                <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="16">
-
-                                    <Label Text="{Binding Distance}" TextColor="#615C66" FontSize="24"/>
-                                </StackLayout>-->
+                                                
                                             </Frame>
                                         </Grid>
                                     </ViewCell>
@@ -107,7 +98,7 @@
                             </ListView.ItemTemplate>
                         </ListView>
                     </StackLayout>
-            <!--</ScrollView>-->
+            
 
                 <Grid Grid.Row="5" >
                 <Grid.ColumnDefinitions>
@@ -128,7 +119,6 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Column="0" x:Name="lblPosition" FontFamily="Rubik-SemiBold"  TextColor="#4b789e" FontSize="{OnIdiom Phone = 20, Tablet= 24}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Start" />
-                                        <!--<Label Grid.Column="1" x:Name="lblName" FontFamily="Rubik-Regular" Text="Score: " TextColor="#4b789e" FontSize="24" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>-->
                                         <Entry x:Name="entName" Grid.Column="1" FontSize="{OnIdiom Phone = 16, Tablet= 24}" VerticalOptions="FillAndExpand" Placeholder="Vul je bijnaam in" PlaceholderColor="Gray" TextColor="#4b789e"/>
                                         <Label IsVisible="false" x:Name="lblName" HorizontalOptions="Center" Grid.Column="1" FontSize="{OnIdiom Phone = 16, Tablet= 24}" VerticalOptions="FillAndExpand" TextColor="#4b789e"/>
                                         <Label Grid.Column="2" x:Name="lblScore" FontFamily="Rubik-Regular" TextColor="#4b789e" FontSize="{OnIdiom Phone = 16, Tablet= 24}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End"/>
@@ -152,9 +142,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <!--<Button Grid.Column="0" FontFamily="Rubik-Regular" Grid.Row="0" x:Name="btnHome" Text="Startpagina" TextColor="White" HeightRequest="200" BackgroundColor="#5589ee" CornerRadius="10"/>-->
-                <!--<Button Grid.Column="2" FontFamily="Rubik-Regular" x:Name="btnOpnieuw" Text="Opnieuw" TextColor="White" BackgroundColor="#5589ee" CornerRadius="10"/>-->
-
+                
                 <ImageButton x:Name="btnHome" Grid.Column="0" BackgroundColor="Transparent" Scale="1.5"/>
                 <ImageButton x:Name="btnOpnieuw" Grid.Column="2" BackgroundColor="Transparent" Scale="1.5"/>
 
