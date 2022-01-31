@@ -19,14 +19,17 @@
   <ItemGroup>
     <None Remove="Assets\Again.png" />
     <None Remove="Assets\arrow_back.png" />
+    <None Remove="Assets\Asset2.png" />
     <None Remove="Assets\Background.png" />
     <None Remove="Assets\BackgroundGlass.png" />
     <None Remove="Assets\BackgroundScore1.png" />
     <None Remove="Assets\BackgroundScore2.png" />
+    <None Remove="Assets\background_button.png" />
     <None Remove="Assets\Bike.png" />
     <None Remove="Assets\Check.png" />
     <None Remove="Assets\Clouds.png" />
     <None Remove="Assets\Cross.png" />
+    <None Remove="Assets\Game.png" />
     <None Remove="Assets\GameConsole.png" />
     <None Remove="Assets\Glass.png" />
     <None Remove="Assets\GlassGame.png" />
@@ -37,6 +40,8 @@
     <None Remove="Assets\help.png" />
     <None Remove="Assets\Home.png" />
     <None Remove="Assets\Light.png" />
+    <None Remove="Assets\Luisterboek.png" />
+    <None Remove="Assets\Muziek.png" />
     <None Remove="Assets\no_wifi.png" />
     <None Remove="Assets\pauze.png" />
     <None Remove="Assets\Play.png" />
@@ -44,6 +49,13 @@
     <None Remove="Assets\Quit.png" />
     <None Remove="Assets\Resume.png" />
     <None Remove="Assets\StartB.png" />
+    <None Remove="Assets\StartBl.png" />
+    <None Remove="Assets\traffic_light.png" />
+    <None Remove="Assets\two_wheeler.png" />
+    <None Remove="Assets\video.png" />
+    <None Remove="Assets\video1.jpg" />
+    <None Remove="Assets\video1.png" />
+    <None Remove="Assets\water_drop.png" />
     <None Remove="Fonts\game_over.ttf" />
     <None Remove="Fonts\Rubik-Bold.ttf" />
     <None Remove="Fonts\Rubik-Regular.ttf" />
@@ -53,13 +65,16 @@
   <ItemGroup>
     <EmbeddedResource Include="Assets\Again.png" />
     <EmbeddedResource Include="Assets\arrow_back.png" />
+    <EmbeddedResource Include="Assets\Asset2.png" />
     <EmbeddedResource Include="Assets\BackgroundGlass.png" />
     <EmbeddedResource Include="Assets\BackgroundScore1.png" />
     <EmbeddedResource Include="Assets\BackgroundScore2.png" />
+    <EmbeddedResource Include="Assets\background_button.png" />
     <EmbeddedResource Include="Assets\Bike.png" />
     <EmbeddedResource Include="Assets\Check.png" />
     <EmbeddedResource Include="Assets\Clouds.png" />
     <EmbeddedResource Include="Assets\Cross.png" />
+    <EmbeddedResource Include="Assets\Game.png" />
     <EmbeddedResource Include="Assets\GameConsole.png" />
     <EmbeddedResource Include="Assets\Glass.png" />
     <EmbeddedResource Include="Assets\GlassGame.png" />
@@ -71,13 +86,21 @@
     <EmbeddedResource Include="Assets\help.png" />
     <EmbeddedResource Include="Assets\Home.png" />
     <EmbeddedResource Include="Assets\Light.png" />
+    <EmbeddedResource Include="Assets\Luisterboek.png" />
+    <EmbeddedResource Include="Assets\Muziek.png" />
     <EmbeddedResource Include="Assets\no_wifi.png" />
     <EmbeddedResource Include="Assets\pauze.png" />
     <EmbeddedResource Include="Assets\Play.png" />
     <EmbeddedResource Include="Assets\Plus.png" />
     <EmbeddedResource Include="Assets\Quit.png" />
     <EmbeddedResource Include="Assets\Resume.png" />
-    <EmbeddedResource Include="Assets\StartB.png" />
+    <EmbeddedResource Include="Assets\StartBl.png" />
+    <EmbeddedResource Include="Assets\traffic_light.png" />
+    <EmbeddedResource Include="Assets\two_wheeler.png" />
+    <EmbeddedResource Include="Assets\video.png" />
+    <EmbeddedResource Include="Assets\video1.jpg" />
+    <EmbeddedResource Include="Assets\video1.png" />
+    <EmbeddedResource Include="Assets\water_drop.png" />
     <EmbeddedResource Include="Fonts\game_over.ttf" />
     <EmbeddedResource Include="Fonts\Rubik-Bold.ttf" />
     <EmbeddedResource Include="Fonts\Rubik-Regular.ttf" />
@@ -101,6 +124,10 @@
     <Reference Include="Mono.Android">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\StartB.png" />
   </ItemGroup>
 
   <ItemGroup>

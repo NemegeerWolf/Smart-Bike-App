@@ -16,15 +16,7 @@
                            VerticalTextAlignment="Center" />
                 </Frame>
                 
-                <Frame x:Name="resultDis" IsVisible="false" BackgroundColor="#86B1F2" CornerRadius="15" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Margin="200,0,0,0">
-                    <Label x:Name="Dislbl" FontAttributes="Bold" FontSize="36" TextColor="#EAFCFC" HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center" />
-                </Frame>
-                
-                <Frame x:Name="resultAvg" IsVisible="false" BackgroundColor="#86B1F2" CornerRadius="15" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" Margin="0,0,200,0">
-                    <Label x:Name="Avglbl" FontAttributes="Bold" FontSize="36" TextColor="#EAFCFC" HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center" />
-                </Frame>
+     
                 <Image x:Name="BackLft" HorizontalOptions="Start" VerticalOptions="End" Margin="0,0,0,-10"/>
                 <Image x:Name="BackRgt" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,0,-10"/>
 

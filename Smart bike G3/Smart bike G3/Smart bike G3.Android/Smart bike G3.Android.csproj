@@ -118,5 +118,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\backgroundOneWheeler.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Loading.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
