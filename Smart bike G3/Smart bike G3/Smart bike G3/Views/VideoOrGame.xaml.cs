@@ -34,39 +34,38 @@ namespace Smart_bike_G3.Views
         public VideoOrGame()
         {
             InitializeComponent();
-            delete();
             Pictures();
             AddEvents();
-            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            {
-                if (Bluetooth.BleStatus == AdapterConnectStatus.Connected)
-                {
+            //if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            //{
+            //    if (Bluetooth.BleStatus == AdapterConnectStatus.Connected)
+            //    {
 
-                    //Bluetooth.LostConnection += ((s, e) =>
-                    //{
+            //        //Bluetooth.LostConnection += ((s, e) =>
+            //        //{
 
-                    //    Navigation.PushAsync(new NoSensorPage());
+            //        //    Navigation.PushAsync(new NoSensorPage());
 
-                    //});
-                }
-                else
-                {
+            //        //});
+            //    }
+            //    else
+            //    {
 
                 
                 
-                    Navigation.PushAsync(new NoSensorPage());
-                    //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
-                }
+            //        Navigation.PushAsync(new NoSensorPage());
+            //        //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
+            //    }
                 
-            }
-            else
-            {
-                Navigation.PushAsync(new NoNetworkPage());
-            }
+            //}
+            //else
+            //{
+            //    Navigation.PushAsync(new NoNetworkPage());
+            //}
 
         }
 
-        protected override void OnAppearing()
+        /*protected override void OnAppearing()
         {
            
             if (Bluetooth.BleStatus == AdapterConnectStatus.Connected)
@@ -82,7 +81,7 @@ namespace Smart_bike_G3.Views
 
             //});
 
-        }
+        }*/
 
         
 
