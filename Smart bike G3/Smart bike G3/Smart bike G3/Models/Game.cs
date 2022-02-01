@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 
 namespace Smart_bike_G3.Models
@@ -18,15 +19,20 @@ namespace Smart_bike_G3.Models
         {
             get
             {
-                return $"{this.Speed} s";
-                //if (GameId != null)
-                //{
-                    
-                //}
-                //else
-                //{
-                //    return $"{this.Distance} m";
-                //}
+                
+                if (Speed >= 60)
+                {
+                    double minuten = Speed / 60;
+                    int minuten1 = (int)Math.Truncate(minuten);
+                    int seconden = (int)Speed - (minuten1 * 60);
+                    return $"{minuten1} min {seconden} s";
+
+
+                }
+                else
+                {
+                    return $"{Speed} s";
+                }
             }
         }
 

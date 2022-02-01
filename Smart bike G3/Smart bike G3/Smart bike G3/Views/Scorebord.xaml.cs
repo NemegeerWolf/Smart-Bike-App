@@ -18,8 +18,8 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Scorebord : ContentPage
     {
-         int parscore;
-         string vidorgame;
+        int parscore;
+        string vidorgame;
 
         public Scorebord(int score)
         {
@@ -32,14 +32,14 @@ namespace Smart_bike_G3.Views
                 DeviceDisplay.KeepScreenOn = false;
 
                 Pictures();
-                
+
                 vidorgame = VideoOrGame.Kind;
 
                 Console.WriteLine(vidorgame);
 
                 if (vidorgame == "video" || vidorgame == "game")
                 {
-                    LoadData(score,vidorgame);
+                    LoadData(score, vidorgame);
                 }
                 else
                 {
@@ -50,7 +50,7 @@ namespace Smart_bike_G3.Views
                 btnOpnieuw.Clicked += BtnOpnieuw_Clicked;
                 btnAdd.Clicked += BtnAdd_Clicked;
 
-                
+
             }
             else
             {
@@ -60,14 +60,14 @@ namespace Smart_bike_G3.Views
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
-            
+
             string user = entName.Text;
 
             if (user != null)
             {
-                
+
                 warning(user);
-                
+
                 btnAdd.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Check.png");
                 entName.Text = "";
                 btnAdd.IsEnabled = false;
@@ -116,113 +116,131 @@ namespace Smart_bike_G3.Views
             ImgRight.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
         }
 
-        private async void LoadData(int score,string kind)
+        private async void LoadData(int score, string kind)
         {
             await SetRank(score, VideoOrGame.Kind);
-            
+
             if (kind == "game")
             {
                 int gameid = ChooseGame.gameId;
                 List<Game> i = await Repository.GetAllscoresGameAsync(gameid);
-                
+
                 bool isEmpty = !i.Any();
                 if (isEmpty == false)
                 {
                     lvwOverview.ItemsSource = i.Skip(1);
-                    
+
                     var first = i.First();
                     lblNameFirst.Text = first.User;
                     lblRankFirst.Text = first.Rank;
                     lblScoreFirst.Text = first.ScoreBordString;
-                    lblScore.Text = $"{score.ToString()} s";
-                    
-                }
-                
-            }
-            else
-            {
-                Console.WriteLine("Something went wrong");
-            }
-        }
-
-        private async Task SetRank(int score, string kind)
-        {
-
-            var i = await Repository.GetLastUserAsync();
-            
-           
-
-            int rank = await Repository.CheckRank(i.id, score);
-            lblPosition.Text = $"{rank}";
-        }
 
 
-        private async void BtnOpnieuw_Clicked(object sender, EventArgs e)
-        {
-            if (VideoOrGame.Kind == "game")
-            {
-                var i = await Repository.GetLastUserAsync();
-                if (entName.Text == null && i.User == null)
-                {
-                    await Repository.DeleteAsync(i.id);
-                }
-                
-                if (ChooseGame.gameId == 1)
-                {
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-                    Navigation.PushAsync(new Spel123Piano());
-                }
-                else if (ChooseGame.gameId == 2)
-                {
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count-2]);
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
 
+
+                    if (score >= 60)
+                    {
+                        double minuten = score / 60;
+                        int minuten1 = (int)Math.Truncate(minuten);
+                        int seconden = score - (minuten1 * 60);
+                        lblScore.Text = $"{minuten1} min {seconden} s";
+
+
+                    }
+                    else
+                    {
+                        lblScore.Text = $"{score} s";
+                    }
                     
 
-                    await Navigation.PushAsync(new BalanceGame());
-                        //return;
-                    
-                    
-                
-                
-                }
-                else if(ChooseGame.gameId == 3)
-                {
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-                    Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-                    Navigation.PushAsync(new SpelOverloop());
+
+
                 }
                 else
                 {
-                    Navigation.PopToRootAsync(true);
+                    Console.WriteLine("Something went wrong");
                 }
-                
             }
-            else
+            }
+
+            private async Task SetRank(int score, string kind)
+            {
+
+                var i = await Repository.GetLastUserAsync();
+
+
+
+                int rank = await Repository.CheckRank(i.id, score);
+                lblPosition.Text = $"{rank}";
+            }
+
+
+            private async void BtnOpnieuw_Clicked(object sender, EventArgs e)
+            {
+                if (VideoOrGame.Kind == "game")
+                {
+                    var i = await Repository.GetLastUserAsync();
+                    if (entName.Text == null && i.User == null)
+                    {
+                        await Repository.DeleteAsync(i.id);
+                    }
+
+                    if (ChooseGame.gameId == 1)
+                    {
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                        Navigation.PushAsync(new Spel123Piano());
+                    }
+                    else if (ChooseGame.gameId == 2)
+                    {
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+
+
+
+                        await Navigation.PushAsync(new BalanceGame());
+                        //return;
+
+
+
+
+                    }
+                    else if (ChooseGame.gameId == 3)
+                    {
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                        Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                        Navigation.PushAsync(new SpelOverloop());
+                    }
+                    else
+                    {
+                        Navigation.PopToRootAsync(true);
+                    }
+
+                }
+                else
+                {
+                    var i = await Repository.GetLastUserAsync();
+                    if (entName.Text == null && i.User == null)
+                    {
+                        await Repository.DeleteAsync(i.id);
+                    }
+                    Navigation.PushAsync(new ChooseVideo());
+                }
+            }
+
+            private async void BtnHome_Clicked(object sender, EventArgs e)
             {
                 var i = await Repository.GetLastUserAsync();
                 if (entName.Text == null && i.User == null)
                 {
                     await Repository.DeleteAsync(i.id);
                 }
-                Navigation.PushAsync(new ChooseVideo());
-            }
-        }
+                //await Navigation.PopToRootAsync(true);
 
-        private async void BtnHome_Clicked(object sender, EventArgs e)
-        {
-            var i = await Repository.GetLastUserAsync();
-            if (entName.Text == null && i.User == null)
-            {
-                await Repository.DeleteAsync(i.id);
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+                Navigation.PopAsync();
+                //Navigation.PushAsync(new VideoOrGame());
             }
-            //await Navigation.PopToRootAsync(true);
-            
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-            Navigation.PopAsync();
-            //Navigation.PushAsync(new VideoOrGame());
         }
     }
-}

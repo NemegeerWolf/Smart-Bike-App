@@ -32,6 +32,7 @@ namespace Smart_bike_G3.Views
                 BackLft.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore2.png");
                 BackRgt.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundScore1.png");
                 SetVideo();
+                CalcDistance(20,"02:35");
                 Device.StartTimer(TimeSpan.FromSeconds(1), Timer);
 
                 NavigationPage.SetHasNavigationBar(this, false);
@@ -122,7 +123,7 @@ namespace Smart_bike_G3.Views
 
         private double CalcDistance(double average , string duration)
         {
-            double MeterPerSecond = speed / 3.6;
+            double MeterPerSecond = average / 3.6;
             int minutes = int.Parse(duration.Split(':')[0]);
             int seconds = int.Parse(duration.Split(':')[1]);
             int totalSeconds = (minutes * 60) + seconds;

@@ -143,6 +143,7 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 
+                
                 <ImageButton x:Name="btnHome" Grid.Column="0" BackgroundColor="Transparent" Scale="1.5"/>
                 <ImageButton x:Name="btnOpnieuw" Grid.Column="2" BackgroundColor="Transparent" Scale="1.5"/>
 
