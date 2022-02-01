@@ -19,7 +19,7 @@ namespace Smart_bike_G3.Views
             //prevent sleepmode
             
             DeviceDisplay.KeepScreenOn = false;
-            Device.StartTimer(TimeSpan.FromMilliseconds(4000), ShowButtn);
+            Device.StartTimer(TimeSpan.FromMilliseconds(10000), ShowButtn);
 
             Sensor.Start();
             Bluetooth.ClearAllDelegatesOfLostConnection();

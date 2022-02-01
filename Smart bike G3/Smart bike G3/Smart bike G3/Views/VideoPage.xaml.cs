@@ -14,7 +14,7 @@ namespace Smart_bike_G3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoPage : ContentPage
     {
-        double speed = 10;
+        double speed ;
         int count = 0;
         List<double> speedOvertime = new List<double>();
         bool checkSpeed;

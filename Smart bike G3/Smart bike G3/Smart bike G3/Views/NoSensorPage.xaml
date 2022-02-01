@@ -11,9 +11,10 @@
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="4*"/>
-                
-                
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width=".5*"/>
+
+
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Column="1" VerticalOptions="Center">
                 <Label Text="Oeps, de sensor is niet verbonden." TextColor="#4b789e" FontSize="{OnIdiom Phone = 28, Tablet= 40}" FontFamily="Rubik-SemiBold"/>

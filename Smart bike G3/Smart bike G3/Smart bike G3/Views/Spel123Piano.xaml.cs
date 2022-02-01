@@ -17,7 +17,7 @@ namespace Smart_bike_G3.Views
     public partial class Spel123Piano : ContentPage
     {//public variables
         public double Time = 0;
-        public double Distance { get; set; } = 1000; // 1000m / 1km
+        public double Distance { get; set; } = 500; // 1000m / 1km
         public bool GameOver { get; set; } = false;
 
         // local variables
@@ -234,19 +234,19 @@ namespace Smart_bike_G3.Views
             // if finished ...
             if (Distance < 0)
             {
-                lblGameOver.Text = "YOU WIN";
-                lblGameOver.TextColor = Brush.Green.Color;
+                //lblGameOver.Text = "YOU WIN";
+                //lblGameOver.TextColor = Brush.Green.Color;
 
-                lblscore.Text = "0 m";
-                lblGameOver.IsVisible = true;
-                btnRestart.IsVisible = true;
+                //lblscore.Text = "0 m";
+                //lblGameOver.IsVisible = true;
+                //btnRestart.IsVisible = true;
 
-                var dateTime = DateTime.MinValue.AddSeconds(Time);
-                btnRestartText.Text = $"{dateTime.Minute}min{dateTime.Second}";
-                btnRestart.IsEnabled = false;
+                //var dateTime = DateTime.MinValue.AddSeconds(Time);
+                //btnRestartText.Text = $"{dateTime.Minute}min{dateTime.Second}";
+                //btnRestart.IsEnabled = false;
                 
                 Repository.AddResultsGame(1, Convert.ToInt32(Time), 0);
-                Thread.Sleep(3000);
+                //Thread.Sleep(3000);
                 Navigation.PushAsync(new Scorebord(Convert.ToInt32(Time))); // push to scoreboard
                 return false;
             }
@@ -384,7 +384,7 @@ namespace Smart_bike_G3.Views
             lblGameOver.IsVisible = false;
             btnRestart.IsVisible = false;
             btnHome.IsVisible = false;
-            Distance = 1000;
+            Distance = 500;
             Time = 0;
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);
