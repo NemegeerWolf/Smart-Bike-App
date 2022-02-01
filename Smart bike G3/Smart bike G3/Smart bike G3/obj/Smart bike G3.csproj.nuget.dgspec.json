@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj": {}
+    "D:\\wolf\\source\\NemegeerWolf\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj": {}
   },
   "projects": {
-    "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj": {
+    "D:\\wolf\\source\\NemegeerWolf\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
+        "projectUniqueName": "D:\\wolf\\source\\NemegeerWolf\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
         "projectName": "Smart bike G3",
-        "projectPath": "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
-        "packagesPath": "C:\\Users\\Laura\\.nuget\\packages\\",
-        "outputPath": "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\obj\\",
+        "projectPath": "D:\\wolf\\source\\NemegeerWolf\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\Smart bike G3.csproj",
+        "packagesPath": "C:\\Users\\wolfn\\.nuget\\packages\\",
+        "outputPath": "D:\\wolf\\source\\NemegeerWolf\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -19,7 +19,7 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Laura\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wolfn\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"

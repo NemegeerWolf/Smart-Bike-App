@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wE0AuD7i4tqYXGNLi8YImYjPWzb50TNKkNNrH5T32ra14TlMsybPBRP7DKKJ0l3lv7l0dqCDkReb5SGHmYzfnQ==",
+  "dgSpecHash": "85dV8fej5WMfcDUjtTa+dO4SgiOf+9UGPnB+rWyc/LeoAGDxz8/2NXhzCQkdwiRzPacaugb1w8ajq/fFFqa/aw==",
   "success": true,
-  "projectFilePath": "C:\\Team Project\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj",
+  "projectFilePath": "D:\\wolf\\source\\NemegeerWolf\\Smart-Bike-App\\Smart bike G3\\Smart bike G3\\Smart bike G3.Android\\Smart bike G3.Android.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Laura\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\wolfn\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.5\\xamarin.androidx.activity.1.1.0.5.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation\\1.1.0.8\\xamarin.androidx.annotation.1.1.0.8.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation.experimental\\1.0.0.8\\xamarin.androidx.annotation.experimental.1.0.0.8.nupkg.sha512",
