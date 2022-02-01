@@ -42,7 +42,7 @@ namespace Smart_bike_G3.Views
         private void pictures()
         {
             imgbackground.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.BackgroundGlass.png");
-            imgGlass.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GlassGame.png");
+            //imgGlass.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.GlassGame.png");
             resumeBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Resume.png");
             quitBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.Quit.png");
             pauseBtn.Source = ImageSource.FromResource(@"Smart_bike_G3.Assets.pauze.png");
@@ -75,7 +75,8 @@ namespace Smart_bike_G3.Views
             if (!IsPauzed)
             {
                 int minSpeed = 15;
-                lblSnelheid.Text = Speed.ToString();
+                //lblSnelheid.Text = Speed.ToString();
+                lblSnelheid.Text = $"{Speed} km/u";
 
 
 

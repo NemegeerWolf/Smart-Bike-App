@@ -16,7 +16,7 @@
                         <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                         <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20,0">
                         <Label x:Name="lblSnelheidText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                         <Label x:Name="lblSnelheid" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                     </StackLayout>
@@ -27,7 +27,7 @@
                 
                 <!--Scale="1.07"-->
 
-                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationX="{OnIdiom Phone = 2, Tablet= 10}" TranslationY="{OnIdiom Phone = 50, Tablet= 15}" Scale="{OnIdiom Phone = 0.33, Tablet= 1}">
+                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationX="{OnIdiom Phone = 55, Tablet= 440}" TranslationY="{OnIdiom Phone = 50, Tablet= 220}" Scale="{OnIdiom Phone = 0.33, Tablet= .9}">
                     <Path  x:Name="water">
                         <Path.Fill>
                             <LinearGradientBrush x:Name="waterBrush" EndPoint="0,1">
@@ -49,10 +49,68 @@
                         </Path.RenderTransform>
                         
                     </Path>
+
+                    <AbsoluteLayout TranslationX="-300" TranslationY="-120">
+
+                        <AbsoluteLayout TranslationX="292" TranslationY="101.104">
+
+                            <Ellipse   WidthRequest="231"  HeightRequest="72" x:Name="Ellipse_22" Fill="#FF86B1F2" TranslationX="48.266" TranslationY="359.225"/>
+
+
+                            <AbsoluteLayout>
+                                <AbsoluteLayout>
+                                    <Ellipse WidthRequest="323.3" HeightRequest="98.8" x:Name="ellipse3" StrokeThickness="8" Stroke="#FF4B4BB6"/>
+                                    <Ellipse Margin="4,4,0,0" WidthRequest="315.3" HeightRequest="90.8"  StrokeThickness="8" Stroke="#FF4B4BB6"/>
+                                </AbsoluteLayout>
+                                <Path StrokeThickness="8" Stroke="#FF4B4BB6">
+                                    <Path.Data>
+                                        <PathGeometry Figures="M46.4 0 0 373.526" FillRule="Nonzero"/>
+                                    </Path.Data>
+                                    <Path.RenderTransform>
+                                        <TranslateTransform X="273.675" Y="52.894"/>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <AbsoluteLayout TranslationX="47.738" TranslationY="365.153">
+                                    
+                                    <Path Fill="#FF86B1F2">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M 112.1083984375 64.67561340332031 C 97.14508819580078 64.67561340332031 82.63614654541016 63.77889251708984 68.98464965820313 62.01033020019531 C 55.85702514648438 60.30964279174805 44.08889770507813 57.88161087036133 34.00724029541016 54.79367446899414 C 29.09730529785156 53.28979873657227 24.65308570861816 51.64107894897461 20.79802322387695 49.89332962036133 C 16.99292945861816 48.16820526123047 13.74892997741699 46.34148788452148 11.15608596801758 44.46389389038086 C 8.680148124694824 42.67092514038086 6.812023639678955 40.84470367431641 5.603648662567139 39.03598785400391 C 4.52455472946167 37.42079925537109 3.99999213218689 35.88398742675781 3.99999213218689 34.33779907226563 C 3.99999213218689 32.79161071777344 4.52455472946167 31.25479888916016 5.603648662567139 29.63961219787598 C 6.812023639678955 27.83089256286621 8.680148124694824 26.00467491149902 11.15608596801758 24.21170616149902 C 13.74892997741699 22.3341121673584 16.99292945861816 20.50739288330078 20.79802322387695 18.78226852416992 C 24.65308570861816 17.03451728820801 29.09730529785156 15.38579940795898 34.00724029541016 13.88192367553711 C 44.08889770507813 10.79398632049561 55.85702514648438 8.365955352783203 68.98464965820313 6.665267944335938 C 82.63614654541016 4.896705150604248 97.14508819580078 3.99998664855957 112.1083984375 3.99998664855957 C 127.0717086791992 3.99998664855957 141.5806427001953 4.896705150604248 155.2321472167969 6.665267944335938 C 168.3597717285156 8.365955352783203 180.1278991699219 10.79398632049561 190.2095489501953 13.88192367553711 C 195.1194915771484 15.38579940795898 199.5637054443359 17.03451728820801 203.4187774658203 18.78226852416992 C 207.2238616943359 20.50739288330078 210.4678649902344 22.3341121673584 213.0607147216797 24.21170616149902 C 215.5366516113281 26.00467491149902 217.4047698974609 27.83089256286621 218.6131439208984 29.63961219787598 C 219.6922454833984 31.25479888916016 220.2168121337891 32.79161071777344 220.2168121337891 34.33779907226563 C 220.2168121337891 35.88398742675781 219.6922454833984 37.42079925537109 218.6131439208984 39.03598785400391 C 217.4047698974609 40.84470367431641 215.5366516113281 42.67092514038086 213.0607147216797 44.46389389038086 C 210.4678649902344 46.34148788452148 207.2238616943359 48.16820526123047 203.4187774658203 49.89332962036133 C 199.5637054443359 51.64107894897461 195.1194915771484 53.28979873657227 190.2095489501953 54.79367446899414 C 180.1278991699219 57.88161087036133 168.3597717285156 60.30964279174805 155.2321472167969 62.01033020019531 C 141.5806427001953 63.77889251708984 127.0717086791992 64.67561340332031 112.1083984375 64.67561340332031 Z" FillRule="Nonzero"/>
+                                        </Path.Data>
+                                    </Path>
+                                    <Path Fill="#FF86B1F2">
+                                        <Path.Data>
+                                            <PathGeometry Figures="M 112.1083984375 8.000015258789063 C 44.74664306640625 8.000015258789063 8 25.3986930847168 8 34.33779907226563 C 8 43.27690887451172 44.74664306640625 60.67558288574219 112.1083984375 60.67558288574219 C 179.4701538085938 60.67558288574219 216.216796875 43.27690887451172 216.216796875 34.33779907226563 C 216.216796875 25.3986930847168 179.4701538085938 8.000015258789063 112.1083984375 8.000015258789063 M 112.1083984375 1.52587890625e-05 C 174.0241394042969 1.52587890625e-05 224.216796875 15.37355041503906 224.216796875 34.33779907226563 C 224.216796875 53.30204772949219 174.0241394042969 68.67558288574219 112.1083984375 68.67558288574219 C 50.19264221191406 68.67558288574219 0 53.30204772949219 0 34.33779907226563 C 0 15.37355041503906 50.19264221191406 1.52587890625e-05 112.1083984375 1.52587890625e-05 Z" FillRule="Nonzero"/>
+                                        </Path.Data>
+                                    </Path>
+                                </AbsoluteLayout>
+                                <Path  StrokeThickness="8" Stroke="#FF4B4BB6">
+                                    <Path.Data>
+                                        <PathGeometry Figures="M4719.5 4576.207s124.536 48.378 223.614-5.41" FillRule="Nonzero"/>
+                                    </Path.Data>
+                                    <Path.RenderTransform>
+                                        <TranslateTransform X="-4667.993" Y="-4146.712"/>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <Line X2="45" Y2="360" X1="2" TranslationX="5" TranslationY="55" StrokeThickness="8" Stroke="#FF4B4BB6"/>
+                                <Line X2="270" Y2="360" X1="310" Y1="0" TranslationX="5" TranslationY="55" StrokeThickness="8" Stroke="#FF4B4BB6"/>
+                                
+                            </AbsoluteLayout>
+                        </AbsoluteLayout>
+                        
+                        <Path Fill="#FF4B4BB6" StrokeThickness="8" Stroke="#FF4B4BB6">
+                            <Path.Data>
+                                <PathGeometry Figures="M3676.432 3663.859s35.032 21.877 112.05 19.813 114.625-19.813 114.625-19.813l-2.318 14.447s-33.486 25.592-112.306 27.243-108.186-21.877-108.186-21.877Z" FillRule="Nonzero"/>
+                            </Path.Data>
+                            <Path.RenderTransform>
+                                <TranslateTransform X="-3335.38" Y="-3155.391"/>
+                            </Path.RenderTransform>
+                        </Path>
+                        
+                    </AbsoluteLayout>
                     
                 </AbsoluteLayout>
 
-                <Image Scale="{OnIdiom Tablet=1.5}" x:Name="imgGlass" VerticalOptions="Center" HorizontalOptions="Center" TranslationY="{OnIdiom Phone = 50, Tablet= 15}"/>
+                
 
                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
