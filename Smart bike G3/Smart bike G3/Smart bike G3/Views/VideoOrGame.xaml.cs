@@ -1,8 +1,10 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-//using Android;
-
+using Android;
+using Xamarin.Essentials;
+using Smart_bike_G3.Services;
+using Quick.Xamarin.BLE.Abstractions;
 
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Regular.ttf", Alias = "Rubik-Regular")]
 [assembly: ExportFont(@"Smart_bike_G3.Fonts.Rubik-Bold.ttf", Alias = "Rubik-Bold")]
@@ -22,38 +24,39 @@ namespace Smart_bike_G3.Views
             InitializeComponent();
             Pictures();
             AddEvents();
-            //if (Connectivity.NetworkAccess == NetworkAccess.Internet)
-            //{
-            //    if (Bluetooth.BleStatus == AdapterConnectStatus.Connected)
-            //    {
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
+            {
+                if (Bluetooth.BleStatus == AdapterConnectStatus.Connected)
+                {
 
-            //        //Bluetooth.LostConnection += ((s, e) =>
-            //        //{
+                    Bluetooth.LostConnection += ((s, e) =>
+                    {
 
-            //        //    Navigation.PushAsync(new NoSensorPage());
+                        Navigation.PushAsync(new NoSensorPage());
 
-            //        //});
-            //    }
-            //    else
-            //    {
+                    });
+                }
+                else
+                {
 
-                
-                
-            //        Navigation.PushAsync(new NoSensorPage());
-            //        //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
-            //    }
-                
-            //}
-            //else
-            //{
-            //    Navigation.PushAsync(new NoNetworkPage());
-            //}
+
+
+                    Navigation.PushAsync(new NoSensorPage());
+                    //  /*****UIT COMMENTAAR HALEN OM BLUETOOTH TE DOEN WERKEN!!! --> mainactivity.cs lijn 29 ook uit commentaar******/
+                }
+
+            }
+            else
+            {
+                Navigation.PushAsync(new NoNetworkPage());
+            }
 
         }
 
-        /*protected override void OnAppearing()
+        protected override void OnAppearing()
         {
-           
+
+
             if (Bluetooth.BleStatus == AdapterConnectStatus.Connected)
             {
                 Bluetooth.ClearAllDelegatesOfMadeConnection();
@@ -67,9 +70,9 @@ namespace Smart_bike_G3.Views
 
             //});
 
-        }*/
+        }
 
-        
+
 
         private void Pictures()
         {

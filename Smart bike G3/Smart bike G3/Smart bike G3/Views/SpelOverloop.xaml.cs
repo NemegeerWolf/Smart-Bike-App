@@ -1,4 +1,6 @@
-﻿using Smart_bike_G3.Repositories;
+﻿using Quick.Xamarin.BLE.Abstractions;
+using Smart_bike_G3.Repositories;
+using Smart_bike_G3.Services;
 using System;
 using TestBluethoot.Services;
 using Xamarin.Forms;
@@ -20,17 +22,7 @@ namespace Smart_bike_G3.Views
             pictures();
             Device.StartTimer(TimeSpan.FromSeconds(1), ChangeTime);
             Device.StartTimer(TimeSpan.FromMilliseconds(100), gameplay);
-            
 
-        //protected override void OnAppearing()
-        //{
-
-        //    if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
-        //    {
-        //        Navigation.PushAsync(new NoSensorPage());
-        //    }
-        //    base.OnAppearing();
-        //}
 
             // If there is new data -> Read sensor
             Sensor.NewDataSpeed += ((s, e) =>
@@ -38,6 +30,18 @@ namespace Smart_bike_G3.Views
                 Speed = e;
             });
         }
+
+        protected override void OnAppearing()
+        {
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
+        }
+
+        
 
         private void pictures()
         {
