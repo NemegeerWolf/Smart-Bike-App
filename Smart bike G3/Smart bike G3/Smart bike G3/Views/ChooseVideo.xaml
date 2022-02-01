@@ -118,7 +118,7 @@
                     <Frame BackgroundColor="#f7ffff" HasShadow="True" Grid.Column="1" Grid.Row="1" Opacity="1" BorderColor="Transparent" Padding="50">
                         <StackLayout Margin="16">
                             <Label Text="Video afspelen" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#4b789e" FontFamily="Rubik-SemiBold"/>
-                            <Label Text="Klik op een video en begin met trappen om de video te doen starten. Als je stopt met fietsen zal de video pauzeren." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
+                            <Label Text="Klik op een video, deze zal van start gaan als je fietst. Ben je niet aan het trappen dan zal de video pauzeren." FontSize="{OnIdiom Phone = 16, Tablet= 28}" TextColor="Black"/>
                             <Label/>
                             <Button x:Name="btnOk" Text="Ok" BackgroundColor="Transparent" HorizontalOptions="End" FontSize="{OnIdiom Phone = 24, Tablet= 40}" TextColor="#86b1f2" Clicked="btnOk_Clicked"/>
                         </StackLayout>

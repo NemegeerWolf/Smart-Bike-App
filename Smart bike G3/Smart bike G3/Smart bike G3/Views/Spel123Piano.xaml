@@ -57,9 +57,9 @@
                         </Path.Data>
                     </Path>
                     <Rectangle AbsoluteLayout.LayoutBounds="26, 13.195" WidthRequest="45.1" HeightRequest="137.695" RadiusX="45.51" RadiusY="45.51" x:Name="rect72" Fill="#FF1D1D1B"/>
-                    <Ellipse AbsoluteLayout.LayoutBounds="32, 23.95"  WidthRequest="33" HeightRequest="33" x:Name="circRed" Fill="#FFBF1818" Opacity="0.5"/>
-                    <Ellipse AbsoluteLayout.LayoutBounds="32, 64"  WidthRequest="33" HeightRequest="33" x:Name="circOrange" Fill="#FFEB5E0B" Opacity="0.5"/>
-                    <Ellipse AbsoluteLayout.LayoutBounds="32, 104.9"  WidthRequest="33" HeightRequest="33" x:Name="circGreen" Fill="#FF78B82A" Opacity="1"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 23.95"  WidthRequest="33" HeightRequest="33" x:Name="circRed" Fill="#AF0011" Opacity="0.5"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 64"  WidthRequest="33" HeightRequest="33" x:Name="circOrange" Fill="#FF8C00" Opacity="0.5"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 104.9"  WidthRequest="33" HeightRequest="33" x:Name="circGreen" Fill="#50BFA5" Opacity="1"/>
                 </AbsoluteLayout>
             </Grid>
         </StackLayout>
@@ -70,7 +70,7 @@
 
         <StackLayout TranslationX="{OnIdiom Phone = -15, Tablet= 0}" TranslationY="{OnIdiom Phone = -15, Tablet= 0}">
 
-            <AbsoluteLayout  VerticalOptions="Start" Margin="32, 32, 0, -50" HorizontalOptions="Start" Scale="0.5" AnchorX="0" AnchorY="0" Padding="0" >
+            <AbsoluteLayout  VerticalOptions="Start" Margin="32, 32, 0, -50" HorizontalOptions="Start" Scale=".7" AnchorX="0" AnchorY="0" Padding="0" >
 
                 <Rectangle x:Name="btnPauze" WidthRequest="96" HeightRequest="96"  RadiusX="17" RadiusY="17"  Fill="#FF86B1F2"/>
                 <AbsoluteLayout x:Name="Pauze">
@@ -94,7 +94,7 @@
 
             
 
-            <StackLayout  Orientation="Horizontal"  VerticalOptions="Start" HorizontalOptions="Start" Margin="32,8,0,8" >
+            <StackLayout  Orientation="Horizontal"  VerticalOptions="Start" HorizontalOptions="Start" Margin="32,32,0,8" >
                 <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="#4b789e" FontAttributes="Bold" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
                 <Label x:Name="lblTime" Text="0" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
         </StackLayout>
@@ -150,18 +150,13 @@
             </StackLayout>
         </StackLayout>
 
-        <!--<Frame CornerRadius="5" x:Name="pauzedFrame" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF" IsVisible="false" Scale="{OnIdiom Phone = 2, Tablet= 1}">
-            <StackLayout Spacing="20" Orientation="Vertical">
-                <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="ResumeBtn_Clicked" BackgroundColor="Transparent"/>
-                <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="QuitBtn_Clicked" BackgroundColor="Transparent"/>
-            </StackLayout>
-        </Frame>-->
+        
 
         <Grid x:Name="GridHelpBackGround" IsVisible="False" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">
 
         </Grid>
 
-        <Grid x:Name="GridPause" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" Scale="{OnIdiom Phone = 2, Tablet= 1}">
+        <Grid x:Name="GridPause" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" Scale="{OnIdiom Phone = 2, Tablet= 2}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
