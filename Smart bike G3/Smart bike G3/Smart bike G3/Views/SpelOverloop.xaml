@@ -8,26 +8,25 @@
                     
             <Image Grid.Column="0" Grid.Row="0" x:Name="imgbackground" ScaleX="1.2"/>
 
-            <Grid  Grid.Column="0" Grid.Row="0">
-                <StackLayout>
-
-                    <ImageButton x:Name="pauseBtn" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Start"  Clicked="btnPauze_Clicked" BackgroundColor="Transparent"/>
-                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
-                        <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                        <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20,0">
-                        <Label x:Name="lblSnelheidText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                        <Label x:Name="lblSnelheid" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
-                    </StackLayout>
-
-                </StackLayout>
+            <Grid  Grid.Column="0" Grid.Row="0" >
+               
 
 
                 
                 <!--Scale="1.07"-->
-
-                <AbsoluteLayout VerticalOptions="Center" HorizontalOptions="Center" TranslationX="{OnIdiom Phone = 55, Tablet= 440}" TranslationY="{OnIdiom Phone = 50, Tablet= 220}" Scale="{OnIdiom Phone = 0.33, Tablet= .9}">
+                <!--<AbsoluteLayout BackgroundColor="HotPink" VerticalOptions="Start" HorizontalOptions="Start" TranslationX="{OnIdiom Phone = 55, Tablet= 440}" TranslationY="{OnIdiom Phone = 50, Tablet= 220}" Scale="{OnIdiom Phone = 0.33, Tablet= .9}">-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="5*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <AbsoluteLayout Grid.Column="1" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TranslationY="{OnIdiom Phone = 50, Tablet= 0}" Scale="{OnIdiom Phone = 0.33, Tablet= .9}">
                     <Path  x:Name="water">
                         <Path.Fill>
                             <LinearGradientBrush x:Name="waterBrush" EndPoint="0,1">
@@ -109,8 +108,20 @@
                     </AbsoluteLayout>
                     
                 </AbsoluteLayout>
+                </Grid>
+                <StackLayout>
 
-                
+                    <ImageButton x:Name="pauseBtn" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Start"  Clicked="btnPauze_Clicked" BackgroundColor="Transparent"/>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20">
+                        <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                        <Label x:Name="lblTime" Text="0" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="20,0">
+                        <Label x:Name="lblSnelheidText" Text="Snelheid:  " TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                        <Label x:Name="lblSnelheid" Text="0" WidthRequest="100" TextColor="Blue" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                </StackLayout>
 
                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
 
