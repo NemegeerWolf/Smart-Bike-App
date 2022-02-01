@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
 using System.Linq;
+using TestBluethoot.Services;
 
 namespace Smart_bike_G3.Views
 {
@@ -34,11 +35,11 @@ namespace Smart_bike_G3.Views
                 Device.StartTimer(TimeSpan.FromSeconds(1), Timer);
 
                 NavigationPage.SetHasNavigationBar(this, false);
-                /*Sensor.NewDataSpeed += ((s, e) =>
+                Sensor.NewDataSpeed += ((s, e) =>
                 {
-                    speed =e;
-                });*/
-                
+                    speed = e;
+                });
+
             }
             else
             {

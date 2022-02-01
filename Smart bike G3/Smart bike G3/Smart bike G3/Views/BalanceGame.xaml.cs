@@ -1,5 +1,7 @@
-﻿using Smart_bike_G3.Models;
+﻿using Quick.Xamarin.BLE.Abstractions;
+using Smart_bike_G3.Models;
 using Smart_bike_G3.Repositories;
+using Smart_bike_G3.Services;
 using System;
 using System.Threading.Tasks;
 using TestBluethoot.Services;
@@ -49,15 +51,15 @@ namespace Smart_bike_G3.Views
             }
         }
 
-        //protected override void OnAppearing()
-        //{
+        protected override void OnAppearing()
+        {
 
-        //    if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
-        //    {
-        //        Navigation.PushAsync(new NoSensorPage());
-        //    }
-        //    base.OnAppearing();
-        //}
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
+        }
 
 
 
