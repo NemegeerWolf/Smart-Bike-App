@@ -75,7 +75,8 @@ namespace Smart_bike_G3.Views
             if (!IsPauzed)
             {
                 int minSpeed = 15;
-                lblSnelheid.Text = Speed.ToString();
+                //lblSnelheid.Text = Speed.ToString();
+                lblSnelheid.Text = $"{Speed} km/u";
 
 
 
