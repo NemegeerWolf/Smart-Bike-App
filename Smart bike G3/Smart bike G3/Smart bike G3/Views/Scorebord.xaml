@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.Scorebord"
+             
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="#EAFCFC">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Grid RowSpacing="0">
+                <Image x:Name="ImgLeft" Grid.Row="0" Grid.Column="0" VerticalOptions="End" HorizontalOptions="Start" Scale="1.5"/>
+                <Image x:Name="ImgRight" Grid.Row="0" Grid.Column="0" VerticalOptions="End" HorizontalOptions="End"  Scale="1.5"/>
+                <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.6*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height=".8*"/>
+                    <RowDefinition Height="0.2*"/>
+                    </Grid.RowDefinitions>
+
+
+
+                    <Label Grid.Row="1" FontFamily="Rubik-Bold" Text="Scorebord" FontSize="{OnIdiom Phone = 24, Tablet= 40}" FontAttributes="Bold" HorizontalTextAlignment="Center"  TextColor="#4b789e"/>
+
+                    <Grid Grid.Row="2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="*"/>
+                            
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Column="1" HorizontalOptions="Center" >
+                            <Frame HasShadow="True"   BackgroundColor="#86b1f2" Padding="20,0">
+                                <StackLayout Margin="0" VerticalOptions="CenterAndExpand">
+                                    <Grid Margin="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" x:Name="lblRankFirst" FontFamily="Rubik-SemiBold"   TextColor="#EAFCFC" FontSize="{OnIdiom Phone = 20, Tablet= 32}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                                        
+                                        <Label x:Name="lblNameFirst"  Grid.Column="1" TextColor="#EAFCFC" HorizontalOptions="Center" VerticalOptions="Center" FontSize="{OnIdiom Phone = 20, Tablet= 32}"/>
+                                        <Label Grid.Column="2" x:Name="lblScoreFirst" FontFamily="Rubik-Regular" TextColor="#EAFCFC" FontSize="{OnIdiom Phone = 16, Tablet= 32}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End"/>
+                                    </Grid>
+
+                                </StackLayout>
+                            </Frame>
+
+                        </Grid>
+                        
+                    </Grid>
+
+
+                    
+                    
+                    <StackLayout Grid.Row="3" Margin="0,2">
+                        <ListView x:Name="lvwOverview"  Margin="100,0" RowHeight="{OnIdiom Phone = 40, Tablet= 80}" SelectionMode="None" IsPullToRefreshEnabled="False">
+
+                            <ListView.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <ViewCell>
+                                        <Grid Margin="3">
+                                            <Frame HasShadow="True"   BackgroundColor="#F7FFFF" Padding="20,0">
+                                                <StackLayout Margin="0" VerticalOptions="CenterAndExpand">
+                                                    <Grid Margin="0">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                            <Label Grid.Column="0" FontFamily="Rubik-SemiBold"  Text="{Binding RankDot}" TextColor="#4b789e" FontSize="{OnIdiom Phone = 16, Tablet= 32}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Start"/>
+                                                            <Label Grid.Column="1" FontFamily="Rubik-Regular" Text="{Binding User}" TextColor="#4b789e" FontSize="{OnIdiom Phone = 16, Tablet= 32}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Center"/>
+                                                            <Label Grid.Column="2" FontFamily="Rubik-Regular" Text="{Binding ScoreBordString}" TextColor="#4b789e" FontSize="{OnIdiom Phone = 12, Tablet= 24}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End"/>
+
+                                                    </Grid>
+
+                                                </StackLayout>
+
+                                                
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+            
+
+                <Grid Grid.Row="5" >
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width=".2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1" HorizontalOptions="Center"  >
+                            <Frame HasShadow="True"   BackgroundColor="#F7FFFF" Padding="20,0" >
+                                <StackLayout Margin="0" VerticalOptions="CenterAndExpand">
+                                    <Grid Margin="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0" x:Name="lblPosition" FontFamily="Rubik-SemiBold"  TextColor="#4b789e" FontSize="{OnIdiom Phone = 20, Tablet= 24}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                                        <Entry x:Name="entName" Grid.Column="1" FontSize="{OnIdiom Phone = 16, Tablet= 24}" VerticalOptions="FillAndExpand" Placeholder="Vul je bijnaam in" PlaceholderColor="Gray" TextColor="#4b789e"/>
+                                        <Label IsVisible="false" x:Name="lblName" HorizontalOptions="Center" Grid.Column="1" FontSize="{OnIdiom Phone = 16, Tablet= 24}" VerticalOptions="FillAndExpand" TextColor="#4b789e"/>
+                                        <Label Grid.Column="2" x:Name="lblScore" FontFamily="Rubik-Regular" TextColor="#4b789e" FontSize="{OnIdiom Phone = 16, Tablet= 24}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="End"/>
+                                    </Grid>
+
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                        <ImageButton x:Name="btnAdd" Grid.Column="3" Scale=".5" BackgroundColor="Transparent"  />
+                        
+                    </Grid>
+                    
+
+
+                <Grid Grid.Row="7"  HorizontalOptions="CenterAndExpand" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                
+                
+                <ImageButton x:Name="btnHome" Grid.Column="0" BackgroundColor="Transparent" Scale="1.5"/>
+                <ImageButton x:Name="btnOpnieuw" Grid.Column="2" BackgroundColor="Transparent" Scale="1.5"/>
+
+            </Grid>
+            </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

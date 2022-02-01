@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,11 +11,162 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <Compile Remove="Images\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Images\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\" />
+    <None Remove="Assets\Again.png" />
+    <None Remove="Assets\arrow_back.png" />
+    <None Remove="Assets\Asset2.png" />
+    <None Remove="Assets\Background.png" />
+    <None Remove="Assets\BackgroundGlass.png" />
+    <None Remove="Assets\BackgroundScore1.png" />
+    <None Remove="Assets\BackgroundScore2.png" />
+    <None Remove="Assets\background_button.png" />
+    <None Remove="Assets\Bike.png" />
+    <None Remove="Assets\Check.png" />
+    <None Remove="Assets\Clouds.png" />
+    <None Remove="Assets\Cross.png" />
+    <None Remove="Assets\Game.png" />
+    <None Remove="Assets\GameConsole.png" />
+    <None Remove="Assets\Glass.png" />
+    <None Remove="Assets\GlassGame.png" />
+    <None Remove="Assets\Green1.png" />
+    <None Remove="Assets\green2.png" />
+    <None Remove="Assets\Green3.png" />
+    <None Remove="Assets\Green4.png" />
+    <None Remove="Assets\help.png" />
+    <None Remove="Assets\Home.png" />
+    <None Remove="Assets\Light.png" />
+    <None Remove="Assets\Luisterboek.png" />
+    <None Remove="Assets\Muziek.png" />
+    <None Remove="Assets\no_wifi.png" />
+    <None Remove="Assets\pauze.png" />
+    <None Remove="Assets\Play.png" />
+    <None Remove="Assets\Plus.png" />
+    <None Remove="Assets\Quit.png" />
+    <None Remove="Assets\Resume.png" />
+    <None Remove="Assets\StartB.png" />
+    <None Remove="Assets\StartBl.png" />
+    <None Remove="Assets\traffic_light.png" />
+    <None Remove="Assets\two_wheeler.png" />
+    <None Remove="Assets\video.png" />
+    <None Remove="Assets\video1.jpg" />
+    <None Remove="Assets\video1.png" />
+    <None Remove="Assets\water_drop.png" />
+    <None Remove="Fonts\game_over.ttf" />
+    <None Remove="Fonts\Rubik-Bold.ttf" />
+    <None Remove="Fonts\Rubik-Regular.ttf" />
+    <None Remove="Fonts\Rubik-SemiBold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Again.png" />
+    <EmbeddedResource Include="Assets\arrow_back.png" />
+    <EmbeddedResource Include="Assets\BackgroundGlass.png" />
+    <EmbeddedResource Include="Assets\BackgroundScore1.png" />
+    <EmbeddedResource Include="Assets\BackgroundScore2.png" />
+    <EmbeddedResource Include="Assets\Bike.png" />
+    <EmbeddedResource Include="Assets\Check.png" />
+    <EmbeddedResource Include="Assets\Clouds.png" />
+    <EmbeddedResource Include="Assets\Cross.png" />
+    <EmbeddedResource Include="Assets\GameConsole.png" />
+    <EmbeddedResource Include="Assets\Glass.png" />
+    <EmbeddedResource Include="Assets\GlassGame.png" />
+    <EmbeddedResource Include="Assets\Green1.png" />
+    <EmbeddedResource Include="Assets\Green2.png" />
+    <EmbeddedResource Include="Assets\Green3.png" />
+    <EmbeddedResource Include="Assets\Green4.png" />
+    <EmbeddedResource Include="Assets\Background.png" />
+    <EmbeddedResource Include="Assets\help.png" />
+    <EmbeddedResource Include="Assets\Home.png" />
+    <EmbeddedResource Include="Assets\Light.png" />
+    <EmbeddedResource Include="Assets\no_wifi.png" />
+    <EmbeddedResource Include="Assets\pauze.png" />
+    <EmbeddedResource Include="Assets\Play.png" />
+    <EmbeddedResource Include="Assets\Plus.png" />
+    <EmbeddedResource Include="Assets\Quit.png" />
+    <EmbeddedResource Include="Assets\Resume.png" />
+    <EmbeddedResource Include="Assets\StartBl.png" />
+    <EmbeddedResource Include="Fonts\game_over.ttf" />
+    <EmbeddedResource Include="Fonts\Rubik-Bold.ttf" />
+    <EmbeddedResource Include="Fonts\Rubik-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Rubik-SemiBold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Plugin.BluetoothLE" Version="6.3.0.19" />
+    <PackageReference Include="Quick.Xamarin.BLE" Version="1.0.4" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="YoutubeExplode" Version="6.0.7" />
+    <PackageReference Include="XamarinBluetoothLE" Version="1.0.1-alpha-4" />
+    <PackageReference Include="Plugin.BLE" Version="2.1.2" />
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\StartB.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Scorebord.xaml.cs">
+      <DependentUpon>Scorebord.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\VideoPage.xaml.cs">
+      <DependentUpon>VideoPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\BalanceGame.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ChooseVideo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NoNetworkPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NoSensorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\OptionsVideo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Overloop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ResultsVideo.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Search.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Spel123Piano.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SpelOverloop.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VideoExplanation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VideoOrGame.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\VideoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

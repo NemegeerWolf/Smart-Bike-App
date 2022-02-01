@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Smart_bike_G3.Views.BalanceGame"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+
+    <Grid BackgroundColor="#EAFCFC">
+        <Image Source="backgroundOneWheeler.png" VerticalOptions="EndAndExpand" Aspect="AspectFill"/>
+        
+        <Grid>
+            <Image x:Name="oneWheel"  Source="oneWheeler.png" HorizontalOptions="Center" VerticalOptions="EndAndExpand" WidthRequest="{OnIdiom Phone = 100, Tablet= 200}"/>
+                <AbsoluteLayout x:Name="AbsLayBack" HorizontalOptions="Start" VerticalOptions="Start"  Scale="{OnIdiom Phone = 1.5, Tablet= 2}" Margin="60,60,0,0"  >
+                    <Path x:Name="path112">
+                        <Path.Data>
+                            <PathGeometry Figures="M0 0h24v24H0z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path  x:Name="path114" Fill="#4b789e">
+                        <Path.Data>
+                            <PathGeometry Figures="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+                <ImageButton x:Name="pauseBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"   Clicked="PauseBtn_Clicked" BackgroundColor="Transparent" Margin="32,32,0,0"/>
+            <ImageButton x:Name="StartBtn" HorizontalOptions="CenterAndExpand"  WidthRequest="{OnIdiom Phone = 100, Tablet= 200}" HeightRequest="{OnIdiom Phone = 50, Tablet= 100}" Clicked="StartBtn_Clicked" BackgroundColor="Transparent" VerticalOptions="Start" Margin="0,90,0,0"/>
+                <Label x:Name="feedbacklbl" FontSize="Header" Scale="0.6" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" IsVisible="false" Margin="0,120,0,0" TextColor="#86B1F2"/>
+                <Label x:Name="timerlbl" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Start" IsVisible="false" Margin="0,90,0,0" TextColor="#86B1F2"/>
+                <Label x:Name="timePassdlbl" FontSize="Title" HorizontalOptions="End" VerticalOptions="StartAndExpand" TextColor="#86B1F2" IsVisible="false" Margin="0,60,60,0" Scale="2"/>
+            </Grid>
+            
+            <Grid x:Name="GridPauseBackGround" IsVisible="false" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">
+
+            </Grid>
+
+            <Grid x:Name="GridPause" IsVisible="false" Grid.Row="0" Grid.Column="0" RowSpacing="0" Scale="{OnIdiom Phone = 2, Tablet= 2}" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame x:Name="pauzedFrame" Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF">
+                    <StackLayout Spacing="20" Orientation="Vertical">
+                        <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="ResumeBtn_Clicked" BackgroundColor="Transparent"/>
+                        <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="QuitBtn_Clicked" BackgroundColor="Transparent"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
+        
+        
+    </ContentPage.Content>
+
+</ContentPage>

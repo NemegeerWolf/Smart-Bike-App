@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             x:Class="Smart_bike_G3.Views.Spel123Piano" NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#96d9c9" 
+             >
+    <Grid x:Name="Window">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout >
+
+
+            <Grid>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Column="0" BackgroundColor="#96d9c9" HeightRequest="1000" />
+                    <Rectangle Grid.Column="1" BackgroundColor="#96d9c9" />
+                </Grid>
+                <Polygon Fill="#EBF3FA" AbsoluteLayout.LayoutBounds="1,1,1,.14" AbsoluteLayout.LayoutFlags="All" Aspect="Fill" Points="402.59 0 585.32 0 987.9 775.42 0 775.42 402.59 0" />
+            </Grid>
+
+
+        </StackLayout>
+        <StackLayout Orientation="Vertical">
+            <Grid HorizontalOptions="StartAndExpand">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" x:Name="cnv" >
+                    <!--<Rectangle x:Name="rect1" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0"/>
+                <Rectangle x:Name="rect2" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,70"/>
+                <Rectangle x:Name="rect3" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,140"/>
+                <Rectangle x:Name="rect4" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,210"/>
+                <Rectangle x:Name="rect5" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,280"/>
+                <Rectangle x:Name="rect6" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,350"/>
+                <Rectangle x:Name="rect7" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,420"/>
+                <Rectangle x:Name="rect8" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,490"/>
+                <Rectangle x:Name="rect9" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,560"/>
+                <Rectangle x:Name="rect10" BackgroundColor="White" WidthRequest="20" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,630"/>-->
+
+
+                </AbsoluteLayout>
+                <AbsoluteLayout HorizontalOptions="EndAndExpand" Scale="{OnIdiom Phone = 1, Tablet= 1.8}" Margin="{OnIdiom Phone = 0, Tablet= 70}">
+                    <Path  x:Name="path70" Fill="#FF1D1D1B" WidthRequest="186.365" HeightRequest="150.5">
+                        <Path.Data>
+                            <PathGeometry Figures="M36.19 38.49v-27S35.12-4.22 56.77 1.1l316 1.75v16.4L64.15 17.19s-12.1-.36-9.3 10.68V40" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Rectangle AbsoluteLayout.LayoutBounds="26, 13.195" WidthRequest="45.1" HeightRequest="137.695" RadiusX="45.51" RadiusY="45.51" x:Name="rect72" Fill="#FF1D1D1B"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 23.95"  WidthRequest="33" HeightRequest="33" x:Name="circRed" Fill="#AF0011" Opacity="0.5"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 64"  WidthRequest="33" HeightRequest="33" x:Name="circOrange" Fill="#FF8C00" Opacity="0.5"/>
+                    <Ellipse AbsoluteLayout.LayoutBounds="32, 104.9"  WidthRequest="33" HeightRequest="33" x:Name="circGreen" Fill="#50BFA5" Opacity="1"/>
+                </AbsoluteLayout>
+            </Grid>
+        </StackLayout>
+        <Image x:Name="ImgGreen1" VerticalOptions="End" HorizontalOptions="Start" Scale="1.5"/>
+        <Image x:Name="ImgGreen2" VerticalOptions="Center" HorizontalOptions="Start" Margin="16" Scale="1.2"/>
+        <Image x:Name="ImgGreen3" VerticalOptions="Center" HorizontalOptions="End" Margin="16" Scale="1.2"/>
+        <Image x:Name="ImgGreen4" VerticalOptions="End" HorizontalOptions="End" Scale="1.5" />
+
+        <StackLayout TranslationX="{OnIdiom Phone = -15, Tablet= 0}" TranslationY="{OnIdiom Phone = -15, Tablet= 0}">
+
+            <AbsoluteLayout  VerticalOptions="Start" Margin="32, 32, 0, -50" HorizontalOptions="Start" Scale=".7" AnchorX="0" AnchorY="0" Padding="0" >
+
+                <Rectangle x:Name="btnPauze" WidthRequest="96" HeightRequest="96"  RadiusX="17" RadiusY="17"  Fill="#FF86B1F2"/>
+                <AbsoluteLayout x:Name="Pauze">
+                    <Rectangle TranslationX="32" TranslationY="29.3"  WidthRequest="10.6" HeightRequest="37.33"  Fill="white"/>
+                    <Rectangle TranslationX="53.33" TranslationY="29.3"  WidthRequest="10.6" HeightRequest="37.33"  Fill="white"/>
+                </AbsoluteLayout>
+                <AbsoluteLayout x:Name="Play" IsVisible="false"  VerticalOptions="Start" Margin="10, 10, 0, -50" HorizontalOptions="Start" Rotation="-30" TranslationY="25"  Scale="2" AnchorX="0" AnchorY="0" Padding="0" >
+
+                    <Path Fill="#FFFAFFFF">
+                        <Path.Data>
+                            <PathGeometry Figures="M 16.07161521911621 15.90178966522217 L 8.791279792785645 15.9017858505249 L 12.4314489364624 9.781344413757324 L 16.07161521911621 15.90178966522217 Z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                    <Path  Fill="#FFFAFFFF">
+                        <Path.Data>
+                            <PathGeometry Figures="M 12.43144798278809 1.912530899047852 C 13.09710121154785 1.912530899047852 13.76275444030762 2.238414764404297 14.15039443969727 2.890182495117188 L 23.06534194946289 17.87943458557129 C 23.85824775695801 19.21259498596191 22.89752769470215 20.90178108215332 21.34638214111328 20.90178108215332 L 3.516513824462891 20.90178108215332 C 1.965368270874023 20.90178108215332 1.004648208618164 19.21259498596191 1.797554016113281 17.87943458557129 L 10.71250152587891 2.890182495117188 C 11.10014152526855 2.238414764404297 11.76579475402832 1.912530899047852 12.43144798278809 1.912530899047852 Z" FillRule="Nonzero"/>
+                        </Path.Data>
+                    </Path>
+                </AbsoluteLayout>
+            </AbsoluteLayout>
+
+            
+
+            <StackLayout  Orientation="Horizontal"  VerticalOptions="Start" HorizontalOptions="Start" Margin="32,32,0,8" >
+                <Label x:Name="lblTimeText" Text="Tijd:  " TextColor="#4b789e" FontAttributes="Bold" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblTime" Text="0" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+        </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="32,0,0,8" >
+                <Label x:Name="lblSpeedText" Text="Snelheid:  " FontAttributes="Bold" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblSpeed" Text="0" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="Start" Margin="32,0">
+                <Label x:Name="lblScoreText" Text="Afstand:  " FontAttributes="Bold" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+                <Label x:Name="lblscore" Text="0" WidthRequest="100" TextColor="#4b789e" FontSize="Large" IsVisible="true" VerticalOptions="Start" HorizontalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+        
+       
+        
+        
+        <ActivityIndicator x:Name="loadingIndicator" Color="Blue" IsRunning="True" IsVisible="true" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="End" Scale="{OnIdiom Phone = 0.8, Tablet= 1}" TranslationY="{OnIdiom Phone = 12, Tablet= 0}">
+            <Path x:Name="path2" Fill="#FFD0CDBA">
+                <Path.Data>
+                    <PathGeometry Figures="M62.25 1.4s39.15-9.53 69.44 21.11c0 0 22.47 14.64 35.41 15.66H193s31.32-8.51 44.6-22.13S275.35 0 275.35 0s24.51 0 24.17 1.74c0 0-4.76 8.17-2.72 10.56 0 0-33-6.85-44.25 6.78 0 0-35.75 29.64-59.58 30.32H168.46S145 48.72 125.57 32.72c0 0-19.41-27.23-61.28-21.1C64.29 11.62 66 6.85 62.25 1.4Z" FillRule="Nonzero"/>
+                </Path.Data>
+            </Path>
+            <Path Fill="#FF1D1D1B">
+                <Path.Data>
+                    <PathGeometry Figures="M0 16.67a15.06 15.06 0 0 1 2.21-3.24A10.57 10.57 0 0 1 6.64 10.2a12.52 12.52 0 0 1 3.23-.51 25.53 25.53 0 0 1 3.92 0c1.45.11 1.56.25 3.06.34a12.22 12.22 0 0 0 2.89 0c1.49-.28 1.69-.89 4.09-2A13.62 13.62 0 0 1 26.89 6.8c1.12-.26 1.59-.17 4.43-.17a28.21 28.21 0 0 0 4.59-.17c1-.24 1-.4 4.09-1.71a25 25 0 0 1 4.09-1.53 23 23 0 0 1 4.42-.17c3.16 0 3.23.2 4.26 0 1.6-.32 1.62-.79 4.08-1.7S60.41 0 61.62.5c.16.06 1 .78 2.72 2.21A14.76 14.76 0 0 1 66 4.24 7.13 7.13 0 0 1 67.4 7.31a12.26 12.26 0 0 1 .17 2.38 11.18 11.18 0 0 1-.17 3.23 4.29 4.29 0 0 1-1.19 2.39c-.6.52-1.1.5-3.06.85s-1.42.36-4.09.85a35.07 35.07 0 0 0-3.57.68 8.12 8.12 0 0 0-2.89 1.19c-1 .73-.88 1.1-1.71 1.53s-1.35.32-3.23.34c-2.29 0-1.9.2-3.4.17-2.65-.05-3.25-.54-4.43 0-.64.3-.53.48-1.7 1.37a16.64 16.64 0 0 1-3.24 1.87 14.24 14.24 0 0 1-4.59 1 44.85 44.85 0 0 1-5.45 0 5.26 5.26 0 0 0-2.89.34c-.71.34-.72.61-1.7 1.36a15.43 15.43 0 0 1-3.07 1.7 19 19 0 0 1-2.89 1.19 13.5 13.5 0 0 1-4.43.69 8.38 8.38 0 0 1-5.1-1.37 11.38 11.38 0 0 1-1.88-2A12.17 12.17 0 0 1 .85 24a8.93 8.93 0 0 1-.68-3.24" FillRule="Nonzero"/>
+                </Path.Data>
+            </Path>
+            <Path x:Name="path6" Fill="#FF1D1D1B">
+                <Path.Data>
+                    <PathGeometry Figures="M358.31 27.79a14.41 14.41 0 0 1-3.4 1.94 10.48 10.48 0 0 1-5.4 1 12.35 12.35 0 0 1-3.13-1A24.5 24.5 0 0 1 342.86 28c-1.25-.73-1.3-.91-2.61-1.64a11.93 11.93 0 0 0-2.6-1.27c-1.46-.4-1.9.06-4.57.05a13.43 13.43 0 0 1-3.27-.26c-1.12-.26-1.51-.55-4.06-1.79a28.21 28.21 0 0 0-4.2-1.85c-1-.24-1.08-.08-4.42-.26a24.83 24.83 0 0 1-4.35-.4 24.69 24.69 0 0 1-4-1.78c-2.83-1.41-2.82-1.6-3.83-1.86-1.58-.42-1.8 0-4.42-.26s-3.77-.37-4.66-1.32c-.12-.13-.57-1.15-1.48-3.18a14.41 14.41 0 0 1-.86-2.12 7.1 7.1 0 0 1 .12-3.35 12.92 12.92 0 0 1 .88-2.22 11.49 11.49 0 0 1 1.57-2.83A4.3 4.3 0 0 1 298.16.08c.77-.21 1.21 0 3.13.57s1.44.29 4 1c2.11.59 2.34.73 3.51 1a8.06 8.06 0 0 0 3.12.19c1.22-.21 1.27-.6 2.2-.63s1.36.31 3.06 1.11c2.08 1 1.8.65 3.14 1.33 2.36 1.2 2.68 1.91 4 1.94.71 0 .68-.2 2.12-.49a17.19 17.19 0 0 1 3.73-.27 14.49 14.49 0 0 1 4.58 1.09 42.63 42.63 0 0 1 4.9 2.39 5.43 5.43 0 0 0 2.75 1 10.53 10.53 0 0 0 2.13-.48 15.39 15.39 0 0 1 3.5-.19 22 22 0 0 1 3.12.19 13.3 13.3 0 0 1 4.28 1.33 8.38 8.38 0 0 1 4 3.45 11.79 11.79 0 0 1 .79 2.66 12.58 12.58 0 0 1 .5 3.65 8.89 8.89 0 0 1-.81 3.2" FillRule="Nonzero"/>
+                </Path.Data>
+            </Path>
+            <Polygon Points="165.11 43.58 165.11 76.26 162.55 77.54 162.55 103.15 187.83 103.15 187.83 77.54 185.53 76.52 185.02 73.36 184.77 43.58 165.11 43.58" x:Name="polygon8" FillRule="Nonzero" Fill="#FFD0CDBA"/>
+        </AbsoluteLayout>
+
+       
+
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" >
+
+            <Label x:Name="lblGameOver" Text="Game Over" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="#AF0011" FontSize="{OnIdiom Phone = 20, Tablet= 30}" FontFamily="Rubik-Bold" IsVisible="false"/>
+            <Label/>
+            <StackLayout Orientation="Horizontal" Scale="0.8" HorizontalOptions="Center">
+                <Grid x:Name="btnRestart" IsVisible="false">
+                    <Image x:Name="image" HeightRequest="70" Scale="1.5"  />
+                    <Button x:Name="btnRestartText" WidthRequest="200"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnRestart_Clicked" />
+                    
+                </Grid>
+                <Grid x:Name="btnHome" IsVisible="false">
+                    <Image x:Name="imagetest" HeightRequest="70" Scale="1.5" />
+                    <Button  VerticalOptions="Center" WidthRequest="200" HorizontalOptions="Center" TextColor="DarkSlateGray" FontSize="Large" BackgroundColor="#00000000" Clicked="btnHome_Clicked" />
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+
+        
+
+        <Grid x:Name="GridHelpBackGround" IsVisible="False" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">
+
+        </Grid>
+
+        <Grid x:Name="GridPause" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" Scale="{OnIdiom Phone = 2, Tablet= 2}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Frame x:Name="pauzedFrame" Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF">
+                <StackLayout Spacing="20" Orientation="Vertical">
+                    <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="resumeBtn_Clicked" BackgroundColor="Transparent"/>
+                    <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="quitBtn_Clicked" BackgroundColor="Transparent"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+    </Grid>
+</ContentPage>
