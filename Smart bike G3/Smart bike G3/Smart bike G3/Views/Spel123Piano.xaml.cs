@@ -8,6 +8,8 @@ using Xamarin.Essentials;
 using Smart_bike_G3.Repositories;
 using TestBluethoot.Services;
 using Smart_bike_G3.Models;
+using Smart_bike_G3.Services;
+using Quick.Xamarin.BLE.Abstractions;
 
 namespace Smart_bike_G3.Views
 {
@@ -15,7 +17,7 @@ namespace Smart_bike_G3.Views
     public partial class Spel123Piano : ContentPage
     {//public variables
         public double Time = 0;
-        public double Distance { get; set; } = 1000; // 1000m / 1km
+        public double Distance { get; set; } = 500; // 1000m / 1km
         public bool GameOver { get; set; } = false;
 
         // local variables
@@ -87,25 +89,26 @@ namespace Smart_bike_G3.Views
             
         }
 
-        //protected override void OnAppearing()
-        //{
-
-        //    if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
-        //    {
-        //        Navigation.PushAsync(new NoSensorPage());
-        //    }
-        //    base.OnAppearing();
-        //}
-
-        private void ResumeBtn_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            pauzedFrame.IsVisible = false;
+
+            if (Bluetooth.BleStatus != AdapterConnectStatus.Connected)
+            {
+                Navigation.PushAsync(new NoSensorPage());
+            }
+            base.OnAppearing();
+        }
+
+        private void resumeBtn_Clicked(object sender, EventArgs e)
+        {
+            GridHelpBackGround.IsVisible = false;
+            GridPause.IsVisible = false;
             IsPauzed = false;
             Pauze.IsVisible = !IsPauzed;
             Play.IsVisible = IsPauzed;
         }
 
-        private async void QuitBtn_Clicked(object sender, EventArgs e)
+        private async void quitBtn_Clicked(object sender, EventArgs e)
         {
             //stopped = true;
             Game lastuser = await Repository.GetLastUserAsync();
@@ -131,7 +134,8 @@ namespace Smart_bike_G3.Views
             Pauze.IsVisible = !IsPauzed;
             Play.IsVisible = IsPauzed;
 
-            pauzedFrame.IsVisible = IsPauzed;
+            GridHelpBackGround.IsVisible = IsPauzed;
+            GridPause.IsVisible = IsPauzed;
         }
 
         private void pictures()
@@ -232,19 +236,19 @@ namespace Smart_bike_G3.Views
             // if finished ...
             if (Distance < 0)
             {
-                lblGameOver.Text = "YOU WIN";
-                lblGameOver.TextColor = Brush.Green.Color;
+                //lblGameOver.Text = "YOU WIN";
+                //lblGameOver.TextColor = Brush.Green.Color;
 
-                lblscore.Text = "0 m";
-                lblGameOver.IsVisible = true;
-                btnRestart.IsVisible = true;
+                //lblscore.Text = "0 m";
+                //lblGameOver.IsVisible = true;
+                //btnRestart.IsVisible = true;
 
-                var dateTime = DateTime.MinValue.AddSeconds(Time);
-                btnRestartText.Text = $"{dateTime.Minute}min{dateTime.Second}";
-                btnRestart.IsEnabled = false;
+                //var dateTime = DateTime.MinValue.AddSeconds(Time);
+                //btnRestartText.Text = $"{dateTime.Minute}min{dateTime.Second}";
+                //btnRestart.IsEnabled = false;
                 
                 Repository.AddResultsGame(1, Convert.ToInt32(Time), 0);
-                Thread.Sleep(3000);
+                //Thread.Sleep(3000);
                 Navigation.PushAsync(new Scorebord(Convert.ToInt32(Time))); // push to scoreboard
                 return false;
             }
@@ -382,7 +386,7 @@ namespace Smart_bike_G3.Views
             lblGameOver.IsVisible = false;
             btnRestart.IsVisible = false;
             btnHome.IsVisible = false;
-            Distance = 1000;
+            Distance = 500;
             Time = 0;
 
             Device.StartTimer(TimeSpan.FromMilliseconds(10.0), Streetmove);

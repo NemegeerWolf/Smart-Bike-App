@@ -11,17 +11,17 @@
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="4*"/>
-                
-                
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width=".5*"/>
+
+
             </Grid.ColumnDefinitions>
             <StackLayout Grid.Column="1" VerticalOptions="Center">
                 <Label Text="Oeps, de sensor is niet verbonden." TextColor="#4b789e" FontSize="{OnIdiom Phone = 28, Tablet= 40}" FontFamily="Rubik-SemiBold"/>
                 <Label/>
                 <Label Text="Fiets even zodat de sensor wordt wakker gemaakt." TextColor="Black" FontSize="28" FontFamily="Rubik-Regular"/>
                 <Label/>
-                <Button BackgroundColor="#86b1f2" CornerRadius="6" TextColor="White" Text="Zoek sensor" Clicked="Button_Clicked"/>
-
+                <Button x:Name="zoekBtn" BackgroundColor="#86b1f2" CornerRadius="6" TextColor="White" Text="Zoek sensor" Clicked="Button_Clicked" IsVisible="false"/>
             </StackLayout>
             <AbsoluteLayout  Grid.Column="3" VerticalOptions="Center"  Scale="{OnIdiom Phone = 0.5, Tablet= 1.3}">
                 <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >

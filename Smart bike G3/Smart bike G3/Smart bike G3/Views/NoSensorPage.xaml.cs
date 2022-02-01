@@ -19,6 +19,7 @@ namespace Smart_bike_G3.Views
             //prevent sleepmode
             
             DeviceDisplay.KeepScreenOn = false;
+            Device.StartTimer(TimeSpan.FromMilliseconds(10000), ShowButtn);
 
             Sensor.Start();
             Bluetooth.ClearAllDelegatesOfLostConnection();
@@ -46,7 +47,13 @@ namespace Smart_bike_G3.Views
             });
         }
 
-       
+        private bool ShowButtn()
+        {
+            zoekBtn.IsVisible = true;
+            return false;
+        }
+
+
 
         //private void Scan()
         //{

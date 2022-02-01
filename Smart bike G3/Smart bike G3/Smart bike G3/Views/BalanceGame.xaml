@@ -23,7 +23,7 @@
                         </Path.Data>
                     </Path>
                 </AbsoluteLayout>
-                <ImageButton x:Name="pauseBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"   Clicked="PauseBtn_Clicked" BackgroundColor="Transparent"/>
+                <ImageButton x:Name="pauseBtn" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand"   Clicked="PauseBtn_Clicked" BackgroundColor="Transparent" Margin="32,32,0,0"/>
             <ImageButton x:Name="StartBtn" HorizontalOptions="CenterAndExpand"  WidthRequest="{OnIdiom Phone = 100, Tablet= 200}" HeightRequest="{OnIdiom Phone = 50, Tablet= 100}" Clicked="StartBtn_Clicked" BackgroundColor="Transparent" VerticalOptions="Start" Margin="0,90,0,0"/>
                 <Label x:Name="feedbacklbl" FontSize="Header" Scale="0.6" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" IsVisible="false" Margin="0,120,0,0" TextColor="#86B1F2"/>
                 <Label x:Name="timerlbl" FontSize="Header" HorizontalOptions="Center" VerticalOptions="Start" IsVisible="false" Margin="0,90,0,0" TextColor="#86B1F2"/>
@@ -34,7 +34,7 @@
 
             </Grid>
 
-            <Grid x:Name="GridPause" IsVisible="false" Grid.Row="0" Grid.Column="0" RowSpacing="0" >
+            <Grid x:Name="GridPause" IsVisible="false" Grid.Row="0" Grid.Column="0" RowSpacing="0" Scale="{OnIdiom Phone = 2, Tablet= 2}" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
