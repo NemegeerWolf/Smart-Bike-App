@@ -104,7 +104,10 @@ namespace Smart_bike_G3.Views
         private void AbsLayBack_Tabbed(object sender, EventArgs e)
         {
             AbsLayBack.Scale = 1.5;
+            stopped = true;
+            started = false;
             Navigation.PopAsync();
+         
         }
 
         private bool Animate()
@@ -340,9 +343,5 @@ namespace Smart_bike_G3.Views
             Navigation.PopAsync();
         }
 
-        private void homeBtn_Clicked(object sender, EventArgs e)
-        {
-
-        }
     }
 }
