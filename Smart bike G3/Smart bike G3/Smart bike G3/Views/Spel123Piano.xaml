@@ -150,12 +150,35 @@
             </StackLayout>
         </StackLayout>
 
-        <Frame CornerRadius="5" x:Name="pauzedFrame" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF" IsVisible="false" Scale="{OnIdiom Phone = 2, Tablet= 1}">
+        <!--<Frame CornerRadius="5" x:Name="pauzedFrame" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF" IsVisible="false" Scale="{OnIdiom Phone = 2, Tablet= 1}">
             <StackLayout Spacing="20" Orientation="Vertical">
                 <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="ResumeBtn_Clicked" BackgroundColor="Transparent"/>
                 <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="QuitBtn_Clicked" BackgroundColor="Transparent"/>
             </StackLayout>
-        </Frame>
+        </Frame>-->
+
+        <Grid x:Name="GridHelpBackGround" IsVisible="False" Grid.Row="0" Grid.Column="0" BackgroundColor="#4b789e" Opacity="0.6">
+
+        </Grid>
+
+        <Grid x:Name="GridPause" IsVisible="False" Grid.Row="0" Grid.Column="0" RowSpacing="0" Scale="{OnIdiom Phone = 2, Tablet= 1}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Frame x:Name="pauzedFrame" Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#F7FFFF">
+                <StackLayout Spacing="20" Orientation="Vertical">
+                    <ImageButton x:Name="resumeBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"  Clicked="resumeBtn_Clicked" BackgroundColor="Transparent"/>
+                    <ImageButton x:Name="quitBtn" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"  Clicked="quitBtn_Clicked" BackgroundColor="Transparent"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
 
     </Grid>
 </ContentPage>

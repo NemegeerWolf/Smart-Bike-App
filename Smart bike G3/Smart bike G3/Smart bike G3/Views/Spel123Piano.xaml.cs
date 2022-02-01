@@ -99,15 +99,16 @@ namespace Smart_bike_G3.Views
             base.OnAppearing();
         }
 
-        private void ResumeBtn_Clicked(object sender, EventArgs e)
+        private void resumeBtn_Clicked(object sender, EventArgs e)
         {
-            pauzedFrame.IsVisible = false;
+            GridHelpBackGround.IsVisible = false;
+            GridPause.IsVisible = false;
             IsPauzed = false;
             Pauze.IsVisible = !IsPauzed;
             Play.IsVisible = IsPauzed;
         }
 
-        private async void QuitBtn_Clicked(object sender, EventArgs e)
+        private async void quitBtn_Clicked(object sender, EventArgs e)
         {
             //stopped = true;
             Game lastuser = await Repository.GetLastUserAsync();
@@ -133,7 +134,8 @@ namespace Smart_bike_G3.Views
             Pauze.IsVisible = !IsPauzed;
             Play.IsVisible = IsPauzed;
 
-            pauzedFrame.IsVisible = IsPauzed;
+            GridHelpBackGround.IsVisible = IsPauzed;
+            GridPause.IsVisible = IsPauzed;
         }
 
         private void pictures()
